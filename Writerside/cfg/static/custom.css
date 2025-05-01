@@ -7,7 +7,7 @@
 
 .wh-header__product-logo {
     width: auto;
-    height: 48px;
+    max-height: inherit;
 }
 
 .article > .prompt {

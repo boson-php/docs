@@ -23,20 +23,20 @@
             </a>
         </spotlight>
 
-        <primary>
+        <!--<primary>
             <title>Reference</title>
             <a href="license.md" summary=""/>
             <a href="license.md" summary="" />
             <a href="license.md" summary="" />
             <a href="license.md" summary="" />
-        </primary>
+        </primary>-->
 
-        <secondary>
+        <!--<secondary>
             <title>Advanced Features</title>
             <a href="license.md" summary="" />
             <a href="license.md" summary="" />
             <a href="license.md" summary="" />
             <a href="license.md" summary="" />
-        </secondary>
+        </secondary>-->
     </section-starting-page>
 </topic>

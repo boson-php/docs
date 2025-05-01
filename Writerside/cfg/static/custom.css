@@ -43,8 +43,31 @@
 }
 
 .toc-item--highlighted {
-    // background: none;
+    background: none !important;
 }
+
+.toc-item--theme-light:hover {
+    background: rgba(25, 25, 28, .05) !important;
+    background: var(--wh-color-backlight-main) !important;
+}
+
+.toc-item--theme-dark:hover {
+    background: hsla(0, 0%, 100%, .1) !important;
+    background: var(--wh-color-white-t10) !important;
+}
+
+.toc-item--selected.toc-item--theme-dark {
+    cursor: default;
+    background-color: #252528 !important;
+    background-color: var(--wh-color-backlight-secondary-dark) !important;
+}
+
+.toc-item--selected.toc-item--theme-light {
+    cursor: default;
+    background-color: #6b57ff !important;
+    background-color: var(--wh-color-primary-light-theme) !important;
+}
+
 
 .article__list + .code-block__wrapper,
 .article__list + .code-collapse__wrapper,

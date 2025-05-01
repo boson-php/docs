@@ -2,4 +2,5 @@
 <!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/writerside/1.0/glossary.dtd">
 <terms>
     <term name="FQN">Fully Qualified Name</term>
+    <term name="TODO">This functionality is not implemented at the moment</term>
 </terms>

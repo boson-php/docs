@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Overview"
+       id="overview" help-id="index">
+    <section-starting-page>
+        <title>Overview</title>
+        <description>
+            Boson is a lightweight, modern and powerful solution that uses all the capabilities of
+            modern PHP to build client applications.
+        </description>
+
+        <spotlight>
+            <a href="license.md" type="documents"
+               summary="Check out all the possibilities of building lightweight and powerful client solutions on PHP">
+                Documentation
+            </a>
+            <a href="https://github.com/BosonPHP/Runtime" type="mixed"
+               summary="Boson is a completely open source solution">
+                Source Code
+            </a>
+        </spotlight>
+
+        <primary>
+            <title>Reference</title>
+            <a href="license.md" summary=""/>
+            <a href="license.md" summary="" />
+            <a href="license.md" summary="" />
+            <a href="license.md" summary="" />
+        </primary>
+
+        <secondary>
+            <title>Advanced Features</title>
+            <a href="license.md" summary="" />
+            <a href="license.md" summary="" />
+            <a href="license.md" summary="" />
+            <a href="license.md" summary="" />
+        </secondary>
+    </section-starting-page>
+</topic>

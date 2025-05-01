@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="boson" name="BOSON" is-library="true" start-page="overview.topic">
+    <toc-element topic="overview.topic" />
+
+    <toc-element topic="release-notes.md" />
+    <toc-element topic="contribution.md" />
+    <toc-element topic="license.md" />
+
+</instance-profile>

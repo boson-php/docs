@@ -1,0 +1,67 @@
+:root {
+    --wh-color-accent-substrate-bg: #284E6D !important;
+    --wh-color-border-hover: #558EBA !important;
+    --wh-color-backlight-pale: none;
+    --wh-color-backlight-pale-dark: none;
+}
+
+.wh-header__product-logo {
+    width: auto;
+    height: 48px;
+}
+
+.article > .prompt {
+    max-width: auto !important;
+}
+
+.prompt__wrapper {
+    display: flex;
+}
+
+.prompt__content {
+    overflow: visible;
+}
+
+.prompt__wrapper > .prompt__content {
+    flex: 1;
+}
+
+.app__nav {
+    padding: 0 10px;
+}
+
+.app__sidebar {
+    border: none;
+}
+
+.app__toc li {
+    margin: 6px 0;
+}
+
+.toc-item {
+    border-radius: 5px;
+}
+
+.toc-item--highlighted {
+    // background: none;
+}
+
+.article__list + .code-block__wrapper,
+.article__list + .code-collapse__wrapper,
+p + .code-block__wrapper,
+p + .code-collapse__wrapper,
+.code-block__wrapper + .code-collapse__wrapper,
+.code-block__wrapper + .code-block__wrapper {
+    margin-top: 12px !important;
+}
+
+.starting-page-card {
+    border-radius: 7px;
+}
+
+.starting-page-card:hover {
+}
+
+#mermaid .flowchart-link {
+    stroke: #284E6D !important;
+}

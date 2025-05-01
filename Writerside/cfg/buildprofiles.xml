@@ -36,7 +36,8 @@
     </icons>
 
     <footer>
-        <social href="https://github.com/BosonPHP" type="blog">GitHub</social>
+        <social type="github" href="https://github.com/BosonPHP">GitHub</social>
+        <social type="telegram" href="https://t.me/boson_php">Telegram</social>
         <link href="https://packagist.org/packages/boson-php">Packagist</link>
         <link href="https://github.com/BosonPHP/Runtime/issues">Issue tracker</link>
         <link href="https://github.com/BosonPHP/Runtime/pulls">Submit request</link>

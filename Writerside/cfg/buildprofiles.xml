@@ -9,7 +9,7 @@
         <color-preset>contrast</color-preset>
         <custom-favicons>logo.png</custom-favicons>
         <header-logo>logo.png</header-logo>
-        <product-web-url>https://nesk.me</product-web-url><!-- TODO -->
+        <product-web-url>https://bosonphp.github.io/Docs</product-web-url>
         <noindex-content>false</noindex-content>
         <offline-docs>false</offline-docs>
 

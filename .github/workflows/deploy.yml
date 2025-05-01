@@ -13,16 +13,16 @@ permissions:
 
 env:
   # Name of module and id separated by a slash
-  INSTANCE: Writerside/tl
+  INSTANCE: Writerside/boson
   # Replace HI with the ID of the instance in capital letters
-  ARTIFACT: webHelpTL2-all.zip
+  ARTIFACT: webHelpBOSON2-all.zip
   # Writerside docker image version
-  DOCKER_VERSION: '243.21565'
-  ALGOLIA_ARTIFACT: 'algolia-indexes-TL.zip'
+  DOCKER_VERSION: '2025.04.8412'
+  ALGOLIA_ARTIFACT: 'algolia-indexes-BOSON.zip'
   ALGOLIA_APP_NAME: 'CZXH99BXN1'
   ALGOLIA_INDEX_NAME: 'Writerside'
   ALGOLIA_KEY: '${{ secrets.ALGOLIA_KEY }}'
-  CONFIG_JSON_PRODUCT: 'TL'
+  CONFIG_JSON_PRODUCT: 'BOSON'
   CONFIG_JSON_VERSION: '1.0'
 
 jobs:

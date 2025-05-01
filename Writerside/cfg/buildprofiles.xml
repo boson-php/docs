@@ -7,8 +7,8 @@
         <primary-color>#558EBA</primary-color>
         <link-color>#558EBA</link-color>
         <color-preset>contrast</color-preset>
-        <custom-favicons>logo.webp</custom-favicons>
-        <header-logo>logo.webp</header-logo>
+        <custom-favicons>logo.png</custom-favicons>
+        <header-logo>logo.png</header-logo>
         <product-web-url>https://nesk.me</product-web-url><!-- TODO -->
         <noindex-content>false</noindex-content>
         <offline-docs>false</offline-docs>

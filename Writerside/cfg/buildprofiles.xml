@@ -19,7 +19,7 @@
         <generate-canonicals>true</generate-canonicals>
 
         <download-title>GitHub</download-title>
-        <download-page>https://bosonphp.com</download-page>
+        <download-page>https://github.com/BosonPHP</download-page>
         <showDownloadButton>true</showDownloadButton>
 
         <enable-contribution>true</enable-contribution>

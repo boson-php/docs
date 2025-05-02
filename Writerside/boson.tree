@@ -14,11 +14,38 @@
         <toc-element toc-title="Roadmap" />
         <toc-element topic="release-notes.md" />
     </toc-element>
+    <toc-element toc-title="The Basics">
+        <toc-element toc-title="Lifecycle" />
+        <toc-element toc-title="Application" />
+        <toc-element toc-title="Window">
+            <toc-element toc-title="Multiple Windows" />
+        </toc-element>
+        <toc-element toc-title="WebView">
+            <toc-element toc-title="Scripts API" />
+            <toc-element toc-title="Functions API" />
+            <toc-element toc-title="Requests API" />
+        </toc-element>
+        <toc-element toc-title="Events" />
+    </toc-element>
+    <toc-element toc-title="Integrations">
+        <toc-element toc-title="Symfony" />
+        <toc-element toc-title="Laravel" />
+        <toc-element toc-title="Slim" />
+        <toc-element toc-title="Other PSR-7 frameworks" />
+    </toc-element>
     <toc-element toc-title="Tutorial">
-
+        <toc-element toc-title="Prerequisites" />
+        <toc-element toc-title="Building" />
+        <toc-element toc-title="Adding Features" />
+        <toc-element toc-title="Compilation" />
+        <toc-element toc-title="Publishing" />
+        <toc-element toc-title="Updating" />
     </toc-element>
     <toc-element toc-title="Examples">
-
+        <toc-element toc-title="Simple Application" />
+        <toc-element toc-title="Dark Mode" />
+        <toc-element toc-title="Custom Window" />
+        <!-- TODO -->
     </toc-element>
     <toc-element topic="contribution.md" />
     <toc-element topic="license.md" />

@@ -13,7 +13,7 @@
         </description>
 
         <spotlight>
-            <a href="license.md" type="documents"
+            <a href="introduction.md" type="documents"
                summary="Check out all the possibilities of building lightweight and powerful client solutions on PHP">
                 Documentation
             </a>

@@ -126,15 +126,35 @@ if ($app->isRunning === false) {
 }
 </code-block>
 
-<!--
 ## Main Window
 
-<tooltip term="TODO">TODO</tooltip>
+The `Application::$window` property provides convenient access to the main 
+(default) window of the application. 
 
-## Main WebView
+<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
+accesses the default window inside the window manager</tip>
 
-<tooltip term="TODO">TODO</tooltip>
--->
+<code-block lang="PHP">
+$app = new Boson\Application();
+
+// Access the main window
+$window = $app->window;
+</code-block>
+
+The main window is automatically created when the application starts.
+
+<warning>
+If the <b>main</b> window is closed, the next available window from window 
+manager will become the <b>main</b> window.
+
+If you try to access the `$window` property after the all windows has been 
+closed, a `NoDefaultWindowException` will be thrown.
+</warning>
+
+<note>
+More information about windows can be found in the
+<tooltip term="TODO">window documentation</tooltip>.
+</note>
 
 ## Application Events
 
@@ -157,5 +177,7 @@ during its lifecycle:
   <tip>This is an <b>event</b>: Tells you that the application has already stopped. 
   You cannot influence this in any way.</tip>
 
+<note>
 More information about events can be found in the
 <tooltip term="TODO">events documentation</tooltip>.
+</note>

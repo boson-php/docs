@@ -3,5 +3,6 @@
 <terms>
     <term name="FQN">Fully Qualified Name</term>
     <term name="TODO">This functionality or documentation is not implemented at the moment</term>
-    <term name="optional class">Can be created without requiring any mandatory arguments.</term>
+    <term name="optional class">Can be created without requiring any mandatory arguments</term>
+    <term name="facade">The property or method is defined elsewhere, and working with it simply delegates all calls</term>
 </terms>

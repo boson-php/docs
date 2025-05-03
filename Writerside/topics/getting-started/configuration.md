@@ -363,7 +363,7 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
     ],
 );
 
-// Now the "foo(Number): Promise<Number>" can be called 
+// Now the "foo(Number): Promise&lt;Number>" can be called 
 // from JS as "let result = await foo(42);" 
 </code-block>
 

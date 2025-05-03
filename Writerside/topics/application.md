@@ -20,7 +20,7 @@ two "layers":
   main internal components of the core.
 
 
-## Creating
+## Creating an Application
 
 To create an application, simply create a new <code>Boson\Application</code> 
 object. This will be sufficient for the vast majority of cases.
@@ -126,6 +126,7 @@ if ($app->isRunning === false) {
 }
 </code-block>
 
+<!--
 ## Main Window
 
 <tooltip term="TODO">TODO</tooltip>
@@ -133,6 +134,7 @@ if ($app->isRunning === false) {
 ## Main WebView
 
 <tooltip term="TODO">TODO</tooltip>
+-->
 
 ## Application Events
 

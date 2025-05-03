@@ -234,6 +234,29 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 <warning>The value cannot be changed after the application is created.</warning>
 
+### Autorun
+
+Responsible for automatic application launch. If autorun is set to 
+<code>false</code>, you will need to launch the application yourself at the 
+moment when it is needed.
+
+<code-block lang="PHP">
+$appConfig = new Boson\ApplicationCreateInfo( 
+    autorun: false, // Default is true
+);
+</code-block>
+
+
+<tip>
+Autorun is disabled automatically if the application was launched manually 
+using <code>$app->run()</code>. In other words, autostart will not work again 
+(the application will not start twice) if you have already started it yourself.
+
+Therefore, disabling this setting does not make sense.
+</tip>
+
+<warning>The value cannot be changed after the application is created.</warning>
+
 ## Window
 
 The window configuration class <code>Boson\Window\WindowCreateInfo</code> is

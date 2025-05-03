@@ -16,7 +16,7 @@
     </toc-element>
     <toc-element toc-title="The Basics">
         <toc-element toc-title="Lifecycle" />
-        <toc-element toc-title="Application" />
+        <toc-element topic="application.md" />
         <toc-element toc-title="Window">
             <toc-element toc-title="Multiple Windows" />
         </toc-element>

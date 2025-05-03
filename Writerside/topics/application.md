@@ -116,7 +116,7 @@ To find out if the application is running, you can use the
 `Application::$isRunning` property, which returns `true` if the application 
 is currently running.
 
-<code-block>
+<code-block lang="PHP">
 $app = new Boson\Application();
 
 // any code

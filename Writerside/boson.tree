@@ -8,7 +8,7 @@
         <toc-element topic="introduction.md"
             toc-title="Introduction" />
         <toc-element topic="installation.md" />
-        <toc-element toc-title="Configuration" />
+        <toc-element topic="configuration.md" />
         <toc-element toc-title="Development" />
         <toc-element toc-title="Debugging" />
         <toc-element toc-title="Roadmap" />

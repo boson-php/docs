@@ -3,4 +3,5 @@
 <terms>
     <term name="FQN">Fully Qualified Name</term>
     <term name="TODO">This functionality is not implemented at the moment</term>
+    <term name="optional class">Can be created without requiring any mandatory arguments.</term>
 </terms>

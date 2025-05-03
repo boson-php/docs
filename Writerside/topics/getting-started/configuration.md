@@ -1,5 +1,7 @@
 # Configuration
 
+<show-structure for="chapter" depth="2"/>
+
 Boson applications are configured using clean, structured DTO (Data Transfer 
 Object) classes.
 

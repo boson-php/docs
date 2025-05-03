@@ -1,5 +1,7 @@
 # Installation
 
+<show-structure for="chapter" depth="2"/>
+
 Boson brings together a set of components, each handling a key part of the system:
 
 - [**Runtime**](https://github.com/BosonPHP/Runtime) — acts as the bridge between your PHP code 

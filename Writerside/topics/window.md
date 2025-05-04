@@ -337,6 +337,25 @@ enum WindowDecoration
 }
 </code-block>
 
+Let's say we load the content as 
+<code>&lt;div style="background: #fff">Hello World!&lt;/div></code> in webview. 
+So the result with different decorations will look like this.
+
+<tabs>
+    <tab title="Default">
+        <img src="window-decorations-normal.png" alt="Default" />
+    </tab>
+    <tab title="DarkMode">
+        <img src="window-decorations-dark-mode.png" alt="Dark Mode" />
+    </tab>
+    <tab title="Frameless">
+        <img src="window-decorations-frameless.png" alt="Frameless" />
+    </tab>
+    <tab title="Transparent">
+        <img src="window-decorations-transparent.png" alt="Transparent" />
+    </tab>
+</tabs>
+
 ### Default
 
 The standard window style with system default appearance (title bar, close, 
@@ -346,8 +365,6 @@ minimise and maximise buttons).
 $window->decoration = WindowDecoration::Default;
 </code-block>
 
-<img src="window-decorations-normal.png" alt="Default" />
-
 ### Dark Mode
 
 Default window style with dark theme preference.
@@ -355,8 +372,6 @@ Default window style with dark theme preference.
 <code-block lang="PHP">
 $window->decoration = WindowDecoration::DarkMode;
 </code-block>
-
-<img src="window-decorations-dark-mode.png" alt="Dark Mode" />
 
 ### Frameless
 
@@ -366,8 +381,6 @@ provided by the operating system.
 <code-block lang="PHP">
 $window->decoration = WindowDecoration::Frameless;
 </code-block>
-
-<img src="window-decorations-frameless.png" alt="Frameless" />
 
 <warning>
 When using frameless (or transparent) windows, you need to implement your own 
@@ -432,22 +445,19 @@ triggering window behavior.
 
 ### Transparent
 
-Enables frameless mode and makes the window background transparent.
+Enables <a href="#frameless">frameless</a> mode and makes the window 
+background transparent.
 
 <code-block lang="PHP">
 $window->decoration = WindowDecoration::Transparent;
 </code-block>
 
-<img src="window-decorations-transparent.png" alt="Transparent" />
-
 <tip>
-With transparent windows, you should use CSS to control the background:
+With transparent windows, you should use CSS to control the background color:
 <code-block lang="HTML">
 <![CDATA[
     <style>
     body {
-        border-radius: 10px;
-        padding: 10px 15px;
         background: rgba(255, 255, 255, .8);
     }
     </style>

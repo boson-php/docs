@@ -5,6 +5,11 @@
     --wh-color-backlight-pale-dark: none;
 }
 
+:root.theme-dark {
+    --wh-color-bg-main: #1c2329 !important;
+    --wh-color-backlight-secondary-dark: #284e6d !important;
+}
+
 .wh-header__product-logo {
     width: auto;
     max-height: inherit;
@@ -68,6 +73,9 @@
     background-color: var(--wh-color-primary-light-theme) !important;
 }
 
+.toc--theme-dark {
+    background: none;
+}
 
 .article__list + .code-block__wrapper,
 .article__list + .code-collapse__wrapper,
@@ -82,7 +90,12 @@ p + .code-collapse__wrapper,
     border-radius: 7px;
 }
 
-.starting-page-card:hover {
+.theme-dark .starting-page-card {
+    background: #1c2329 !important;
+}
+
+.theme-dark .starting-page-card:hover {
+    background: #252f37 !important;
 }
 
 #mermaid .flowchart-link {

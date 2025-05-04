@@ -6,14 +6,33 @@ The `Window` class represents a window in the Boson application. It provides
 a way to manage window, including their properties, events, state, and 
 associated WebView.
 
+## Main Window
+
+The `Application::$window` property provides convenient access to the
+<tooltip term="main window">main window</tooltip> of the application. 
+
+<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
+accesses the default window inside the window manager</tip>
+
+<code-block lang="PHP">
+$app = new Boson\Application();
+
+// Access the main window
+$window = $app->window;
+</code-block>
+
+<warning>
+If the <tooltip term="main window">main window</tooltip> is closed, the next 
+available window from window manager will become the 
+<tooltip term="main window">main window</tooltip>.
+
+If you try to access the `$window` property after the all windows has been
+closed, a `NoDefaultWindowException` will be thrown.
+</warning>
+
 <note>
     The <tooltip term="main window">main window</tooltip> already available by 
     default in any application.
-</note>
-<note>
-    To access the <tooltip term="main window">main window</tooltip>, use the 
-    <code>$app->window</code> property, which is described on the 
-    <a href="application.md#main-window">application documentation page</a>.
 </note>
 
 ## Window Identifier
@@ -150,25 +169,6 @@ enum WindowState
 }
 </code-block>
 
-<list>
-<li>
-    <code>Normal</code> - The window is in a normal state. Such a window can be 
-    manually resized or moved. The window normally takes up part of the screen.
-    <img src="window-normal.png" alt="Normal State"/>
-</li>
-<li>
-    <code>Maximized</code> - The window is in a maximized state. These windows 
-    expand to fill the entire screen and occupy its entire area.
-    <img src="window-maximized.png" alt="Maximized State"/>
-</li>
-<li>
-    <code>Minimized</code> - The window is in a minimized state. Such windows 
-    are minimized to the tray (panel with applications) and are not displayed 
-    on the screen.
-    <img src="window-minimized.png" alt="Minimized State"/>
-</li>
-</list>
-
 There are corresponding methods for changing states from code.
 
 ### Minimize
@@ -230,6 +230,12 @@ $window->restore();
 The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
 
+<note>
+    It is also worth noting that the initial state of the window visibility
+    depends on the <a href="configuration.md#window-visibility">window 
+    settings</a>. By default, the window is shown.
+</note>
+
 To check if a window is currently visible:
 
 <code-block lang="PHP">
@@ -239,7 +245,6 @@ if ($window->isVisible) {
     echo 'Window is hidden';
 }
 </code-block>
-
 
 <warning>
 The visibility state is independent of the window's <code>Minimized</code>
@@ -258,14 +263,6 @@ To show the window you may use desired <code>Window::show()</code> method.
 // Show the window
 $window->show();
 </code-block>
-
-It is also worth noting that the initial state of the window visibility 
-depends on the window settings. By default, the window is shown.
-
-<note>
-More information about window visibility can be found in the
-<a href="configuration.md#window-visibility">window settings documentation</a>.
-</note>
 
 <tip>
 You can also show the window through a <code>Window::$isVisible</code> property. 

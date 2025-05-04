@@ -20,7 +20,7 @@
         <toc-element topic="window.md">
             <toc-element toc-title="Multiple Windows" />
         </toc-element>
-        <toc-element toc-title="WebView">
+        <toc-element topic="webview.md">
             <toc-element toc-title="Scripts API" />
             <toc-element toc-title="Functions API" />
             <toc-element toc-title="Requests API" />

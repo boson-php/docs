@@ -8,10 +8,12 @@ creating and managing web applications using WebView.
 
 The application is responsible for:
 
-- Lifecycle management (startup, shutdown)
-- Window creation and management
-- WebView integration for web content display
-- Application, webview and window event handling
+- Lifecycle management (
+  <a href="application.md#creating-an-application">startup</a>, 
+  <a href="application.md#stop-application">shutdown</a>)
+- <a href="window.md">Window</a> creation and management
+- <a href="webview.md">WebView</a> integration for web content display
+- <a href="application.md#application-events">Application</a>, webview and window event handling
 
 ...and more
 
@@ -67,7 +69,7 @@ After creating the application, you will have access to the API to work with
 it, and after the necessary actions, the application will automatically start, 
 <a href="configuration.md#autorun">unless otherwise specified</a>.
 
-## Running and Stopping
+## Launching an Application
 
 The application can be started manually using the <code>run()</code> method. 
 
@@ -91,6 +93,9 @@ echo 'Application WAS stopped'; // The code will be executed ONLY
                                 // after stopping an application
 </code-block>
 </warning>
+
+
+## Stop Application
 
 The application can be stopped at any time using the `quit()` method:
 
@@ -128,64 +133,26 @@ if ($app->isRunning === false) {
 }
 </code-block>
 
-## Main Window
 
-The `Application::$window` property provides convenient access to the 
-<tooltip term="main window">main window</tooltip> of the application. 
+## Application Identifier
 
-<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
-accesses the default window inside the window manager</tip>
-
-<code-block lang="PHP">
-$app = new Boson\Application();
-
-// Access the main window
-$window = $app->window;
-</code-block>
-
-The <tooltip term="main window">main window</tooltip> is automatically created 
-when the application starts.
+The <code>Boson\ApplicationId</code> is a unique identifier for each application
+instance. The identifier is needed to compare different applications
+for their equivalence.
 
 <warning>
-If the <tooltip term="main window">main window</tooltip> is closed, the next 
-available window from window manager will become the 
-<tooltip term="main window">main window</tooltip>.
-
-If you try to access the `$window` property after the all windows has been 
-closed, a `NoDefaultWindowException` will be thrown.
+The <code>ApplicationId</code> property is read-only and cannot be changed.
 </warning>
 
-<note>
-More information about windows can be found in the
-<a href="window.md">window documentation</a>.
-</note>
-
-## Main WebView
-
-The `Application::$webview` property provides convenient access to the WebView 
-instance of the <tooltip term="main window">main window</tooltip>.
-
-<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
-accesses the webview of the default window inside the window manager</tip>
+The <code>ApplicationId</code> identifier is a value object and contains methods
+for comparison and conversion to scalars.
 
 <code-block lang="PHP">
-$app = new Boson\Application();
-
-// Access the main WebView
-$webview = $app->webview;
+if ($app1->id->equals($app2->id)) {
+    echo sprintf('The %s app is equals to %s app', $app1, $app2);
+}
 </code-block>
 
-<warning>
-Behavior is similar to the <tooltip term="main window">main window</tooltip>:
-
-If you try to access the `$webview` property after the all windows has been
-closed, a `NoDefaultWindowException` will be thrown.
-</warning>
-
-<note>
-More information about WebView features and capabilities can be found in the
-<tooltip term="TODO">WebView documentation</tooltip>.
-</note>
 
 ## Application Events
 
@@ -213,21 +180,3 @@ More information about events can be found in the
 <tooltip term="TODO">events documentation</tooltip>.
 </note>
 
-## Application Identifier
-
-The <code>Boson\ApplicationId</code> is a unique identifier for each application 
-instance. The identifier is needed to compare different applications
-for their equivalence.
-
-<warning>
-The <code>ApplicationId</code> property is read-only and cannot be changed.
-</warning>
-
-The <code>ApplicationId</code> identifier is a value object and contains methods 
-for comparison and conversion to scalars.
-
-<code-block lang="PHP">
-if ($app1->id->equals($app2->id)) {
-    echo sprintf('The %s app is equals to %s app', $app1, $app2);
-}
-</code-block>

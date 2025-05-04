@@ -296,7 +296,86 @@ $window->isVisible = false;
 
 ## Window Size
 
-<tooltip term="TODO">Documentation in progress...</tooltip>
+The window size can be controlled through several properties that allow you 
+to manage the current size, minimum and maximum bounds of the window.
+
+### Current Size
+
+The <code>Window::$size</code> property provides access to the current window 
+dimensions. The object in the window is <b>mutable</b> which allows both 
+reading and updating the size.
+
+<code-block lang="PHP">
+// Get current size
+echo $window->size; // Size(640 × 480)
+
+// Update width and height separately
+$window->size->width  = 800;
+$window->size->height = 600;
+
+// Update both dimensions simultaneously
+$window->size->update(800, 600);
+
+// Set size using Size object
+$window->size = new Boson\Window\Size(800, 600);
+</code-block>
+
+<warning>
+Window dimensions must be uint32 (positive integer between 0 and 2147483647).
+
+Attempting to set values outside this range will result in an exception.
+</warning>
+
+### Minimum Size
+
+The <code>Window::$min</code> property controls the minimum allowed dimensions 
+of the window. Users cannot resize the window smaller than these values.
+
+<code-block lang="PHP">
+// Get minimum size
+echo $window->min; // Size(0 × 0)
+
+// Set minimum size separately
+$window->min->width  = 400;
+$window->min->height = 300;
+
+// Or update all dimensions at once
+$window->min->update(400, 300);
+</code-block>
+
+<tip>
+Setting minimum size helps prevent the window from being resized too small, 
+which could make the content unreadable or unusable.
+</tip>
+
+<warning>
+Window minimal size dimensions must be uint32 (positive integer between 0 and 
+2147483647).
+
+Attempting to set values outside this range will result in an exception.
+</warning>
+
+### Maximum Size
+
+The <code>Window::$max</code> property controls the maximum allowed dimensions 
+of the window. Users cannot resize the window larger than these values.
+
+<code-block lang="PHP">
+// Get maximum size
+echo $window->max; // Size(3840 × 2160)
+
+// Set maximum size
+$window->max->width  = 1920;
+$window->max->height = 1080;
+
+// Or update both at once
+$window->max->update(1920, 1080);
+</code-block>
+
+<note>
+The maximum size is typically limited by the screen resolution. Setting a value 
+larger than the screen size may not have the desired effect.
+</note>
 
 ## Window Decorations
 
@@ -496,7 +575,3 @@ if ($window->isClosed) {
     $window->close();
 }
 </code-block>
-
-## Window Events
-
-<tooltip term="TODO">Documentation in progress...</tooltip>

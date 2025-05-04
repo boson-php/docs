@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,200;1,200&display=swap');
+
 :root {
     --wh-color-accent-substrate-bg: #284E6D !important;
     --wh-color-border-hover: #558EBA !important;
@@ -8,6 +10,17 @@
 :root.theme-dark {
     --wh-color-bg-main: #1c2329 !important;
     --wh-color-backlight-secondary-dark: #284e6d !important;
+}
+
+h1, h2 {
+    font-family: "Roboto Condensed", "JetBrains Sans Bundled", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 200 !important;
+    font-style: normal !important;
+}
+
+h1 {
+    font-size: 60px !important;
 }
 
 .wh-header__product-logo {
@@ -88,6 +101,13 @@ p + .code-collapse__wrapper,
 
 .starting-page-card {
     border-radius: 7px;
+}
+
+.app__breadcrumbs {
+    width: 706px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding: 4px 12px;
 }
 
 .theme-dark .starting-page-card {

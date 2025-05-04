@@ -146,8 +146,8 @@ when the application starts.
 
 <warning>
 If the <tooltip term="main window">main window</tooltip> is closed, the next 
-available window from window manager will become the <
-tooltip term="main window">main window</tooltip>.
+available window from window manager will become the 
+<tooltip term="main window">main window</tooltip>.
 
 If you try to access the `$window` property after the all windows has been 
 closed, a `NoDefaultWindowException` will be thrown.

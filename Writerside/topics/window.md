@@ -300,13 +300,192 @@ $window->isVisible = false;
 
 ## Window Decorations
 
-<tooltip term="TODO">Documentation in progress...</tooltip>
+The <code>Window::$decoration</code> property allows you to control the
+window's appearance and style.
 
+<code-block lang="PHP">
+// Get current decoration mode
+echo $window->decoration->name;
+</code-block>
+
+It supports different decoration modes defined in the 
+<code>Boson\Window\WindowDecoration</code> enum.
+
+<code-block lang="PHP">
+enum WindowDecoration
+{
+    /**
+     * Default window style.
+     */
+    case Default;
+
+    /**
+     * Default window style with preferred dark mode.
+     */
+    case DarkMode;
+
+    /**
+     * A "frameless" windows is a window which hides the default
+     * window buttons & handle assigned to it by the operating system.
+     */
+    case Frameless;
+
+    /**
+     * Enables "frameless" mode and makes the window completely transparent
+     */
+    case Transparent;
+}
+</code-block>
+
+### Default
+
+The standard window style with system default appearance (title bar, close, 
+minimise and maximise buttons).
+
+<code-block lang="PHP">
+$window->decoration = WindowDecoration::Default;
+</code-block>
+
+<img src="window-decorations-normal.png" alt="Default" />
+
+### Dark Mode
+
+Default window style with dark theme preference.
+
+<code-block lang="PHP">
+$window->decoration = WindowDecoration::DarkMode;
+</code-block>
+
+<img src="window-decorations-dark-mode.png" alt="Dark Mode" />
+
+### Frameless
+
+A frameless window hides the default window decorations (title bar, buttons) 
+provided by the operating system.
+
+<code-block lang="PHP">
+$window->decoration = WindowDecoration::Frameless;
+</code-block>
+
+<img src="window-decorations-frameless.png" alt="Frameless" />
+
+<warning>
+When using frameless (or transparent) windows, you need to implement your own 
+window controls and drag regions using HTML attributes.
+</warning>
+
+#### Dragging
+
+You may use `data-webview-drag` HTML attribute to make elements draggable.
+
+<code-block lang="HTML">
+<![CDATA[
+    <header data-webview-drag>
+        <span>Custom Title Bar</span>
+    </header>
+]]>
+</code-block>
+
+#### Resizing
+
+You may use <code>data-webview-resize</code> HTML attribute to create resize 
+handles. The resize direction should be specified as the attribute value.
+
+Possible values:
+- <code>t</code> - Top resize handle.
+- <code>b</code> - Bottom resize handle.
+- <code>l</code> - Left resize handle.
+- <code>r</code> - Right resize handle.
+
+These values can also be combined, for example <code>tl</code> to simulate the top-left 
+corner resize behavior.
+
+<code-block lang="HTML">
+<![CDATA[
+    <div data-webview-resize="t">Top resize handle</div>
+    <div data-webview-resize="b">Bottom resize handle</div>
+    <div data-webview-resize="l">Left resize handle</div>
+    <div data-webview-resize="r">Right resize handle</div>
+    <div data-webview-resize="tl">Top-left corner</div>
+    <div data-webview-resize="tr">Top-right corner</div>
+    <div data-webview-resize="bl">Bottom-left corner</div>
+    <div data-webview-resize="br">Bottom-right corner</div>
+]]>
+</code-block>
+
+#### Prevent Drag/Resize Events
+
+You may use <code>data-webview-ignore</code> HTML attribute to prevent elements from 
+triggering window behavior.
+
+<code-block lang="HTML">
+<![CDATA[
+    <!-- header is draggable -->
+    <header data-webview-drag>
+        <span>Custom Title Bar</span>
+    
+        <!-- except close button -->
+        <button data-webview-ignore>Close</button>
+    </header>
+]]>
+</code-block>
+
+### Transparent
+
+Enables frameless mode and makes the window background transparent.
+
+<code-block lang="PHP">
+$window->decoration = WindowDecoration::Transparent;
+</code-block>
+
+<img src="window-decorations-transparent.png" alt="Transparent" />
+
+<tip>
+With transparent windows, you should use CSS to control the background:
+<code-block lang="HTML">
+<![CDATA[
+    <style>
+    body {
+        border-radius: 10px;
+        padding: 10px 15px;
+        background: rgba(255, 255, 255, .8);
+    }
+    </style>
+    <body>
+        Content
+    </body>
+]]>
+</code-block>
+</tip>
 
 ## Window Close
 
-<tooltip term="TODO">Documentation in progress...</tooltip>
+The <code>Window::close()</code> method allows you to close and destroy a 
+window and its associated resources. This operation is irreversible - once a 
+window is closed, it cannot be reopened.
 
+<code-block lang="PHP">
+// Close the window
+$window->close();
+</code-block>
+
+<warning>
+Closing a window is a destructive operation. All resources associated with the 
+window, including its <a href="webview.md">WebView</a>, will be freed. 
+
+Any attempts to use the window (except <code>Window::$isClosed</code> property) 
+after closing will result in undefined behavior.
+</warning>
+
+You can check if a window is closed using the `$isClosed` property:
+
+<code-block lang="PHP">
+if ($window->isClosed) {
+    echo 'Window is already closed';
+} else {
+    $window->close();
+}
+</code-block>
 
 ## Window Events
 

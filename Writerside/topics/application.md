@@ -156,6 +156,33 @@ More information about windows can be found in the
 <tooltip term="TODO">window documentation</tooltip>.
 </note>
 
+## Main WebView
+
+The `Application::$webview` property provides convenient access to the WebView 
+instance of the main window.
+
+<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
+accesses the webview of the default window inside the window manager</tip>
+
+<code-block lang="PHP">
+$app = new Boson\Application();
+
+// Access the main WebView
+$webview = $app->webview;
+</code-block>
+
+<warning>
+Behavior is similar to the main window access:
+
+If you try to access the `$webview` property after the all windows has been
+closed, a `NoDefaultWindowException` will be thrown.
+</warning>
+
+<note>
+More information about WebView features and capabilities can be found in the
+<tooltip term="TODO">WebView documentation</tooltip>.
+</note>
+
 ## Application Events
 
 The application will automatically emit the following events (and intentions)

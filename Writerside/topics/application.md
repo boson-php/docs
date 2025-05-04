@@ -223,10 +223,6 @@ for their equivalence.
 The <code>ApplicationId</code> property is read-only and cannot be changed.
 </warning>
 
-```php
-public readonly ApplicationId $id
-```
-
 The <code>ApplicationId</code> identifier is a value object and contains methods 
 for comparison and conversion to scalars.
 

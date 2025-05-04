@@ -106,7 +106,7 @@ p + .code-collapse__wrapper,
 .app__breadcrumbs {
     width: 706px;
     background: rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 4px 12px;
 }
 
@@ -116,6 +116,9 @@ p + .code-collapse__wrapper,
 
 .theme-dark .starting-page-card:hover {
     background: #252f37 !important;
+}
+.article img {
+    border-radius: 7px;
 }
 
 #mermaid .flowchart-link {

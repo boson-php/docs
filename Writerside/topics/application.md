@@ -128,8 +128,8 @@ if ($app->isRunning === false) {
 
 ## Main Window
 
-The `Application::$window` property provides convenient access to the main 
-(default) window of the application. 
+The `Application::$window` property provides convenient access to the 
+<tooltip term="main window">main window</tooltip> of the application. 
 
 <tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
 accesses the default window inside the window manager</tip>
@@ -141,11 +141,13 @@ $app = new Boson\Application();
 $window = $app->window;
 </code-block>
 
-The main window is automatically created when the application starts.
+The <tooltip term="main window">main window</tooltip> is automatically created 
+when the application starts.
 
 <warning>
-If the <b>main</b> window is closed, the next available window from window 
-manager will become the <b>main</b> window.
+If the <tooltip term="main window">main window</tooltip> is closed, the next 
+available window from window manager will become the <
+tooltip term="main window">main window</tooltip>.
 
 If you try to access the `$window` property after the all windows has been 
 closed, a `NoDefaultWindowException` will be thrown.
@@ -153,13 +155,13 @@ closed, a `NoDefaultWindowException` will be thrown.
 
 <note>
 More information about windows can be found in the
-<tooltip term="TODO">window documentation</tooltip>.
+<a href="window.md">window documentation</a>.
 </note>
 
 ## Main WebView
 
 The `Application::$webview` property provides convenient access to the WebView 
-instance of the main window.
+instance of the <tooltip term="main window">main window</tooltip>.
 
 <tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
 accesses the webview of the default window inside the window manager</tip>
@@ -172,7 +174,7 @@ $webview = $app->webview;
 </code-block>
 
 <warning>
-Behavior is similar to the main window access:
+Behavior is similar to the <tooltip term="main window">main window</tooltip>:
 
 If you try to access the `$webview` property after the all windows has been
 closed, a `NoDefaultWindowException` will be thrown.
@@ -208,3 +210,26 @@ during its lifecycle:
 More information about events can be found in the
 <tooltip term="TODO">events documentation</tooltip>.
 </note>
+
+## Application Identifier
+
+The <code>Boson\ApplicationId</code> is a unique identifier for each application 
+instance. The identifier is needed to compare different applications
+for their equivalence.
+
+<warning>
+The <code>ApplicationId</code> property is read-only and cannot be changed.
+</warning>
+
+```php
+public readonly ApplicationId $id
+```
+
+The <code>ApplicationId</code> identifier is a value object and contains methods 
+for comparison and conversion to scalars.
+
+<code-block lang="PHP">
+if ($app1->id->equals($app2->id)) {
+    echo sprintf('The %s app is equals to %s app', $app1, $app2);
+}
+</code-block>

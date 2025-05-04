@@ -274,22 +274,8 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 </code-block>
 
 <note>
-The title can be changed later at runtime.
-</note>
-
-### Window Size (Width and Height)
-
-Defines the initial dimensions of the window in pixels.
-
-<code-block lang="PHP">
-$windowConfig = new Boson\Window\WindowCreateInfo( 
-    width: 800,
-    height: 600,
-);
-</code-block>
-
-<note>
-The size can be changed later at runtime.
+The title can be changed later at runtime. More information about window title 
+can be found in the <a href="window.md#window-title">window documentation</a>.
 </note>
 
 ### Hardware Acceleration
@@ -304,17 +290,25 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <warning>The value cannot be changed after the application is created.</warning>
 
-### Window Visibility
+### Window Size (Width and Height)
 
-Controls whether the window is initially visible when created.
+Defines the initial dimensions of the window in pixels.
 
 <code-block lang="PHP">
 $windowConfig = new Boson\Window\WindowCreateInfo( 
-    visible: true, // Default is true
+    width: 800,
+    height: 600,
 );
 </code-block>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<note>
+  The size can be changed later at runtime.
+</note>
+
+<note>
+  More information about window size can be found in 
+  the <a href="window.md#window-size">window documentation</a>.
+</note>
 
 ### Window Resizability
 
@@ -326,8 +320,30 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 </code-block>
 
+<warning>The value cannot be changed after the application is created.</warning>
+
 <note>
-Window visibility can be changed later at runtime.
+  More information about window size can be found in 
+  the <a href="window.md#window-size">window documentation</a>.
+</note>
+
+### Window Visibility
+
+Controls whether the window is initially visible when created.
+
+<code-block lang="PHP">
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    visible: true, // Default is true
+);
+</code-block>
+
+<note>
+  Window visibility can be changed later at runtime.
+</note>
+
+<note>
+  More information about window visibility can be found in 
+  the <a href="window.md#window-visibility">window documentation</a>.
 </note>
 
 ### Window Decorations
@@ -341,7 +357,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 </code-block>
 
 <note>
-Window decorations can be changed later at runtime.
+  Window decorations can be changed later at runtime.
+</note>
+
+<note>
+  More information about window decorations can be found in 
+  the <a href="window.md#window-decorations">window documentation</a>.
 </note>
 
 ## WebView

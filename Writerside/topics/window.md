@@ -1,5 +1,7 @@
 # Window
 
+<show-structure for="chapter" depth="2"/>
+
 The `Window` class represents a window in the Boson application. It provides 
 a way to manage window, including their properties, events, state, and 
 associated WebView.
@@ -23,10 +25,6 @@ for their equivalence.
 <warning>
 The <code>WindowId</code> property is <b>read-only</b> and cannot be changed.
 </warning>
-
-```php
-public readonly WindowId $id
-```
 
 The <code>WindowId</code> identifier is a value object and contains methods for 
 comparison and conversion to scalars.
@@ -87,10 +85,6 @@ and similar characters will be removed.
 
 <img src="window-title.png" alt="Window Title" />
 
-<note>
-The header is both readable and writable.
-</note>
-
 To get the window title, simply read this property. The title will contain the 
 real value, including all invisible (like <code>\n</code>) characters.
 
@@ -118,20 +112,196 @@ $title = &$window->title; // ❌ not available
 
 ## Window State
 
-<tooltip term="TODO">Documentation in progress...</tooltip>
+Each window has several states. The window can be minimized, maximized to full 
+screen, or in a normal state.
+
+To get the current state of a window, you can use the <code>Window::$state</code> 
+property. 
+
+<code-block lang="PHP">
+echo 'Window State: ' . $window->state->name;
+</code-block>
+
+<warning>
+The <code>Window::$state</code> property is <b>read-only</b> and cannot be 
+changed. To change state, the appropriate methods are used, described below.
+</warning>
+
+This property will contain one of the possible values of 
+<code>Boson\Window\WindowState</code> enum.
+
+<code-block lang="PHP">
+enum WindowState
+{
+    /**
+     * Standard window state with custom (user defined) sizes.
+     */
+    case Normal;
+
+    /**
+     * Maximized (i.e. zoomed) window state.
+     */
+    case Maximized;
+
+    /**
+     * Minimized (iconified) window state.
+     */
+    case Minimized;
+}
+</code-block>
+
+<list>
+<li>
+    <code>Normal</code> - The window is in a normal state. Such a window can be 
+    manually resized or moved. The window normally takes up part of the screen.
+    <img src="window-normal.png" alt="Normal State"/>
+</li>
+<li>
+    <code>Maximized</code> - The window is in a maximized state. These windows 
+    expand to fill the entire screen and occupy its entire area.
+    <img src="window-maximized.png" alt="Maximized State"/>
+</li>
+<li>
+    <code>Minimized</code> - The window is in a minimized state. Such windows 
+    are minimized to the tray (panel with applications) and are not displayed 
+    on the screen.
+    <img src="window-minimized.png" alt="Minimized State"/>
+</li>
+</list>
+
+There are corresponding methods for changing states from code.
+
+### Minimize
+
+In order to minimize the window, you should use the appropriate 
+<code>Window::minimize()</code> method.
+
+<code-block lang="PHP">
+// Minimize window to tray
+$window->minimize();
+</code-block>
+
+When restoring a window from the tray using the operating system features 
+(for example, <shortcut>Alt + Tab</shortcut>), the previous state will be 
+restored.
+
+<tabs>
+<tab title="Normal">
+    <list type="decimal">
+        <li>Window state is <code>Normal</code>.</li>
+        <li>Execute <code>$window->minimize()</code></li>
+        <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
+        <li>Window state is again <code>Normal</code>.</li>
+    </list>
+</tab>
+<tab title="Maximized">
+    <list type="decimal">
+        <li>Window state is <code>Maximized</code>.</li>
+        <li>Execute <code>$window->minimize()</code></li>
+        <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
+        <li>Window state is again <code>Maximized</code>.</li>
+    </list>
+</tab>
+</tabs>
+
+### Maximize
+
+In order to maximize the window, you should use the appropriate
+<code>Window::maximize()</code> method.
+
+<code-block lang="PHP">
+// Maximize window from tray or normal state
+$window->maximize();
+</code-block>
+
+### Restore
+
+In order to restore the window state (that is, switch to a <code>Normal</code> 
+state), you should use the appropriate <code>Window::restore()</code> method.
+
+<code-block lang="PHP">
+// Restore window state
+$window->restore();
+</code-block>
 
 
-## Window Decorations
+## Window Visibility
 
-<tooltip term="TODO">Documentation in progress...</tooltip>
+The `Window::$isVisible` property controls the visibility state of the window.
+It allows you to show or hide the window programmatically.
+
+To check if a window is currently visible:
+
+<code-block lang="PHP">
+if ($window->isVisible) {
+    echo 'Window is visible';
+} else {
+    echo 'Window is hidden';
+}
+</code-block>
+
+
+<warning>
+The visibility state is independent of the window's <code>Minimized</code>
+/<code>Maximized</code> state. A window can be visible while <code>Minimized</code>
+or hidden while <code>Maximized</code>.
+
+Hidden windows are not displayed in the tray and cannot be restored using the
+OS functionality.
+</warning>
+
+### Show Window
+
+To show the window you may use desired <code>Window::show()</code> method.
+
+<code-block lang="PHP">
+// Show the window
+$window->show();
+</code-block>
+
+It is also worth noting that the initial state of the window visibility 
+depends on the window settings. By default, the window is shown.
+
+<note>
+More information about window visibility can be found in the
+<a href="configuration.md#window-visibility">window settings documentation</a>.
+</note>
+
+<tip>
+You can also show the window through a <code>Window::$isVisible</code> property. 
+To do this, simply set the <code>true</code>.
+
+<code-block lang="PHP">
+// Show the window
+$window->isVisible = true;
+</code-block>
+</tip>
+
+### Hide Window
+
+To hide the window you may use desired <code>Window::hide()</code> method.
+
+<code-block lang="PHP">
+// Hide the window
+$window->hide();
+</code-block>
+
+<tip>
+You can also hide the window through a <code>Window::$isVisible</code> property. 
+To do this, simply set the <code>false</code>.
+
+<code-block lang="PHP">
+// Hide the window
+$window->isVisible = false;
+</code-block>
+</tip>
 
 
 ## Window Size
 
 <tooltip term="TODO">Documentation in progress...</tooltip>
 
-
-## Window Visibility
+## Window Decorations
 
 <tooltip term="TODO">Documentation in progress...</tooltip>
 

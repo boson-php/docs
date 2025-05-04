@@ -1,5 +1,7 @@
 # Application
 
+<show-structure for="chapter" depth="2"/>
+
 The `Application` is the central component of the Boson and is responsible for 
 managing the application lifecycle. It provides a single entry point for 
 creating and managing web applications using WebView.

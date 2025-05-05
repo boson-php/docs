@@ -357,13 +357,34 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 </code-block>
 
 <note>
-  Window visibility can be changed later at runtime.
+  Window "always on top" feature can be changed later at runtime.
 </note>
 
 <note>
   More information about window "always on top" feature can be found in 
   the <a href="window.md#always-on-top">window documentation</a>.
 </note>
+
+
+### Click Through
+
+Enables or disables the window's handling of mouse events.
+
+<code-block lang="PHP">
+$windowConfig = new Boson\Window\WindowCreateInfo(
+    clickThrough: true, // Default is false
+);
+</code-block>
+
+<note>
+  Window "click-through" feature can be changed later at runtime.
+</note>
+
+<note>
+  More information about window "click-through" feature can be found in 
+  the <a href="window.md#click-through">window documentation</a>.
+</note>
+
 
 ### Window Decorations
 

@@ -547,6 +547,23 @@ With transparent windows, you should use CSS to control the background color:
 </code-block>
 </tip>
 
+
+## Window Focus
+
+Windows can be given input focus and brought to the front with
+<code>Window::focus()</code> method.
+
+<code-block lang="PHP">
+// Focus the window
+$window->focus();
+</code-block>
+
+<warning>
+Keep in mind that it can be very disruptive to the user when a window is 
+forced to the top. Please use this feature judiciously.
+</warning>
+
+
 ## Always On Top
 
 The <code>Window::$isAlwaysOnTop</code> property allows you to control whether 
@@ -568,34 +585,47 @@ $window->isAlwaysOnTop = true;
 $window->isAlwaysOnTop = false;
 </code-block>
 
-<tip>
-This feature is useful for windows that need to remain visible while working 
-with other applications, such as:
-- Floating toolbars
-- Notification windows
-- Debug panels
-- System monitors
-</tip>
-
 <warning>
 Windows that are always on top may interfere with normal window management and 
 user interaction. Please use this feature judiciously.
 </warning>
 
 
-## Window Focus
+## Click Through
 
-Windows can be given input focus and brought to the front with 
-<code>Window::focus()</code> method.
+The <code>Window::$isClickThrough</code> property allows you to control 
+whether a window should intercept mouse events. When enabled, mouse clicks 
+will pass through the window to the windows or applications behind it.
+
+<tip>
+Mouse events are not intercepted not only through the internal OS (Windows, 
+Linux, MacOS, etc...) API, but also through JavaScript. The system buttons to 
+minimize, maximize or close also do not respond to clicks.
+</tip>
 
 <code-block lang="PHP">
-// Focus the window
-$window->focus();
+// Check if window is click-through
+if ($window->isClickThrough) {
+    echo 'Window does not intercept mouse events';
+} else {
+    echo 'Window intercepts mouse events';
+}
+
+// Enable click-through feature
+$window->isClickThrough = true;
+
+// Disable click-through feature
+$window->isClickThrough = false;
 </code-block>
 
+When "click-through" is enabled:
+- The window cannot be moved, resized, or focused by clicking.
+- All mouse events will be ignored.
+- The window will effectively become a visual overlay only.
+
 <warning>
-Keep in mind that it can be very disruptive to the user when a window is 
-forced to the top. Please use this feature judiciously.
+This functionality may be unpleasant for the user.
+Please use this feature judiciously.
 </warning>
 
 ## Window Close

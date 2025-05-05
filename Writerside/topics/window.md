@@ -322,8 +322,8 @@ $window->decoration = WindowDecoration::Frameless;
 You can use the <a href="window.md#minimize">Minimize</a>, 
 <a href="window.md#maximize">Maximize</a>,
 <a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#window-drag">Drag</a> 
-and <a href="window.md#window-resize">Resize</a> features to implement window 
+<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a> 
+and <a href="window.md#resizing">Resize</a> features to implement window 
 controls manually.
 </note>
 
@@ -360,8 +360,8 @@ body {
 You can use the <a href="window.md#minimize">Minimize</a>, 
 <a href="window.md#maximize">Maximize</a>,
 <a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#window-drag">Drag</a> 
-and <a href="window.md#window-resize">Resize</a> features to implement window 
+<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a> 
+and <a href="window.md#resizing">Resize</a> features to implement window 
 controls manually.
 </note>
 

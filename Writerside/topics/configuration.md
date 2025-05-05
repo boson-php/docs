@@ -427,6 +427,13 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 );
 </code-block>
 
+<warning>
+Note that loading <code>html</code> directly implements an 
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
+which does NOT allow the implementation of 
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.
+</warning>
+
 ### Global Scripts
 
 Defines JavaScript code that will be loaded and executed in the 

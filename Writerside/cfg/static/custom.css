@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,200;1,200&display=swap');
 
 :root {
-    --wh-color-accent-substrate-bg: #284E6D !important;
+    --wh-color-accent-substrate-bg: #284e6d !important;
     --wh-color-border-hover: #558EBA !important;
     --wh-color-backlight-pale: none;
     --wh-color-backlight-pale-dark: none;
@@ -123,10 +123,35 @@ p + .code-collapse__wrapper,
 .theme-dark .starting-page-card:hover {
     background: #252f37 !important;
 }
+
 .article img {
     border-radius: 7px;
 }
 
 #mermaid .flowchart-link {
     stroke: #284E6D !important;
+}
+
+#mermaid .node polygon,
+#mermaid .node rect {
+    fill: rgba(0, 0, 0, .05) !important;
+    stroke: transparent !important;
+    rx: 7px !important;
+}
+
+#mermaid .divider {
+    stroke: rgba(0, 0, 0, .1) !important;
+}
+
+html.theme-dark #mermaid .node polygon,
+html.theme-dark #mermaid .node rect {
+    fill: rgba(255, 255, 255, .05) !important;
+}
+
+html.theme-dark #mermaid .node span {
+    color: #a9b7c6 !important;
+}
+
+html.theme-dark #mermaid .divider {
+    stroke: #1c2329 !important;
 }

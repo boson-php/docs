@@ -517,8 +517,8 @@ Possible values for window corners:
 <code-block lang="HTML">
 &lt;button data-webview-resize="t">    ↑   &lt;/button>
 &lt;button data-webview-resize="l">    ←   &lt;/button>
-&lt;button data-webview-resize="tr">   ⭨   &lt;/button>
-&lt;button data-webview-resize="bl">   ⭩   &lt;/button>
+&lt;button data-webview-resize="tr">   ↗   &lt;/button>
+&lt;button data-webview-resize="bl">   ↙   &lt;/button>
 </code-block>
 
 <tip>

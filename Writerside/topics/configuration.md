@@ -41,7 +41,7 @@ browser-like behaviors.
 
 <code-block lang="mermaid">
 classDiagram
-    class ApplicationCreateInfo{
+    class ApplicationCreateInfo["readonly Boson\ApplicationCreateInfo"]{
         +string : $name
         +iterable~string~ : $schemes
         +int|null : $threads
@@ -49,27 +49,25 @@ classDiagram
         +string|null : $library
         +bool : $quitOnClose
         +bool : $autorun
-        +WindowCreateInfo : $window
+        +Boson\Window\WindowCreateInfo : $window
     }
-    &lt;&lt;readonly&gt;&gt; ApplicationCreateInfo
-    note for ApplicationCreateInfo "Boson\ApplicationCreateInfo"
     link ApplicationCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/ApplicationCreateInfo.php"
     <!---->
-    class WindowCreateInfo{
+    class WindowCreateInfo["readonly Boson\Window\WindowCreateInfo"]{
         +string : $title
         +int : $width
         +int : $height
         +bool : $enableHardwareAcceleration
         +bool : $visible
         +bool : $resizable
-        +WindowDecoration : $decoration
-        +WebViewCreateInfo : $webview
+        +bool : $alwaysOnTop
+        +bool : $clickThrough
+        +Boson\Window\WindowDecoration : $decoration
+        +Boson\WebView\WebViewCreateInfo : $webview
     }
-    &lt;&lt;readonly&gt;&gt; WindowCreateInfo
-    note for WindowCreateInfo "Boson\Window\WindowCreateInfo"
     link WindowCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/Window/WindowCreateInfo.php"
     <!---->
-    class WebViewCreateInfo{
+    class WebViewCreateInfo["readonly Boson\WebView\WebViewCreateInfo"]{
         +string|null : $url
         +string|null : $html
         +iterable~string~ : $scripts
@@ -80,8 +78,6 @@ classDiagram
         +bool|null : $contextMenu
         +bool|null : $devTools
     }
-    &lt;&lt;readonly&gt;&gt; WebViewCreateInfo
-    note for WebViewCreateInfo "Boson\WebView\WebViewCreateInfo"
     link WebViewCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/WebView/WebViewCreateInfo.php"
     <!---->
     ApplicationCreateInfo ..> WindowCreateInfo

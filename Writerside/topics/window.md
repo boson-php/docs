@@ -35,68 +35,8 @@ closed, a `NoDefaultWindowException` will be thrown.
     default in any application.
 </note>
 
-## Window Identifier
 
-The <code>Boson\Window\WindowId</code> is a unique identifier for each window 
-in the application. The identifier is needed to compare different windows 
-for their equivalence.
-
-<warning>
-The <code>WindowId</code> property is <b>read-only</b> and cannot be changed.
-</warning>
-
-The <code>WindowId</code> identifier is a value object and contains methods for 
-comparison and conversion to scalars.
-
-<code-block lang="PHP">
-if ($window1->id->equals($window2->id)) {
-    echo sprintf('The %s is equals to %s', $window1, $window2);
-}
-</code-block>
-
-<tip>
-The <code>WindowId</code> is automatically generated when a window is created 
-and remains constant throughout the window's lifetime.
-</tip>
-
-The identifier consists of two parts:
-- A unique integer value that identifies the window in the application.
-- A pointer to the native window handle.
-
-<warning>
-Please do not use the second <code>WindowId</code> argument unless you are sure. 
-It provides unsafe access to the window handle pointer, for working with 
-low-level API.
-</warning>
-
-In addition to the ability to convert to a string (i.e. implementations of the 
-<code>Stringable</code> interface), this identifier can also be converted to an 
-64-bit (or 32-bit on 32-bit OS) signed integer, which represents the actual 
-physical address of the window pointer.
-
-<code-block lang="PHP">
-echo $window->id->toInteger();
-</code-block>
-
-<tip>
-Technically, this behaviour can be used to pass a window pointer to 
-subprocesses and then restore the pointer from it, like:
-
-<code-block lang="PHP">
-// process-1 
-// somehow pass the scalar addr to the process-2
-$addr = $window->id->toInteger();
-
-// process-2
-// somehow get a scalar addr value
-$handle = $ffi->cast('saucer_handle*', $addr);
-</code-block>
-
-However, please note that this may cause ownership issues and should 
-be used with caution.
-</tip>
-
-## Window Title
+## Title
 
 Contains title of the specified window encoded as UTF-8. The window title can 
 be in any language and even include emojis. All line breaks (<code>\n</code>) 
@@ -129,7 +69,7 @@ $title = &$window->title; // ❌ not available
 </warning>
 
 
-## Window State
+## State
 
 Each window has several states. The window can be minimized, maximized to full 
 screen, or in a normal state.
@@ -225,7 +165,7 @@ $window->restore();
 </code-block>
 
 
-## Window Visibility
+## Visibility
 
 The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
@@ -255,7 +195,7 @@ Hidden windows are not displayed in the tray and cannot be restored using the
 OS functionality.
 </warning>
 
-### Show Window
+### Show
 
 To show the window you may use desired <code>Window::show()</code> method.
 
@@ -274,7 +214,7 @@ $window->isVisible = true;
 </code-block>
 </tip>
 
-### Hide Window
+### Hide
 
 To hide the window you may use desired <code>Window::hide()</code> method.
 
@@ -294,90 +234,7 @@ $window->isVisible = false;
 </tip>
 
 
-## Window Size
-
-The window size can be controlled through several properties that allow you 
-to manage the current size, minimum and maximum bounds of the window.
-
-### Current Size
-
-The <code>Window::$size</code> property provides access to the current window 
-dimensions. The object in the window is <b>mutable</b> which allows both 
-reading and updating the size.
-
-<code-block lang="PHP">
-// Get current size
-echo $window->size; // Size(640 × 480)
-
-// Update width and height separately
-$window->size->width  = 800;
-$window->size->height = 600;
-
-// Update both dimensions simultaneously
-$window->size->update(800, 600);
-
-// Set size using Size object
-$window->size = new Boson\Window\Size(800, 600);
-</code-block>
-
-<warning>
-Window dimensions must be uint32 (positive integer between 0 and 2147483647).
-
-Attempting to set values outside this range will result in an exception.
-</warning>
-
-### Minimum Size
-
-The <code>Window::$min</code> property controls the minimum allowed dimensions 
-of the window. Users cannot resize the window smaller than these values.
-
-<code-block lang="PHP">
-// Get minimum size
-echo $window->min; // Size(0 × 0)
-
-// Set minimum size separately
-$window->min->width  = 400;
-$window->min->height = 300;
-
-// Or update all dimensions at once
-$window->min->update(400, 300);
-</code-block>
-
-<tip>
-Setting minimum size helps prevent the window from being resized too small, 
-which could make the content unreadable or unusable.
-</tip>
-
-<warning>
-Window minimal size dimensions must be uint32 (positive integer between 0 and 
-2147483647).
-
-Attempting to set values outside this range will result in an exception.
-</warning>
-
-### Maximum Size
-
-The <code>Window::$max</code> property controls the maximum allowed dimensions 
-of the window. Users cannot resize the window larger than these values.
-
-<code-block lang="PHP">
-// Get maximum size
-echo $window->max; // Size(3840 × 2160)
-
-// Set maximum size
-$window->max->width  = 1920;
-$window->max->height = 1080;
-
-// Or update both at once
-$window->max->update(1920, 1080);
-</code-block>
-
-<note>
-The maximum size is typically limited by the screen resolution. Setting a value 
-larger than the screen size may not have the desired effect.
-</note>
-
-## Window Decorations
+## Decorations
 
 The <code>Window::$decoration</code> property allows you to control the
 window's appearance and style.
@@ -387,7 +244,7 @@ window's appearance and style.
 echo $window->decoration->name;
 </code-block>
 
-It supports different decoration modes defined in the 
+It supports different decoration modes defined in the
 <code>Boson\Window\WindowDecoration</code> enum.
 
 <code-block lang="PHP">
@@ -416,7 +273,7 @@ enum WindowDecoration
 }
 </code-block>
 
-Let's say we load the content as 
+Let's say we load the content as
 <code>&lt;div style="background: #fff">Hello World!&lt;/div></code> in webview. 
 So the result with different decorations will look like this.
 
@@ -437,7 +294,7 @@ So the result with different decorations will look like this.
 
 ### Default
 
-The standard window style with system default appearance (title bar, close, 
+The standard window style with system default appearance (title bar, close,
 minimise and maximise buttons).
 
 <code-block lang="PHP">
@@ -454,77 +311,31 @@ $window->decoration = WindowDecoration::DarkMode;
 
 ### Frameless
 
-A frameless window hides the default window decorations (title bar, buttons) 
+A frameless window hides the default window decorations (title bar, buttons)
 provided by the operating system.
 
 <code-block lang="PHP">
 $window->decoration = WindowDecoration::Frameless;
 </code-block>
 
+<note>
+You can use the <a href="window.md#minimize">Minimize</a>, 
+<a href="window.md#maximize">Maximize</a>,
+<a href="window.md#restore">Restore</a>,
+<a href="window.md#window-close">Close</a>, <a href="window.md#window-drag">Drag</a> 
+and <a href="window.md#window-resize">Resize</a> features to implement window 
+controls manually.
+</note>
+
 <warning>
 When using frameless (or transparent) windows, you need to implement your own 
 window controls and drag regions using HTML attributes.
 </warning>
 
-#### Dragging
-
-You may use `data-webview-drag` HTML attribute to make elements draggable.
-
-<code-block lang="HTML">
-<![CDATA[
-    <header data-webview-drag>
-        <span>Custom Title Bar</span>
-    </header>
-]]>
-</code-block>
-
-#### Resizing
-
-You may use <code>data-webview-resize</code> HTML attribute to create resize 
-handles. The resize direction should be specified as the attribute value.
-
-Possible values:
-- <code>t</code> - Top resize handle.
-- <code>b</code> - Bottom resize handle.
-- <code>l</code> - Left resize handle.
-- <code>r</code> - Right resize handle.
-
-These values can also be combined, for example <code>tl</code> to simulate the top-left 
-corner resize behavior.
-
-<code-block lang="HTML">
-<![CDATA[
-    <div data-webview-resize="t">Top resize handle</div>
-    <div data-webview-resize="b">Bottom resize handle</div>
-    <div data-webview-resize="l">Left resize handle</div>
-    <div data-webview-resize="r">Right resize handle</div>
-    <div data-webview-resize="tl">Top-left corner</div>
-    <div data-webview-resize="tr">Top-right corner</div>
-    <div data-webview-resize="bl">Bottom-left corner</div>
-    <div data-webview-resize="br">Bottom-right corner</div>
-]]>
-</code-block>
-
-#### Prevent Drag/Resize Events
-
-You may use <code>data-webview-ignore</code> HTML attribute to prevent elements from 
-triggering window behavior.
-
-<code-block lang="HTML">
-<![CDATA[
-    <!-- header is draggable -->
-    <header data-webview-drag>
-        <span>Custom Title Bar</span>
-    
-        <!-- except close button -->
-        <button data-webview-ignore>Close</button>
-    </header>
-]]>
-</code-block>
 
 ### Transparent
 
-Enables <a href="#frameless">frameless</a> mode and makes the window 
+Enables <a href="#frameless">frameless</a> mode and makes the window
 background transparent.
 
 <code-block lang="PHP">
@@ -534,21 +345,265 @@ $window->decoration = WindowDecoration::Transparent;
 <tip>
 With transparent windows, you should use CSS to control the background color:
 <code-block lang="HTML">
-<![CDATA[
-    <style>
-    body {
-        background: rgba(255, 255, 255, .8);
-    }
-    </style>
-    <body>
-        Content
-    </body>
-]]>
+&lt;style>
+body {
+    background: rgba(255, 255, 255, .8);
+}
+&lt;/style>
+&lt;body>
+    Content
+&lt;/body>
 </code-block>
 </tip>
 
+<note>
+You can use the <a href="window.md#minimize">Minimize</a>, 
+<a href="window.md#maximize">Maximize</a>,
+<a href="window.md#restore">Restore</a>,
+<a href="window.md#window-close">Close</a>, <a href="window.md#window-drag">Drag</a> 
+and <a href="window.md#window-resize">Resize</a> features to implement window 
+controls manually.
+</note>
 
-## Window Focus
+
+## Size
+
+The window size can be controlled through several properties that allow you 
+to manage the current size, minimum and maximum bounds of the window.
+
+### Current Size
+
+The <code>Window::$size</code> property provides access to the current window 
+dimensions. The object in the window is <b>mutable</b> which allows both 
+reading and updating the size.
+
+<code-block lang="PHP">
+// Get current size
+echo $window->size; // Size(640 × 480)
+
+// Update width and height separately
+$window->size->width  = 800;
+$window->size->height = 600;
+
+// Update both dimensions simultaneously
+$window->size->update(800, 600);
+
+// Set size using Size object
+$window->size = new Boson\Window\Size(800, 600);
+</code-block>
+
+<warning>
+Window dimensions must be non-negative <code>int32</code> (an integer value 
+between 0 and 2147483647).
+
+Attempting to set values outside this range will result in an exception.
+</warning>
+
+### Minimum Size
+
+The <code>Window::$min</code> property controls the minimum allowed dimensions 
+of the window. Users cannot resize the window smaller than these values.
+
+<code-block lang="PHP">
+// Get minimum size
+echo $window->min; // Size(0 × 0)
+
+// Set minimum size separately
+$window->min->width  = 400;
+$window->min->height = 300;
+
+// Or update all dimensions at once
+$window->min->update(400, 300);
+</code-block>
+
+<tip>
+Setting minimum size helps prevent the window from being resized too small, 
+which could make the content unreadable or unusable.
+</tip>
+
+<warning>
+Window min size must be non-negative <code>int32</code> (an integer value 
+between 0 and 2147483647).
+
+Attempting to set values outside this range will result in an exception.
+</warning>
+
+### Maximum Size
+
+The <code>Window::$max</code> property controls the maximum allowed dimensions 
+of the window. Users cannot resize the window larger than these values.
+
+<code-block lang="PHP">
+// Get maximum size
+echo $window->max; // Size(3840 × 2160)
+
+// Set maximum size
+$window->max->width  = 1920;
+$window->max->height = 1080;
+
+// Or update both at once
+$window->max->update(1920, 1080);
+</code-block>
+
+<note>
+The maximum size is typically limited by the screen resolution. Setting a value 
+larger than the screen size may not have the desired effect.
+</note>
+
+<warning>
+Window max size must be non-negative <code>int32</code> (an integer value 
+between 0 and 2147483647).
+
+Attempting to set values outside this range will result in an exception.
+</warning>
+
+## Resizing
+
+The <code>Window::startResize()</code> method allows you to programmatically 
+start resizing the window. This is particularly useful for frameless windows 
+where you need to implement custom window controls.
+
+The method takes one of the available arguments: 
+- <code>Boson\Window\WindowCorner</code> - window corner.
+- <code>Boson\Window\WindowEdge</code> - window edge.
+
+<code-block lang="PHP">
+// Start resizing the window on the right side
+$window->startResize(Boson\Window\WindowEdge::Right);
+
+// Start resizing the window on the bottom-left side
+$window->startResize(Boson\Window\WindowCorner::BottomLeft);
+</code-block>
+
+<tip>
+The end of the resizing occurs on the <b>mouse up</b> event at any place 
+therefore, it is recommended to call this method when <b>mouse down</b> 
+on any element.
+</tip>
+
+<code-block lang="PHP">
+$app = new Boson\Application();
+
+$app->webview->functions->bind('start_resize', function () use ($app) {
+    $app->window->start_resize(
+        Boson\Window\WindowCorner::BottomRight,
+    );
+});
+
+$app->webview->html = &lt;&lt;&lt;'HTML'
+    &lt;div onmousedown="start_resize()">
+        Press + hold to resize the window!
+    &lt;/div>
+    HTML;
+</code-block>
+
+### Resize via HTML
+
+You can also use the <code>data-webview-resize</code> HTML attribute 
+to implement the window resize functionality.
+
+Possible values for window edges:
+- <code>t</code> - Top resize edge handle.
+- <code>b</code> - Bottom resize edge handle.
+- <code>l</code> - Left resize edge handle.
+- <code>r</code> - Right resize edge handle.
+
+Possible values for window corners:
+- <code>tr</code> - Top-Right resize corner handle.
+- <code>br</code> - Bottom-Right resize corner handle.
+- <code>bl</code> - Bottom-Left resize corner handle.
+- <code>tl</code> - Top-Left resize corner handle.
+
+<code-block lang="HTML">
+&lt;button data-webview-resize="t">    ↑   &lt;/button>
+&lt;button data-webview-resize="l">    ←   &lt;/button>
+&lt;button data-webview-resize="tr">   ⭨   &lt;/button>
+&lt;button data-webview-resize="bl">   ⭩   &lt;/button>
+</code-block>
+
+<tip>
+To prevent this event for child HTML elements, use the 
+<code>data-webview-ignore</code> HTML attribute.
+
+<code-block lang="HTML">
+&lt;!-- header resizes the window  -->
+&lt;header data-webview-resize="l">
+    &lt;span>Custom Title Bar&lt;/span>
+
+    &lt;!-- except close button -->
+    &lt;button data-webview-ignore>Close&lt;/button>
+&lt;/header>
+</code-block>
+</tip>
+
+<note>
+For standard windows with decorations, resizing is handled automatically by the 
+operating system through the window corners and edges.
+</note>
+
+
+## Dragging
+
+The <code>Window::startDrag()</code> method allows you to programmatically start 
+dragging the window. This is particularly useful for frameless windows where you 
+need to implement custom window controls.
+
+<code-block lang="PHP">
+// Start dragging the window
+$window->startDrag();
+</code-block>
+
+<tip>
+The end of the drag occurs on the <b>mouse up</b> event at any place therefore, 
+it is recommended to call this method when <b>mouse down</b> on any element.
+</tip>
+
+<code-block lang="PHP">
+$app = new Boson\Application();
+
+$app->webview->functions->bind('start_drag', function () use ($app) {
+    $app->window->startDrag();
+});
+
+$app->webview->html = &lt;&lt;&lt;'HTML'
+    &lt;div onmousedown="start_drag()">
+        Press + hold to drag the window!
+    &lt;/div>
+    HTML;
+</code-block>
+
+### Drag via HTML
+
+You can also use the <code>data-webview-drag</code> HTML attribute to make 
+specific elements draggable.
+
+<code-block lang="HTML">
+&lt;header data-webview-drag>
+    &lt;span>Custom Title Bar&lt;/span>
+&lt;/header>
+</code-block>
+
+<tip>
+To prevent this event for child HTML elements, use the <code>data-webview-ignore</code>
+HTML attribute.
+
+<code-block lang="HTML">
+&lt;!-- header is draggable -->
+&lt;header data-webview-drag>
+    &lt;span>Custom Title Bar&lt;/span>
+
+    &lt;!-- except close button -->
+    &lt;button data-webview-ignore>Close&lt;/button>
+&lt;/header>
+</code-block>
+</tip>
+
+<note>
+For standard windows with decorations, dragging is handled automatically by the 
+operating system through the title bar.
+</note>
+
+## Focus
 
 Windows can be given input focus and brought to the front with
 <code>Window::focus()</code> method.
@@ -656,3 +711,65 @@ if ($window->isClosed) {
     $window->close();
 }
 </code-block>
+
+
+## Identifier
+
+The <code>Boson\Window\WindowId</code> is a unique identifier for each window
+in the application. The identifier is needed to compare different windows
+for their equivalence.
+
+<warning>
+The <code>WindowId</code> property is <b>read-only</b> and cannot be changed.
+</warning>
+
+The <code>WindowId</code> identifier is a value object and contains methods for
+comparison and conversion to scalars.
+
+<code-block lang="PHP">
+if ($window1->id->equals($window2->id)) {
+    echo sprintf('The %s is equals to %s', $window1, $window2);
+}
+</code-block>
+
+<tip>
+The <code>WindowId</code> is automatically generated when a window is created 
+and remains constant throughout the window's lifetime.
+</tip>
+
+The identifier consists of two parts:
+- A unique integer value that identifies the window in the application.
+- A pointer to the native window handle.
+
+<warning>
+Please do not use the second <code>WindowId</code> argument unless you are sure. 
+It provides unsafe access to the window handle pointer, for working with 
+low-level API.
+</warning>
+
+In addition to the ability to convert to a string (i.e. implementations of the
+<code>Stringable</code> interface), this identifier can also be converted to an 
+64-bit (or 32-bit on 32-bit OS) signed integer, which represents the actual 
+physical address of the window pointer.
+
+<code-block lang="PHP">
+echo $window->id->toInteger();
+</code-block>
+
+<tip>
+Technically, this behaviour can be used to pass a window pointer to 
+subprocesses and then restore the pointer from it, like:
+
+<code-block lang="PHP">
+// process-1 
+// somehow pass the scalar addr to the process-2
+$addr = $window->id->toInteger();
+
+// process-2
+// somehow get a scalar addr value
+$handle = $ffi->cast('saucer_handle*', $addr);
+</code-block>
+
+However, please note that this may cause ownership issues and should
+be used with caution.
+</tip>

@@ -275,7 +275,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <note>
 The title can be changed later at runtime. More information about window title 
-can be found in the <a href="window.md#window-title">window documentation</a>.
+can be found in the <a href="window.md#title">window documentation</a>.
 </note>
 
 ### Hardware Acceleration
@@ -307,7 +307,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <note>
   More information about window size can be found in 
-  the <a href="window.md#window-size">window documentation</a>.
+  the <a href="window.md#size">window documentation</a>.
 </note>
 
 ### Window Resizability
@@ -324,7 +324,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <note>
   More information about window size can be found in 
-  the <a href="window.md#window-size">window documentation</a>.
+  the <a href="window.md#size">window documentation</a>.
 </note>
 
 ### Window Visibility
@@ -343,7 +343,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <note>
   More information about window visibility can be found in 
-  the <a href="window.md#window-visibility">window documentation</a>.
+  the <a href="window.md#visibility">window documentation</a>.
 </note>
 
 ### Always On Top
@@ -402,7 +402,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <note>
   More information about window decorations can be found in 
-  the <a href="window.md#window-decorations">window documentation</a>.
+  the <a href="window.md#decorations">window documentation</a>.
 </note>
 
 ## WebView

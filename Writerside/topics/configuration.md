@@ -139,9 +139,17 @@ to access a resource located at an address with this protocol.
 <tabs>
     <tab title="MacOS">
         <warning>
-            <b>MacOS</b> does NOT support interception of existing schemes such as 
-            <code>http</code> or <code>https</code>. You will get an error similar 
-            to the following:
+            <b>MacOS</b> does NOT support interception of some existing schemes:
+            <list>
+            <li><code>http</code></li>
+            <li><code>https</code></li>
+            <li><code>ws</code></li>
+            <li><code>wss</code></li>
+            <li><code>ftp</code></li>
+            <li><code>file</code></li>
+            <li><code>data</code></li>
+            </list>
+            You will get an error similar to the following:
             <code-block>
             *** Terminating app due to uncaught 
                 exception 'NSInvalidArgumentException', reason: "'https' is a URL 

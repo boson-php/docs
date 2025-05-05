@@ -113,7 +113,11 @@ p + .code-collapse__wrapper,
     width: 706px;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 7px;
-    padding: 4px 12px;
+    padding: 10px 0 10px 16px;
+}
+
+html.theme-dark .app__breadcrumbs {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .theme-dark .starting-page-card {

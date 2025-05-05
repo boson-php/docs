@@ -547,6 +547,42 @@ With transparent windows, you should use CSS to control the background color:
 </code-block>
 </tip>
 
+## Always On Top
+
+The <code>Window::$isAlwaysOnTop</code> property allows you to control whether 
+a window should stay on top of other windows. When enabled, the window will 
+remain visible even when other windows are in focus.
+
+<code-block lang="PHP">
+// Check if window is always on top
+if ($window->isAlwaysOnTop) {
+    echo 'Window is always on top';
+} else {
+    echo 'Window is not always on top';
+}
+
+// Enable always on top
+$window->isAlwaysOnTop = true;
+
+// Disable always on top
+$window->isAlwaysOnTop = false;
+</code-block>
+
+<tip>
+This feature is useful for windows that need to remain visible while working 
+with other applications, such as:
+- Floating toolbars
+- Notification windows
+- Debug panels
+- System monitors
+</tip>
+
+<warning>
+Windows that are always on top may interfere with normal window management and 
+user interaction. Use this feature judiciously and consider providing an option
+to disable it.
+</warning>
+
 ## Window Close
 
 The <code>Window::close()</code> method allows you to close and destroy a 

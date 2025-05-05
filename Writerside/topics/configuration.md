@@ -346,6 +346,25 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
   the <a href="window.md#window-visibility">window documentation</a>.
 </note>
 
+### Always On Top
+
+Controls whether a window should stay on top of other windows.
+
+<code-block lang="PHP">
+$windowConfig = new Boson\Window\WindowCreateInfo(
+    alwaysOnTop: true, // Default is false
+);
+</code-block>
+
+<note>
+  Window visibility can be changed later at runtime.
+</note>
+
+<note>
+  More information about window "always on top" feature can be found in 
+  the <a href="window.md#always-on-top">window documentation</a>.
+</note>
+
 ### Window Decorations
 
 Specifies the window's border, title bar style and other.

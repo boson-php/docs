@@ -579,8 +579,23 @@ with other applications, such as:
 
 <warning>
 Windows that are always on top may interfere with normal window management and 
-user interaction. Use this feature judiciously and consider providing an option
-to disable it.
+user interaction. Please use this feature judiciously.
+</warning>
+
+
+## Window Focus
+
+Windows can be given input focus and brought to the front with 
+<code>Window::focus()</code> method.
+
+<code-block lang="PHP">
+// Focus the window
+$window->focus();
+</code-block>
+
+<warning>
+Keep in mind that it can be very disruptive to the user when a window is 
+forced to the top. Please use this feature judiciously.
 </warning>
 
 ## Window Close

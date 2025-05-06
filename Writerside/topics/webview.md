@@ -161,11 +161,19 @@ documentation</a>.
 An `Boson\WebView\Event\WebViewDomReady` event fired after webview DOM has been 
 loaded and ready to work.
 
+```php
+class WebViewDomReady<WebView>
+```
+
 ### Favicon Changing Intention
 <secondary-label ref="intention"/>
 
 An `Boson\WebView\Event\WebViewFaviconChanging` intention to change the 
 window's icon from loaded HTML content.
+
+```php
+class WebViewFaviconChanging<WebView>
+```
 
 <tip>
 If intention is cancelled, the window icon has not been changed.
@@ -178,6 +186,10 @@ An `Boson\WebView\Event\WebViewFaviconChanged` event fired after the window's
 icon has been changed and the `Boson\WebView\Event\WebViewFaviconChanging` 
 intention has not been cancelled.
 
+```php
+class WebViewFaviconChanged<WebView>
+```
+
 ### Message Receiving Intention
 <secondary-label ref="intention"/>
 
@@ -185,12 +197,13 @@ An `Boson\WebView\Event\WebViewMessageReceiving` intention to
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">receive message</a> 
 from the webview.
 
-```mermaid
-classDiagram
-    class WebViewMessageReceiving~T : WebView~{
-        string $message
-        ack() void
-    }
+```php
+class WebViewMessageReceiving<WebView> 
+{
+    public readonly string $message;
+
+    public function ack(): void;
+}
 ```
 
 - `$message` - Received message string value.
@@ -210,14 +223,14 @@ but is not recommended.
 An `Boson\WebView\Event\WebViewNavigating` intention to change the
 webview's URL (navigating to passed URL).
 
-```mermaid
-classDiagram
-    class WebViewNavigating~T : WebView~{
-        [readonly] string $url
-        [readonly] bool $isNewWindow
-        [readonly] bool $isRedirection
-        [readonly] bool $isUserInitiated
-    }
+```php
+class WebViewNavigating<WebView> 
+{
+    public readonly string $url;
+    public readonly bool $isNewWindow;
+    public readonly bool $isRedirection;
+    public readonly bool $isUserInitiated;
+}
 ```
 
 - `$url` - The URL address by which navigation occurs.
@@ -238,11 +251,11 @@ An `Boson\WebView\Event\WebViewNavigated` event fired after the webview has been
 navigated to the given URL and the `Boson\WebView\Event\WebViewNavigating` 
 intention has not been cancelled.
 
-```mermaid
-classDiagram
-    class WebViewNavigated~T : WebView~{
-        [readonly] string $url
-    }
+```php
+class WebViewNavigated<WebView> 
+{
+    public readonly string $url;
+}
 ```
 
 - `$url` - The URL address by which navigation occurs.
@@ -254,12 +267,12 @@ An `Boson\WebView\Event\WebViewRequest` intention processing of user schemes
 registered <a href="configuration.md#intercepted-schemes">in the 
 configuration</a>.
 
-```mermaid
-classDiagram
-    class WebViewRequest~T : WebView~{
-        [readonly] Boson\Http\RequestInterface $request
-        [writable] Boson\Http\ResponseInterface|null $response
-    }
+```php
+class WebViewRequest<WebView> 
+{
+    public readonly Boson\Http\RequestInterface $request;
+    public ?Boson\Http\ResponseInterface $response = null;
+}
 ```
 
 - `$request` - Custom protocol request instance.
@@ -279,11 +292,11 @@ An intention is <b>only</b> called for registered (in configuration) schemes.
 An `Boson\WebView\Event\WebViewTitleChanging` intention to change the
 window title from loaded HTML content.
 
-```mermaid
-classDiagram
-    class WebViewTitleChanging~T : WebView~{
-        [readonly] string $title
-    }
+```php
+class WebViewTitleChanging<WebView> 
+{
+    public readonly string $title;
+}
 ```
 
 - `$title` - Expected title string to be set.
@@ -299,11 +312,11 @@ An `Boson\WebView\Event\WebViewTitleChanged` event fired after window title has
 been changed and the `Boson\WebView\Event\WebViewTitleChanging`
 intention has not been cancelled.
 
-```mermaid
-classDiagram
-    class WebViewTitleChanged~T : WebView~{
-        [readonly] string $title
-    }
+```php
+class WebViewTitleChanged<WebView> 
+{
+    public readonly string $title;
+}
 ```
 
 - `$title` - Title string from the HTML content of the webview.

@@ -170,6 +170,10 @@ documentation</a>.
 
 An `Boson\Event\ApplicationStarting` intention to start the application. 
 
+```php
+class ApplicationStarting<Application>
+```
+
 <tip>
 If it is cancelled, the application will not be launched.
 </tip>
@@ -181,10 +185,18 @@ An `Boson\Event\ApplicationStarted` event fired after the application has been
 launched and the `Boson\Event\ApplicationStarting` intention has not been 
 cancelled.
 
+```php
+class ApplicationStarted<Application>
+```
+
 ### Stopping Intention
 <secondary-label ref="intention"/>
 
 An `Boson\Event\ApplicationStopping` intention to stop the application. 
+
+```php
+class ApplicationStopping<Application>
+```
 
 <tip>
 If it is cancelled, the application will not be stopped.
@@ -196,3 +208,7 @@ If it is cancelled, the application will not be stopped.
 An `Boson\Event\ApplicationStopped` event fired after the application has been
 stopped and the `Boson\Event\ApplicationStopping` intention has not been
 cancelled.
+
+```php
+class ApplicationStopped<Application>
+```

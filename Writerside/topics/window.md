@@ -832,6 +832,10 @@ An `Boson\Window\Event\WindowClosing` intention to close the window.
 If it is cancelled, the window will not be closed.
 </tip>
 
+```php
+class WindowClosing<Window>
+```
+
 ### Closed Event
 <secondary-label ref="event"/>
 
@@ -839,10 +843,18 @@ An `Boson\Window\Event\WindowClosed` event fired after the window has been
 closed and the `Boson\Window\Event\WindowClosing` intention has not been
 cancelled.
 
+```php
+class WindowClosed<Window>
+```
+
 ### Created Event
 <secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowCreated` event fired after window has been created.
+
+```php
+class WindowCreated<Window>
+```
 
 ### Decorated Event
 <secondary-label ref="event"/>
@@ -850,11 +862,11 @@ An `Boson\Window\Event\WindowCreated` event fired after window has been created.
 An `Boson\Window\Event\WindowDecorated` event fired after
 <a href="window.md#decorations">window controls</a> visibility changed.
 
-```mermaid
-classDiagram
-    class WindowDecorated~T : Window~{
-        [readonly] bool $isDecorated
-    }
+```php
+class WindowDecorated<Window> 
+{
+    public readonly bool $isDecorated;
+}
 ```
 
 - `$isDecorated` - Visibility status of the OS window controls.
@@ -871,12 +883,12 @@ controls (minimize, maximize, restore, close buttons and title bar) visibility.
 An `Boson\Window\Event\WindowDecorationChanged` event fired after
 <a href="window.md#decorations">window decoration</a> has been changed.
 
-```mermaid
-classDiagram
-    class WindowDecorationChanged~T : Window~{
-        [readonly] Boson\Window\WindowDecoration $decoration
-        [readonly] Boson\Window\WindowDecoration $previous
-    }
+```php
+class WindowDecorationChanged<Window> 
+{
+    public readonly Boson\Window\WindowDecoration $decoration;
+    public readonly Boson\Window\WindowDecoration $previous;
+}
 ```
 
 - `$decoration` - Decorations type of the window.
@@ -888,12 +900,13 @@ classDiagram
 An `Boson\Window\Event\WindowFocused` event fired after
 <a href="window.md#focus">window focus</a> has been changed.
 
-```mermaid
-classDiagram
-    class WindowFocused~T : Window~{
-        [readonly] bool $isFocused
-    }
+```php
+class WindowFocused<Window> 
+{
+    public readonly bool $isFocused;
+}
 ```
+
 
 - `$isFocused` - Window <a href="window.md#focus">focus status</a>.
 
@@ -910,11 +923,11 @@ property will contain <code>false</code>).
 An `Boson\Window\Event\WindowMaximized` event fired after
 <a href="window.md#maximize">window maximized</a> state has been changed.
 
-```mermaid
-classDiagram
-    class WindowMaximized~T : Window~{
-        [readonly] bool $isMaximized
-    }
+```php
+class WindowMaximized<Window> 
+{
+    public readonly bool $isMaximized;
+}
 ```
 
 - `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
@@ -932,11 +945,11 @@ property will contain <code>false</code>).
 An `Boson\Window\Event\WindowMinimized` event fired after
 <a href="window.md#minimize">window minimized</a> state has been changed.
 
-```mermaid
-classDiagram
-    class WindowMinimized~T : Window~{
-        [readonly] bool $isMinimized
-    }
+```php
+class WindowMinimized<Window> 
+{
+    public readonly bool $isMinimized;
+}
 ```
 
 - `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
@@ -954,12 +967,12 @@ property will contain <code>false</code>).
 An `Boson\Window\Event\WindowResized` event fired after
 <a href="window.md#size">window size</a> has been changed.
 
-```mermaid
-classDiagram
-    class WindowResized~T : Window~{
-        [readonly] int $width
-        [readonly] int $height
-    }
+```php
+class WindowResized<Window> 
+{
+    public readonly int $width;
+    public readonly int $height;
+}
 ```
 
 - `$width` - Window width dimension in pixels.
@@ -976,12 +989,12 @@ between 0 and 2147483647).
 An `Boson\Window\Event\WindowStateChanged` event fired after
 <a href="window.md#state">window state</a> has been changed.
 
-```mermaid
-classDiagram
-    class WindowStateChanged~T : Window~{
-        [readonly] Boson\Window\WindowState $state
-        [readonly] Boson\Window\WindowState $previous
-    }
+```php
+class WindowStateChanged<Window> 
+{
+    public readonly Boson\Window\WindowState $state;
+    public readonly Boson\Window\WindowState $previous;
+}
 ```
 
 - `$state` - State type of the window.

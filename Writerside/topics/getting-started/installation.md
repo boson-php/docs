@@ -236,7 +236,7 @@ sudo apt install php8.4-ffi
 </note>
 
 
-### [Linux] Failed loading '.../libboson-linux-xxx.so'
+### Failed loading '.../libboson-linux-xxx.so'
 
 <note>
 Make sure that GTK4 is installed.

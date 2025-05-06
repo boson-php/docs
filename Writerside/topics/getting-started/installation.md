@@ -259,3 +259,14 @@ pkg install webkit2-gtk4
 </tabs>
 </note>
 
+### Illegal instruction (core dumped)
+
+Linux prebuild was compiled with some assumptions, such as the presence of 
+<code>sse</code> and <code>avx2</code> instructions.
+
+<note>
+Make sure your CPU supports <code>AVX2</code> (Intel Q2 2013, AMD Q2 2015) 
+instructions set (<code>cat /proc/cpuinfo</code>).
+
+<b>Note:</b> VirtualBox may not support AVX/AVX2 when running under Hyper-V.
+</note>

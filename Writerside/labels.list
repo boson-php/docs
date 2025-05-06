@@ -3,10 +3,17 @@
 <labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
     <primary-label id="experimental" name="Experimental" short-name="Experimental" color="tangerine">
-        This is a unique functionality that is not supported by other popular
-        third-party tools (e.g. PHPStan or Psalm) and has no alternatives.
+        This is a non-stable functionality which is highly likely
+        to be changed or removed in the future.
+    </primary-label>
+
+    <primary-label id="events" name="Context Events" short-name="E" color="tangerine">
+        List of context events and intentions provided by the given context.
     </primary-label>
 
     <secondary-label id="wip" name="WIP" color="red">Work in progress</secondary-label>
     <secondary-label id="beta" name="β" color="tangerine">Beta</secondary-label>
+
+    <secondary-label id="event" name="Event" color="tangerine">Event Feature</secondary-label>
+    <secondary-label id="intention" name="Intention" color="purple">Intention Feature</secondary-label>
 </labels>

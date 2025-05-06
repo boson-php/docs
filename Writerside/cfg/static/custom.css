@@ -154,6 +154,7 @@ html.theme-dark #mermaid .node rect {
 
 html.theme-dark #mermaid .node span {
     color: #a9b7c6 !important;
+    font-size: 95%;
 }
 
 html.theme-dark #mermaid .divider {

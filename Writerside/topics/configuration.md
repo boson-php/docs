@@ -5,19 +5,19 @@
 Boson applications are configured using clean, structured DTO (Data Transfer 
 Object) classes.
 
-<code-block lang="PHP">
+```php
 $config = new Boson\ApplicationCreateInfo( 
     name: 'My Application',
     debug: true,
 );
-</code-block>
+```
 
 These DTOs encapsulate all the necessary configuration settings and are passed 
 directly into the application's constructor (optionally). 
 
-<code-block lang="PHP">
-$app = new Boson\Application( &lt;Boson\ApplicationCreateInfo> );
-</code-block>
+```php
+$app = new Boson\Application( <Boson\ApplicationCreateInfo> );
+```
 
 This approach ensures a clear separation of concerns, type safety, 
 and easy maintainability — making your setup explicit, predictable, and easy to 
@@ -28,65 +28,62 @@ organized and expressive.
 ## Hierarchy 
 
 Boson's configuration system is built on a clear and logical hierarchy. At the 
-top level, you define global application settings (<code>ApplicationCreateInfo</code>) 
+top level, you define global application settings (`ApplicationCreateInfo`) 
 — things like the app name, threads count, debug mode, and general behavior.
 
-Nested within those are window-specific configurations (<code>WindowCreateInfo</code>), 
+Nested within those are window-specific configurations (`WindowCreateInfo`), 
 where you can control properties such as dimensions, resizability, title, and more. 
 
 Digging even deeper, each window contains its own embedded WebView settings 
-(<code>WebViewCreateInfo</code>), giving you fine-grained control over how web 
+(`WebViewCreateInfo`), giving you fine-grained control over how web 
 content is rendered, what scripts are allowed, caching policies, and other 
 browser-like behaviors.
 
-<code-block lang="mermaid">
+```mermaid
 classDiagram
     class ApplicationCreateInfo["readonly Boson\ApplicationCreateInfo"]{
-        +string : $name
-        +iterable~string~ : $schemes
-        +int|null : $threads
-        +bool|null : $debug
-        +string|null : $library
-        +bool : $quitOnClose
-        +bool : $autorun
-        +Boson\Window\WindowCreateInfo : $window
+        string $name
+        iterable~string~ $schemes
+        int|null $threads
+        bool|null $debug
+        string|null $library
+        bool $quitOnClose
+        bool $autorun
+        Boson\Window\WindowCreateInfo $window
     }
     link ApplicationCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/ApplicationCreateInfo.php"
-    <!---->
     class WindowCreateInfo["readonly Boson\Window\WindowCreateInfo"]{
-        +string : $title
-        +int : $width
-        +int : $height
-        +bool : $enableHardwareAcceleration
-        +bool : $visible
-        +bool : $resizable
-        +bool : $alwaysOnTop
-        +bool : $clickThrough
-        +Boson\Window\WindowDecoration : $decoration
-        +Boson\WebView\WebViewCreateInfo : $webview
+        string $title
+        int $width
+        int $height
+        bool $enableHardwareAcceleration
+        bool $visible
+        bool $resizable
+        bool $alwaysOnTop
+        bool $clickThrough
+        Boson\Window\WindowDecoration $decoration
+        Boson\WebView\WebViewCreateInfo $webview
     }
     link WindowCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/Window/WindowCreateInfo.php"
-    <!---->
     class WebViewCreateInfo["readonly Boson\WebView\WebViewCreateInfo"]{
-        +string|null : $url
-        +string|null : $html
-        +iterable~string~ : $scripts
-        +iterable~string, Closure~ : $functions
-        +string|null : $userAgent
-        +string|false|null : $storage
-        +iterable~string, mixed~ : $flags
-        +bool|null : $contextMenu
-        +bool|null : $devTools
+        string|null $url
+        string|null $html
+        iterable~string~ $scripts
+        iterable~string, Closure~ $functions
+        string|null $userAgent
+        string|false|null $storage
+        iterable~string, mixed~ $flags
+        bool|null $contextMenu
+        bool|null $devTools
     }
     link WebViewCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/WebView/WebViewCreateInfo.php"
-    <!---->
-    ApplicationCreateInfo ..> WindowCreateInfo
-    WindowCreateInfo ..> WebViewCreateInfo
-</code-block>
+    ApplicationCreateInfo <.. WindowCreateInfo
+    WindowCreateInfo <.. WebViewCreateInfo
+```
 
 This layered configuration model keeps your setup organized and modular. Each 
 level of the hierarchy focuses on its own responsibilities, making it easier to 
-understand, maintain, and scale as your  application grows.
+understand, maintain, and scale as your application grows.
 
 <note>
 An application without windows and webview in them makes no sense, the configuration 
@@ -96,7 +93,7 @@ the main window itself) are always present and available.
 
 ## Application
 
-The application configuration class <code>Boson\ApplicationCreateInfo</code> is 
+The application configuration class `Boson\ApplicationCreateInfo` is 
 <tooltip term="optional class">optional</tooltip> and serves as a convenient 
 way to define default settings for initializing your app.
 
@@ -104,11 +101,11 @@ way to define default settings for initializing your app.
 
 The name of the application. 
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     name: 'Example Application',
 );
-</code-block>
+```
 
 The value is optional and can be used for user needs, as well as for internal ones. 
 <tip>
@@ -124,15 +121,15 @@ For example as a <a href="https://learn.microsoft.com/en-us/windows/win32/learnw
 Defines custom schemes that your application can handle. 
 These schemes allow you to create custom protocols for your application.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     schemes: [ 'boson' ], // Default is empty array
 );
-</code-block>
+```
 
 <tip>
 Each registered scheme in this list will produce a 
-<code>Boson\WebView\Event\WebViewRequest</code> intention (event) when attempting 
+`Boson\WebView\Event\WebViewRequest` intention (event) when attempting 
 to access a resource located at an address with this protocol.
 </tip>
 
@@ -161,41 +158,45 @@ to access a resource located at an address with this protocol.
     </tab>
 </tabs>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Threads Count
 
 Specifies the number of physical threads for the application. This affects how 
 many concurrent operations your application can handle.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     threads: 4, // Default is null
 );
-</code-block>
+```
 
 <note>
-If the value is not specified (defined as <code>null</code>), the number of 
+If the value is not specified (defined as `null`), the number of 
 threads will correspond to the number of cores in the CPU.
 </note>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Debug Mode
 
 Enables or disables debug features, like dev tools and logging. When enabled, 
 provides additional diagnostic information and developer tools.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     debug: true, // Default is null
 );
-</code-block>
+```
 
 <note>
 If the value is not specified, the debug mode will be set according to the 
-current <code>php.ini</code> settings (depends on whether you are using the 
-development <code>php.ini</code> settings)
+current `php.ini` settings (depends on whether you are using the 
+development `php.ini` settings)
 </note>
 
 <tip>
@@ -204,7 +205,9 @@ configurations, such as <a href="configuration.md#dev-tools">developer tools</a>
 (if they are not set explicitly).
 </tip>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Application Library
 
@@ -212,58 +215,63 @@ Specifies the path to a <a href="https://github.com/BosonPHP/Frontend/releases">
 custom frontend library</aa> that should be loaded with the 
 application.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     library: __DIR__ . '/path/to/custom/library.dll', // Default is null
 );
-</code-block>
+```
 
 <note>
 In most cases this is not required and the library will be selected 
 automatically based on the current operating system and CPU architecture.
 </note>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Quit On Close
 
 Determines whether the application should terminate when all windows are closed. 
-If set to <code>false</code>, the application will continue running in the background.
+If set to `false`, the application will continue running in the background.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     quitOnClose: true, // Default is true
 );
-</code-block>
+```
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Autorun
 
 Responsible for automatic application launch. If autorun is set to 
-<code>false</code>, you will need to launch the application yourself at the 
+`false`, you will need to launch the application yourself at the 
 moment when it is needed.
 
-<code-block lang="PHP">
+```php
 $appConfig = new Boson\ApplicationCreateInfo( 
     autorun: false, // Default is true
 );
-</code-block>
-
+```
 
 <tip>
 Autorun is disabled automatically if the application was launched manually 
-using <code>$app->run()</code>. In other words, autostart will not work again 
+using `$app->run()`. In other words, autostart will not work again 
 (the application will not start twice) if you have already started it yourself.
 
 Therefore, disabling this setting does not make sense.
 </tip>
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ## Window
 
-The window configuration class <code>Boson\Window\WindowCreateInfo</code> is
+The window configuration class `Boson\Window\WindowCreateInfo` is
 <tooltip term="optional class">optional</tooltip> and serves as a convenient way to 
 define default settings for main window of your app.
 
@@ -271,11 +279,11 @@ define default settings for main window of your app.
 
 Sets the title that appears in the window's title bar and taskbar.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     title: 'My Application Window',
 );
-</code-block>
+```
 
 <note>
 The title can be changed later at runtime. More information about window title 
@@ -286,87 +294,89 @@ can be found in the <a href="window.md#title">window documentation</a>.
 
 Enables or disables hardware-accelerated rendering for better performance.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     enableHardwareAcceleration: true, // Default is true
 );
-</code-block>
+```
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Window Size (Width and Height)
 
 Defines the initial dimensions of the window in pixels.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     width: 800,
     height: 600,
 );
-</code-block>
+```
 
 <note>
-  The size can be changed later at runtime.
+The size can be changed later at runtime.
 </note>
 
 <note>
-  More information about window size can be found in 
-  the <a href="window.md#size">window documentation</a>.
+More information about window size can be found in 
+the <a href="window.md#size">window documentation</a>.
 </note>
 
 ### Window Resizability
 
 Determines if the window can be resized by the user.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     resizable: true, // Default is true
 );
-</code-block>
+```
 
 <warning>The value cannot be changed after the application is created.</warning>
 
 <note>
-  More information about window size can be found in 
-  the <a href="window.md#size">window documentation</a>.
+More information about window size can be found in 
+the <a href="window.md#size">window documentation</a>.
 </note>
 
 ### Window Visibility
 
 Controls whether the window is initially visible when created.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     visible: true, // Default is true
 );
-</code-block>
+```
 
 <note>
-  Window visibility can be changed later at runtime.
+Window visibility can be changed later at runtime.
 </note>
 
 <note>
-  More information about window visibility can be found in 
-  the <a href="window.md#visibility">window documentation</a>.
+More information about window visibility can be found in 
+the <a href="window.md#visibility">window documentation</a>.
 </note>
 
 ### Always On Top
 
 Controls whether a window should stay on top of other windows.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo(
     alwaysOnTop: true, // Default is false
 );
-</code-block>
+```
 
 <note>
-  Window "always on top" feature can be changed later at runtime.
+Window "always on top" feature can be changed later at runtime.
 </note>
 
 <note>
-  More information about window "always on top" feature can be found in 
-  the <a href="window.md#always-on-top">window documentation</a>.
+More information about window "always on top" feature can be found in 
+the <a href="window.md#always-on-top">window documentation</a>.
 </note>
 
 
@@ -374,19 +384,19 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 Enables or disables the window's handling of mouse events.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo(
     clickThrough: true, // Default is false
 );
-</code-block>
+```
 
 <note>
-  Window "click-through" feature can be changed later at runtime.
+Window "click-through" feature can be changed later at runtime.
 </note>
 
 <note>
-  More information about window "click-through" feature can be found in 
-  the <a href="window.md#click-through">window documentation</a>.
+More information about window "click-through" feature can be found in 
+the <a href="window.md#click-through">window documentation</a>.
 </note>
 
 
@@ -394,24 +404,24 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 Specifies the window's border, title bar style and other.
 
-<code-block lang="PHP">
+```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
     decoration: Boson\Window\WindowDecoration::Default,
 );
-</code-block>
+```
 
 <note>
-  Window decorations can be changed later at runtime.
+Window decorations can be changed later at runtime.
 </note>
 
 <note>
-  More information about window decorations can be found in 
-  the <a href="window.md#decorations">window documentation</a>.
+More information about window decorations can be found in 
+the <a href="window.md#decorations">window documentation</a>.
 </note>
 
 ## WebView
 
-The webview configuration class <code>Boson\WebView\WebViewCreateInfo</code> is
+The webview configuration class `Boson\WebView\WebViewCreateInfo` is
 <tooltip term="optional class">optional</tooltip> and serves as a convenient way to 
 define default settings for webview of main window instance.
 
@@ -419,16 +429,16 @@ define default settings for webview of main window instance.
 
 Sets the initial content of the WebView, either through a URL or direct HTML content.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     url: 'https://example.com',
     // or
-    html: '&lt;html>&lt;body>Hello World&lt;/body>&lt;/html>',
+    html: '<html><body>Hello World</body></html>',
 );
-</code-block>
+```
 
 <warning>
-Note that loading <code>html</code> directly implements an 
+Direct HTML loading implemented via the <code>data:</code> protocol and marks an 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
 which does NOT allow the implementation of 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.
@@ -439,40 +449,42 @@ which does NOT allow the implementation of
 Defines JavaScript code that will be loaded and executed in the 
 WebView context <b>after</b> every DOM loaded event.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     scripts: [
         "document.body.setAttribute('data-some', '{$some}')"
     ],
 );
-</code-block>
+```
 
 ### Global Functions
 
 Registers PHP functions that can be called from JavaScript.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     functions: [
-        'foo' => fn(int $arg): int => $arg * 2;
+        'foo' => static fn(int $arg): int => $arg * 2;
     ],
 );
 
-// Now the "foo(Number): Promise&lt;Number>" can be called 
+// Now the "foo(Number): Promise<Number>" can be called 
 // from JS as "let result = await foo(42);" 
-</code-block>
+```
 
 ### Default User Agent
 
 Sets a custom user agent string for the WebView.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     userAgent: 'MyCustomUserAgent/1.0',
 );
-</code-block>
+```
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Storage (Persistent Client Settings)
 
@@ -482,32 +494,34 @@ If storage is enabled, persistent settings will be saved between
 different app executions, such as saved passwords, history, and other data 
 shared across browsers.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     storage: '/path/to/storage', // Defaults to false (disabled)
 );
-</code-block>
+```
 
 The storage value can take on different types:
-- <code>false</code> - The storage will be <b>disabled</b>.
-- <code>null</code> - The storage will be <b>enabled</b> and directory will be 
+- `false` - The storage will be **disabled**.
+- `null` - The storage will be **enabled** and directory will be 
   determined automatically based on the current working directory.
-- <code>string</code> - The storage will be <b>enabled</b> and directory will be
+- `string` - The storage will be **enabled** and directory will be
   based on the passed argument.
 
-<warning>The value cannot be changed after the application is created.</warning>
+<warning>
+The value cannot be changed after the application is created.
+</warning>
 
 ### Extra Flags
 
 Sets additional WebView configuration flags.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     flags: [
         'enable-javascript' => false,
     ],
 );
-</code-block>
+```
 
 These are additional <b>platform-dependent</b> launch flags and their behavior may 
 differ on different platforms.
@@ -553,11 +567,11 @@ differ on different platforms.
 
 Controls whether the default context menu (right mouse button) is enabled.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     contextMenu: true, // Default is false
 );
-</code-block>
+```
 
 <warning>The value cannot be changed after the application is created.</warning>
 
@@ -565,16 +579,16 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 
 Enables or disables developer tools for the WebView.
 
-<code-block lang="PHP">
+```php
 $webviewConfig = new Boson\WebView\WebViewCreateInfo( 
     devTools: true, // Default is null
 );
-</code-block>
+```
 
 The developer tools settings can take one of the following values:
-- <code>true</code> - Enables developer tools window.
-- <code>false</code> - Disables developer tools window.
-- <code>null</code> - Depends on the application <code>debug</code> settings. 
+- `true` - Enables developer tools window.
+- `false` - Disables developer tools window.
+- `null` - Depends on the application `debug` settings. 
   Developer tools will be enabled if debug is enabled and vice versa.
 
 <warning>The value cannot be changed after the application is created.</warning>

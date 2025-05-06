@@ -11,62 +11,69 @@ associated WebView.
 The `Application::$window` property provides convenient access to the
 <tooltip term="main window">main window</tooltip> of the application. 
 
-<tip>This is a <tooltip term="facade">facade property</tooltip> that internally 
-accesses the default window inside the window manager</tip>
+<tip>
+This is a <tooltip term="facade">facade property</tooltip> that internally 
+accesses the default window inside the window manager.
+</tip>
 
-<code-block lang="PHP">
+```php
 $app = new Boson\Application();
 
 // Access the main window
 $window = $app->window;
-</code-block>
+```
 
 <warning>
 If the <tooltip term="main window">main window</tooltip> is closed, the next 
 available window from window manager will become the 
 <tooltip term="main window">main window</tooltip>.
 
-If you try to access the `$window` property after the all windows has been
-closed, a `NoDefaultWindowException` will be thrown.
+If you try to access the <code>$window</code> property after the all windows has 
+been closed, a <code>NoDefaultWindowException</code> will be thrown.
 </warning>
 
 <note>
-    The <tooltip term="main window">main window</tooltip> already available by 
-    default in any application.
+The <tooltip term="main window">main window</tooltip> already available by 
+default in any application.
 </note>
 
 
 ## Title
 
 Contains title of the specified window encoded as UTF-8. The window title can 
-be in any language and even include emojis. All line breaks (<code>\n</code>) 
+be in any language and even include emojis. All line breaks (`\n`) 
 and similar characters will be removed.
 
 <img src="window-title.png" alt="Window Title" />
 
 To get the window title, simply read this property. The title will contain the 
-real value, including all invisible (like <code>\n</code>) characters.
+real value, including all invisible (like `\n`) characters.
 
-<code-block lang="PHP">
+```php
 $title = $window->title;
 
 echo 'Window Title: ' . $title;
-</code-block>
+```
 
 To update the window title, set a new value to the property.
 
-<code-block lang="PHP">
+```php
 $window->title = 'New Window Title!';
-</code-block>
+```
 
 <warning>
 Indirect modification of <code>Window::$title</code> is <b>not allowed</b>, 
 which means that this property cannot be passed by reference.
 
-<code-block lang="PHP">
+```php
 $title = &$window->title; // ❌ not available
-</code-block>
+```
 </warning>
+
+<tip>
+Window title change also fires a <a href="webview.md#title-changed-event">corresponding 
+event</a> that can be subscribed to using the <a href="events.md">event system</a>.
+</tip>
 
 
 ## State
@@ -74,12 +81,12 @@ $title = &$window->title; // ❌ not available
 Each window has several states. The window can be minimized, maximized to full 
 screen, or in a normal state.
 
-To get the current state of a window, you can use the <code>Window::$state</code> 
+To get the current state of a window, you can use the `Window::$state` 
 property. 
 
-<code-block lang="PHP">
+```php
 echo 'Window State: ' . $window->state->name;
-</code-block>
+```
 
 <warning>
 The <code>Window::$state</code> property is <b>read-only</b> and cannot be 
@@ -87,9 +94,9 @@ changed. To change state, the appropriate methods are used, described below.
 </warning>
 
 This property will contain one of the possible values of 
-<code>Boson\Window\WindowState</code> enum.
+`Boson\Window\WindowState` enum.
 
-<code-block lang="PHP">
+```php
 enum WindowState
 {
     /**
@@ -107,19 +114,25 @@ enum WindowState
      */
     case Minimized;
 }
-</code-block>
+```
 
 There are corresponding methods for changing states from code.
+
+<tip>
+Window state change also fires a
+<a href="window.md#state-changed-event">corresponding event</a> that can be 
+subscribed to using the <a href="events.md">event system</a>.
+</tip>
 
 ### Minimize
 
 In order to minimize the window, you should use the appropriate 
-<code>Window::minimize()</code> method.
+`Window::minimize()` method.
 
-<code-block lang="PHP">
+```php
 // Minimize window to tray
 $window->minimize();
-</code-block>
+```
 
 When restoring a window from the tray using the operating system features 
 (for example, <shortcut>Alt + Tab</shortcut>), the previous state will be 
@@ -147,22 +160,22 @@ restored.
 ### Maximize
 
 In order to maximize the window, you should use the appropriate
-<code>Window::maximize()</code> method.
+`Window::maximize()` method.
 
-<code-block lang="PHP">
+```php
 // Maximize window from tray or normal state
 $window->maximize();
-</code-block>
+```
 
 ### Restore
 
-In order to restore the window state (that is, switch to a <code>Normal</code> 
-state), you should use the appropriate <code>Window::restore()</code> method.
+In order to restore the window state (that is, switch to a `Normal` 
+state), you should use the appropriate `Window::restore()` method.
 
-<code-block lang="PHP">
+```php
 // Restore window state
 $window->restore();
-</code-block>
+```
 
 
 ## Visibility
@@ -171,20 +184,20 @@ The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
 
 <note>
-    It is also worth noting that the initial state of the window visibility
-    depends on the <a href="configuration.md#window-visibility">window 
-    settings</a>. By default, the window is shown.
+It is also worth noting that the initial state of the window visibility
+depends on the <a href="configuration.md#window-visibility">window 
+settings</a>. By default, the window is shown.
 </note>
 
 To check if a window is currently visible:
 
-<code-block lang="PHP">
+```php
 if ($window->isVisible) {
     echo 'Window is visible';
 } else {
     echo 'Window is hidden';
 }
-</code-block>
+```
 
 <warning>
 The visibility state is independent of the window's <code>Minimized</code>
@@ -197,57 +210,57 @@ OS functionality.
 
 ### Show
 
-To show the window you may use desired <code>Window::show()</code> method.
+To show the window you may use desired `Window::show()` method.
 
-<code-block lang="PHP">
+```php
 // Show the window
 $window->show();
-</code-block>
+```
 
 <tip>
 You can also show the window through a <code>Window::$isVisible</code> property. 
 To do this, simply set the <code>true</code>.
 
-<code-block lang="PHP">
+```php
 // Show the window
 $window->isVisible = true;
-</code-block>
+```
 </tip>
 
 ### Hide
 
-To hide the window you may use desired <code>Window::hide()</code> method.
+To hide the window you may use desired `Window::hide()` method.
 
-<code-block lang="PHP">
+```php
 // Hide the window
 $window->hide();
-</code-block>
+```
 
 <tip>
 You can also hide the window through a <code>Window::$isVisible</code> property. 
 To do this, simply set the <code>false</code>.
 
-<code-block lang="PHP">
+```php
 // Hide the window
 $window->isVisible = false;
-</code-block>
+```
 </tip>
 
 
 ## Decorations
 
-The <code>Window::$decoration</code> property allows you to control the
+The `Window::$decoration` property allows you to control the
 window's appearance and style.
 
-<code-block lang="PHP">
+```php
 // Get current decoration mode
 echo $window->decoration->name;
-</code-block>
+```
 
 It supports different decoration modes defined in the
-<code>Boson\Window\WindowDecoration</code> enum.
+`Boson\Window\WindowDecoration` enum.
 
-<code-block lang="PHP">
+```php
 enum WindowDecoration
 {
     /**
@@ -271,11 +284,10 @@ enum WindowDecoration
      */
     case Transparent;
 }
-</code-block>
+```
 
-Let's say we load the content as
-<code>&lt;div style="background: #fff">Hello World!&lt;/div></code> in webview. 
-So the result with different decorations will look like this.
+Let's say we load the content as `<div style="background: #fff">Hello World!</div>` 
+in webview. So the result with different decorations will look like this.
 
 <tabs>
     <tab title="Default">
@@ -292,38 +304,44 @@ So the result with different decorations will look like this.
     </tab>
 </tabs>
 
+<tip>
+Window decoration change also fires a 
+<a href="window.md#decoration-changed-event">corresponding event</a> that can be 
+subscribed to using the <a href="events.md">event system</a>.
+</tip>
+
 ### Default
 
 The standard window style with system default appearance (title bar, close,
 minimise and maximise buttons).
 
-<code-block lang="PHP">
+```php
 $window->decoration = WindowDecoration::Default;
-</code-block>
+```
 
 ### Dark Mode
 
 Default window style with dark theme preference.
 
-<code-block lang="PHP">
+```php
 $window->decoration = WindowDecoration::DarkMode;
-</code-block>
+```
 
 ### Frameless
 
 A frameless window hides the default window decorations (title bar, buttons)
 provided by the operating system.
 
-<code-block lang="PHP">
+```php
 $window->decoration = WindowDecoration::Frameless;
-</code-block>
+```
 
 <note>
-You can use the <a href="window.md#minimize">Minimize</a>, 
+You can use the <a href="window.md#minimize">Minimize</a>,
 <a href="window.md#maximize">Maximize</a>,
 <a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a> 
-and <a href="window.md#resizing">Resize</a> features to implement window 
+<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
+and <a href="window.md#resizing">Resize</a> features to implement window
 controls manually.
 </note>
 
@@ -338,30 +356,32 @@ window controls and drag regions using HTML attributes.
 Enables <a href="#frameless">frameless</a> mode and makes the window
 background transparent.
 
-<code-block lang="PHP">
+```php
 $window->decoration = WindowDecoration::Transparent;
-</code-block>
+```
 
 <tip>
 With transparent windows, you should use CSS to control the background color:
 <code-block lang="HTML">
-&lt;style>
+<![CDATA[
+<style>
 body {
     background: rgba(255, 255, 255, .8);
 }
-&lt;/style>
-&lt;body>
+</style>
+<body>
     Content
-&lt;/body>
+</body>
+]]>
 </code-block>
 </tip>
 
 <note>
-You can use the <a href="window.md#minimize">Minimize</a>, 
+You can use the <a href="window.md#minimize">Minimize</a>,
 <a href="window.md#maximize">Maximize</a>,
 <a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a> 
-and <a href="window.md#resizing">Resize</a> features to implement window 
+<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
+and <a href="window.md#resizing">Resize</a> features to implement window
 controls manually.
 </note>
 
@@ -373,11 +393,11 @@ to manage the current size, minimum and maximum bounds of the window.
 
 ### Current Size
 
-The <code>Window::$size</code> property provides access to the current window 
+The `Window::$size` property provides access to the current window 
 dimensions. The object in the window is <b>mutable</b> which allows both 
 reading and updating the size.
 
-<code-block lang="PHP">
+```php
 // Get current size
 echo $window->size; // Size(640 × 480)
 
@@ -390,7 +410,7 @@ $window->size->update(800, 600);
 
 // Set size using Size object
 $window->size = new Boson\Window\Size(800, 600);
-</code-block>
+```
 
 <warning>
 Window dimensions must be non-negative <code>int32</code> (an integer value 
@@ -399,12 +419,17 @@ between 0 and 2147483647).
 Attempting to set values outside this range will result in an exception.
 </warning>
 
+<tip>
+Window resize also fires a <a href="window.md#resized-event">corresponding event</a> 
+that can be subscribed to using the <a href="events.md">event system</a>.
+</tip>
+
 ### Minimum Size
 
-The <code>Window::$min</code> property controls the minimum allowed dimensions 
+The `Window::$min` property controls the minimum allowed dimensions 
 of the window. Users cannot resize the window smaller than these values.
 
-<code-block lang="PHP">
+```php
 // Get minimum size
 echo $window->min; // Size(0 × 0)
 
@@ -414,7 +439,7 @@ $window->min->height = 300;
 
 // Or update all dimensions at once
 $window->min->update(400, 300);
-</code-block>
+```
 
 <tip>
 Setting minimum size helps prevent the window from being resized too small, 
@@ -430,10 +455,10 @@ Attempting to set values outside this range will result in an exception.
 
 ### Maximum Size
 
-The <code>Window::$max</code> property controls the maximum allowed dimensions 
+The `Window::$max` property controls the maximum allowed dimensions 
 of the window. Users cannot resize the window larger than these values.
 
-<code-block lang="PHP">
+```php
 // Get maximum size
 echo $window->max; // Size(3840 × 2160)
 
@@ -443,7 +468,7 @@ $window->max->height = 1080;
 
 // Or update both at once
 $window->max->update(1920, 1080);
-</code-block>
+```
 
 <note>
 The maximum size is typically limited by the screen resolution. Setting a value 
@@ -459,21 +484,21 @@ Attempting to set values outside this range will result in an exception.
 
 ## Resizing
 
-The <code>Window::startResize()</code> method allows you to programmatically 
+The `Window::startResize()` method allows you to programmatically 
 start resizing the window. This is particularly useful for frameless windows 
 where you need to implement custom window controls.
 
 The method takes one of the available arguments: 
-- <code>Boson\Window\WindowCorner</code> - window corner.
-- <code>Boson\Window\WindowEdge</code> - window edge.
+- `Boson\Window\WindowCorner` - window corner.
+- `Boson\Window\WindowEdge` - window edge.
 
-<code-block lang="PHP">
+```php
 // Start resizing the window on the right side
 $window->startResize(Boson\Window\WindowEdge::Right);
 
 // Start resizing the window on the bottom-left side
 $window->startResize(Boson\Window\WindowCorner::BottomLeft);
-</code-block>
+```
 
 <tip>
 The end of the resizing occurs on the <b>mouse up</b> event at any place 
@@ -481,59 +506,59 @@ therefore, it is recommended to call this method when <b>mouse down</b>
 on any element.
 </tip>
 
-<code-block lang="PHP">
+```php
 $app = new Boson\Application();
 
-$app->webview->functions->bind('start_resize', function () use ($app) {
-    $app->window->start_resize(
+$app->webview->functions->bind('resize', function() use ($app) {
+    $app->window->startResize(
         Boson\Window\WindowCorner::BottomRight,
     );
 });
 
-$app->webview->html = &lt;&lt;&lt;'HTML'
-    &lt;div onmousedown="start_resize()">
+$app->webview->html = <<<'HTML'
+    <div onmousedown="resize()">
         Press + hold to resize the window!
-    &lt;/div>
+    </div>
     HTML;
-</code-block>
+```
 
 ### Resize via HTML
 
-You can also use the <code>data-webview-resize</code> HTML attribute 
+You can also use the `data-webview-resize` HTML attribute 
 to implement the window resize functionality.
 
 Possible values for window edges:
-- <code>t</code> - Top resize edge handle.
-- <code>b</code> - Bottom resize edge handle.
-- <code>l</code> - Left resize edge handle.
-- <code>r</code> - Right resize edge handle.
+- `t` - Top resize edge handle.
+- `b` - Bottom resize edge handle.
+- `l` - Left resize edge handle.
+- `r` - Right resize edge handle.
 
 Possible values for window corners:
-- <code>tr</code> - Top-Right resize corner handle.
-- <code>br</code> - Bottom-Right resize corner handle.
-- <code>bl</code> - Bottom-Left resize corner handle.
-- <code>tl</code> - Top-Left resize corner handle.
+- `tr` - Top-Right resize corner handle.
+- `br` - Bottom-Right resize corner handle.
+- `bl` - Bottom-Left resize corner handle.
+- `tl` - Top-Left resize corner handle.
 
-<code-block lang="HTML">
-&lt;button data-webview-resize="t">    ↑   &lt;/button>
-&lt;button data-webview-resize="l">    ←   &lt;/button>
-&lt;button data-webview-resize="tr">   ↗   &lt;/button>
-&lt;button data-webview-resize="bl">   ↙   &lt;/button>
-</code-block>
+```html
+<button data-webview-resize="t">    ↑   </button>
+<button data-webview-resize="l">    ←   </button>
+<button data-webview-resize="tr">   ↗   </button>
+<button data-webview-resize="bl">   ↙   </button>
+```
 
 <tip>
 To prevent this event for child HTML elements, use the 
 <code>data-webview-ignore</code> HTML attribute.
 
-<code-block lang="HTML">
-&lt;!-- header resizes the window  -->
-&lt;header data-webview-resize="l">
-    &lt;span>Custom Title Bar&lt;/span>
+```html
+<!-- header resizes the window  -->
+<header data-webview-resize="l">
+    <span>Custom Title Bar</span>
 
-    &lt;!-- except close button -->
-    &lt;button data-webview-ignore>Close&lt;/button>
-&lt;/header>
-</code-block>
+    <!-- except close button -->
+    <button data-webview-ignore>Close</button>
+</header>
+```
 </tip>
 
 <note>
@@ -544,57 +569,59 @@ operating system through the window corners and edges.
 
 ## Dragging
 
-The <code>Window::startDrag()</code> method allows you to programmatically start 
+The `Window::startDrag()` method allows you to programmatically start 
 dragging the window. This is particularly useful for frameless windows where you 
 need to implement custom window controls.
 
-<code-block lang="PHP">
+```php
 // Start dragging the window
 $window->startDrag();
-</code-block>
+```
 
 <tip>
 The end of the drag occurs on the <b>mouse up</b> event at any place therefore, 
 it is recommended to call this method when <b>mouse down</b> on any element.
 </tip>
 
-<code-block lang="PHP">
+```php
 $app = new Boson\Application();
 
-$app->webview->functions->bind('start_drag', function () use ($app) {
+$app->webview->functions->bind('drag', function () use ($app) {
     $app->window->startDrag();
 });
 
-$app->webview->html = &lt;&lt;&lt;'HTML'
-    &lt;div onmousedown="start_drag()">
+$app->webview->html = <<<'HTML'
+    <div onmousedown="drag()">
         Press + hold to drag the window!
-    &lt;/div>
+    </div>
     HTML;
-</code-block>
+```
 
 ### Drag via HTML
 
-You can also use the <code>data-webview-drag</code> HTML attribute to make 
+You can also use the `data-webview-drag` HTML attribute to make 
 specific elements draggable.
 
-<code-block lang="HTML">
-&lt;header data-webview-drag>
-    &lt;span>Custom Title Bar&lt;/span>
-&lt;/header>
-</code-block>
+```html
+<header data-webview-drag>
+    <span>Custom Title Bar</span>
+</header>
+```
 
 <tip>
 To prevent this event for child HTML elements, use the <code>data-webview-ignore</code>
 HTML attribute.
 
 <code-block lang="HTML">
-&lt;!-- header is draggable -->
-&lt;header data-webview-drag>
-    &lt;span>Custom Title Bar&lt;/span>
+<![CDATA[
+<!-- header is draggable -->
+<header data-webview-drag>
+    <span>Custom Title Bar</span>
 
-    &lt;!-- except close button -->
-    &lt;button data-webview-ignore>Close&lt;/button>
-&lt;/header>
+    <!-- except close button -->
+    <button data-webview-ignore>Close</button>
+</header>
+]]>
 </code-block>
 </tip>
 
@@ -606,26 +633,31 @@ operating system through the title bar.
 ## Focus
 
 Windows can be given input focus and brought to the front with
-<code>Window::focus()</code> method.
+`Window::focus()` method.
 
-<code-block lang="PHP">
+```php
 // Focus the window
 $window->focus();
-</code-block>
+```
 
 <warning>
 Keep in mind that it can be very disruptive to the user when a window is 
 forced to the top. Please use this feature judiciously.
 </warning>
 
+<tip>
+Window focus also fires a <a href="window.md#focused-event">corresponding even</a> 
+that can be subscribed to using the <a href="events.md">event system</a>.
+</tip>
+
 
 ## Always On Top
 
-The <code>Window::$isAlwaysOnTop</code> property allows you to control whether 
+The `Window::$isAlwaysOnTop` property allows you to control whether 
 a window should stay on top of other windows. When enabled, the window will 
 remain visible even when other windows are in focus.
 
-<code-block lang="PHP">
+```php
 // Check if window is always on top
 if ($window->isAlwaysOnTop) {
     echo 'Window is always on top';
@@ -638,27 +670,27 @@ $window->isAlwaysOnTop = true;
 
 // Disable always on top
 $window->isAlwaysOnTop = false;
-</code-block>
+```
 
 <warning>
-Windows that are always on top may interfere with normal window management and 
-user interaction. Please use this feature judiciously.
+Windows that are always on top may interfere with normal window management 
+and user interaction. Please use this feature judiciously.
 </warning>
 
 
 ## Click Through
 
-The <code>Window::$isClickThrough</code> property allows you to control 
+The `Window::$isClickThrough` property allows you to control 
 whether a window should intercept mouse events. When enabled, mouse clicks 
 will pass through the window to the windows or applications behind it.
 
 <tip>
 Mouse events are not intercepted not only through the internal OS (Windows, 
-Linux, MacOS, etc...) API, but also through JavaScript. The system buttons to 
-minimize, maximize or close also do not respond to clicks.
+Linux, MacOS, etc...) API, but also through JavaScript. The system buttons 
+to minimize, maximize or close also do not respond to clicks.
 </tip>
 
-<code-block lang="PHP">
+```php
 // Check if window is click-through
 if ($window->isClickThrough) {
     echo 'Window does not intercept mouse events';
@@ -671,7 +703,7 @@ $window->isClickThrough = true;
 
 // Disable click-through feature
 $window->isClickThrough = false;
-</code-block>
+```
 
 When "click-through" is enabled:
 - The window cannot be moved, resized, or focused by clicking.
@@ -685,14 +717,14 @@ Please use this feature judiciously.
 
 ## Window Close
 
-The <code>Window::close()</code> method allows you to close and destroy a 
+The `Window::close()` method allows you to close and destroy a 
 window and its associated resources. This operation is irreversible - once a 
 window is closed, it cannot be reopened.
 
-<code-block lang="PHP">
+```php
 // Close the window
 $window->close();
-</code-block>
+```
 
 <warning>
 Closing a window is a destructive operation. All resources associated with the 
@@ -704,33 +736,38 @@ after closing will result in undefined behavior.
 
 You can check if a window is closed using the `$isClosed` property:
 
-<code-block lang="PHP">
+```php
 if ($window->isClosed) {
     echo 'Window is already closed';
 } else {
     $window->close();
 }
-</code-block>
+```
 
+<tip>
+Window closing also fires a <a href="window.md#closed-event">corresponding event</a> that can be subscribed
+to using the <a href="events.md">event system</a>.
+</tip>
 
 ## Identifier
 
-The <code>Boson\Window\WindowId</code> is a unique identifier for each window
+The `Boson\Window\WindowId` is a unique identifier for each window
 in the application. The identifier is needed to compare different windows
 for their equivalence.
 
 <warning>
-The <code>WindowId</code> property is <b>read-only</b> and cannot be changed.
+The <code>Window::$id</code> property is <b>read-only</b> 
+and cannot be changed.
 </warning>
 
-The <code>WindowId</code> identifier is a value object and contains methods for
+The `WindowId` identifier is a value object and contains methods for
 comparison and conversion to scalars.
 
-<code-block lang="PHP">
+```php
 if ($window1->id->equals($window2->id)) {
     echo sprintf('The %s is equals to %s', $window1, $window2);
 }
-</code-block>
+```
 
 <tip>
 The <code>WindowId</code> is automatically generated when a window is created 
@@ -748,19 +785,19 @@ low-level API.
 </warning>
 
 In addition to the ability to convert to a string (i.e. implementations of the
-<code>Stringable</code> interface), this identifier can also be converted to an 
+`Stringable` interface), this identifier can also be converted to an 
 64-bit (or 32-bit on 32-bit OS) signed integer, which represents the actual 
 physical address of the window pointer.
 
-<code-block lang="PHP">
+```php
 echo $window->id->toInteger();
-</code-block>
+```
 
 <tip>
 Technically, this behaviour can be used to pass a window pointer to 
 subprocesses and then restore the pointer from it, like:
 
-<code-block lang="PHP">
+```php
 // process-1 
 // somehow pass the scalar addr to the process-2
 $addr = $window->id->toInteger();
@@ -768,8 +805,184 @@ $addr = $window->id->toInteger();
 // process-2
 // somehow get a scalar addr value
 $handle = $ffi->cast('saucer_handle*', $addr);
-</code-block>
+```
 
 However, please note that this may cause ownership issues and should
 be used with caution.
 </tip>
+
+
+## Window Events
+<primary-label ref="events"/>
+
+The window will automatically emit the following events (and intentions)
+during its lifecycle.
+
+<note>
+More information about events can be found in the <a href="events.md">events 
+documentation</a>.
+</note>
+
+### Closing Intention
+<secondary-label ref="intention"/>
+
+An `Boson\Window\Event\WindowClosing` intention to close the window. 
+
+<tip>
+If it is cancelled, the window will not be closed.
+</tip>
+
+### Closed Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowClosed` event fired after the window has been
+closed and the `Boson\Window\Event\WindowClosing` intention has not been
+cancelled.
+
+### Created Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowCreated` event fired after window has been created.
+
+### Decorated Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowDecorated` event fired after
+<a href="window.md#decorations">window controls</a> visibility changed.
+
+```mermaid
+classDiagram
+    class WindowDecorated~T : Window~{
+        [readonly] bool $isDecorated
+    }
+```
+
+- `$isDecorated` - Visibility status of the OS window controls.
+
+<note>
+The event differs from a <a href="window.md#decoration-changed-event">decoration 
+changed</a> in that it reacts exclusively to the turning on or off of window 
+controls (minimize, maximize, restore, close buttons and title bar) visibility.
+</note>
+
+### Decoration Changed Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowDecorationChanged` event fired after
+<a href="window.md#decorations">window decoration</a> has been changed.
+
+```mermaid
+classDiagram
+    class WindowDecorationChanged~T : Window~{
+        [readonly] Boson\Window\WindowDecoration $decoration
+        [readonly] Boson\Window\WindowDecoration $previous
+    }
+```
+
+- `$decoration` - Decorations type of the window.
+- `$previous` - Previous decorations type of the window.
+
+### Focused Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowFocused` event fired after
+<a href="window.md#focus">window focus</a> has been changed.
+
+```mermaid
+classDiagram
+    class WindowFocused~T : Window~{
+        [readonly] bool $isFocused
+    }
+```
+
+- `$isFocused` - Window <a href="window.md#focus">focus status</a>.
+
+<note>
+The event is fired not only when window has been focused (in which case the 
+<code>$isFocused</code> property will contain <code>true</code>), but also 
+when window focus has been lost (in which case the <code>$isFocused</code> 
+property will contain <code>false</code>).
+</note>
+
+### Maximized Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowMaximized` event fired after
+<a href="window.md#maximize">window maximized</a> state has been changed.
+
+```mermaid
+classDiagram
+    class WindowMaximized~T : Window~{
+        [readonly] bool $isMaximized
+    }
+```
+
+- `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
+
+<note>
+The event is fired not only when maximizing (in which case the 
+<code>$isMaximized</code> property will contain <code>true</code>), but also 
+when restoring from maximization (in which case the <code>$isMaximized</code> 
+property will contain <code>false</code>).
+</note>
+
+### Minimized Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowMinimized` event fired after
+<a href="window.md#minimize">window minimized</a> state has been changed.
+
+```mermaid
+classDiagram
+    class WindowMinimized~T : Window~{
+        [readonly] bool $isMinimized
+    }
+```
+
+- `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
+
+<note>
+The event is fired not only when minimizing (in which case the 
+<code>$isMinimized</code> property will contain <code>true</code>), but also when 
+restoring from minimization (in which case the <code>$isMinimized</code> 
+property will contain <code>false</code>).
+</note>
+
+### Resized Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowResized` event fired after
+<a href="window.md#size">window size</a> has been changed.
+
+```mermaid
+classDiagram
+    class WindowResized~T : Window~{
+        [readonly] int $width
+        [readonly] int $height
+    }
+```
+
+- `$width` - Window width dimension in pixels.
+- `$height` - Window height dimension in pixels.
+
+<tip>
+Window width and height is a non-negative <code>int32</code> (an integer value 
+between 0 and 2147483647).
+</tip>
+
+### State Changed Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowStateChanged` event fired after
+<a href="window.md#state">window state</a> has been changed.
+
+```mermaid
+classDiagram
+    class WindowStateChanged~T : Window~{
+        [readonly] Boson\Window\WindowState $state
+        [readonly] Boson\Window\WindowState $previous
+    }
+```
+
+- `$state` - State type of the window.
+- `$previous` - Previous state type of the window.

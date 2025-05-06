@@ -155,28 +155,44 @@ if ($app1->id->equals($app2->id)) {
 
 
 ## Application Events
+<primary-label ref="events"/>
 
 The application will automatically emit the following events (and intentions)
-during its lifecycle:
-
-- <code>ApplicationStarting</code> - when the application is about to start. 
-  <tip>This is an <b>intention</b>: You can prevent it from running using the 
-  <code>$starting->cancel()</code> method.</tip>
-
-- <code>ApplicationStarted</code> - when the application has started.
-  <tip>This is an <b>event</b>: Tells you that the application has already started. 
-  You cannot influence this in any way.</tip>
-
-- <code>ApplicationStopping</code> - when the application is about to stop.
-  <tip>This is an <b>intention</b>: You can prevent it from stopping using the 
-  <code>$stopping->cancel()</code> method.</tip>
-
-- <code>ApplicationStopped</code> - when the application has stopped.
-  <tip>This is an <b>event</b>: Tells you that the application has already stopped. 
-  You cannot influence this in any way.</tip>
+during its lifecycle.
 
 <note>
-More information about events can be found in the
-<tooltip term="TODO">events documentation</tooltip>.
+More information about events can be found in the <a href="events.md">events 
+documentation</a>.
 </note>
 
+### Starting Intention
+<secondary-label ref="intention"/>
+
+An `Boson\Event\ApplicationStarting` intention to start the application. 
+
+<tip>
+If it is cancelled, the application will not be launched.
+</tip>
+
+### Started Event
+<secondary-label ref="event"/>
+
+An `Boson\Event\ApplicationStarted` event fired after the application has been 
+launched and the `Boson\Event\ApplicationStarting` intention has not been 
+cancelled.
+
+### Stopping Intention
+<secondary-label ref="intention"/>
+
+An `Boson\Event\ApplicationStopping` intention to stop the application. 
+
+<tip>
+If it is cancelled, the application will not be stopped.
+</tip>
+
+### Stopped Event
+<secondary-label ref="event"/>
+
+An `Boson\Event\ApplicationStopped` event fired after the application has been
+stopped and the `Boson\Event\ApplicationStopping` intention has not been
+cancelled.

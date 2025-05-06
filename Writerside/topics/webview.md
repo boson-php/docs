@@ -190,7 +190,7 @@ intention has not been cancelled.
 class WebViewFaviconChanged<WebView>
 ```
 
-### Message Received Intention
+### Message Received Event
 <secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewMessageReceived` intention to 

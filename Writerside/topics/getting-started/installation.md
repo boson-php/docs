@@ -17,6 +17,28 @@ Boson brings together a set of components, each handling a key part of the syste
 Together, they create a seamless environment for building rich desktop applications with 
 web technologies — without the bloat.
 
+
+## Runtime
+
+Boson runtime library is available as [Composer](https://getcomposer.org/doc/)
+repository and can be installed using the following command in a root of your
+project:
+
+```shell
+composer require boson-php/runtime
+```
+
+Don't forget to include the autoload file in your application.
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$app = new Boson\Application();
+```
+
+
 ## Requirements
 
 <tabs>
@@ -151,3 +173,80 @@ web technologies — without the bloat.
 Please note that the application build is not currently available, 
 so production dependencies may differ in the future.
 </warning>
+
+
+## Troubleshooting
+
+### An [ext-ffi] disabled in your php.ini
+
+```shell
+FFI\Env\Exception\EnvironmentException: An [ext-ffi] disabled in your php.ini
+```
+
+<note>
+Make sure that the <code>ffi.enable</code> config in your <code>php.ini</code> 
+file is set to <code>preload</code> (by default) or <code>true</code>.
+
+<compare>
+<code-block lang="ini">
+ffi.enable=false
+</code-block>
+<code-block lang="ini">
+ffi.enable=preload
+</code-block>
+</compare>
+</note>
+
+### An [ext-ffi] not available
+
+```shell
+FFI\Env\Exception\EnvironmentException: An [ext-ffi] not available
+```
+
+<note>
+Make sure that FFI extension is installed.
+
+<tabs>
+<tab title="Windows">
+  <list>
+    <li>
+      Open your <code>php.ini</code> file.
+      <tip>The location of the configuration file can be found using the <code>php --ini</code> console command</tip>
+    </li>
+    <li>
+      Find <code>extension=ffi</code> line and uncomment extension.
+      <compare>
+      <code-block lang="ini">
+      ;extension=ffi
+      </code-block>
+      <code-block lang="ini">
+      extension=ffi
+      </code-block>
+      </compare>
+    </li>
+  </list>
+</tab>
+<tab title="Linux (Debian)">
+<code-block lang="bash">
+sudo apt update
+sudo apt install php8.4-ffi
+</code-block>
+</tab>
+</tabs>
+</note>
+
+
+### [Linux] Failed loading '.../libboson-linux-xxx.so'
+
+<note>
+Make sure that GTK4 is installed.
+<tabs>
+<tab title="Linux (Debian)">
+<code-block lang="bash">
+sudo apt update
+sudo apt install libwebkitgtk-6.0-4
+</code-block>
+</tab>
+</tabs>
+</note>
+

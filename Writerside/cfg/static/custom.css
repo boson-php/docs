@@ -160,3 +160,7 @@ html.theme-dark #mermaid .node span {
 html.theme-dark #mermaid .divider {
     stroke: #1c2329 !important;
 }
+
+.code-comparer__code-line {
+    border-radius: 3px;
+}

@@ -190,15 +190,15 @@ intention has not been cancelled.
 class WebViewFaviconChanged<WebView>
 ```
 
-### Message Receiving Intention
-<secondary-label ref="intention"/>
+### Message Received Intention
+<secondary-label ref="event"/>
 
-An `Boson\WebView\Event\WebViewMessageReceiving` intention to 
+An `Boson\WebView\Event\WebViewMessageReceived` intention to 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">receive message</a> 
 from the webview.
 
 ```php
-class WebViewMessageReceiving<WebView> 
+class WebViewMessageReceived<WebView> 
 {
     public readonly string $message;
 
@@ -213,8 +213,8 @@ The <code>ack()</code> method marks the message as accepted and processed.
 </note>
 
 <tip>
-The <code>cancel()</code> method works in a similar way to <code>ack()</code>, 
-but is not recommended.
+The <code>stopPropagation()</code> method works in a similar way to 
+<code>ack()</code>, but is not recommended due semantic conflicts.
 </tip>
 
 ### Navigating Intention

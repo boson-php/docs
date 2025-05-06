@@ -301,6 +301,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 <warning>
+MacOS/WebKit: Does not allow to control hardware-acceleration.
+
+This configuration option has no effect.
+</warning>
+
+<warning>
 The value cannot be changed after the application is created.
 </warning>
 

@@ -243,8 +243,17 @@ Make sure that GTK4 is installed.
 <tabs>
 <tab title="Linux (Debian)">
 <code-block lang="bash">
-sudo apt update
-sudo apt install libwebkitgtk-6.0-4
+apt install libgtk-4-1 libwebkitgtk-6.0-4
+</code-block>
+</tab>
+<tab title="Linux (Fedora)">
+<code-block lang="bash">
+dnf install gtk4 webkitgtk6.0
+</code-block>
+</tab>
+<tab title="Linux (FreeBSD)">
+<code-block lang="bash">
+pkg install webkit2-gtk4
 </code-block>
 </tab>
 </tabs>

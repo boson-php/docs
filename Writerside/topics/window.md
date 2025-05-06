@@ -476,6 +476,13 @@ larger than the screen size may not have the desired effect.
 </note>
 
 <warning>
+Linux/GTK4: Not supported because X11-specific functions such as 
+<code>gtk_window_set_geometry_hints</code> were removed. 
+
+This option has no effect.
+</warning>
+
+<warning>
 Window max size must be non-negative <code>int32</code> (an integer value 
 between 0 and 2147483647).
 
@@ -641,6 +648,12 @@ $window->focus();
 ```
 
 <warning>
+Linux/GTK4: There is no way to artificially focus the window.
+
+This method has no effect.
+</warning>
+
+<warning>
 Keep in mind that it can be very disruptive to the user when a window is 
 forced to the top. Please use this feature judiciously.
 </warning>
@@ -671,6 +684,12 @@ $window->isAlwaysOnTop = true;
 // Disable always on top
 $window->isAlwaysOnTop = false;
 ```
+
+<warning>
+Linux/GTK4: There is no way to artificially set window always on top.
+
+This method has no effect.
+</warning>
 
 <warning>
 Windows that are always on top may interfere with normal window management 

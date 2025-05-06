@@ -171,6 +171,18 @@ class WebViewDomReady<WebView>
 An `Boson\WebView\Event\WebViewFaviconChanging` intention to change the 
 window's icon from loaded HTML content.
 
+<warning>
+Linux/GTK4: An intention does not change the windows icon.
+
+Icon change intention has no effect.
+</warning>
+
+<warning>
+MacOS/WebKit: Provides no way to access favicons.
+
+Icon change intention has no effect.
+</warning>
+
 ```php
 class WebViewFaviconChanging<WebView>
 ```

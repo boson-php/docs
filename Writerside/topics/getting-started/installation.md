@@ -270,3 +270,23 @@ instructions set (<code>cat /proc/cpuinfo</code>).
 
 <b>Note:</b> VirtualBox may not support AVX/AVX2 when running under Hyper-V.
 </note>
+
+### libEGL warning: egl: failed to create dri2 screen
+
+<note>
+sudo apt-get install libnvidia-egl-wayland1
+</note>
+
+### Failed to fully launch dbus-proxy: Child process exited with code 1
+
+<note>
+This is <a href="https://bugs.launchpad.net/apparmor/+bug/2046844">apparmor bug</a> and
+Ubuntu 24.04 is <a href="https://bugs.launchpad.net/ubuntu/+source/apparmor/+bug/2060810">also affected</a>.
+
+1) It can be temporarily fixed by running code as <code>sudo</code>.
+2) Or using following commands:
+<code-block lang="bash">
+sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0
+sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+</code-block>
+</note>

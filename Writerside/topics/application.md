@@ -160,10 +160,31 @@ if ($app1->id->equals($app2->id)) {
 The application will automatically emit the following events (and intentions)
 during its lifecycle.
 
+To subscribe to events, you can use direct access to the
+<a href="events.md#event-listener">event listener</a>, using
+`Application::$events` property.
+
+```php
+$app->events->addEventListener(Event::class, function(Event $e) {
+    var_dump($e);
+});
+```
+
+The application instance also supports a more convenient and simple way of 
+registering events using the `on()` method.
+
+```php
+$app->on(function(Event $event): void {
+    var_dump($event);
+});
+```
+
 <note>
 More information about events can be found in the <a href="events.md">events 
 documentation</a>.
 </note>
+
+
 
 ### Starting Intention
 <secondary-label ref="intention"/>

@@ -24,20 +24,20 @@
         </spotlight>
 
 
-        <!--<primary>
-            <title>Reference</title>
-            <a href="license.md" summary=""/>
-            <a href="license.md" summary="" />
-            <a href="license.md" summary="" />
-            <a href="license.md" summary="" />
-        </primary>-->
+        <primary>
+            <title>Core Components</title>
+            <a href="application.md" type="start"/>
+            <a href="window.md" type="presentation"/>
+            <a href="webview.md" type="world" />
+            <a href="events.md" type="turn-on" />
+        </primary>
 
-        <!--<secondary>
+        <secondary>
             <title>Advanced Features</title>
-            <a href="license.md" summary="" />
-            <a href="license.md" summary="" />
-            <a href="license.md" summary="" />
-            <a href="license.md" summary="" />
-        </secondary>-->
+            <a href="schemes-api.md" />
+            <a href="scripts-api.md" />
+            <a href="functions-api.md" />
+            <a href="requests-api.md" />
+        </secondary>
     </section-starting-page>
 </topic>

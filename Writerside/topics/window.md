@@ -2,11 +2,12 @@
 
 <show-structure for="chapter" depth="2"/>
 
-The `Window` class represents a window in the Boson application. It provides 
-a way to manage window, including their properties, events, state, and 
-associated WebView.
+The `Boson\Window class represents a window in the
+Boson [Application](application.md). It provides a way to manage window, 
+including their properties, events, state, and associated [WebView](webview.md).
 
 ## Main Window
+<secondary-label ref="read-only"/>
 
 The `Application::$window` property provides convenient access to the
 <tooltip term="main window">main window</tooltip> of the application. 
@@ -71,12 +72,14 @@ $title = &$window->title; // ❌ not available
 </warning>
 
 <tip>
-Window title change also fires a <a href="webview.md#title-changed-event">corresponding 
-event</a> that can be subscribed to using the <a href="events.md">event system</a>.
+Window title change also fires a 
+<a href="webview-events.md#title-changed-event">corresponding event</a> that 
+can be subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 
 ## State
+<secondary-label ref="read-only"/>
 
 Each window has several states. The window can be minimized, maximized to full 
 screen, or in a normal state.
@@ -87,11 +90,6 @@ property.
 ```php
 echo 'Window State: ' . $window->state->name;
 ```
-
-<warning>
-The <code>Window::$state</code> property is <b>read-only</b> and cannot be 
-changed. To change state, the appropriate methods are used, described below.
-</warning>
 
 This property will contain one of the possible values of 
 `Boson\Window\WindowState` enum.
@@ -120,8 +118,8 @@ There are corresponding methods for changing states from code.
 
 <tip>
 Window state change also fires a
-<a href="window.md#state-changed-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
+<a href="window-events.md#state-changed-event">corresponding event</a> that can
+be subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 ### Minimize
@@ -185,7 +183,7 @@ It allows you to show or hide the window programmatically.
 
 <note>
 It is also worth noting that the initial state of the window visibility
-depends on the <a href="configuration.md#window-visibility">window 
+depends on the <a href="window-configuration.md#window-visibility">window 
 settings</a>. By default, the window is shown.
 </note>
 
@@ -306,8 +304,8 @@ in webview. So the result with different decorations will look like this.
 
 <tip>
 Window decoration change also fires a 
-<a href="window.md#decoration-changed-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
+<a href="window-events.md#decoration-changed-event">corresponding event</a> 
+that can be subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 ### Default
@@ -420,8 +418,9 @@ Attempting to set values outside this range will result in an exception.
 </warning>
 
 <tip>
-Window resize also fires a <a href="window.md#resized-event">corresponding event</a> 
-that can be subscribed to using the <a href="events.md">event system</a>.
+Window resize also fires a 
+<a href="window-events.md#resized-event">corresponding event</a> that can be 
+subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 ### Minimum Size
@@ -454,6 +453,7 @@ Attempting to set values outside this range will result in an exception.
 </warning>
 
 ### Maximum Size
+<secondary-label ref="linux-limitations"/>
 
 The `Window::$max` property controls the maximum allowed dimensions 
 of the window. Users cannot resize the window larger than these values.
@@ -475,12 +475,16 @@ The maximum size is typically limited by the screen resolution. Setting a value
 larger than the screen size may not have the desired effect.
 </note>
 
+<tabs>
+<tab title="Linux/GTK4">
 <warning>
-Linux/GTK4: Not supported because X11-specific functions such as 
+Not supported because X11-specific functions such as 
 <code>gtk_window_set_geometry_hints</code> were removed. 
 
 This option has no effect.
 </warning>
+</tab>
+</tabs>
 
 <warning>
 Window max size must be non-negative <code>int32</code> (an integer value 
@@ -516,7 +520,7 @@ on any element.
 ```php
 $app = new Boson\Application();
 
-$app->webview->functions->bind('resize', function() use ($app) {
+$app->webview->functions->bind('resize', function () use ($app) {
     $app->window->startResize(
         Boson\Window\WindowCorner::BottomRight,
     );
@@ -638,6 +642,7 @@ operating system through the title bar.
 </note>
 
 ## Focus
+<secondary-label ref="linux-limitations"/>
 
 Windows can be given input focus and brought to the front with
 `Window::focus()` method.
@@ -647,11 +652,15 @@ Windows can be given input focus and brought to the front with
 $window->focus();
 ```
 
+<tabs>
+<tab title="Linux/GTK4">
 <warning>
-Linux/GTK4: There is no way to artificially focus the window.
+There is no way to artificially focus the window.
 
 This method has no effect.
 </warning>
+</tab>
+</tabs>
 
 <warning>
 Keep in mind that it can be very disruptive to the user when a window is 
@@ -659,12 +668,14 @@ forced to the top. Please use this feature judiciously.
 </warning>
 
 <tip>
-Window focus also fires a <a href="window.md#focused-event">corresponding even</a> 
+Window focus also fires a 
+<a href="window-events.md#focused-event">corresponding event</a> 
 that can be subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 
 ## Always On Top
+<secondary-label ref="linux-limitations"/>
 
 The `Window::$isAlwaysOnTop` property allows you to control whether 
 a window should stay on top of other windows. When enabled, the window will 
@@ -685,11 +696,15 @@ $window->isAlwaysOnTop = true;
 $window->isAlwaysOnTop = false;
 ```
 
+<tabs>
+<tab title="Linux/GTK4">
 <warning>
-Linux/GTK4: There is no way to artificially set window always on top.
+There is no way to artificially set window always on top.
 
 This method has no effect.
 </warning>
+</tab>
+</tabs>
 
 <warning>
 Windows that are always on top may interfere with normal window management 
@@ -764,22 +779,27 @@ if ($window->isClosed) {
 ```
 
 <tip>
-Window closing also fires a <a href="window.md#closed-event">corresponding event</a> that can be subscribed
-to using the <a href="events.md">event system</a>.
+Window closing also fires a
+<a href="window-events.md#closed-event">corresponding event</a> that can be 
+subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 ## Identifier
+<secondary-label ref="read-only"/>
 
 The `Boson\Window\WindowId` is a unique identifier for each window
 in the application. The identifier is needed to compare different windows
 for their equivalence.
 
-<warning>
-The <code>Window::$id</code> property is <b>read-only</b> 
-and cannot be changed.
-</warning>
+To get window identifier use the `Window::$id` property.
 
-The `WindowId` identifier is a value object and contains methods for
+```php
+$app = new Boson\Application();
+
+echo 'ID: ' . $app->window->id;
+```
+
+An identifier is a value object and contains methods for
 comparison and conversion to scalars.
 
 ```php
@@ -829,211 +849,3 @@ $handle = $ffi->cast('saucer_handle*', $addr);
 However, please note that this may cause ownership issues and should
 be used with caution.
 </tip>
-
-
-## Window Events
-<primary-label ref="events"/>
-
-The window will automatically emit the following events (and intentions)
-during its lifecycle.
-
-To subscribe to events, you can use direct access to the
-<a href="events.md#event-listener">event listener</a>, using
-`Window::$events` property.
-
-```php
-$app->events->addEventListener(Event::class, function(Event $e) {
-    var_dump($e);
-});
-```
-
-The window instance also supports a more convenient and simple way of
-registering events using the `on()` method.
-
-```php
-$app->window->on(function(Event $event): void {
-    var_dump($event);
-});
-```
-
-<note>
-More information about events can be found in the <a href="events.md">events 
-documentation</a>.
-</note>
-
-### Closing Intention
-<secondary-label ref="intention"/>
-
-An `Boson\Window\Event\WindowClosing` intention to close the window. 
-
-<tip>
-If it is cancelled, the window will not be closed.
-</tip>
-
-```php
-class WindowClosing<Window>
-```
-
-### Closed Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowClosed` event fired after the window has been
-closed and the `Boson\Window\Event\WindowClosing` intention has not been
-cancelled.
-
-```php
-class WindowClosed<Window>
-```
-
-### Created Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowCreated` event fired after window has been created.
-
-```php
-class WindowCreated<Window>
-```
-
-### Decorated Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowDecorated` event fired after
-<a href="window.md#decorations">window controls</a> visibility changed.
-
-```php
-class WindowDecorated<Window> 
-{
-    public readonly bool $isDecorated;
-}
-```
-
-- `$isDecorated` - Visibility status of the OS window controls.
-
-<note>
-The event differs from a <a href="window.md#decoration-changed-event">decoration 
-changed</a> in that it reacts exclusively to the turning on or off of window 
-controls (minimize, maximize, restore, close buttons and title bar) visibility.
-</note>
-
-### Decoration Changed Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowDecorationChanged` event fired after
-<a href="window.md#decorations">window decoration</a> has been changed.
-
-```php
-class WindowDecorationChanged<Window> 
-{
-    public readonly Boson\Window\WindowDecoration $decoration;
-    public readonly Boson\Window\WindowDecoration $previous;
-}
-```
-
-- `$decoration` - Decorations type of the window.
-- `$previous` - Previous decorations type of the window.
-
-### Focused Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowFocused` event fired after
-<a href="window.md#focus">window focus</a> has been changed.
-
-```php
-class WindowFocused<Window> 
-{
-    public readonly bool $isFocused;
-}
-```
-
-
-- `$isFocused` - Window <a href="window.md#focus">focus status</a>.
-
-<note>
-The event is fired not only when window has been focused (in which case the 
-<code>$isFocused</code> property will contain <code>true</code>), but also 
-when window focus has been lost (in which case the <code>$isFocused</code> 
-property will contain <code>false</code>).
-</note>
-
-### Maximized Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowMaximized` event fired after
-<a href="window.md#maximize">window maximized</a> state has been changed.
-
-```php
-class WindowMaximized<Window> 
-{
-    public readonly bool $isMaximized;
-}
-```
-
-- `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
-
-<note>
-The event is fired not only when maximizing (in which case the 
-<code>$isMaximized</code> property will contain <code>true</code>), but also 
-when restoring from maximization (in which case the <code>$isMaximized</code> 
-property will contain <code>false</code>).
-</note>
-
-### Minimized Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowMinimized` event fired after
-<a href="window.md#minimize">window minimized</a> state has been changed.
-
-```php
-class WindowMinimized<Window> 
-{
-    public readonly bool $isMinimized;
-}
-```
-
-- `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
-
-<note>
-The event is fired not only when minimizing (in which case the 
-<code>$isMinimized</code> property will contain <code>true</code>), but also when 
-restoring from minimization (in which case the <code>$isMinimized</code> 
-property will contain <code>false</code>).
-</note>
-
-### Resized Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowResized` event fired after
-<a href="window.md#size">window size</a> has been changed.
-
-```php
-class WindowResized<Window> 
-{
-    public readonly int $width;
-    public readonly int $height;
-}
-```
-
-- `$width` - Window width dimension in pixels.
-- `$height` - Window height dimension in pixels.
-
-<tip>
-Window width and height is a non-negative <code>int32</code> (an integer value 
-between 0 and 2147483647).
-</tip>
-
-### State Changed Event
-<secondary-label ref="event"/>
-
-An `Boson\Window\Event\WindowStateChanged` event fired after
-<a href="window.md#state">window state</a> has been changed.
-
-```php
-class WindowStateChanged<Window> 
-{
-    public readonly Boson\Window\WindowState $state;
-    public readonly Boson\Window\WindowState $previous;
-}
-```
-
-- `$state` - State type of the window.
-- `$previous` - Previous state type of the window.

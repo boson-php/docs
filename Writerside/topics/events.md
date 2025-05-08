@@ -37,6 +37,13 @@ $app->events->addEventListener(Event::class, fn($e) => ...);
 $window->events->addEventListener(Event::class, fn($e) => ...);
 ```
 
+You can read more about each type of event in the corresponding
+sections of the documentation.
+
+- [Application](application-events.md)
+- [Window](window-events.md)
+- [WebView](webview-events.md)
+
 ## Events and Intentions
 
 Any event is a fact. Events **can not** be changed or rejected. 
@@ -66,7 +73,7 @@ $app->events->addEventListener(Event::class, fn($e) => ...);
 $app->window->events->addEventListener(Event::class, fn($e) => ...);
 
 // ✅ event will be fired (callback stops "event bubbling")
-$app->window->events->addEventListener(Event::class, function($e): void {
+$app->window->events->addEventListener(Event::class, function ($e) {
     $e->stopPropagation();
 });
 
@@ -107,7 +114,7 @@ application, the application will not be stopped. Therefore, the application
 stop event will not be called either.
 
 ```php
-$app->events->addEventListener(ApplicationStopping::class, function($e) {
+$app->events->addEventListener(ApplicationStopping::class, function ($e) {
     $e->cancel();
 });
 ```
@@ -137,7 +144,7 @@ use Boson\Window\Event\WindowCreated;
 
 $app = new Application();
 
-$app->on(function(WindowCreated $e): void {
+$app->on(function (WindowCreated $e): void {
     echo 'Window ' . $e->subject->id . ' has been created';
 });
 ```
@@ -152,7 +159,7 @@ use Boson\Window\Event\WindowCreated;
 
 $app = new Application();
 
-$app->on(WindowCreated::class, function(): void {
+$app->on(WindowCreated::class, function (): void {
     echo 'Window has been created';
 });
 ```
@@ -162,7 +169,7 @@ The second callback parameter also allows the event object to be present
 as the first argument.
 
 <code-block lang="php">
-$app->on(Event::class, function(Event $e) { ... });
+$app->on(Event::class, function (Event $e) { ... });
 </code-block>
 </tip>
 
@@ -179,7 +186,7 @@ To subscribe to events, you need to use the
 `EventListenerInterface::addEventListener()` method:
 
 ```php
-$app->events->addEventListener(Event::class, function(Event $event): void {
+$app->events->addEventListener(Event::class, function (Event $event): void {
     // Handle the event
 });
 ```
@@ -205,7 +212,7 @@ The <code>EventListenerProviderInterface::on()</code> method also returns
 a subscription object.
 
 <code-block lang="PHP">
-$subscription = $app->on(function(Event $e) { ... });
+$subscription = $app->on(function (Event $e) { ... });
 
 // Cancel subscription
 $subscription->cancel();

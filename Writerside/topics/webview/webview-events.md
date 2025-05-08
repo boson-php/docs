@@ -159,8 +159,7 @@ class WebViewNavigated<WebView>
 <secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewRequest` intention processing of user schemes
-registered <a href="configuration.md#intercepted-schemes">in the
-configuration</a>.
+registered [in the configuration](application-configuration.md#intercepted-schemes).
 
 ```php
 class WebViewRequest<WebView> 

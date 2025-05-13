@@ -23,23 +23,6 @@ $app->webview->scrtips->bind('foo', function () {
 });
 ```
 
-Or set functions list from configuration.
-
-```php
-$app = new Boson\Application(
-    window: new Boson\Window\WindowCreateInfo(
-        webview: new Boson\WebView\WebViewCreateInfo(
-            functions: [
-                'foo' => function () { 
-                    var_dump('Executed!');
-                },
-            ],
-        ),
-    ),
-);
-```
-
-
 <note>
 WebView also provides a more convenient way (facade method <code>bind()</code>) 
 to bind arbitrary PHP function.

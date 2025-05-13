@@ -27,6 +27,7 @@ More information about webview content can be found in
 the <a href="webview.md#html-content">window documentation</a>.
 </note>
 
+
 ## Global Scripts
 <secondary-label ref="config-and-runtime"/>
 
@@ -39,23 +40,6 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
         "document.body.setAttribute('data-some', '{$some}')"
     ],
 );
-```
-
-
-## Global Functions
-<secondary-label ref="config-and-runtime"/>
-
-Registers PHP functions that can be called from JavaScript.
-
-```php
-$webviewConfig = new Boson\WebView\WebViewCreateInfo( 
-    functions: [
-        'foo' => static fn(int $arg): int => $arg * 2;
-    ],
-);
-
-// Now the "foo(Number): Promise<Number>" can be called 
-// from JS as "let result = await foo(42);" 
 ```
 
 

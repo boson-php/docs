@@ -76,7 +76,6 @@ classDiagram
         string|null $url
         string|null $html
         iterable~string~ $scripts
-        iterable~string, Closure~ $functions
         string|null $userAgent
         string|false|null $storage
         iterable~string, mixed~ $flags

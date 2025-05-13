@@ -36,7 +36,7 @@
             <title>Advanced Features</title>
             <a href="schemes-api.md" />
             <a href="scripts-api.md" />
-            <a href="functions-api.md" />
+            <a href="bindings-api.md" />
             <a href="requests-api.md" />
         </secondary>
     </section-starting-page>

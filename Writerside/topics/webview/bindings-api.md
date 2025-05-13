@@ -1,13 +1,13 @@
-# Functions API
+# Bindings API
 
 You can register custom PHP functions to call them from the client.
 
-The API is available in the `WebView::$functions` property.
+The API is available in the `WebView::$bindings` property.
 
 ```php
 $app = new Boson\Application();
 
-$app->webview->functions; // Access to Functions API
+$app->webview->bindings; // Access to Bindings API
 ```
 
 
@@ -18,7 +18,7 @@ You can create a function that can be called directly from WebView.
 ```php
 $app = new Boson\Application();
 
-$app->webview->scrtips->bind('foo', function () { 
+$app->webview->bindings->bind('foo', function () { 
     var_dump('Executed!');
 });
 ```
@@ -28,13 +28,13 @@ WebView also provides a more convenient way (facade method <code>bind()</code>)
 to bind arbitrary PHP function.
 
 Just use <code>WebView::bind()</code> instead of bind method
-from <code>WebView::$functions</code>.
+from <code>WebView::$bindings</code>.
 
 <p>&nbsp;</p>
 
 <compare>
 <code-block lang="php">
-$api = $webview->functions;
+$api = $webview->bindings;
 
 $api->bind('foo', foo(...));
 </code-block>

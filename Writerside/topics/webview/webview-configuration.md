@@ -9,40 +9,6 @@ The webview configuration class `Boson\WebView\WebViewCreateInfo` is
 define default settings for webview of main window instance.
 
 
-## Loading Content (URL or HTML)
-<secondary-label ref="config-and-runtime"/>
-
-Sets the initial content of the WebView, either through a URL or direct HTML content.
-
-```php
-$webviewConfig = new Boson\WebView\WebViewCreateInfo( 
-    url: 'https://example.com',
-    // or
-    html: '<html><body>Hello World</body></html>',
-);
-```
-
-<note>
-More information about webview content can be found in 
-the <a href="webview.md#html-content">window documentation</a>.
-</note>
-
-
-## Global Scripts
-<secondary-label ref="config-and-runtime"/>
-
-Defines JavaScript code that will be loaded and executed in the
-WebView context <b>after</b> every DOM loaded event.
-
-```php
-$webviewConfig = new Boson\WebView\WebViewCreateInfo( 
-    scripts: [
-        "document.body.setAttribute('data-some', '{$some}')"
-    ],
-);
-```
-
-
 ## Default User Agent
 <secondary-label ref="config-only"/>
 

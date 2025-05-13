@@ -105,21 +105,3 @@ Access to such functions from the client side is also done through a dot.
 example.some('hello');
 example.any('world');
 ```
-
-
-## Unbinding
-
-In some cases, you may need to remove previously registered functions. 
-To do this, use the `unbind()` method.
-
-```php
-$app = new Boson\Application();
-
-$app->webview->scripts->unbind('foo');
-```
-
-<warning>
-During unbinding, an exception <code>FunctionNotDefinedException</code> 
-may occur if you are trying to unregister a function that has 
-not been registered.
-</warning>

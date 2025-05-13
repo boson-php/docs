@@ -1,13 +1,13 @@
-# Requests API
+# Data API
 
 This API should be used to receive arbitrary data from the client.
 
-The API is available in the `WebView::$requests` property.
+The API is available in the `WebView::$data` property.
 
 ```php
 $app = new Boson\Application();
 
-$app->webview->requests; // Access to Requests API
+$app->webview->data; // Access to Data API
 ```
 
 
@@ -21,7 +21,7 @@ $app = new Boson\Application();
 
 $app->on(function (WebViewDomReady $e) use ($app): void {
 
-    var_dump($app->webview->requests->get('document.location')); 
+    var_dump($app->webview->data->get('document.location')); 
     
     // array:10 [
     //   "ancestorOrigins" => []
@@ -48,9 +48,9 @@ is not yet available.
 <code-block lang="php">
 $app = new Boson\Application();
 
-var_dump($app->webview->requests->get('document.location'));
+var_dump($app->webview->data->get('document.location'));
 //
-// Boson\WebView\Requests\Exception\UnprocessableRequestException:
+// Boson\WebView\Api\DataApi\Exception\UnprocessableRequestException:
 //      Request "document.location" could not be processed
 //      because application is not running
 //
@@ -62,7 +62,7 @@ WebView also provides a more convenient way (facade method <code>get()</code>)
 to get arbitrary data from document.
 
 Just use <code>WebView::get()</code> instead of get method
-from <code>WebView::$requests</code>.
+from <code>WebView::$data</code>.
 
 <p>&nbsp;</p>
 
@@ -70,7 +70,7 @@ from <code>WebView::$requests</code>.
 <code-block lang="php">
 $js = 'document.location';
 
-$webview->requests->get($js);
+$webview->data->get($js);
 </code-block>
 <code-block lang="php">
 $js = 'document.location';
@@ -97,7 +97,7 @@ Such calls are less convenient, since they use
 ```php
 $app = new Boson\Application();
 
-$app->webview->requests->send('document.location')
+$app->webview->data->defer('document.location')
     ->then(function ($data) {
         var_dump($data);
         

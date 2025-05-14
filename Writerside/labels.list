@@ -2,7 +2,7 @@
 <!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
 <labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
-    <primary-label id="experimental" name="Experimental" short-name="Experimental" color="red">
+    <primary-label id="experimental" name="Experimental Feature" short-name="E" color="red">
         This is a non-stable functionality which is highly likely
         to be changed or removed in the future
     </primary-label>

@@ -1,5 +1,7 @@
 # Bindings API
 
+<show-structure for="chapter" depth="2"/>
+
 You can register custom PHP functions to call them from the client.
 
 The API is available in the `WebView::$bindings` property.

@@ -52,10 +52,27 @@ $app = new Boson\Application();
 
 var_dump($app->webview->data->get('document.location'));
 //
-// Boson\WebView\Api\DataApi\Exception\UnprocessableRequestException:
-//      Request "document.location" could not be processed
-//      because application is not running
+// Boson\WebView\Api\Data\Exception\ApplicationNotRunningException: 
+//     Request "document.location" could not be processed
+//     because application is not running
 //
+</code-block>
+
+If the page is currently loading, synchronous requests are also unavailable.
+
+<code-block lang="php">
+$app = new Boson\Application();
+
+$app->on(function(Boson\WebView\Event\WebViewNavigating $e) {
+    var_dump($e->subject->data->get('document.location'));
+    //
+    // Boson\WebView\Api\Data\Exception\WebViewIsNotReadyException:
+    //     Request "document.location" could not be processed
+    //     because webview is in navigating state
+    //
+});
+
+$app->webview->url = 'https://example.com';
 </code-block>
 </warning>
 
@@ -86,6 +103,31 @@ be used to simplify the examples.
 
 </note>
 
+### Synchronous Access Timeout
+
+Note that synchronous access is instant in most cases, but can sometimes 
+cause timeout errors and call termination.
+
+For example, if you try to use a deferred call, receiving it synchronously
+```php
+$app->webview->get('fetch("https://very-slow-client/request.json")');
+//
+// Boson\WebView\Api\Data\Exception\StalledRequestException: 
+//    Request "fetch(\"https://very-slow-client/request.json\")" 
+//    is stalled after 0.10s of waiting
+//
+```
+
+Timeout of 0.1s is the default value, which can be changed 
+globally in the settings.
+
+If you are sure that a long query is acceptable, you can set other limits 
+on the query explicitly by passing the timeout (in seconds) as the 
+second argument.
+
+```php
+$result = $app->webview->get('very_long_function()', timeout: \INF);
+```
 
 ## Async Access
 

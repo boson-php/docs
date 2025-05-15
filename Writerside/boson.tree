@@ -23,21 +23,21 @@
         <toc-element topic="application.md">
             <toc-element topic="application-configuration.md"
                          toc-title="Configuration" />
-            <toc-element topic="application-events.md"
-                         toc-title="Events" />
+            <toc-element topic="application-events.md" />
         </toc-element>
         <toc-element topic="window.md">
             <toc-element topic="window-configuration.md"
                          toc-title="Configuration" />
-            <toc-element topic="window-events.md"
-                         toc-title="Events" />
+            <toc-element topic="window-events.md" />
         </toc-element>
         <toc-element topic="webview.md">
             <toc-element topic="webview-configuration.md"
                          toc-title="Configuration" />
-            <toc-element topic="webview-events.md"
-                         toc-title="Events" />
-            <toc-element topic="schemes-api.md" />
+            <toc-element topic="webview-events.md" />
+            <toc-element topic="schemes-api.md">
+                <toc-element topic="schemes-api-events.md"
+                             toc-title="Scheme Events" />
+            </toc-element>
             <toc-element topic="scripts-api.md" />
             <toc-element topic="bindings-api.md" />
             <toc-element topic="data-api.md" />
@@ -45,7 +45,7 @@
             <toc-element topic="security-api.md" />
             <toc-element topic="battery-api.md">
                 <toc-element topic="battery-api-events.md"
-                             toc-title="Events" />
+                             toc-title="Battery Events" />
             </toc-element>
         </toc-element>
         <toc-element topic="events.md" />

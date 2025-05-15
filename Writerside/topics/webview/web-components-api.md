@@ -96,14 +96,19 @@ class MyExampleComponent implements HasShadowDomInterface
 {
     public function render(): string
     {
-        //
-        // Please note that using the short "<slot />" version 
-        // instead of full "<slot></slot>" may not work correctly.
-        //
         return '<b>This is <slot></slot>!!!</b>';
     }
 }
 ```
+
+<warning>
+Slot tags (<code>&lt;slot /&gt;</code>) only work in Shadow DOM
+</warning>
+
+<warning>
+Using the short <code>&lt;slot /&gt;</code> version instead of 
+full <code>&lt;slot&gt;&lt;/slot&gt;</code> may not work correctly
+</warning>
 
 If you try to render the contents of a `<slot />` without a Shadow DOM (using 
 `HasTemplateInterface`), no data will be received.

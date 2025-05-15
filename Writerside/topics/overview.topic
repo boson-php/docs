@@ -39,5 +39,13 @@
             <a href="bindings-api.md" />
             <a href="data-api.md" />
         </secondary>
+
+        <misc>
+            <cards>
+                <title>Other APIs</title>
+                <card href="web-components-api.md" />
+                <card href="security-api.md" />
+            </cards>
+        </misc>
     </section-starting-page>
 </topic>

@@ -58,7 +58,7 @@ abstract class TwigComponent extends WebComponent
 </procedure>
 
 
-<procedure title="3. Create Instances">
+<procedure title="3. Create Instantiator">
 Now we need to define how exactly these components will be created, for 
 this we should create our own instantiator, which will return new 
 components on demand.

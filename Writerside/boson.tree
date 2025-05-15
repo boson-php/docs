@@ -42,6 +42,7 @@
             <toc-element topic="bindings-api.md" />
             <toc-element topic="data-api.md" />
             <toc-element topic="web-components-api.md" />
+            <toc-element topic="security-api.md" />
         </toc-element>
         <toc-element topic="events.md" />
     </toc-element>

@@ -73,9 +73,6 @@ classDiagram
     }
     link WindowCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/Window/WindowCreateInfo.php"
     class WebViewCreateInfo["readonly Boson\WebView\WebViewCreateInfo"]{
-        string|null $url
-        string|null $html
-        iterable~string~ $scripts
         string|null $userAgent
         string|false|null $storage
         iterable~string, mixed~ $flags

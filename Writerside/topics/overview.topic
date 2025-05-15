@@ -23,7 +23,6 @@
             </a>
         </spotlight>
 
-
         <primary>
             <title>Core Components</title>
             <a href="application.md" type="start"/>
@@ -45,6 +44,7 @@
                 <title>Other APIs</title>
                 <card href="web-components-api.md" />
                 <card href="security-api.md" />
+                <card href="battery-api.md" />
             </cards>
         </misc>
     </section-starting-page>

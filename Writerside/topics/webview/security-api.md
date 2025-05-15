@@ -28,5 +28,8 @@ To get the current security status you can use the read-only
 ```php
 $isSecure = $app->webview->security->isSecureContext;
 
-echo 'Context is ' . ($isSecure ? 'secure' : 'insecure'); 
+echo 'Context is ' . ($isSecure ? 'secure' : 'insecure');
+// 
+// Expects: Context is secure
+//
 ```

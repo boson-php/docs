@@ -40,11 +40,9 @@ $app->webview->html = '<my-element>Example</my-element>';
 ```
 
 For more convenient component management, you can use inheritance from the 
-`Boson\WebView\Api\WebComponentsApi\WebComponent` class.
+`Boson\WebView\Api\WebComponents\WebComponent` class.
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\WebComponent;
-
 class MyExampleComponent extends WebComponent
 {
     // do something
@@ -56,12 +54,10 @@ class MyExampleComponent extends WebComponent
 By default, the component does not contain any HTML content (it uses the 
 default body one passed to it). If you want to decorate it somehow or define 
 custom content, you should add the 
-`Boson\WebView\Api\WebComponentsApi\HasTemplateInterface` interface and 
+`Boson\WebView\Api\WebComponents\Component\HasTemplateInterface` interface and 
 implement `render()` method.
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\HasTemplateInterface;
-
 class MyExampleComponent implements HasTemplateInterface
 {
     public function render(): string
@@ -76,7 +72,7 @@ class MyExampleComponent implements HasTemplateInterface
 ## Shadow DOM
 
 In order to switch to shadow house rendering mode, you should implement 
-the `Boson\WebView\Api\WebComponentsApi\HasShadowDomInterface` interface.
+the `Boson\WebView\Api\WebComponents\Component\HasShadowDomInterface` interface.
 
 The shadow DOM is similar to the regular renderer, but isolates its behavior 
 from global styles and supports slots.
@@ -90,8 +86,6 @@ See more information about templates and slots in
 </note>
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\HasShadowDomInterface;
-
 class MyExampleComponent implements HasShadowDomInterface
 {
     public function render(): string
@@ -135,12 +129,10 @@ const component = document.createElement('my-element');
 
 In order to accurately determine that an element is connected to any physical 
 node of the DOM document, the 
-`Boson\WebView\Api\WebComponentsApi\HasLifecycleCallbacksInterface` 
+`Boson\WebView\Api\WebComponents\Component\HasLifecycleCallbacksInterface` 
 interface should be implemented.
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\HasLifecycleCallbacksInterface;
-
 class MyExampleComponent implements HasLifecycleCallbacksInterface
 {
     public function onConnect(): void
@@ -167,7 +159,7 @@ If you leave the code as is, then when you click on the element,
 a JS error will be thrown: `Uncaught TypeError: this.update is not a function`.
 
 To implement a method (for example, "`update()`"), you should implement the 
-`Boson\WebView\Api\WebComponentsApi\HasMethodsInterface` interface.
+`Boson\WebView\Api\WebComponents\Component\HasMethodsInterface` interface.
 
 ```php
 class MyExampleComponent implements HasMethodsInterface
@@ -256,12 +248,10 @@ try {
 
 In addition to methods, each HTML element has attributes. You can subscribe 
 to change, add or remove an attribute by implementing the 
-`Boson\WebView\Api\WebComponentsApi\HasObservedAttributesInterface` interface.
+`Boson\WebView\Api\WebComponents\Component\HasAttributesInterface` interface.
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\HasObservedAttributesInterface;
-
-class MyExampleComponent implements HasObservedAttributesInterface
+class MyExampleComponent implements HasAttributesInterface
 {
     public function onAttributeChanged(
         string $attribute, 
@@ -271,14 +261,14 @@ class MyExampleComponent implements HasObservedAttributesInterface
         // ...
     }
 
-    public static function getObservedAttributeNames(): array
+    public static function getAttributeNames(): array
     {
         // ...
     }
 }
 ```
 
-Method `getObservedAttributeNames()` must return a list of attributes
+Method `getAttributeNames()` must return a list of attributes
 (strings) to be processed.
 
 Method `onAttributeChanged()` contains a callback that is called when 
@@ -290,6 +280,79 @@ the attribute value changes.
 | `string` | `string`    | Attribute value has been changed  |
 | `null`   | `string`    | Attribute has been removed        |
 
+
+## Component Events
+
+Each web component supports the ability to listen several component events 
+and process them.
+
+To implement an event listener (for example, "[`click`](https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent)"), 
+you should implement the `Boson\WebView\Api\WebComponents\Component\HasEventListenersInterface` interface.
+
+```php
+class MyExampleComponent implements HasEventListenersInterface
+{
+    public function onEventFired(string $event, array $args = []): void
+    {
+        // ...
+    }
+
+    public static function getEventListeners(): array
+    {
+        // ...
+    }
+}
+```
+
+If you want to listen `click` event, then `getEventListeners()` method
+must return the corresponding name.
+
+```php
+public static function getEventListeners(): array
+{
+    return [ 
+        'click' => [],
+    ];
+}
+```
+
+If you require any specific information related to an event, then the list 
+of event fields should be passed as an array value.
+
+For example, `click` event contain readonly properties such as `clientX` 
+and `clientY`.
+
+```php
+public static function getEventListeners(): array
+{
+    return [ 
+        'click' => [ 
+            // "clientX" property from "click" event
+            'clientX',
+            // "clientY" property from "click" event
+            'clientY',
+        ], 
+    ];
+}
+```
+
+If specific PHP array key names are required for these properties,
+they should be specified as keys.
+
+```php
+public static function getEventListeners(): array
+{
+    return [ 
+        'click' => [ 
+            // "clientX" property from "click" event passed as "x"
+            'x' => 'clientX',
+            // "clientX" property from "click" event passed as "y"
+            'y' => 'clientY',
+        ], 
+    ];
+}
+```
+
 ## Reactive Context
 
 The reactive context allows you to modify and retrieve values from a 
@@ -298,7 +361,7 @@ component programmatically.
 By default, it is passed to the constructor as the first argument.
 
 ```php
-use Boson\WebView\Api\WebComponentsApi\ReactiveContext;
+use Boson\WebView\Api\WebComponents\ReactiveContext;
 use Boson\WebView\WebView;
 
 class MyExampleComponent

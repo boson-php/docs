@@ -147,7 +147,54 @@ class MyExampleComponent implements HasLifecycleCallbacksInterface
 }
 ```
 
-## Component Methods
+## Properties
+
+Each web component supports the ability to create properties and manage them.
+
+```js
+let el = document.createElement('my-element');
+
+el.exampleProperty = 42;
+```
+
+By default, this property does not affect the operation of PHP code in any way.
+However, if you need to track the state of properties, you can use the 
+corresponding `Boson\WebView\Api\WebComponents\Component\HasPropertiesInterface` 
+interface.
+
+```php
+class MyExampleComponent implements HasPropertiesInterface
+{
+    public function onPropertyChanged(string $property, mixed $value): void
+    {
+        // ...
+    }
+
+    public static function getPropertyNames(): array
+    {
+        // ...
+    }
+}
+```
+
+In particular, if you need to receive information about changes in property 
+`exampleProperty`, then you should add it to the `getPropertyNames()` list.
+
+```php
+public static function getPropertyNames(): array
+{
+    return [ 'exampleProperty' ];
+}
+```
+
+<warning>
+<b>Properties</b> and <a href="#attributes"><b>attributes</b></a> are different 
+things. Properties are located directly on the object and can contain arbitrary 
+data, while an attribute can be specified in HTML tags and can contain 
+exclusively string values.
+</warning>
+
+## Methods
 
 Each web component supports the ability to create methods and process them.
 
@@ -244,7 +291,7 @@ try {
 }
 ```
 
-## Component Attributes
+## Attributes
 
 In addition to methods, each HTML element has attributes. You can subscribe 
 to change, add or remove an attribute by implementing the 
@@ -280,8 +327,7 @@ the attribute value changes.
 | `string` | `string`    | Attribute value has been changed  |
 | `null`   | `string`    | Attribute has been removed        |
 
-
-## Component Events
+## Events
 
 Each web component supports the ability to listen several component events 
 and process them.

@@ -43,7 +43,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 <tip>
 Each registered scheme in this list will produce a 
-<a href="webview-events.md#request-intention">WebViewRequest</a> intention 
+<a href="schemes-api-events.md#request-intention">SchemeRequestReceived</a> intention 
 when attempting to access a resource located at an address with this protocol.
 </tip>
 

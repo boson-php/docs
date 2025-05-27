@@ -1,6 +1,28 @@
-# Laravel HTTP Adapter
+# Laravel HTTP Bridge
 
-You can create a Laravel HTTP request in the same way as Symfony.
+The Laravel HTTP Bridge provides the ability to convert internal requests and 
+responses of the [Schema API](schemes-api.md) to those compatible with the 
+[Laravel Framework](https://laravel.com).
+
+The bridge is supplied as a separate component and must be installed separately.
+
+## Installation
+
+<tldr>
+    <p>
+        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
+    </p>
+    <p>
+        <code lang="bash">composer require boson-php/laravel-http-bridge</code>
+    </p>
+</tldr>
+
+**Requirements:**
+
+* `PHP ^8.4`
+* `illuminate/http ^12.0`
+
+## Usage
 
 <warning>
 Correct functionality is NOT GUARANTEED.
@@ -11,17 +33,17 @@ other "bad practice features".
 </warning>
 
 To work with Laravel HTTP kernel you can use specific
-`Boson\Bridge\Http\LaravelHttpAdapter` adapter.
+`Boson\Bridge\Laravel\Http\LaravelHttpAdapter` adapter.
 
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
 use Boson\Bridge\Http\LaravelHttpAdapter;
-use Boson\WebView\Event\WebViewRequest;
+use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application
 $app = new Application(new ApplicationCreateInfo(
-    schemes: ['laravel'],
+    schemes: [ 'laravel' ],
 ));
 
 // Do not forget to fix for known Laravel issue with using
@@ -32,7 +54,7 @@ $app = new Application(new ApplicationCreateInfo(
 $laravel = new LaravelHttpAdapter();
 
 // Subscribe to receive a request
-$app->on(function (WebViewRequest $e) use ($laravel): void {
+$app->on(function (SchemeRequestReceived $e) use ($laravel): void {
     $laravelRequest = $laravel->createRequest($e->request);
     
     // ...do something, like:

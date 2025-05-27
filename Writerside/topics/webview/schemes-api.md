@@ -16,7 +16,6 @@ them in the list of schemes.
 
 ```php
 $app = new Boson\Application(new Boson\ApplicationCreateInfo(
-    // List of handling "https" protocol
     schemes: [ 'test' ],
 ));
 
@@ -49,14 +48,14 @@ case, `test`), you can start catching the corresponding events of sending
 requests to this protocol (to this scheme).
 
 ```php
-use Boson\WebView\Event\WebViewRequest;
+use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 $app = new Boson\Application(new Boson\ApplicationCreateInfo(
-    // List of middleware for "https" protocol
+    // List of intecpted schemes
     schemes: [ 'test' ],
 ));
 
-$app->on(function (WebViewRequest $e): void {
+$app->on(function (SchemeRequestReceived $e): void {
     echo sprintf("%s %s\r\n", $e->request->method, $e->request->url);
     
     foreach ($e->request->headers as $header => $value) {
@@ -85,7 +84,7 @@ In that case, if you need to block a request to a specified URL,
 you can cancel it.
 
 ```php
-$app->on(function (WebViewRequest $e): void {
+$app->on(function (SchemeRequestReceived $e): void {
     $e->cancel();
 });
 ```
@@ -94,7 +93,7 @@ In addition to canceling a request, you can also simulate a
 response from a resource.
 
 ```php
-$app->on(function (WebViewRequest $e): void {
+$app->on(function (SchemeRequestReceived $e): void {
     $e->response = new Boson\Http\Response(
         body: 'Hello World!',
     );
@@ -104,7 +103,7 @@ $app->on(function (WebViewRequest $e): void {
 Or a more complex response example:
 
 ```php
-$app->on(function (WebViewRequest $e): void {
+$app->on(function (SchemeRequestReceived $e): void {
     $e->response = new Boson\Http\Response(
         body: json_encode(['error' => 'Something went wrong']),
         headers: ['content-type' => 'application/json'],
@@ -116,7 +115,7 @@ $app->on(function (WebViewRequest $e): void {
 Or using specific `JsonResponse` response instance:
 
 ```php
-$app->on(function (WebViewRequest $e): void {
+$app->on(function (SchemeRequestReceived $e): void {
     $e->response = new Boson\Http\JsonResponse(
         body: ['error' => 'Something went wrong'],
         status: 404,

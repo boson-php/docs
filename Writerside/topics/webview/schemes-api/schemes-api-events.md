@@ -22,6 +22,7 @@ registered [in the configuration](application-configuration.md#intercepted-schem
 class SchemeRequestReceived<WebView> 
 {
     public readonly Boson\Http\RequestInterface $request;
+    
     public ?Boson\Http\ResponseInterface $response = null;
 }
 ```

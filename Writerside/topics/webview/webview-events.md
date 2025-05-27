@@ -155,21 +155,6 @@ class WebViewNavigated<WebView>
 
 - `$url` - The URL address by which navigation occurs.
 
-## Request Intention
-<secondary-label ref="intention"/>
-
-An `Boson\WebView\Event\WebViewRequest` intention processing of user schemes
-registered [in the configuration](application-configuration.md#intercepted-schemes).
-
-<warning>
-Since version <code>0.11.0</code> this is an alias for 
-<code>Boson\WebView\Api\Schemes\Event\SchemeRequestReceived</code> intention.
-</warning>
-
-<tip>
-See more information [in Scheme API Events](schemes-api-events.md).
-</tip>
-
 ## Title Changing Intention
 <secondary-label ref="intention"/>
 

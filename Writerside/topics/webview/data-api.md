@@ -63,7 +63,7 @@ If the page is currently loading, synchronous requests are also unavailable.
 <code-block lang="php">
 $app = new Boson\Application();
 
-$app->on(function(Boson\WebView\Event\WebViewNavigating $e) {
+$app->on(function (Boson\WebView\Event\WebViewNavigating $e): void {
     var_dump($e->subject->data->get('document.location'));
     //
     // Boson\WebView\Api\Data\Exception\WebViewIsNotReadyException:

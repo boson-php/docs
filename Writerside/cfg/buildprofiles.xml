@@ -26,9 +26,10 @@
         <contribute-url>https://github.com/BosonPHP/Docs/blob/master/Writerside/</contribute-url>
         <custom-css>custom.css</custom-css>
 
-        <algolia-id>CZXH99BXN1</algolia-id>
-        <algolia-index>Writerside</algolia-index>
-        <algolia-api-key>70b2d5249859c00508d22cb54c52eeee</algolia-api-key>
+        <algolia-id>VQXMLE2UOI</algolia-id>
+        <algolia-index>Boson</algolia-index>
+        <algolia-api-key>3553b26b2a41a4450a9b268d2b9be4e0</algolia-api-key>
+        <algolia-show-logo>true</algolia-show-logo>
     </variables>
 
     <icons>

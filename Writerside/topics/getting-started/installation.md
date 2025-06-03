@@ -4,29 +4,45 @@
 
 Boson brings together a set of components, each handling a key part of the system:
 
-- [**Runtime**](https://github.com/BosonPHP/Runtime) — acts as the bridge between your PHP code 
-  and the underlying operating system. This is the main API that you can use both in runtime and 
-  during development.
+- [**Runtime**](https://github.com/boson-php/runtime) — acts as the bridge 
+  between your PHP code and the underlying operating system. This is the main 
+  API that you can use both in runtime and during development.
 
-- [**Frontend**](https://github.com/BosonPHP/Frontend) – written in C/C++, it offers a cross-platform 
-  low-level API (ABI) to interact with the graphics subsystem.
+- [**Compiler**](https://github.com/boson-php/compileer) – allows you to build 
+  the results of your work into a finished project ready for distribution.
 
-- <tooltip term="TODO">**Backend** – powers the execution of your PHP code, making sure everything 
-  runs smoothly behind the scenes.</tooltip>
+<note>
+Technically there are more repositories and components, but the main ones 
+are presented here.
+</note>
 
-Together, they create a seamless environment for building rich desktop applications with 
-web technologies — without the bloat.
+Together, they create a seamless environment for building rich desktop 
+applications with web technologies — without the bloat.
 
 
 ## Runtime
 
-Boson runtime library is available as [Composer](https://getcomposer.org/doc/)
-repository and can be installed using the following command in a root of your
-project:
+Boson runtime provides the core of the library and allows you to 
+run your wonderful applications.
+
+Library is available as [Composer](https://getcomposer.org/doc/) repository and
+can be installed using the following command in a root of your project:
 
 ```shell
 composer require boson-php/runtime
 ```
+
+<warning>
+Since the current release version of the package is <code>0.x</code>, you 
+should make sure that your <code>composer.json</code> file contains the 
+<code>"minimum-stability": "dev"</code> line, otherwise you will get an 
+error message like:
+<code-block>
+Could not find a version of package boson-php/runtime matching your 
+minimum-stability (stable). Require it with an explicit version con
+straint allowing its desired stability.
+</code-block>
+</warning>
 
 Don't forget to include the autoload file in your application.
 
@@ -38,6 +54,27 @@ require __DIR__ . '/vendor/autoload.php';
 $app = new Boson\Application();
 ```
 
+
+## Compiler
+
+Boson compiler gives you the ability to assemble the result of your work into 
+a final product. That is, into an executable file for the target platform.
+
+Library is available as [Composer](https://getcomposer.org/doc/) repository and 
+can be installed using the following command in a root of your project:
+
+```shell
+composer require boson-php/compiler --dev
+```
+
+<note>
+The compiler is only required for development, it is not required for code 
+execution, so it is recommended to include it as a <code>--dev</code> package.
+</note>
+
+<warning>
+Make sure the <code>"minimum-stability"</code> is set correctly.
+</warning>
 
 ## Requirements
 

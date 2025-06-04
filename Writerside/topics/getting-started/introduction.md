@@ -68,6 +68,6 @@ If you need help with developing your app, our community
 Boson app developers.
 
 If you suspect you're running into a bug with the package, please check the 
-[GitHub](https://github.com/boson-php/runtime) issue tracker to see if any 
+[GitHub](https://github.com/boson-php/boson) issue tracker to see if any 
 existing issues match your problem. If not, feel free to fill out our bug 
 report template and submit a new issue.

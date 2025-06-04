@@ -8,7 +8,7 @@ Boson brings together a set of components, each handling a key part of the syste
   between your PHP code and the underlying operating system. This is the main 
   API that you can use both in runtime and during development.
 
-- [**Compiler**](https://github.com/boson-php/compileer) – allows you to build 
+- [**Compiler**](https://github.com/boson-php/compiler) – allows you to build 
   the results of your work into a finished project ready for distribution.
 
 <note>

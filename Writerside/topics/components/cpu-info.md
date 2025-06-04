@@ -26,8 +26,6 @@ including architecture, number of cores, and other information.
 
 ### Basic Information
 
-<secondary-label ref="macos-limitations"/>
-
 ```php
 use Boson\Component\CpuInfo\CentralProcessor;
 

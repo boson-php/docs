@@ -63,9 +63,11 @@ what you can expect on each one:
 
 Are you getting stuck anywhere? Here are a few links to places to look:
 
-If you need help with developing your app, our community [Telegram](https://t.me/boson_php) is a great place to get advice from 
-other Boson app developers.
+If you need help with developing your app, our community 
+[Telegram](https://t.me/boson_php) is a great place to get advice from other 
+Boson app developers.
 
-If you suspect you're running into a bug with the package, please check the [GitHub](https://github.com/BosonPHP/Runtime) 
-issue tracker to see if any existing issues match your problem. If not, feel free 
-to fill out our bug report template and submit a new issue.
+If you suspect you're running into a bug with the package, please check the 
+[GitHub](https://github.com/boson-php/runtime) issue tracker to see if any 
+existing issues match your problem. If not, feel free to fill out our bug 
+report template and submit a new issue.

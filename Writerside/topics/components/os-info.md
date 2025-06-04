@@ -28,6 +28,8 @@ supported standards.
 
 ### Basic Detection
 
+<secondary-label ref="macos-limitations"/>
+
 ```php
 use Boson\Component\OsInfo\OperatingSystem;
 
@@ -66,6 +68,21 @@ This code will output something like the following information
         Standards: POSIX
         </code-block>
     </tab>
+    <tab title="macOS">
+        <code-block>
+        Family: Darwin
+        Name: Darwin
+        Version: 24.4.0
+        Codename: ~
+        Edition: ~
+        Standards: POSIX
+        </code-block>
+        <warning>
+        Please note that the information in macOS may not be accurate due 
+        to virtualization and testing issues.
+        Full implementation of macOS support is possible in the future.
+        </warning>
+    </tab>
 </tabs>
 
 ### OS Families
@@ -81,9 +98,18 @@ use Boson\Component\OsInfo\Family;
 // Get current OS family
 $family = Family::createFromGlobals();
 
-// Check for specific family
-if ($family->is(Family::Windows)) {
-    // Windows-specific (or windows-like) code
+// Strict compliance
+if ($family === Family::BSD) {
+    // Only BSD OS
+}
+
+// Compatibility check
+if ($family->is(Family::BSD)) {
+    // BSD and BSD-like, for example:
+    //  - BSD
+    //  - Solaris
+    //  - Darwin (macOS)
+    //  - etc
 }
 ```
 

@@ -17,7 +17,7 @@
                summary="Check out all the possibilities of building lightweight and powerful client solutions on PHP">
                 Documentation
             </a>
-            <a href="https://github.com/BosonPHP/Runtime" type="mixed"
+            <a href="https://github.com/boson-php/runtime" type="mixed"
                summary="Boson is a completely open source solution">
                 Source Code
             </a>

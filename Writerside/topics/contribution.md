@@ -39,9 +39,8 @@ the <a href="contribution.md#security-issues">special procedure instead</a>.
 </warning>
 
 You may submit a bug report using GitHub Issues.
-- [Documentation](https://github.com/BosonPHP/Docs/issues)
-- [Boson Runtime Component (boson-php/runtime)](https://github.com/BosonPHP/Runtime/issues)
-- [Frontend Binaries](https://github.com/BosonPHP/Frontend/issues)
+- [Documentation](https://github.com/boson-php/docs/issues)
+- [Boson Kernel (monorepo)](https://github.com/boson-php/boson/issues)
 
 Please follow some basic rules:
 
@@ -107,7 +106,7 @@ provide a bug fix or to propose enhancements to Boson Components.
     Add the upstream repository as a remote:
     <code-block lang="Bash">
     cd COMPONENT_NAME
-    git remote add upstream https://github.com/BosonPHP/COMPONENT_NAME.git
+    git remote add upstream https://github.com/boson-php/COMPONENT_NAME.git
     </code-block>
   </step>
 </procedure>

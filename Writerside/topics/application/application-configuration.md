@@ -114,7 +114,7 @@ tools</a> (if they are not set explicitly).
 <secondary-label ref="config-only"/>
 
 Specifies the path to a custom 
-[frontend library](https://github.com/BosonPHP/Frontend/releases) that should 
+[frontend library](https://github.com/boson-php/frontend-src/releases) that should 
 be loaded with the application.
 
 ```php

@@ -32,7 +32,7 @@ corresponding adapter `Boson\Bridge\Psr\Http\Psr7HttpAdapter`.
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Bridge\Http\Psr7HttpAdapter;
+use Boson\Bridge\Psr\Http\Psr7HttpAdapter;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application

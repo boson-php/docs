@@ -30,7 +30,7 @@ To work with Symfony HTTP kernel you can use specific
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Bridge\Http\SymfonyHttpAdapter;
+use Boson\Bridge\Symfony\Http\SymfonyHttpAdapter;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application

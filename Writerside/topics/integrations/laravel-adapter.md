@@ -38,7 +38,7 @@ To work with Laravel HTTP kernel you can use specific
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Bridge\Http\LaravelHttpAdapter;
+use Boson\Bridge\Laravel\Http\LaravelHttpAdapter;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application

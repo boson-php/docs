@@ -26,7 +26,7 @@ Static adapters exist to serve files without execution of application code.
 ## Filesystem
 
 To return static files from the filesystem, you can use specific 
-`Boson\Component\Http\Static\FilesystemStaticAdapter` static adapter.
+`Boson\Component\Http\Static\FilesystemStaticProvider` static adapter.
 
 ```php
 use Boson\Application;

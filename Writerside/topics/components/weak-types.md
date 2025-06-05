@@ -6,6 +6,12 @@ The Weak Types component provides a set of classes for working with weak
 references in PHP. It allows you to store objects without preventing them 
 from being garbage collected, and react to their destruction.
 
+<note>
+This component already included in the <code>boson-php/runtime</code>, 
+so no separate installation is required when using the runtime.
+</note>
+
+
 ## Installation
 
 <tldr>
@@ -20,6 +26,7 @@ from being garbage collected, and react to their destruction.
 **Requirements:**
 
 * `PHP ^8.4`
+
 
 ## Usage
 

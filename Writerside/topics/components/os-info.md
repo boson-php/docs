@@ -7,6 +7,12 @@ operating system information in your applications. It offers a comprehensive
 set of features for identifying operating systems, their families, and 
 supported standards.
 
+<note>
+This component already included in the <code>boson-php/runtime</code>, 
+so no separate installation is required when using the runtime.
+</note>
+
+
 ## Installation
 
 <tldr>
@@ -23,6 +29,7 @@ supported standards.
 * `PHP ^8.4`
 * `ext-ffi` (optional, provides more detailed and accurate information about the OS)
 * `ext-com_dotnet` (optional, provides more detailed and accurate information about the OS)
+
 
 ## Usage
 

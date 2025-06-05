@@ -4,7 +4,11 @@ The Symfony HTTP Bridge provides the ability to convert internal requests and
 responses of the [Schema API](schemes-api.md) to those compatible with the
 [Symfony Framework](https://symfony.com).
 
-The bridge is supplied as a separate component and must be installed separately.
+<note>
+This bridge is NOT included by default in the <code>boson-php/runtime</code> 
+and must be installed separately.
+</note>
+
 
 ## Installation
 

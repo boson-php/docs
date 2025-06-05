@@ -5,6 +5,12 @@
 The CPU info component provides information about the underlying CPU, 
 including architecture, number of cores, and other information.
 
+<note>
+This component already included in the <code>boson-php/runtime</code>, 
+so no separate installation is required when using the runtime.
+</note>
+
+
 ## Installation
 
 <tldr>
@@ -21,6 +27,7 @@ including architecture, number of cores, and other information.
 * `PHP ^8.4`
 * `ext-ffi` (optional, provides more detailed and accurate information about the CPU)
 * `ext-com_dotnet` (optional, provides more detailed and accurate information about the CPU)
+
 
 ## Usage
 

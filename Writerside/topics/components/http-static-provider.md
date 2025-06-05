@@ -1,8 +1,12 @@
-# Static Files
+# HTTP Static Provider 
 
 Static provider exist to serve files without execution of application code.
 
-The provider is supplied as a separate component and must be installed separately.
+<warning>
+This component is not included by default in the <code>boson-php/runtime</code> 
+and must be installed separately.
+</warning>
+
 
 ## Installation
 
@@ -18,6 +22,7 @@ The provider is supplied as a separate component and must be installed separatel
 **Requirements:**
 
 * `PHP ^8.4`
+
 
 ## Usage
 

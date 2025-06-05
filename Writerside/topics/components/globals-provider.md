@@ -10,6 +10,12 @@ obtain their state depending on WebView requests:
 - `$_FILES`
 - etc.
 
+<warning>
+This component is not included by default in the <code>boson-php/runtime</code> 
+and must be installed separately.
+</warning>
+
+
 ## Installation
 
 <tldr>
@@ -24,6 +30,7 @@ obtain their state depending on WebView requests:
 **Requirements:**
 
 * `PHP ^8.4`
+
 
 ## The `$_SERVER` Superglobals
 

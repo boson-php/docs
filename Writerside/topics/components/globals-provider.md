@@ -3,7 +3,12 @@
 <show-structure for="chapter" depth="2"/>
 
 The component provides the ability to manage global PHP variables and 
-obtain their state depending on WebView requests.
+obtain their state depending on WebView requests:
+- `$_SERVER`
+- `$_POST`
+- `$_GET`
+- `$_FILES`
+- etc.
 
 ## Installation
 
@@ -20,14 +25,19 @@ obtain their state depending on WebView requests.
 
 * `PHP ^8.4`
 
-## Usage
+## The `$_SERVER` Superglobals
 
 The component provides several implementations of 
 `ServerGlobalsProviderInterface` for managing PHP `$_SERVER` superglobals:
+- `Boson\Component\GlobalsProvider\DefaultServerGlobalsProvider`
+- `Boson\Component\GlobalsProvider\StaticServerGlobalsProvider`
+- `Boson\Component\GlobalsProvider\CompoundServerGlobalsProvider`
+- `Boson\Component\GlobalsProvider\EmptyServerGlobalsProvider`
 
-### DefaultServerGlobalsProvider
+### Default Provider
 
-The default provider that handles basic request-aware parameters:
+The `Boson\Component\GlobalsProvider\DefaultServerGlobalsProvider` 
+provides basic request-aware parameters:
 
 ```php
 use Boson\Component\GlobalsProvider\DefaultServerGlobalsProvider;
@@ -99,9 +109,10 @@ and `REQUEST_TIME_FLOAT` parameters.
 This allows for consistent time-based testing and custom time 
 handling in your application.
 
-### StaticServerGlobalsProvider
+### Static Provider
 
-Provides constant server parameters that are independent of the request:
+The `Boson\Component\GlobalsProvider\StaticServerGlobalsProvider` provides 
+constant server parameters that are independent of the request:
 
 ```php
 use Boson\Component\GlobalsProvider\StaticServerGlobalsProvider;
@@ -125,9 +136,10 @@ The provider ensures:
 - Default server software (`SERVER_SOFTWARE`)
 - etc...
 
-### CompoundServerGlobalsProvider
+### Compound Provider
 
-Combines multiple providers into a single one:
+The `Boson\Component\GlobalsProvider\CompoundServerGlobalsProvider` combines 
+multiple providers into a single one:
 
 ```php
 use Boson\Component\GlobalsProvider\CompoundServerGlobalsProvider;
@@ -151,9 +163,10 @@ $provider = new CompoundServerGlobalsProvider($providers);
 The compound provider merges results from all providers in the order they 
 are provided. Later providers can override values from earlier ones.
 
-### EmptyServerGlobalsProvider
+### Empty Provider
 
-A simple provider that returns an empty array of server globals:
+The `Boson\Component\GlobalsProvider\EmptyServerGlobalsProvider` 
+returns an empty array of server globals:
 
 ```php
 use Boson\Component\GlobalsProvider\EmptyServerGlobalsProvider;
@@ -161,3 +174,18 @@ use Boson\Component\GlobalsProvider\EmptyServerGlobalsProvider;
 $provider = new EmptyServerGlobalsProvider();
 $globals = $provider->getServerGlobals($request); // Returns []
 ```
+
+## The `$_POST` Superglobals
+
+The component does not currently provide functionality for obtaining PHP 
+superglobal `$_POST` variables.
+
+## The `$_GET` Superglobals
+
+The component does not currently provide functionality for obtaining PHP
+superglobal `$_GET` variables.
+
+## The `$_FILES` Superglobals
+
+The component does not currently provide functionality for obtaining PHP
+superglobal `$_FILES` variables.

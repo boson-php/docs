@@ -54,9 +54,9 @@
         <toc-element topic="os-info.md" />
         <toc-element topic="cpu-info.md" />
         <toc-element topic="weak-types.md" />
+        <toc-element topic="static-files.md" />
     </toc-element>
     <toc-element toc-title="Integrations">
-        <toc-element topic="static-files.md" />
         <toc-element topic="symfony-adapter.md"
                      toc-title="Symfony HTTP" />
         <toc-element topic="laravel-adapter.md"

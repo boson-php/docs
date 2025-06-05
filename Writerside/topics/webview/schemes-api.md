@@ -10,6 +10,7 @@ programmatically, without actual requests to the server (without network).
 
 ## Registration
 <secondary-label ref="macos-limitations"/>
+<secondary-label ref="security-limitations"/>
 
 To enable processing of specific protocols, you should specify
 them in the list of schemes.
@@ -36,6 +37,19 @@ You will get an error similar to the following:
     scheme that WKWebView handles natively"
 *** First throw call stack:
     ...
+</code-block>
+</warning>
+</tab>
+<tab title="Linux/GTK4">
+<warning>
+Does NOT support interception of some existing schemes:
+<code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>, 
+<code>ftp</code>, <code>file</code>, <code>data</code>.
+
+You will get an error similar to the following:
+<code-block>
+** (process:3226): WARNING **: 16:12:59.122: 
+Registering special URI scheme https is no longer allowed
 </code-block>
 </warning>
 </tab>

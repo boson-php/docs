@@ -30,7 +30,6 @@ For example as a <a href="https://learn.microsoft.com/en-us/windows/win32/learnw
 
 ## Intercepted Schemes
 <secondary-label ref="config-only"/>
-<secondary-label ref="macos-limitations"/>
 
 Defines custom schemes that your application can handle.
 These schemes allow you to create custom protocols for your application.
@@ -41,30 +40,14 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
+More detailed information about the schemes is available 
+on the [Schemes API](schemes-api.md) page.
+
 <tip>
 Each registered scheme in this list will produce a 
 <a href="schemes-api-events.md#request-intention">SchemeRequestReceived</a> intention 
 when attempting to access a resource located at an address with this protocol.
 </tip>
-
-<tabs>
-<tab title="MacOS/WebKit">
-<warning>
-Does NOT support interception of some existing schemes:
-<code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>, 
-<code>ftp</code>, <code>file</code>, <code>data</code>.
-
-You will get an error similar to the following:
-<code-block>
-*** Terminating app due to uncaught 
-    exception 'NSInvalidArgumentException', reason: "'https' is a URL 
-    scheme that WKWebView handles natively"
-*** First throw call stack:
-    ...
-</code-block>
-</warning>
-</tab>
-</tabs>
 
 
 ## Threads Count

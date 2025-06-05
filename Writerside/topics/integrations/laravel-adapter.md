@@ -1,4 +1,4 @@
-# Laravel HTTP Bridge
+# Laravel HTTP Adapter
 
 The Laravel HTTP Bridge provides the ability to convert internal requests and 
 responses of the [Schema API](schemes-api.md) to those compatible with the 

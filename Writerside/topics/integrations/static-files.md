@@ -31,7 +31,7 @@ To return static files from the filesystem, you can use specific
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Component\Http\Static\FilesystemStaticAdapter;
+use Boson\Component\Http\Static\FilesystemStaticProvider;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application
@@ -40,7 +40,7 @@ $app = new Application(new ApplicationCreateInfo(
 ));
 
 // Create static files adapter
-$static = new FilesystemStaticAdapter([__DIR__ . '/public']);
+$static = new FilesystemStaticProvider([__DIR__ . '/public']);
 
 $app->on(function (SchemeRequestReceived $e) use ($static): void {
     // Lookup static file and create response in

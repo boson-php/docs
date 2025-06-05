@@ -18,8 +18,6 @@ The provider is supplied as a separate component and must be installed separatel
 **Requirements:**
 
 * `PHP ^8.4`
-* `psr/http-message ^1.0|^2.0`
-* `psr/http-factory ^1.0`
 
 ## Usage
 
@@ -33,7 +31,7 @@ To return static files from the filesystem, you can use specific
 ```php
 use Boson\Application;
 use Boson\ApplicationCreateInfo;
-use Boson\Bridge\Static\FilesystemStaticAdapter;
+use Boson\Component\Http\Static\FilesystemStaticAdapter;
 use Boson\WebView\Api\Schemes\Event\SchemeRequestReceived;
 
 // Create an application
@@ -47,7 +45,7 @@ $static = new FilesystemStaticAdapter([__DIR__ . '/public']);
 $app->on(function (SchemeRequestReceived $e) use ($static): void {
     // Lookup static file and create response in
     // case of given file is available.
-    $e->response = $static->lookup($e->request);
+    $e->response = $static->findFileByRequest($e->request);
     
     if ($e->response !== null) {
         return;

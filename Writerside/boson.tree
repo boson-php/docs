@@ -34,19 +34,19 @@
             <toc-element topic="webview-configuration.md"
                          toc-title="Configuration" />
             <toc-element topic="webview-events.md" />
-            <toc-element topic="schemes-api.md">
-                <toc-element topic="schemes-api-events.md"
-                             toc-title="Scheme Events" />
-            </toc-element>
-            <toc-element topic="scripts-api.md" />
-            <toc-element topic="bindings-api.md" />
-            <toc-element topic="data-api.md" />
-            <toc-element topic="web-components-api.md" />
-            <toc-element topic="security-api.md" />
-            <toc-element topic="battery-api.md">
-                <toc-element topic="battery-api-events.md"
-                             toc-title="Battery Events" />
-            </toc-element>
+        </toc-element>
+        <toc-element topic="schemes-api.md">
+            <toc-element topic="schemes-api-events.md"
+                         toc-title="Scheme Events" />
+        </toc-element>
+        <toc-element topic="scripts-api.md" />
+        <toc-element topic="bindings-api.md" />
+        <toc-element topic="data-api.md" />
+        <toc-element topic="web-components-api.md" />
+        <toc-element topic="security-api.md" />
+        <toc-element topic="battery-api.md">
+            <toc-element topic="battery-api-events.md"
+                         toc-title="Battery Events" />
         </toc-element>
         <toc-element topic="events.md" />
     </toc-element>

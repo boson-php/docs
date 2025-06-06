@@ -10,7 +10,7 @@ php vendor/bin/boson compile
 
 After running the command you will get something like the following result:
 
-<video src="compilation.webm" preview-src="compilation.png" />
+<video src="compilation.mp4" preview-src="compilation.png" />
 
 This command will compile your application into single executable file.
 This is enough to distribute the application. NO dependencies (`php`, `node`,

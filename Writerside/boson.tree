@@ -20,6 +20,7 @@
         <toc-element toc-title="Lifecycle"
                      hidden="true" />
         <toc-element topic="configuration.md" />
+        <toc-element topic="events.md" />
         <toc-element topic="application.md">
             <toc-element topic="application-configuration.md"
                          toc-title="Configuration" />
@@ -35,20 +36,36 @@
                          toc-title="Configuration" />
             <toc-element topic="webview-events.md" />
         </toc-element>
-        <toc-element topic="schemes-api.md">
+    </toc-element>
+    <toc-element toc-title="WebView APIs">
+        <toc-element topic="schemes-api.md"
+                     toc-title="Custom Schemes">
             <toc-element topic="schemes-api-events.md"
                          toc-title="Scheme Events" />
         </toc-element>
-        <toc-element topic="scripts-api.md" />
-        <toc-element topic="bindings-api.md" />
-        <toc-element topic="data-api.md" />
-        <toc-element topic="web-components-api.md" />
-        <toc-element topic="security-api.md" />
-        <toc-element topic="battery-api.md">
+        <toc-element topic="bindings-api.md"
+                     toc-title="Functions Bindings"/>
+        <toc-element topic="data-api.md"
+                     toc-title="WebView Data Retrieving"/>
+        <toc-element topic="scripts-api.md"
+                     toc-title="JavaScript Injection" />
+        <toc-element topic="web-components-api.md"
+                     toc-title="Web Components" />
+        <toc-element topic="battery-api.md"
+                     toc-title="Battery Status">
             <toc-element topic="battery-api-events.md"
                          toc-title="Battery Events" />
         </toc-element>
-        <toc-element topic="events.md" />
+        <toc-element topic="security-api.md"
+                     toc-title="Security Context" />
+    </toc-element>
+    <toc-element toc-title="Distribute">
+        <toc-element topic="compiler-introduction.md"
+                     toc-title="Introduction"/>
+        <toc-element topic="compiler-configuration.md"
+                     toc-title="Configuration"/>
+        <toc-element topic="compiler-building.md"
+                     toc-title="Building"/>
     </toc-element>
     <toc-element topic="components.md">
         <toc-element topic="os-info.md" />
@@ -59,7 +76,7 @@
         <toc-element topic="http-static-provider.md" />
         <toc-element topic="weak-types.md" />
     </toc-element>
-    <toc-element toc-title="Integrations">
+    <toc-element toc-title="Framework Integrations">
         <toc-element topic="symfony-adapter.md"
                      toc-title="Symfony HTTP" />
         <toc-element topic="laravel-adapter.md"

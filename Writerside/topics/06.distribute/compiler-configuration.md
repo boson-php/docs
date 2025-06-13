@@ -264,8 +264,17 @@ to include in the assembly.
     "build": {
         "finder": [
             {
+                // "string" or ["string"]
+                "directory": "vendor",
+
+                // "string" or ["string"]
+                "not-directory": "vendor/phpunit",
+
+                // "string" or ["string"]
                 "name": "*.php",
-                "directory": "vendor"
+
+                // "string" or ["string"]
+                "not-name": "Test.php"
             },
             // ...
         ],
@@ -275,12 +284,16 @@ to include in the assembly.
 }
 ```
 
-The `"finder"` may contain an array of objects with, `"name"` 
-and `"directory"` fields.
+The `"finder"` may contain an array of objects with, `"name"`, `"not-name"`, 
+`"directory"` and `"not-directory"` fields.
 
 <procedure title="name field format">
 Filters files by name. All files matching the 
 specified rule will be included in the build.
+<tip>
+The <code>name</code> field may be defined as <code>string</code> or 
+<code>array</code> of strings
+</tip>
 <step>
 You may specify a mask where an asterisk means any 
 occurrence of any number of characters
@@ -293,13 +306,22 @@ an expression must start and end with the <code>/</code> characters.
 <code-block>/\.php$/</code-block>
 <code-block>/^index.*/</code-block>
 </step>
-<note>
+<warning>
 The field only checks the file <b>name</b>, not the file path.
-</note>
+</warning>
 </procedure>
+
+<note>
+To exclude from the selection by names, use the <code>"not-name"</code> field 
+with the same capabilities as <code>"name"</code> field.
+</note>
 
 <procedure title="directory field format">
 Specifies the directory in which to search for files to include.
+<tip>
+The <code>directory</code> field may be defined as <code>string</code> or 
+<code>array</code> of strings
+</tip>
 <step>
 You may define real path to directory.
 <code-block>
@@ -315,6 +337,11 @@ least one directory path).
 </code-block>
 </step>
 </procedure>
+
+<note>
+To exclude directories, use the <code>"not-directory"</code> field 
+with the same capabilities as <code>"directory"</code> field.
+</note>
 
 ## `ini` {id="ini-config"}
 

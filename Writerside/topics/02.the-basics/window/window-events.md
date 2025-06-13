@@ -86,7 +86,7 @@ that it reacts exclusively to the turning on or off of window controls
 (minimize, maximize, restore, close buttons and title bar) visibility.
 </note>
 
-### Decoration Changed Event
+## Decoration Changed Event
 <secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowDecorationChanged` event fired after
@@ -102,6 +102,17 @@ class WindowDecorationChanged<Window>
 
 - `$decoration` - Decorations type of the window.
 - `$previous` - Previous decorations type of the window.
+
+## Destroyed Event
+<secondary-label ref="event"/>
+
+An `Boson\Window\Event\WindowDestroyed` event fired after window has 
+been destroyed (all references to it in the GC have been removed).
+
+```php
+class WindowDestroyed<Window>
+```
+
 
 ## Focused Event
 <secondary-label ref="event"/>

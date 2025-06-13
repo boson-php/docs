@@ -37,6 +37,12 @@
             <toc-element topic="webview-events.md" />
         </toc-element>
     </toc-element>
+    <toc-element toc-title="Application APIs">
+        <toc-element topic="dialog-api.md" />
+    </toc-element>
+    <toc-element toc-title="Window APIs" hidden="true">
+        <!-- TODO -->
+    </toc-element>
     <toc-element toc-title="WebView APIs">
         <toc-element topic="schemes-api.md"
                      toc-title="Custom Schemes">

@@ -188,9 +188,9 @@ $app->on(Event::class, function (Event $e) { ... });
 
 ## Event Listener
 
-The `Boson\Dispatcher\EventListenerInterface` provides a way to subscribe to 
-and handle events in the Boson application. It allows you to register callbacks 
-that will be executed when specific events occur.
+The `Boson\Contracts\EventListener\EventListenerInterface` provides a way to 
+subscribe to and handle events in the Boson application. It allows you to 
+register callbacks that will be executed when specific events occur.
 
 ### Listen Events
 

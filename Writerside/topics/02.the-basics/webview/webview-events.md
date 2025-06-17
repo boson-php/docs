@@ -8,11 +8,12 @@ The webview will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-<a href="events.md#event-listener">event listener</a>, using
-`WebView::$events` property.
+<a href="events.md#event-listener">event listener</a>.
 
 ```php
-$app->events->addEventListener (Event::class, function (Event $e): void {
+$webview = $app->webview;
+
+$webview->addEventListener(Event::class, function (Event $e): void {
     var_dump($e);
 });
 ```
@@ -21,7 +22,7 @@ The webview instance also supports a more convenient and simple way of
 registering events using the `on()` method.
 
 ```php
-$app->webview->on(function (Event $event): void {
+$webview->on(function (Event $event): void {
     var_dump($event);
 });
 ```

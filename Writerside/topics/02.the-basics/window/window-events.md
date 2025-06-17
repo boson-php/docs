@@ -8,11 +8,12 @@ The window will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-<a href="events.md#event-listener">event listener</a>, using
-`Window::$events` property.
+<a href="events.md#event-listener">event listener</a>.
 
 ```php
-$app->events->addEventListener(Event::class, function (Event $e) {
+$window = $app->window;
+
+$window->addEventListener(Event::class, function (Event $e) {
     var_dump($e);
 });
 ```
@@ -21,7 +22,7 @@ The window instance also supports a more convenient and simple way of
 registering events using the `on()` method.
 
 ```php
-$app->window->on(function (Event $event): void {
+$window->on(function (Event $event): void {
     var_dump($event);
 });
 ```

@@ -10,19 +10,35 @@ classDiagram
     class EventDispatcherInterface["Psr\EventDispatcher\EventDispatcherInterface"]
     EventDispatcherInterface <.. Application : delegates events to optional PSR dispatcher
     class Application["Boson\Application"]{
-        +Boson\Dispatcher\EventListenerInterface : $events
+        <<implements EventListenerInterface>>
+        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
+        +removeEventListener(SubscriptionInterface $subscription) void
+        +removeListenersForEvent(object|string $event) void
+        +getListenersForEvent(object|string $event) iterable
     }
     Application <.. WindowManager : delegates events to application
     class WindowManager["Boson\Window\Manager\WindowManager"]{
-        +Boson\Dispatcher\EventListenerInterface : $events
+        <<implements EventListenerInterface>>
+        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
+        +removeEventListener(SubscriptionInterface $subscription) void
+        +removeListenersForEvent(object|string $event) void
+        +getListenersForEvent(object|string $event) iterable
     }
     WindowManager <.. Window : delegates events to windows list
     class Window["Boson\Window\Window"]{
-        +Boson\Dispatcher\EventListenerInterface : $events
+        <<implements EventListenerInterface>>
+        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
+        +removeEventListener(SubscriptionInterface $subscription) void
+        +removeListenersForEvent(object|string $event) void
+        +getListenersForEvent(object|string $event) iterable
     }
     Window <.. WebView : delegates events to window
     class WebView["Boson\Window\WebView"]{
-        +Boson\Dispatcher\EventListenerInterface : $events
+        <<implements EventListenerInterface>>
+        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
+        +removeEventListener(SubscriptionInterface $subscription) void
+        +removeListenersForEvent(object|string $event) void
+        +getListenersForEvent(object|string $event) iterable
     }
 ```
 
@@ -31,10 +47,10 @@ corresponding events of the context.
 
 ```php
 // Subscribe to events of application and all its windows
-$app->events->addEventListener(Event::class, fn($e) => ...);
+$app->addEventListener(Event::class, fn($e) => ...);
 
 // Subscribe to events of one specific window
-$window->events->addEventListener(Event::class, fn($e) => ...);
+$window->addEventListener(Event::class, fn($e) => ...);
 ```
 
 You can read more about each type of event in the corresponding
@@ -67,18 +83,18 @@ that were registered after.
 
 ```php
 // ❌ event will NOT fired
-$app->events->addEventListener(Event::class, fn($e) => ...);
+$app->addEventListener(Event::class, fn($e) => ...);
 
 // ✅ event will be fired (registered BEFORE the propagation stop)
-$app->window->events->addEventListener(Event::class, fn($e) => ...);
+$app->window->addEventListener(Event::class, fn($e) => ...);
 
 // ✅ event will be fired (callback stops "event bubbling")
-$app->window->events->addEventListener(Event::class, function ($e) {
+$app->window->addEventListener(Event::class, function ($e) {
     $e->stopPropagation();
 });
 
 // ❌ event will NOT fired (registered AFTER the propagation stop)
-$app->window->events->addEventListener(Event::class, fn($e) => ...);
+$app->window->addEventListener(Event::class, fn($e) => ...);
 ```
 
 The read-only property `Event::$isPropagationStopped` (or alternative 
@@ -86,7 +102,7 @@ PSR-compatible method `Event::isPropagationStopped()`) is available to check
 for propagation stop events.
 
 ```php
-if ($app->event->isPropagationStopped) {
+if ($event->isPropagationStopped) {
     echo 'Event propagation is stopped';
 }
 ```
@@ -114,7 +130,7 @@ application, the application will not be stopped. Therefore, the application
 stop event will not be called either.
 
 ```php
-$app->events->addEventListener(ApplicationStopping::class, function ($e) {
+$app->addEventListener(ApplicationStopping::class, function ($e) {
     $e->cancel();
 });
 ```
@@ -122,13 +138,9 @@ $app->events->addEventListener(ApplicationStopping::class, function ($e) {
 ## Listener Provider
 
 Each core class such as [Application](application.md),
-[Window](window.md) and [WebView](webview.md) exposes
-events using `Boson\Dispatcher\EventListenerProviderInterface`.
-
-The provider exposes a property `EventListenerProviderInterface::$events`
-that contains an instance of `EventListenerInterface` (described below) and 
-a method `EventListenerProviderInterface::on()` that provides a simpler and 
-more convenient way to subscribe to events.
+[Window](window.md) and [WebView](webview.md) exposes a 
+method `EventListenerProviderInterface::on()` that 
+provides a simpler and more convenient way to subscribe to events.
 
 ### Simple Listen Events
 
@@ -186,7 +198,7 @@ To subscribe to events, you need to use the
 `EventListenerInterface::addEventListener()` method:
 
 ```php
-$app->events->addEventListener(Event::class, function (Event $event): void {
+$app->addEventListener(Event::class, function (Event $event): void {
     // Handle the event
 });
 ```
@@ -201,7 +213,7 @@ Each `EventListenerInterface::addEventListener()` returns the
 use the `cancel()` method.
 
 ```php
-$subscription = $app->events->addEventListener($event, $callback);
+$subscription = $app->addEventListener($event, $callback);
 
 // Cancel subscription
 $subscription->cancel();
@@ -222,9 +234,9 @@ $subscription->cancel();
 ### Cancel All Subscriptions
 
 To cancel all existing event subscriptions of a certain type, 
-call the `removeAllEventListenersForEvent()` method.
+call the `removeListenersForEvent()` method.
 
 ```php
 // Cancel all EventName subscriptions
-$app->events->removeAllEventListenersForEvent(EventName::class);
+$app->removeListenersForEvent(EventName::class);
 ```

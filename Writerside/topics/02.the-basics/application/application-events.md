@@ -7,11 +7,10 @@ The application will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-<a href="events.md#event-listener">event listener</a>, using
-`Application::$events` property.
+<a href="events.md#event-listener">event listener</a>.
 
 ```php
-$app->events->addEventListener(Event::class, function (Event $e) {
+$app->addEventListener(Event::class, function (Event $e) {
     var_dump($e);
 });
 ```

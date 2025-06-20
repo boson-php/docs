@@ -76,6 +76,7 @@
     <toc-element topic="components.md">
         <toc-element topic="os-info.md" />
         <toc-element topic="cpu-info.md" />
+        <toc-element topic="pasm.md" />
         <toc-element topic="globals-provider.md" />
         <toc-element topic="http.md" />
         <toc-element topic="http-body-decoder.md" />

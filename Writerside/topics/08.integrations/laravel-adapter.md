@@ -29,11 +29,7 @@ and must be installed separately.
 ## Usage
 
 <warning>
-Correct functionality is NOT GUARANTEED.
-
-It is not possible to make this framework work quickly and stably
-due to architectural issues, a lot of memleaks, side effect and
-other "bad practice features".
+Correct functionality of Laravel is not guaranteed at the moment.
 </warning>
 
 To work with Laravel HTTP kernel you can use specific

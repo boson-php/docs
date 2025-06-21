@@ -38,7 +38,7 @@ cross-platform "out of the box".
   extra layers, and no unnecessary data transformations. Just direct, streamlined access to the renderer 
   — all within a single, unified process.
 
-- Boson **doesn't rely on heavy dependencies** and isn’t a fork of Electron, Tauri, or NativePHP. It takes 
+- Boson **doesn't rely on heavy dependencies** and isn’t a fork of Electron or NativePHP. It takes 
   advantage of tools already available on your OS, keeping your application lightweight. Instead of 
   consuming hundreds of megabytes like typical Electron or NativePHP apps, Boson keeps its footprint 
   to just a few kilobytes — efficient by design.
@@ -54,10 +54,13 @@ single command: `composer require boson-php/runtime` — and you’re off to the
 All the official documentation is available from the sidebar. These are the different categories and
 what you can expect on each one:
 
-- **Tutorial**: An end-to-end guide on how to create and publish your first Boson application.
+- **Basics**: Documentation pages describing the core components.
+- **APIs**: Information on interaction with third-party subsystems.
+- **Components**: Description of independent components separately, 
+  which you can use outside of runtime.
+- **Distribute**: Documentation containing information about building 
+  (compilation) an application for distribution.
 - **Examples**: Quick references to add features to your Boson app.
-- **Contributing**: Compiling Boson and making contributions can be daunting. We 
-  try to make it easier in this section.
 
 ## Getting Help
 

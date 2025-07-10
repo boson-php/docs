@@ -1,4 +1,4 @@
-# Components
+# About Components
 
 <show-structure for="chapter" depth="2"/>
 

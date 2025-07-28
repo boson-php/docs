@@ -154,7 +154,7 @@ Make sure the <code>"minimum-stability"</code> is set correctly.
         supplied with the ready-to-distribute application.
         </tip>
         <warning>
-        The project is in development, soThe project is in development, so 
+        The project is in development, so 
         list of dependencies may change in the future.
         </warning>
         <tabs>

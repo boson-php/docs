@@ -1,6 +1,7 @@
 [
   {
     "title": "Getting Started",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/gutter/run.svg",
     "pages": [
       "01.getting-started/introduction.md",
       "01.getting-started/installation.md",
@@ -9,6 +10,7 @@
   },
   {
     "title": "The Basics",
+    "icon": "https://intellij-icons.jetbrains.design/icons/JpaIcons/icons/newui/mainChangelog.svg",
     "pages": [
       "02.the-basics/configuration.md",
       "02.the-basics/events.md",
@@ -25,16 +27,19 @@
   },
   {
     "title": "Application APIs",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/runConfigurations/application.svg",
     "pages": [
       "03.application-apis/dialog-api.md"
     ]
   },
   {
     "title": "Window APIs",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/desktop.svg",
     "hidden": true
   },
   {
     "title": "WebView APIs",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/javaee/webModuleGroup.svg",
     "pages": [
       "05.webview-apis/schemes-api.md",
       "05.webview-apis/schemes-api/schemes-api-events.md",
@@ -49,6 +54,7 @@
   },
   {
     "title": "Distribute",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/build/build.svg",
     "pages": [
       "06.distribute/compiler-introduction.md",
       "06.distribute/compiler-configuration.md",
@@ -57,6 +63,7 @@
   },
   {
     "title": "Components",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/module.svg",
     "pages": [
       "07.components/about.md",
       "07.components/os-info.md",
@@ -71,6 +78,7 @@
   },
   {
     "title": "Framework Integrations",
+    "icon": "https://intellij-icons.jetbrains.design/icons/CidrProjectModelIcons/icons/expui/framework.svg",
     "pages": [
       "08.integrations/symfony-adapter.md",
       "08.integrations/laravel-adapter.md",
@@ -79,12 +87,14 @@
   },
   {
     "title": "Examples",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/generatedTestRoot.svg",
     "pages": [
       "09.examples/twig-components.md"
     ]
   },
   {
     "title": "Community",
+    "icon": "https://intellij-icons.jetbrains.design/icons/DatabaseIcons/icons/expui/userGroup.svg",
     "pages": [
       "10.community/contribution.md",
       "10.community/license.md"

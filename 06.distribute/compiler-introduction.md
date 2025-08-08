@@ -1,7 +1,5 @@
 # Introduction To The Compiler
 
-<show-structure for="chapter" depth="2"/>
-
 The build process converts your application's source code into an executable 
 optimized for the production environment. 
 
@@ -15,14 +13,11 @@ dependency since it is required exclusively for development.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/compiler --dev`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/compiler --dev
+```
 
 **Requirements:**
 

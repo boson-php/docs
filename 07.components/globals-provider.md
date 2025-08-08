@@ -1,7 +1,5 @@
 # PHP Globals Provider
 
-<show-structure for="chapter" depth="2"/>
-
 The component provides the ability to manage global PHP variables and 
 obtain their state depending on WebView requests:
 - `$_SERVER`
@@ -18,14 +16,11 @@ and must be installed separately.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/globals-provider`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/globals-provider
+```
 
 **Requirements:**
 

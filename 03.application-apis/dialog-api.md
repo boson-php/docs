@@ -1,7 +1,5 @@
 # Dialog API
 
-<show-structure for="chapter" depth="2"/>
-
 The API provides functionality for interacting with files and 
 directories through dialog windows.
 

@@ -10,14 +10,11 @@ including architecture, number of cores, and other information.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/cpu-info`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/cpu-info
+```
 
 **Requirements:**
 

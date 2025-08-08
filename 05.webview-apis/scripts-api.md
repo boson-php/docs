@@ -1,7 +1,5 @@
 # Scripts API
 
-<show-structure for="chapter" depth="2"/>
-
 This API should be used to register and call arbitrary 
 JavaScript code in WebView.
 

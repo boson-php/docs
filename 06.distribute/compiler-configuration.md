@@ -1,7 +1,5 @@
 # Compiler Configuration
 
-<show-structure for="chapter" depth="2"/>
-
 To create a build configuration, use the `init` command. The command will 
 create the `boson.json` file in the root of the application with build settings.
 It is not required for compilation, but allows better control over all stages 

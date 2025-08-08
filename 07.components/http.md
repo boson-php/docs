@@ -1,7 +1,5 @@
 # HTTP Requests and Responses
 
-<show-structure for="chapter" depth="2"/>
-
 The component provides a set of HTTP structures that provide information 
 about requests, responses, and their dependencies.
 
@@ -13,14 +11,11 @@ so no separate installation is required when using the runtime.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/http`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/http
+```
 
 **Requirements:**
 

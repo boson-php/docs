@@ -1,7 +1,5 @@
 # Machine Code Executor
 
-<show-structure for="chapter" depth="2"/>
-
 The PASM (PHP Assembly) provides a set of utilities for 
 direct execution of low-level machine code in user space.
 
@@ -13,14 +11,11 @@ so no separate installation is required when using the runtime.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/pasm`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/pasm
+```
 
 **Requirements:**
 

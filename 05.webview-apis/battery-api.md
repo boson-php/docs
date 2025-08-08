@@ -1,6 +1,4 @@
 # Battery API
-
-<show-structure for="chapter" depth="2"/>
 <secondary-label ref="security-limitations"/>
 <secondary-label ref="macos-limitations"/>
 

@@ -1,7 +1,5 @@
 # Schemes API
 
-<show-structure for="chapter" depth="2"/>
-
 You can register custom scheme/protocols and intercept standard one.
 
 This API allows you to intercept all calls to addresses according to 

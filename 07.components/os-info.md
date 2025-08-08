@@ -1,7 +1,5 @@
 # Operating System Info
 
-<show-structure for="chapter" depth="2"/>
-
 The OS Info component provides a robust and flexible way to detect and work with
 operating system information in your applications. It offers a comprehensive 
 set of features for identifying operating systems, their families, and 
@@ -15,14 +13,11 @@ so no separate installation is required when using the runtime.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/os-info`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/os-info
+```
 
 **Requirements:**
 

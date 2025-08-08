@@ -1,7 +1,5 @@
 # WebView
 
-<show-structure for="chapter" depth="2"/>
-
 The `WebView` class represents a webview in the Boson application. It provides 
 a way to manage html content, including JavaScript scripts, styles, functions, 
 and more.

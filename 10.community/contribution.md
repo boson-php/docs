@@ -1,7 +1,5 @@
 # Contribution Guide
 
-<show-structure for="chapter" depth="2"/>
-
 ## Code of Conduct
 
 The Boson code of conduct is derived from the Ruby code of conduct.

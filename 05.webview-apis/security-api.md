@@ -1,7 +1,5 @@
 # Security API
 
-<show-structure for="chapter" depth="2"/>
-
 This API provides information about 
 [security context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 
 used to access [other APIs](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).

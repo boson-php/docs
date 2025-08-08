@@ -1,7 +1,5 @@
 # Data API
 
-<show-structure for="chapter" depth="2"/>
-
 This API should be used to receive arbitrary data from the client.
 
 The API is available in the `WebView::$data` property.

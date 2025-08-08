@@ -1,7 +1,5 @@
 # About Components
 
-<show-structure for="chapter" depth="2"/>
-
 Boson's architecture is built on a collection of versatile components that can 
 be used independently of the main framework. These components are designed to 
 be flexible and adaptable, allowing developers to integrate them into any web 

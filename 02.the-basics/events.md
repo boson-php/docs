@@ -1,7 +1,5 @@
 # Events
 
-<show-structure for="chapter" depth="2"/>
-
 Boson provides several different events. Event subscriptions are hierarchical 
 and are arranged in the following order.
 

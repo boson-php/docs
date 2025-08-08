@@ -1,7 +1,5 @@
 # Building
 
-<show-structure for="chapter" depth="2"/>
-
 To build an executable application file, you should use the `compile` command.
 
 ```shell

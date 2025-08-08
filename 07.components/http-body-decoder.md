@@ -1,7 +1,5 @@
 # HTTP Body Decoder
 
-<show-structure for="chapter" depth="2"/>
-
 Provides the ability to decode the request body and obtain useful information 
 from there based on the request information.
 
@@ -13,14 +11,11 @@ and must be installed separately.
 
 ## Installation
 
-<tldr>
-    <p>
-        Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
-    </p>
-    <p>
-        <code lang="bash">composer require boson-php/http-body-decoder`
-    </p>
-</tldr>
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/http-body-decoder
+```
 
 **Requirements:**
 

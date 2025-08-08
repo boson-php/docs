@@ -1,7 +1,5 @@
 # Window
 
-<show-structure for="chapter" depth="2"/>
-
 The `Boson\Window class represents a window in the
 Boson [Application](application.md). It provides a way to manage window, 
 including their properties, events, state, and associated [WebView](webview.md).

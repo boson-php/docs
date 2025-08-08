@@ -1,7 +1,5 @@
 # License
 
-<show-structure for="chapter" depth="2"/>
-
 ## Code License
 
 ### Boson

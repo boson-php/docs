@@ -3,10 +3,9 @@
 The component provides a set of HTTP structures that provide information 
 about requests, responses, and their dependencies.
 
-<note>
-This component already included in the `boson-php/runtime`, 
-so no separate installation is required when using the runtime.
-</note>
+> This component already included in the `boson-php/runtime`,
+> so no separate installation is required when using the runtime.
+{.note}
 
 
 ## Installation

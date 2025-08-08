@@ -1,6 +1,4 @@
 # Battery API
-<secondary-label ref="security-limitations"/>
-<secondary-label ref="macos-limitations"/>
 
 This API provides information about 
 [device battery](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API).
@@ -19,7 +17,6 @@ $app->webview->battery; // Access to Battery API
 ```
 
 ## Battery Level
-<secondary-label ref="read-only"/>
 
 To get the current battery charge level you can use the read-only 
 `$level` property. The battery level contain a float value 
@@ -34,12 +31,10 @@ echo 'Charge level is ' . (int) ($level * 100) . '%';
 // 
 ```
 
-<note>
-For non-mobile devices the charge level is always `1.0`
-</note>
+> For non-mobile devices the charge level is always `1.0`
+{.note}
 
 ## Charging Status
-<secondary-label ref="read-only"/>
 
 To get the battery charging status you can use the read-only
 `$isCharging` property.
@@ -53,12 +48,10 @@ echo 'The battery is ' . ($isCharging ? '' : 'not ') . 'charging now';
 // 
 ```
 
-<note>
-For non-mobile devices the charging status is always `true`
-</note>
+> For non-mobile devices the charging status is always `true`
+{.note}
 
 ## Charging Time
-<secondary-label ref="read-only"/>
 
 To get the time until the battery is fully charged, use the read-only
 `$chargingTime` property. The charging time property will contain an 
@@ -72,12 +65,10 @@ echo vsprintf('It takes another %d seconds to fully charge', [
 ]);
 ```
 
-<note>
-For non-mobile devices the charging time is always `0`
-</note>
+> For non-mobile devices the charging time is always `0`
+{.note}
 
 ## Discharging Time
-<secondary-label ref="read-only"/>
 
 To get the time until the battery is fully discharged, use the read-only
 `$dischargingTime` property. The discharging time property will 
@@ -98,6 +89,5 @@ echo vsprintf('It takes another %d seconds to fully discharge', [
 ]);
 ```
 
-<note>
-For non-mobile devices the discharging time is always `null`
-</note>
+> For non-mobile devices the discharging time is always `null`
+{.note}

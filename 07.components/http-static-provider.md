@@ -2,10 +2,9 @@
 
 Static provider exist to serve files without execution of application code.
 
-<warning>
-This component is not included by default in the `boson-php/runtime` 
-and must be installed separately.
-</warning>
+> This component is not included by default in the `boson-php/runtime`
+> and must be installed separately.
+{.warning}
 
 
 ## Installation

@@ -3,10 +3,9 @@
 Provides the ability to decode the request body and obtain useful information 
 from there based on the request information.
 
-<warning>
-This component is not included by default in the `boson-php/runtime` 
-and must be installed separately.
-</warning>
+> This component is not included by default in the `boson-php/runtime`
+> and must be installed separately.
+{.warning}
 
 
 ## Installation

@@ -5,7 +5,6 @@ a way to manage html content, including JavaScript scripts, styles, functions,
 and more.
 
 ## Main WebView
-<secondary-label ref="read-only"/>
 
 The `Application::$webview` property provides convenient access to the WebView
 instance of the <tooltip term="main window">main window</tooltip>.
@@ -74,8 +73,6 @@ subscribed to using the <a href="events.md">event system</a>.
 
 
 ## HTML Content
-<secondary-label ref="write-only"/>
-<secondary-label ref="insecure"/>
 
 The `WebView::$html` property allows you to load custom
 html content without navigation to any address.
@@ -99,7 +96,6 @@ subscribed to using the <a href="events.md">event system</a>.
 
 
 ## State
-<secondary-label ref="read-only"/>
 
 The `WebView::$state` property provides access to the current state 
 of the webview.

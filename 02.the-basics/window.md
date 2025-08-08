@@ -5,7 +5,6 @@ Boson [Application](application.md). It provides a way to manage window,
 including their properties, events, state, and associated [WebView](webview.md).
 
 ## Main Window
-<secondary-label ref="read-only"/>
 
 The `Application::$window` property provides convenient access to the
 <tooltip term="main window">main window</tooltip> of the application. 
@@ -77,7 +76,6 @@ can be subscribed to using the <a href="events.md">event system</a>.
 
 
 ## State
-<secondary-label ref="read-only"/>
 
 Each window has several states. The window can be minimized, maximized to full 
 screen, or in a normal state.
@@ -451,7 +449,6 @@ Attempting to set values outside this range will result in an exception.
 </warning>
 
 ### Maximum Size
-<secondary-label ref="linux-limitations"/>
 
 The `Window::$max` property controls the maximum allowed dimensions 
 of the window. Users cannot resize the window larger than these values.
@@ -640,7 +637,6 @@ operating system through the title bar.
 </note>
 
 ## Focus
-<secondary-label ref="linux-limitations"/>
 
 Windows can be given input focus and brought to the front with
 `Window::focus()` method.
@@ -673,7 +669,6 @@ that can be subscribed to using the <a href="events.md">event system</a>.
 
 
 ## Always On Top
-<secondary-label ref="linux-limitations"/>
 
 The `Window::$isAlwaysOnTop` property allows you to control whether 
 a window should stay on top of other windows. When enabled, the window will 
@@ -783,7 +778,6 @@ subscribed to using the <a href="events.md">event system</a>.
 </tip>
 
 ## Identifier
-<secondary-label ref="read-only"/>
 
 The `Boson\Window\WindowId` is a unique identifier for each window
 in the application. The identifier is needed to compare different windows

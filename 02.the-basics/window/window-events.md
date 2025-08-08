@@ -33,7 +33,6 @@ documentation</a>.
 </note>
 
 ## Closing Intention
-<secondary-label ref="intention"/>
 
 An `Boson\Window\Event\WindowClosing` intention to close the window.
 
@@ -46,7 +45,6 @@ class WindowClosing<Window>
 ```
 
 ## Closed Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowClosed` event fired after the window has been
 closed and the `Boson\Window\Event\WindowClosing` intention has not been
@@ -57,7 +55,6 @@ class WindowClosed<Window>
 ```
 
 ## Created Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowCreated` event fired after window has been created.
 
@@ -66,7 +63,6 @@ class WindowCreated<Window>
 ```
 
 ## Decorated Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowDecorated` event fired after
 <a href="window.md#decorations">window controls</a> visibility changed.
@@ -88,7 +84,6 @@ that it reacts exclusively to the turning on or off of window controls
 </note>
 
 ## Decoration Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowDecorationChanged` event fired after
 <a href="window.md#decorations">window decoration</a> has been changed.
@@ -105,7 +100,6 @@ class WindowDecorationChanged<Window>
 - `$previous` - Previous decorations type of the window.
 
 ## Destroyed Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowDestroyed` event fired after window has 
 been destroyed (all references to it in the GC have been removed).
@@ -116,7 +110,6 @@ class WindowDestroyed<Window>
 
 
 ## Focused Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowFocused` event fired after
 <a href="window.md#focus">window focus</a> has been changed.
@@ -139,7 +132,6 @@ property will contain `false`).
 </note>
 
 ## Maximized Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowMaximized` event fired after
 <a href="window.md#maximize">window maximized</a> state has been changed.
@@ -161,7 +153,6 @@ property will contain `false`).
 </note>
 
 ## Minimized Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowMinimized` event fired after
 <a href="window.md#minimize">window minimized</a> state has been changed.
@@ -183,7 +174,6 @@ property will contain `false`).
 </note>
 
 ## Resized Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowResized` event fired after
 <a href="window.md#size">window size</a> has been changed.
@@ -205,7 +195,6 @@ between 0 and 2147483647).
 </tip>
 
 ## State Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\Window\Event\WindowStateChanged` event fired after
 <a href="window.md#state">window state</a> has been changed.

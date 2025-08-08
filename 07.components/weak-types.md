@@ -4,10 +4,9 @@ The Weak Types component provides a set of classes for working with weak
 references in PHP. It allows you to store objects without preventing them 
 from being garbage collected, and react to their destruction.
 
-<note>
-This component already included in the `boson-php/runtime`, 
-so no separate installation is required when using the runtime.
-</note>
+> This component already included in the `boson-php/runtime`,
+> so no separate installation is required when using the runtime.
+{.note}
 
 
 ## Installation

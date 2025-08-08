@@ -10,7 +10,6 @@ define default settings for webview of main window instance.
 
 
 ## Default User Agent
-<secondary-label ref="config-only"/>
 
 Sets a custom user agent string for the WebView.
 
@@ -22,7 +21,6 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 
 
 ## Storage (Persistent Client Settings)
-<secondary-label ref="config-only"/>
 
 Configures persistent storage settings for the WebView.
 
@@ -45,7 +43,6 @@ The storage value can take on different types:
 
 
 ## Extra Flags
-<secondary-label ref="config-only"/>
 
 Sets additional WebView configuration flags.
 
@@ -97,7 +94,6 @@ differ on different platforms.
 
 
 ## Context Menu
-<secondary-label ref="config-only"/>
 
 Controls whether the default context menu (right mouse button) is enabled.
 
@@ -109,7 +105,6 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 
 
 ## Dev Tools
-<secondary-label ref="config-only"/>
 
 Enables or disables developer tools for the WebView.
 

@@ -70,8 +70,6 @@ the Boson application.
 
 ### Stop Propagation
 
-<secondary-label ref="event"/>
-<secondary-label ref="intention"/>
 
 To stop the "event bubbling" there is a method `Event::stopPropagation()`.
 
@@ -107,8 +105,6 @@ if ($event->isPropagationStopped) {
 
 ### Timestamp
 
-<secondary-label ref="event"/>
-<secondary-label ref="intention"/>
 
 Each event also contains the timestamp `Event::$time` read-only property 
 of the event creation. The property contain an int32 value of UNIX timestamp.
@@ -119,7 +115,6 @@ echo date('d-m-Y', $event->time); // string("06-05-2025")
 
 ### Cancellation
 
-<secondary-label ref="intention"/>
 
 Method `Intention::cancel()` is used to stop and prevent the standard behavior.
 

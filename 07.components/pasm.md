@@ -3,10 +3,9 @@
 The PASM (PHP Assembly) provides a set of utilities for 
 direct execution of low-level machine code in user space.
 
-<note>
-This component already included in the `boson-php/runtime`, 
-so no separate installation is required when using the runtime.
-</note>
+> This component already included in the `boson-php/runtime`,
+> so no separate installation is required when using the runtime.
+{.note}
 
 
 ## Installation
@@ -40,12 +39,11 @@ $executor = new \Boson\Component\Pasm\Executor();
 $function = $executor->compile(/* signature */, /* code */);
 ```
 
-<note>
-The function is directly associated with the address space in which the 
-executable memory was allocated, and after deleting the link (see 
-<a href="https://www.php.net/manual/en/features.gc.php">PHP GC</a>) to this 
-function, the associated memory will also be automatically cleared.
-</note>
+> The function is directly associated with the address space in which the 
+> executable memory was allocated, and after deleting the link (see 
+> <a href="https://www.php.net/manual/en/features.gc.php">PHP GC</a>) to this 
+> function, the associated memory will also be automatically cleared.
+{.note}
 
 ### AMD64 (x86_64) Example
 

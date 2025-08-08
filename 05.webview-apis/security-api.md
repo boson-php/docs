@@ -18,7 +18,6 @@ Your context will most likely be **secure** if you don't use the
 </note>
 
 ## Current Context
-<secondary-label ref="read-only"/>
 
 To get the current security status you can use the read-only 
 `$isSecureContext` property.

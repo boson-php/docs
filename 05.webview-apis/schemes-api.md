@@ -7,8 +7,6 @@ registered schemes and send custom responses generated entirely
 programmatically, without actual requests to the server (without network).
 
 ## Registration
-<secondary-label ref="macos-limitations"/>
-<secondary-label ref="linux-limitations"/>
 
 To enable processing of specific protocols, you should specify
 them in the list of schemes.

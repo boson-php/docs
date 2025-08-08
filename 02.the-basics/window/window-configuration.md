@@ -9,7 +9,6 @@ The window configuration class `Boson\Window\WindowCreateInfo` is
 define default settings for main window of your app.
 
 ## Title
-<secondary-label ref="config-and-runtime"/>
 
 Sets the title that appears in the window's title bar and taskbar.
 
@@ -26,8 +25,6 @@ the <a href="window.md#title">window documentation</a>.
 
 
 ## Hardware Acceleration
-<secondary-label ref="config-and-runtime"/>
-<secondary-label ref="macos-limitations"/>
 
 Enables or disables hardware-accelerated rendering for better performance.
 
@@ -49,7 +46,6 @@ This configuration option has no effect.
 
 
 ## Window Size (Width and Height)
-<secondary-label ref="config-and-runtime"/>
 
 Defines the initial dimensions of the window in pixels.
 
@@ -67,7 +63,6 @@ the <a href="window.md#size">window documentation</a>.
 
 
 ## Window Resizability
-<secondary-label ref="config-only"/>
 
 Determines if the window can be resized by the user.
 
@@ -79,7 +74,6 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 
 ## Window Visibility
-<secondary-label ref="config-and-runtime"/>
 
 Controls whether the window is initially visible when created.
 
@@ -96,8 +90,6 @@ the <a href="window.md#visibility">window documentation</a>.
 
 
 ## Always On Top
-<secondary-label ref="config-and-runtime"/>
-<secondary-label ref="linux-limitations"/>
 
 Controls whether a window should stay on top of other windows.
 
@@ -124,7 +116,6 @@ the <a href="window.md#always-on-top">window documentation</a>.
 
 
 ## Click Through
-<secondary-label ref="config-and-runtime"/>
 
 Enables or disables the window's handling of mouse events.
 
@@ -141,7 +132,6 @@ the <a href="window.md#click-through">window documentation</a>.
 
 
 ## Window Decorations
-<secondary-label ref="config-and-runtime"/>
 
 Specifies the window's border, title bar style and other.
 

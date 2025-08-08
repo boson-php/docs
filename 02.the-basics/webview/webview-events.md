@@ -33,7 +33,6 @@ documentation</a>.
 </note>
 
 ## Dom Ready Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewDomReady` event fired after webview DOM has been
 loaded and ready to work.
@@ -43,9 +42,6 @@ class WebViewDomReady<WebView>
 ```
 
 ## Favicon Changing Intention
-<secondary-label ref="linux-limitations"/>
-<secondary-label ref="macos-limitations"/>
-<secondary-label ref="intention"/>
 
 An `Boson\WebView\Event\WebViewFaviconChanging` intention to change the
 window's icon from loaded HTML content.
@@ -76,7 +72,6 @@ If intention is cancelled, the window icon has not been changed.
 </tip>
 
 ## Favicon Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewFaviconChanged` event fired after the window's
 icon has been changed and the `Boson\WebView\Event\WebViewFaviconChanging`
@@ -87,7 +82,6 @@ class WebViewFaviconChanged<WebView>
 ```
 
 ## Message Received Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewMessageReceived` intention to
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">receive message</a> 
@@ -114,7 +108,6 @@ The `stopPropagation()` method works in a similar way to
 </tip>
 
 ## Navigating Intention
-<secondary-label ref="intention"/>
 
 An `Boson\WebView\Event\WebViewNavigating` intention to change the
 webview's URL (navigating to passed URL).
@@ -141,7 +134,6 @@ If intention is cancelled, the URL navigation will be cancelled.
 </tip>
 
 ## Navigated Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewNavigated` event fired after the webview has been
 navigated to the given URL and the `Boson\WebView\Event\WebViewNavigating`
@@ -157,7 +149,6 @@ class WebViewNavigated<WebView>
 - `$url` - The URL address by which navigation occurs.
 
 ## Title Changing Intention
-<secondary-label ref="intention"/>
 
 An `Boson\WebView\Event\WebViewTitleChanging` intention to change the
 window title from loaded HTML content.
@@ -176,7 +167,6 @@ If intention is cancelled, then the window title has not been changed.
 </tip>
 
 ## Title Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Event\WebViewTitleChanged` event fired after window title has
 been changed and the `Boson\WebView\Event\WebViewTitleChanging`

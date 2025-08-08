@@ -13,7 +13,6 @@ documentation</a>.
 </note>
 
 ## Request Intention
-<secondary-label ref="intention"/>
 
 An `Boson\WebView\Api\Schemes\Event\SchemeRequestReceived` intention processing of user schemes
 registered [in the configuration](application-configuration.md#intercepted-schemes).

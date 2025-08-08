@@ -5,10 +5,9 @@ operating system information in your applications. It offers a comprehensive
 set of features for identifying operating systems, their families, and 
 supported standards.
 
-<note>
-This component already included in the `boson-php/runtime`, 
-so no separate installation is required when using the runtime.
-</note>
+> This component already included in the `boson-php/runtime`,
+> so no separate installation is required when using the runtime.
+{.note}
 
 
 ## Installation
@@ -30,7 +29,6 @@ composer require boson-php/os-info
 
 ### Basic Detection
 
-<secondary-label ref="macos-limitations"/>
 
 ```php
 use Boson\Component\OsInfo\OperatingSystem;

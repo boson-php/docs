@@ -8,10 +8,9 @@ obtain their state depending on WebView requests:
 - `$_FILES`
 - etc.
 
-<warning>
-This component is not included by default in the `boson-php/runtime` 
-and must be installed separately.
-</warning>
+> This component is not included by default in the `boson-php/runtime` 
+> and must be installed separately.
+{.warning}
 
 
 ## Installation

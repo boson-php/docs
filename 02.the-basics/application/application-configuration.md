@@ -10,7 +10,6 @@ way to define default settings for initializing your app.
 
 
 ## Application Name
-<secondary-label ref="config-only"/>
 
 The name of the application.
 
@@ -29,7 +28,6 @@ For example as a <a href="https://learn.microsoft.com/en-us/windows/win32/learnw
 
 
 ## Intercepted Schemes
-<secondary-label ref="config-only"/>
 
 Defines custom schemes that your application can handle.
 These schemes allow you to create custom protocols for your application.
@@ -51,7 +49,6 @@ when attempting to access a resource located at an address with this protocol.
 
 
 ## Threads Count
-<secondary-label ref="config-only"/>
 
 Specifies the number of physical threads for the application. This affects how
 many concurrent operations your application can handle.
@@ -62,14 +59,12 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-<note>
-If the value is not specified (defined as `null`), the number of 
-threads will correspond to the number of cores in the CPU.
-</note>
-
+> If the value is not specified (defined as `null`), the number of 
+> threads will correspond to the number of cores in the CPU.
+{.note}
+> 
 
 ## Debug Mode
-<secondary-label ref="config-only"/>
 
 Enables or disables debug features, like dev tools and logging. When enabled,
 provides additional diagnostic information and developer tools.
@@ -80,11 +75,10 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-<note>
-If the value is not specified, the debug mode will be set according to the 
-current `php.ini` settings (depends on whether you are using the 
-development `php.ini` settings)
-</note>
+> If the value is not specified, the debug mode will be set according to the 
+> current `php.ini` settings (depends on whether you are using the 
+> development `php.ini` settings)
+{.note}
 
 <tip>
 The debug mode settings also affects the default settings of child 
@@ -94,7 +88,6 @@ tools</a> (if they are not set explicitly).
 
 
 ## Application Library
-<secondary-label ref="config-only"/>
 
 Specifies the path to a custom 
 [frontend library](https://github.com/boson-php/frontend-src/releases) that should 
@@ -106,14 +99,12 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-<note>
-In most cases this is not required and the library will be selected 
-automatically based on the current operating system and CPU architecture.
-</note>
+> In most cases this is not required and the library will be selected 
+> automatically based on the current operating system and CPU architecture.
+{.note}
 
 
 ## Quit On Close
-<secondary-label ref="config-only"/>
 
 Determines whether the application should terminate when all windows are closed.
 If set to `false`, the application will continue running in the background.
@@ -126,7 +117,6 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 
 ## Autorun
-<secondary-label ref="config-only"/>
 
 Responsible for automatic application launch. If autorun is set to
 `false`, you will need to launch the application yourself at the

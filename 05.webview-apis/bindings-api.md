@@ -23,32 +23,28 @@ $app->webview->bindings->bind('foo', function () {
 });
 ```
 
-<note>
-WebView also provides a more convenient way (facade method `bind()`) 
-to bind arbitrary PHP function.
+> WebView also provides a more convenient way (facade method `bind()`) 
+> to bind arbitrary PHP function.
 
-Just use `WebView::bind()` instead of bind method
-from `WebView::$bindings`.
-
-<p>&nbsp;</p>
-
-<compare>
-```php
-$api = $webview->bindings;
-
-$api->bind('foo', foo(...));
-```
-```php
-//
-
-$webview->bind('foo', foo(...));
-```
-</compare>
-
-In all examples from here on, the short facade method will
-be used to simplify the examples.
-
-</note>
+> Just use `WebView::bind()` instead of bind method
+> from `WebView::$bindings`.
+> 
+> ```php
+> $api = $webview->bindings;
+> 
+> $api->bind('foo', foo(...));
+> ```
+> 
+> ```php
+> //
+> 
+> $webview->bind('foo', foo(...));
+> ```
+> 
+> In all examples from here on, the short facade method will
+> be used to simplify the examples.
+>
+{.note}
 
 Also, don't forget that PHP has a simple way to pass functions using 
 [first class callable](https://www.php.net/manual/en/functions.first_class_callable_syntax.php) 

@@ -7,13 +7,11 @@
 The battery will automatically emit the following events (and intentions)
 during its lifecycle.
 
-<note>
-More information about events can be found in the <a href="events.md">events 
-documentation</a>.
-</note>
+> More information about events can be found in the <a href="events.md">events 
+> documentation</a>.
+{.note}
 
 ## Charging State Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Api\Battery\Event\BatteryChargingStateChanged` event fired 
 after charging state has been changed.
@@ -26,7 +24,6 @@ class BatteryChargingStateChanged<WebView>
 ```
 
 ## Charging Level Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Api\Battery\Event\BatteryLevelChanged` event fired
 after charging level has been changed.
@@ -39,7 +36,6 @@ class BatteryLevelChanged<WebView>
 ```
 
 ## Charging Time Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Api\Battery\Event\BatteryChargingTimeChanged` event fired
 after charging time has been changed.
@@ -52,7 +48,6 @@ class BatteryChargingTimeChanged<WebView>
 ```
 
 ## Discharging Time Changed Event
-<secondary-label ref="event"/>
 
 An `Boson\WebView\Api\Battery\Event\BatteryDischargingTimeChanged` event fired
 after discharging time has been changed.

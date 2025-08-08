@@ -6,7 +6,7 @@ The PASM (PHP Assembly) provides a set of utilities for
 direct execution of low-level machine code in user space.
 
 <note>
-This component already included in the <code>boson-php/runtime</code>, 
+This component already included in the `boson-php/runtime`, 
 so no separate installation is required when using the runtime.
 </note>
 
@@ -18,7 +18,7 @@ so no separate installation is required when using the runtime.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/pasm</code>
+        <code lang="bash">composer require boson-php/pasm`
     </p>
 </tldr>
 

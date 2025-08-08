@@ -96,12 +96,12 @@ class MyExampleComponent implements HasShadowDomInterface
 ```
 
 <warning>
-Slot tags (<code>&lt;slot /&gt;</code>) only work in Shadow DOM
+Slot tags (`&lt;slot /&gt;`) only work in Shadow DOM
 </warning>
 
 <warning>
-Using the short <code>&lt;slot /&gt;</code> version instead of 
-full <code>&lt;slot&gt;&lt;/slot&gt;</code> may not work correctly
+Using the short `&lt;slot /&gt;` version instead of 
+full `&lt;slot&gt;&lt;/slot&gt;` may not work correctly
 </warning>
 
 If you try to render the contents of a `<slot />` without a Shadow DOM (using 
@@ -188,7 +188,7 @@ public static function getPropertyNames(): array
 ```
 
 <warning>
-<b>Properties</b> and <a href="#attributes"><b>attributes</b></a> are different 
+**Properties** and <a href="#attributes">**attributes**</a> are different 
 things. Properties are located directly on the object and can contain arbitrary 
 data, while an attribute can be specified in HTML tags and can contain 
 exclusively string values.

@@ -35,5 +35,5 @@ If intention is cancelled, then the response will be rejected (aborted).
 </tip>
 
 <warning>
-An intention is <b>only</b> called for registered (in configuration) schemes.
+An intention is **only** called for registered (in configuration) schemes.
 </warning>

@@ -9,7 +9,7 @@ This requires a `boson-php/compiler` component that is supplied separately
 from the `boson-php/runtime`.
 
 <tip>
-It is recommended to install the compiler dependency as a <code>--dev</code> 
+It is recommended to install the compiler dependency as a `--dev` 
 dependency since it is required exclusively for development.
 </tip>
 
@@ -20,7 +20,7 @@ dependency since it is required exclusively for development.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/compiler --dev</code>
+        <code lang="bash">composer require boson-php/compiler --dev`
     </p>
 </tldr>
 
@@ -44,7 +44,7 @@ several consecutive steps:
 5. The final step is to move the built application and its dependencies to 
    the appropriate [build directory](compiler-configuration.md#config-output).
 
-<code-block lang="mermaid">
+```mermaid
     stateDiagram-v2
        IC: Read Configuration
        OC: Applying CLI arguments
@@ -64,19 +64,19 @@ several consecutive steps:
        BC --> CM
        CM --> OU
        OU --> [*]
-</code-block>
+```
 
 <note>
 In the simplest case, there will be 2 files left in 
 the output directory: 
 <list>
 <li>
-The application executable file (<code>.exe</code>, 
-<code>.dmg</code>, etc).
+The application executable file (`.exe`, 
+`.dmg`, etc).
 </li>
 <li>
-A library for working with WebView (<code>.dll</code>, 
-<code>.so</code>, <code>.dylib</code>, etc).
+A library for working with WebView (`.dll`, 
+`.so`, `.dylib`, etc).
 </li>
 </list>
 </note>

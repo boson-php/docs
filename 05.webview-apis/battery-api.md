@@ -37,7 +37,7 @@ echo 'Charge level is ' . (int) ($level * 100) . '%';
 ```
 
 <note>
-For non-mobile devices the charge level is always <code>1.0</code>
+For non-mobile devices the charge level is always `1.0`
 </note>
 
 ## Charging Status
@@ -56,7 +56,7 @@ echo 'The battery is ' . ($isCharging ? '' : 'not ') . 'charging now';
 ```
 
 <note>
-For non-mobile devices the charging status is always <code>true</code>
+For non-mobile devices the charging status is always `true`
 </note>
 
 ## Charging Time
@@ -75,7 +75,7 @@ echo vsprintf('It takes another %d seconds to fully charge', [
 ```
 
 <note>
-For non-mobile devices the charging time is always <code>0</code>
+For non-mobile devices the charging time is always `0`
 </note>
 
 ## Discharging Time
@@ -101,5 +101,5 @@ echo vsprintf('It takes another %d seconds to fully discharge', [
 ```
 
 <note>
-For non-mobile devices the discharging time is always <code>null</code>
+For non-mobile devices the discharging time is always `null`
 </note>

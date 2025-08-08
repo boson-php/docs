@@ -30,7 +30,7 @@ To solve the problem make sure that FFI extension is installed.
 
 1) Open your `php.ini` file.
    > The location of the configuration file can be found using the `php --ini` console command
-   {.tip}
+   
 2) Find `extension=ffi` line and uncomment extension.
 
 **Linux (Debian-like)**

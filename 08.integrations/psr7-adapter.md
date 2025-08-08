@@ -6,7 +6,7 @@ any PSR-7 compatible frameworks (e.g. [Yii3](https://github.com/yiisoft/demo),
 [Spiral](https://spiral.dev/), [Slim](https://www.slimframework.com/), etc.).
 
 <note>
-This bridge is NOT included by default in the <code>boson-php/runtime</code> 
+This bridge is NOT included by default in the `boson-php/runtime` 
 and must be installed separately.
 </note>
 
@@ -18,7 +18,7 @@ and must be installed separately.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/psr-http-bridge</code>
+        <code lang="bash">composer require boson-php/psr-http-bridge`
     </p>
 </tldr>
 

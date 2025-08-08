@@ -29,8 +29,8 @@ If the <tooltip term="main window">main window</tooltip> is closed, the next
 available window from window manager will become the 
 <tooltip term="main window">main window</tooltip>.
 
-If you try to access the <code>$window</code> property after the all windows has 
-been closed, a <code>NoDefaultWindowException</code> will be thrown.
+If you try to access the `$window` property after the all windows has 
+been closed, a `NoDefaultWindowException` will be thrown.
 </warning>
 
 <note>
@@ -63,7 +63,7 @@ $window->title = 'New Window Title!';
 ```
 
 <warning>
-Indirect modification of <code>Window::$title</code> is <b>not allowed</b>, 
+Indirect modification of `Window::$title` is **not allowed**, 
 which means that this property cannot be passed by reference.
 
 ```php
@@ -139,18 +139,18 @@ restored.
 <tabs>
 <tab title="Normal">
     <list type="decimal">
-        <li>Window state is <code>Normal</code>.</li>
-        <li>Execute <code>$window->minimize()</code></li>
+        <li>Window state is `Normal`.</li>
+        <li>Execute `$window->minimize()`</li>
         <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
-        <li>Window state is again <code>Normal</code>.</li>
+        <li>Window state is again `Normal`.</li>
     </list>
 </tab>
 <tab title="Maximized">
     <list type="decimal">
-        <li>Window state is <code>Maximized</code>.</li>
-        <li>Execute <code>$window->minimize()</code></li>
+        <li>Window state is `Maximized`.</li>
+        <li>Execute `$window->minimize()`</li>
         <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
-        <li>Window state is again <code>Maximized</code>.</li>
+        <li>Window state is again `Maximized`.</li>
     </list>
 </tab>
 </tabs>
@@ -198,9 +198,9 @@ if ($window->isVisible) {
 ```
 
 <warning>
-The visibility state is independent of the window's <code>Minimized</code>
-/<code>Maximized</code> state. A window can be visible while <code>Minimized</code>
-or hidden while <code>Maximized</code>.
+The visibility state is independent of the window's `Minimized`
+/`Maximized` state. A window can be visible while `Minimized`
+or hidden while `Maximized`.
 
 Hidden windows are not displayed in the tray and cannot be restored using the
 OS functionality.
@@ -216,8 +216,8 @@ $window->show();
 ```
 
 <tip>
-You can also show the window through a <code>Window::$isVisible</code> property. 
-To do this, simply set the <code>true</code>.
+You can also show the window through a `Window::$isVisible` property. 
+To do this, simply set the `true`.
 
 ```php
 // Show the window
@@ -235,8 +235,8 @@ $window->hide();
 ```
 
 <tip>
-You can also hide the window through a <code>Window::$isVisible</code> property. 
-To do this, simply set the <code>false</code>.
+You can also hide the window through a `Window::$isVisible` property. 
+To do this, simply set the `false`.
 
 ```php
 // Hide the window
@@ -360,7 +360,7 @@ $window->decoration = WindowDecoration::Transparent;
 
 <tip>
 With transparent windows, you should use CSS to control the background color:
-<code-block lang="HTML">
+```HTML
 <![CDATA[
 <style>
 body {
@@ -371,7 +371,7 @@ body {
     Content
 </body>
 ]]>
-</code-block>
+```
 </tip>
 
 <note>
@@ -392,7 +392,7 @@ to manage the current size, minimum and maximum bounds of the window.
 ### Current Size
 
 The `Window::$size` property provides access to the current window 
-dimensions. The object in the window is <b>mutable</b> which allows both 
+dimensions. The object in the window is **mutable** which allows both 
 reading and updating the size.
 
 ```php
@@ -411,7 +411,7 @@ $window->size = new Boson\Window\Size(800, 600);
 ```
 
 <warning>
-Window dimensions must be non-negative <code>int32</code> (an integer value 
+Window dimensions must be non-negative `int32` (an integer value 
 between 0 and 2147483647).
 
 Attempting to set values outside this range will result in an exception.
@@ -446,7 +446,7 @@ which could make the content unreadable or unusable.
 </tip>
 
 <warning>
-Window min size must be non-negative <code>int32</code> (an integer value 
+Window min size must be non-negative `int32` (an integer value 
 between 0 and 2147483647).
 
 Attempting to set values outside this range will result in an exception.
@@ -479,7 +479,7 @@ larger than the screen size may not have the desired effect.
 <tab title="Linux/GTK4">
 <warning>
 Not supported because X11-specific functions such as 
-<code>gtk_window_set_geometry_hints</code> were removed. 
+`gtk_window_set_geometry_hints` were removed. 
 
 This option has no effect.
 </warning>
@@ -487,7 +487,7 @@ This option has no effect.
 </tabs>
 
 <warning>
-Window max size must be non-negative <code>int32</code> (an integer value 
+Window max size must be non-negative `int32` (an integer value 
 between 0 and 2147483647).
 
 Attempting to set values outside this range will result in an exception.
@@ -512,8 +512,8 @@ $window->startResize(Boson\Window\WindowCorner::BottomLeft);
 ```
 
 <tip>
-The end of the resizing occurs on the <b>mouse up</b> event at any place 
-therefore, it is recommended to call this method when <b>mouse down</b> 
+The end of the resizing occurs on the **mouse up** event at any place 
+therefore, it is recommended to call this method when **mouse down** 
 on any element.
 </tip>
 
@@ -559,7 +559,7 @@ Possible values for window corners:
 
 <tip>
 To prevent this event for child HTML elements, use the 
-<code>data-webview-ignore</code> HTML attribute.
+`data-webview-ignore` HTML attribute.
 
 ```html
 <!-- header resizes the window  -->
@@ -590,8 +590,8 @@ $window->startDrag();
 ```
 
 <tip>
-The end of the drag occurs on the <b>mouse up</b> event at any place therefore, 
-it is recommended to call this method when <b>mouse down</b> on any element.
+The end of the drag occurs on the **mouse up** event at any place therefore, 
+it is recommended to call this method when **mouse down** on any element.
 </tip>
 
 ```php
@@ -620,10 +620,10 @@ specific elements draggable.
 ```
 
 <tip>
-To prevent this event for child HTML elements, use the <code>data-webview-ignore</code>
+To prevent this event for child HTML elements, use the `data-webview-ignore`
 HTML attribute.
 
-<code-block lang="HTML">
+```HTML
 <![CDATA[
 <!-- header is draggable -->
 <header data-webview-drag>
@@ -633,7 +633,7 @@ HTML attribute.
     <button data-webview-ignore>Close</button>
 </header>
 ]]>
-</code-block>
+```
 </tip>
 
 <note>
@@ -764,7 +764,7 @@ $window->close();
 Closing a window is a destructive operation. All resources associated with the 
 window, including its <a href="webview.md">WebView</a>, will be freed. 
 
-Any attempts to use the window (except <code>Window::$isClosed</code> property) 
+Any attempts to use the window (except `Window::$isClosed` property) 
 after closing will result in undefined behavior.
 </warning>
 
@@ -809,7 +809,7 @@ if ($window1->id->equals($window2->id)) {
 ```
 
 <tip>
-The <code>WindowId</code> is automatically generated when a window is created 
+The `WindowId` is automatically generated when a window is created 
 and remains constant throughout the window's lifetime.
 </tip>
 
@@ -818,7 +818,7 @@ The identifier consists of two parts:
 - A pointer to the native window handle.
 
 <warning>
-Please do not use the second <code>WindowId</code> argument unless you are sure. 
+Please do not use the second `WindowId` argument unless you are sure. 
 It provides unsafe access to the window handle pointer, for working with 
 low-level API.
 </warning>

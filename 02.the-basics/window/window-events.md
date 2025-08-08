@@ -133,9 +133,9 @@ class WindowFocused<Window>
 
 <note>
 The event is fired not only when window has been focused (in which case the 
-<code>$isFocused</code> property will contain <code>true</code>), but also 
-when window focus has been lost (in which case the <code>$isFocused</code> 
-property will contain <code>false</code>).
+`$isFocused` property will contain `true`), but also 
+when window focus has been lost (in which case the `$isFocused` 
+property will contain `false`).
 </note>
 
 ## Maximized Event
@@ -155,9 +155,9 @@ class WindowMaximized<Window>
 
 <note>
 The event is fired not only when maximizing (in which case the 
-<code>$isMaximized</code> property will contain <code>true</code>), but also 
-when restoring from maximization (in which case the <code>$isMaximized</code> 
-property will contain <code>false</code>).
+`$isMaximized` property will contain `true`), but also 
+when restoring from maximization (in which case the `$isMaximized` 
+property will contain `false`).
 </note>
 
 ## Minimized Event
@@ -177,9 +177,9 @@ class WindowMinimized<Window>
 
 <note>
 The event is fired not only when minimizing (in which case the 
-<code>$isMinimized</code> property will contain <code>true</code>), but also when 
-restoring from minimization (in which case the <code>$isMinimized</code> 
-property will contain <code>false</code>).
+`$isMinimized` property will contain `true`), but also when 
+restoring from minimization (in which case the `$isMinimized` 
+property will contain `false`).
 </note>
 
 ## Resized Event
@@ -200,7 +200,7 @@ class WindowResized<Window>
 - `$height` - Window height dimension in pixels.
 
 <tip>
-Window width and height is a non-negative <code>int32</code> (an integer value 
+Window width and height is a non-negative `int32` (an integer value 
 between 0 and 2147483647).
 </tip>
 

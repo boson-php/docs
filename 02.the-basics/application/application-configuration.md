@@ -63,7 +63,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 ```
 
 <note>
-If the value is not specified (defined as <code>null</code>), the number of 
+If the value is not specified (defined as `null`), the number of 
 threads will correspond to the number of cores in the CPU.
 </note>
 
@@ -82,8 +82,8 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 <note>
 If the value is not specified, the debug mode will be set according to the 
-current <code>php.ini</code> settings (depends on whether you are using the 
-development <code>php.ini</code> settings)
+current `php.ini` settings (depends on whether you are using the 
+development `php.ini` settings)
 </note>
 
 <tip>

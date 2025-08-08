@@ -6,7 +6,7 @@ Provides the ability to decode the request body and obtain useful information
 from there based on the request information.
 
 <warning>
-This component is not included by default in the <code>boson-php/runtime</code> 
+This component is not included by default in the `boson-php/runtime` 
 and must be installed separately.
 </warning>
 
@@ -18,7 +18,7 @@ and must be installed separately.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/http-body-decoder</code>
+        <code lang="bash">composer require boson-php/http-body-decoder`
     </p>
 </tldr>
 
@@ -138,9 +138,9 @@ You can create custom decoders by implementing
 the `SpecializedBodyDecoderInterface`:
 
 <note>
-The <code>SpecializedBodyDecoderInterface</code> interface means that the 
+The `SpecializedBodyDecoderInterface` interface means that the 
 decoder will respond to a specific specialized request type 
-(see method <code>isDecodable()</code>).
+(see method `isDecodable()`).
 </note>
 
 ```php

@@ -32,7 +32,7 @@ for building the application:
   - `aarch64` (`arm64`)
 
 <note>
-The same applies to <code>boson-php/runtime</code>. At the moment, only 
+The same applies to `boson-php/runtime`. At the moment, only 
 these platforms are supported, even if you distribute the application 
 as source code, without building.
 </note>

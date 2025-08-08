@@ -1,7 +1,5 @@
 # Application
 
-<show-structure for="chapter" depth="2"/>
-
 The `Boson\Application` is the central 
 component of the Boson and is responsible for managing the application 
 lifecycle. It provides a single entry point for creating and managing web 
@@ -39,10 +37,9 @@ can pass explicitly if you wish.
 The first optional argument is responsible for the `Boson\ApplicationCreateInfo` 
 application settings and allows you to fine-tune the application's operation.
 
-<tip>
-More details about the application configuration are written on the 
-<a href="application-configuration.md">corresponding documentation pages</a>.
-</tip>
+> More details about the application configuration are written on the 
+> <a href="application-configuration.md">corresponding documentation pages</a>.
+
 
 ```php
 $config = new Boson\ApplicationCreateInfo(
@@ -70,59 +67,54 @@ it, and after the necessary actions, the application will automatically start,
 <a href="application-configuration.md#autorun">unless otherwise specified</a>.
 
 ## Launching
-<secondary-label ref="blocking"/>
 
-The application can be started manually using the <code>run()</code> method. 
+The application can be started manually using the `run()` method. 
 
-<code-block lang="PHP">
+```php
 $app = new Boson\Application();
 $app->run();
-</code-block>
+```
 
-<warning>
-The <code>run()</code> method is <b>blocking</b>, which means it will block 
-the current execution thread until the application is stopped.
-
-<code-block lang="PHP">
-$app = new Boson\Application();
-
-echo 'Application will start...';
-
-$app->run(); // This is a blocking operation
-
-echo 'Application WAS stopped'; // The code will be executed ONLY 
-                                // after stopping an application
-</code-block>
-</warning>
+> The `run()` method is **blocking**, which means it will block 
+> the current execution thread until the application is stopped.
+> ```php
+> $app = new Boson\Application();
+> 
+> echo 'Application will start...';
+> 
+> $app->run(); // This is a blocking operation
+> 
+> echo 'Application WAS stopped'; // The code will be executed ONLY 
+>                                 // after stopping an application
+> ```
+{.warning}
 
 
 ## Stopping
 
 The application can be stopped at any time using the `quit()` method:
 
-<code-block lang="PHP">
+```php
 $app->quit();
-</code-block>
+```
 
-<tip>
-For correct organization of the code, the stop should be made from the 
-event subscription
-<code-block lang="PHP">
-$app = new Boson\Application();
-
-$app->on(function (SomeEvent $e) use ($app): void {
-    $app->quit();
-});
-
-$app->run();
-</code-block>
-</tip>
+> For correct organization of the code, the stop should be made from the 
+> event subscription
+> ```php
+> $app = new Boson\Application();
+> 
+> $app->on(function (SomeEvent $e) use ($app): void {
+>     $app->quit();
+> });
+> 
+> $app->run();
+> ```
 
 To find out if the application is running, you can use the 
 `Application::$isRunning` property, which returns `true` if the application 
 is currently running.
 
-<code-block lang="PHP">
+```php
 $app = new Boson\Application();
 
 // any code
@@ -130,11 +122,10 @@ $app = new Boson\Application();
 if ($app->isRunning === false) {
     $app->run();
 }
-</code-block>
+```
 
 
 ## Identifier
-<secondary-label ref="read-only"/>
 
 The `Boson\ApplicationId` is a unique identifier for each application
 instance. The identifier is needed to compare different applications
@@ -151,9 +142,9 @@ echo 'ID: ' . $app->id;
 An identifier is a value object and contains methods
 for comparison and conversion to scalars.
 
-<code-block lang="PHP">
+```php
 if ($app1->id->equals($app2->id)) {
     echo sprintf('The %s app is equals to %s app', $app1, $app2);
 }
-</code-block>
+```
 

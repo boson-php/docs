@@ -11,7 +11,7 @@ obtain their state depending on WebView requests:
 - etc.
 
 <warning>
-This component is not included by default in the <code>boson-php/runtime</code> 
+This component is not included by default in the `boson-php/runtime` 
 and must be installed separately.
 </warning>
 
@@ -23,7 +23,7 @@ and must be installed separately.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/globals-provider</code>
+        <code lang="bash">composer require boson-php/globals-provider`
     </p>
 </tldr>
 

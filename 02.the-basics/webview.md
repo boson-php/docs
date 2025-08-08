@@ -27,14 +27,14 @@ $webview = $app->webview;
 <warning>
 Behavior is similar to the <tooltip term="main window">main window</tooltip>:
 
-If you try to access the <code>$webview</code> property after the all windows 
-has been closed, a <code>NoDefaultWindowException</code> will be thrown.
+If you try to access the `$webview` property after the all windows 
+has been closed, a `NoDefaultWindowException` will be thrown.
 </warning>
 
 
 ## URL Navigation
 
-The <code>WebView::$url</code> property allows you to load custom
+The `WebView::$url` property allows you to load custom
 html content from any address (including real ones from internet).
 
 ```php
@@ -87,7 +87,7 @@ $webview->html = '<button>Do Not Click Me!</button>';
 ```
 
 <warning>
-Direct HTML loading implemented via <code>data:</code> protocol is an 
+Direct HTML loading implemented via `data:` protocol is an 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
 which does NOT allow the implementation of 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.

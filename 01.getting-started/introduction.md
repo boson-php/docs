@@ -1,7 +1,5 @@
 # Getting Started
 
-<show-structure for="chapter" depth="2"/>
-
 We suggest starting with the tutorial, which walks you step by step through building a Boson application
 and preparing it for distribution. You can also explore the examples and API documentation — they're
 great resources for learning more and finding new ideas.

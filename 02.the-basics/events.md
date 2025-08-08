@@ -180,9 +180,9 @@ $app->on(WindowCreated::class, function (): void {
 The second callback parameter also allows the event object to be present 
 as the first argument.
 
-<code-block lang="php">
+```php
 $app->on(Event::class, function (Event $e) { ... });
-</code-block>
+```
 </tip>
 
 
@@ -220,15 +220,15 @@ $subscription->cancel();
 ```
 
 <tip>
-The <code>EventListenerProviderInterface::on()</code> method also returns 
+The `EventListenerProviderInterface::on()` method also returns 
 a subscription object.
 
-<code-block lang="PHP">
+```php
 $subscription = $app->on(function (Event $e) { ... });
 
 // Cancel subscription
 $subscription->cancel();
-</code-block>
+```
 </tip>
 
 ### Cancel All Subscriptions

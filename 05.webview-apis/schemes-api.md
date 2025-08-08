@@ -27,30 +27,30 @@ $app->webview->url = 'test://hello.world/';
 <tab title="MacOS/WebKit">
 <warning>
 Does NOT support interception of some existing schemes:
-<code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>, 
-<code>ftp</code>, <code>file</code>, <code>data</code>.
+`http`, `https`, `ws`, `wss`, 
+`ftp`, `file`, `data`.
 
 You will get an error similar to the following:
-<code-block>
+```
 *** Terminating app due to uncaught 
     exception 'NSInvalidArgumentException', reason: "'https' is a URL 
     scheme that WKWebView handles natively"
 *** First throw call stack:
     ...
-</code-block>
+```
 </warning>
 </tab>
 <tab title="Linux/GTK4">
 <warning>
 Does NOT support interception of some existing schemes:
-<code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>, 
-<code>ftp</code>, <code>file</code>, <code>data</code>.
+`http`, `https`, `ws`, `wss`, 
+`ftp`, `file`, `data`.
 
 You will get an error similar to the following:
-<code-block>
+```
 ** (process:3226): WARNING **: 16:12:59.122: 
 Registering special URI scheme https is no longer allowed
-</code-block>
+```
 </warning>
 </tab>
 </tabs>

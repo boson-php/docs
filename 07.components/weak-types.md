@@ -7,7 +7,7 @@ references in PHP. It allows you to store objects without preventing them
 from being garbage collected, and react to their destruction.
 
 <note>
-This component already included in the <code>boson-php/runtime</code>, 
+This component already included in the `boson-php/runtime`, 
 so no separate installation is required when using the runtime.
 </note>
 
@@ -19,7 +19,7 @@ so no separate installation is required when using the runtime.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/weak-types</code>
+        <code lang="bash">composer require boson-php/weak-types`
     </p>
 </tldr>
 

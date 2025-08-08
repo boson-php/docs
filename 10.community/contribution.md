@@ -98,21 +98,21 @@ provide a bug fix or to propose enhancements to Boson Components.
   <step>
     After the "forking action" has completed, clone your fork locally 
     (this will create a component directory):
-    <code-block lang="Bash">
+    ```Bash
     git clone git@github.com:USERNAME/COMPONENT_NAME.git
-    </code-block>
+    ```
   </step>
   <step>
     Add the upstream repository as a remote:
-    <code-block lang="Bash">
+    ```Bash
     cd COMPONENT_NAME
     git remote add upstream https://github.com/boson-php/COMPONENT_NAME.git
-    </code-block>
+    ```
   </step>
 </procedure>
 
 <procedure title="#3: Choose the right Branch">
-  Since the project is quite simple, you can use the <code>master</code> branch for now.
+  Since the project is quite simple, you can use the `master` branch for now.
 </procedure>
 
 <procedure title="#4: Work on your Pull Request">
@@ -137,21 +137,21 @@ provide a bug fix or to propose enhancements to Boson Components.
   Each Component contains a short Composer command that allows you to do this.
   <step>
     Checking the tests.
-    <code-block lang="Bash">
+    ```Bash
     composer test
-    </code-block>
+    ```
   </step>
   <step>
     Checking and correcting coding style (we follow <a href="https://www.php-fig.org/per/coding-style/">PER Coding Style 2.0</a>).
-    <code-block lang="Bash">
+    ```Bash
     composer phpcs:fix
-    </code-block>
+    ```
   </step>
   <step>
     Checking for other type errors in the code.
-    <code-block lang="Bash">
+    ```Bash
     composer linter
-    </code-block>
+    ```
   </step>
 </procedure>
 
@@ -160,10 +160,10 @@ provide a bug fix or to propose enhancements to Boson Components.
   follow the following steps.
   <step>
     Get all the latest changes to the branch
-    <code-block lang="Bash">
+    ```Bash
     git fetch upstream
     git pull upstream master --ff
-    </code-block>
+    ```
   </step>
   <step>
     You can now make a pull request on GitHub repository.

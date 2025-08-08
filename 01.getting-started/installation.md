@@ -25,7 +25,6 @@ applications with web technologies — without the bloat.
 - PHP 8.4+
   > PHP is not required if you are building an executable 
   > from source. For development purposes only.
-  {.tip}
   - An `ext-ffi` extension
 
 ### Additional Dependencies
@@ -114,5 +113,5 @@ composer require boson-php/compiler --dev
 > execution, so it is recommended to include it as a `--dev` package.
 {.note}
 
-> Make sure the <code>"minimum-stability"</code> is set correctly.
+> Make sure the `"minimum-stability"` is set correctly.
 {.warning}

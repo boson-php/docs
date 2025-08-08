@@ -57,7 +57,7 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 );
 ```
 
-These are additional <b>platform-dependent</b> launch flags and their behavior may
+These are additional **platform-dependent** launch flags and their behavior may
 differ on different platforms.
 
 <tabs>
@@ -65,33 +65,33 @@ differ on different platforms.
     For WebView2 list of all available flags can be 
     <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2environmentoptions.additionalbrowserarguments">found on MSDN</a>
     and <a href="https://www.chromium.org/developers/how-tos/run-chromium-with-flags/">chromium.org</a>
-    <code-block lang="PHP">
+    ```php
     $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
         '--disable-features' => ['feature1', 'feature2'],
         '--do-something',
     ]);
-    </code-block>
+    ```
 </tab>
 <tab title="Linux (GTK)">
     For WebkitGTK list of all available flags can be 
     <a href="https://webkitgtk.org/reference/webkitgtk/stable/class.Settings.html#properties">found at webkitgtk.org</a>
-    <code-block lang="PHP">
+    ```php
     $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
         'enable-javascript' => false,
     ]);
-    </code-block>
+    ```
 </tab>
 <tab title="MacOS">
     For WKWebView list of all available flags can be 
     <a href="https://developer.apple.com/documentation/webkit/wkwebviewconfiguration">found at developer.apple.com</a>
-    <code-block lang="PHP">
+    ```php
     $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
          'upgradeKnownHostsToHTTPS' => true,
          'defaultWebpagePreferences.allowsContentJavaScript' => false,
          'preferences.minimumFontSize' => 10,
          'applicationNameForUserAgent' => 'Boson',
     ]);
-    </code-block>
+    ```
 </tab>
 </tabs>
 

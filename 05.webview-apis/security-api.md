@@ -15,8 +15,8 @@ $app->webview->security; // Access to Security API
 ```
 
 <note>
-Your context will most likely be <b>secure</b> if you don't use the 
-<code>data:</code> or <code>about:</code> protocol schemes
+Your context will most likely be **secure** if you don't use the 
+`data:` or `about:` protocol schemes
 </note>
 
 ## Current Context

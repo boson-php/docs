@@ -6,7 +6,7 @@ The component provides a set of HTTP structures that provide information
 about requests, responses, and their dependencies.
 
 <note>
-This component already included in the <code>boson-php/runtime</code>, 
+This component already included in the `boson-php/runtime`, 
 so no separate installation is required when using the runtime.
 </note>
 
@@ -18,7 +18,7 @@ so no separate installation is required when using the runtime.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/http</code>
+        <code lang="bash">composer require boson-php/http`
     </p>
 </tldr>
 
@@ -58,9 +58,9 @@ not modified.
 <tip>
 All request objects are created by the Boson itself within events, such as 
 <a href="schemes-api-events.md">SchemeRequestReceived</a>. Therefore, to 
-ensure that the object within an event or intention will <b>NOT be changed</b> 
+ensure that the object within an event or intention will **NOT be changed** 
 and all listeners receive identical information, the request 
-object <b>is immutable</b>.
+object **is immutable**.
 </tip>
 
 ### Response
@@ -91,7 +91,7 @@ $response->status = 201;
 
 <tip>
 All responses are created by developer in any form. Therefore, for convenience,
-they are made <b>mutable</b> by default.
+they are made **mutable** by default.
 </tip>
 
 ### JSON Response
@@ -155,4 +155,4 @@ if (!$response->headers->has('x-custom-header')) {
 $response->headers->remove('content-type');
 ```
 
-<note>The headers map is <b>case-insensitive</b> (lowercased) for header names</note>
+<note>The headers map is **case-insensitive** (lowercased) for header names</note>

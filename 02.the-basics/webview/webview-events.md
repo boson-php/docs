@@ -105,12 +105,12 @@ class WebViewMessageReceived<WebView>
 - `$message` - Received message string value.
 
 <note>
-The <code>ack()</code> method marks the message as accepted and processed.
+The `ack()` method marks the message as accepted and processed.
 </note>
 
 <tip>
-The <code>stopPropagation()</code> method works in a similar way to 
-<code>ack()</code>, but is not recommended due semantic conflicts.
+The `stopPropagation()` method works in a similar way to 
+`ack()`, but is not recommended due semantic conflicts.
 </tip>
 
 ## Navigating Intention

@@ -5,7 +5,7 @@ responses of the [Schema API](schemes-api.md) to those compatible with the
 [Laravel Framework](https://laravel.com).
 
 <note>
-This bridge is NOT included by default in the <code>boson-php/runtime</code> 
+This bridge is NOT included by default in the `boson-php/runtime` 
 and must be installed separately.
 </note>
 
@@ -17,7 +17,7 @@ and must be installed separately.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/laravel-http-bridge</code>
+        <code lang="bash">composer require boson-php/laravel-http-bridge`
     </p>
 </tldr>
 

@@ -34,25 +34,25 @@ $app->webview->scripts->eval(
 ```
 
 <note>
-WebView also provides a more convenient way (facade method <code>eval()</code>) 
+WebView also provides a more convenient way (facade method `eval()`) 
 to execute arbitrary JavaScript code.
 
-Just use <code>WebView::eval()</code> instead of eval method
-from <code>WebView::$scripts</code>.
+Just use `WebView::eval()` instead of eval method
+from `WebView::$scripts`.
 
 <p>&nbsp;</p>
 
 <compare>
-<code-block lang="php">
+```php
 $js = 'alert("Hello!")';
 
 $webview->scripts->eval($js);
-</code-block>
-<code-block lang="php">
+```
+```php
 $js = 'alert("Hello!")';
 
 $webview->eval($js);
-</code-block>
+```
 </compare>
 
 In all examples from here on, the short facade method will 

@@ -8,7 +8,7 @@ set of features for identifying operating systems, their families, and
 supported standards.
 
 <note>
-This component already included in the <code>boson-php/runtime</code>, 
+This component already included in the `boson-php/runtime`, 
 so no separate installation is required when using the runtime.
 </note>
 
@@ -20,7 +20,7 @@ so no separate installation is required when using the runtime.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/os-info</code>
+        <code lang="bash">composer require boson-php/os-info`
     </p>
 </tldr>
 
@@ -56,34 +56,34 @@ This code will output something like the following information
 
 <tabs>
     <tab title="Windows">
-        <code-block>
+        ```
         Family: Windows
         Name: Windows 10 Pro
         Version: 10.0.19045
         Codename: 22H2
         Edition: Professional
         Standards: ~ 
-        </code-block>
+        ```
     </tab>
     <tab title="Linux">
-        <code-block>
+        ```
         Family: Linux
         Name: Ubuntu
         Version: 20.04.6
         Codename: Focal Fossa
         Edition: ~
         Standards: POSIX
-        </code-block>
+        ```
     </tab>
     <tab title="macOS">
-        <code-block>
+        ```
         Family: Darwin
         Name: Darwin
         Version: 24.4.0
         Codename: ~
         Edition: ~
         Standards: POSIX
-        </code-block>
+        ```
         <warning>
         Please note that the information in macOS may not be accurate due 
         to virtualization and testing issues.

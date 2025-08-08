@@ -3,7 +3,7 @@
 Static provider exist to serve files without execution of application code.
 
 <warning>
-This component is not included by default in the <code>boson-php/runtime</code> 
+This component is not included by default in the `boson-php/runtime` 
 and must be installed separately.
 </warning>
 
@@ -15,7 +15,7 @@ and must be installed separately.
         Via <a href="https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies">Composer</a>:
     </p>
     <p>
-        <code lang="bash">composer require boson-php/http-static-provider</code>
+        <code lang="bash">composer require boson-php/http-static-provider`
     </p>
 </tldr>
 
@@ -65,6 +65,6 @@ $app->webview->url = 'static://localhost/example/image.png';
 <warning>
 Please note that the file search is performed by the path from the URL, 
 excluding the host, scheme, etc. Thus, the file that will be requested at 
-the address <code>scheme://HOST/path/to/file.png</code> must be located in
-<code>/public/path/to/file.png</code>.
+the address `scheme://HOST/path/to/file.png` must be located in
+`/public/path/to/file.png`.
 </warning>

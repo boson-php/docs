@@ -6,14 +6,14 @@ you need to follow a few simple steps.
 <procedure title="1. Install Twig">
 First, you need to install <a href="https://twig.symfony.com/">the Twig</a> 
 itself <a href="https://getcomposer.org/">using Composer</a>.
-<code-block lang="bash">
+```bash
     composer require twig/twig
-</code-block>
+```
 </procedure>
 
 <procedure title="2. Create Twig Component">
 After that, you should create a component that supports twig rendering.
-<code-block lang="php">
+```php
 <![CDATA[
 use Boson\WebView\Api\WebComponents\ReactiveContext;
 use Boson\WebView\Api\WebComponents\WebComponent;
@@ -54,7 +54,7 @@ abstract class TwigComponent extends WebComponent
     }
 }
 ]]>
-</code-block>
+```
 </procedure>
 
 
@@ -62,7 +62,7 @@ abstract class TwigComponent extends WebComponent
 Now we need to define how exactly these components will be created, for 
 this we should create our own instantiator, which will return new 
 components on demand.
-<code-block lang="php">
+```php
 <![CDATA[
 
 use Boson\WebView\Api\WebComponents\Instantiator\WebComponentInstantiatorInterface;
@@ -100,14 +100,14 @@ final readonly class TwigComponentInstantiator implements
     }
 }
 ]]>
-</code-block>
+```
 </procedure>
 
 <procedure title="4. Register Instantiator">
 To determine that a different instantiator should be used, it can 
 be specified in the webview configs.
 
-<code-block lang="php">
+```php
 <![CDATA[
 $webComponentsConfig = new WebComponentsCreateInfo(
     instantiator: new TwigComponentInstantiator(),
@@ -123,13 +123,13 @@ $applicationConfig = new ApplicationCreateInfo(
 
 $app = new Boson\Application($applicationConfig);
 ]]>
-</code-block>
+```
 </procedure>
 
 <procedure title="5. Twig Components">
 And now we can create custom twig components!
 
-<code-block lang="php">
+```php
 <![CDATA[
 class MyTwigComponent extends TwigComponent
 {
@@ -147,17 +147,17 @@ class MyTwigComponent extends TwigComponent
     }
 }
 ]]>
-</code-block>
+```
 
 To register and check, just write a couple of lines
 
-<code-block lang="php">
+```php
 <![CDATA[
 $app->webview->defineComponent('my-list', MyTwigComponent::class);
 
 $app->webview->html = '<my-list />';
 ]]>
-</code-block>
+```
 
 <img src="example-twig-components-result.png" alt="Example Result"/>
 

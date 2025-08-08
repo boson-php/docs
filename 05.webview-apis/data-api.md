@@ -47,7 +47,7 @@ Please note that the sync request CAN NOT be processed if the
 application is not running since at the time of the call the document 
 is not yet available.
 
-<code-block lang="php">
+```php
 $app = new Boson\Application();
 
 var_dump($app->webview->data->get('document.location'));
@@ -56,11 +56,11 @@ var_dump($app->webview->data->get('document.location'));
 //     Request "document.location" could not be processed
 //     because application is not running
 //
-</code-block>
+```
 
 If the page is currently loading, synchronous requests are also unavailable.
 
-<code-block lang="php">
+```php
 $app = new Boson\Application();
 
 $app->on(function (Boson\WebView\Event\WebViewNavigating $e): void {
@@ -73,29 +73,29 @@ $app->on(function (Boson\WebView\Event\WebViewNavigating $e): void {
 });
 
 $app->webview->url = 'https://example.com';
-</code-block>
+```
 </warning>
 
 <note>
-WebView also provides a more convenient way (facade method <code>get()</code>) 
+WebView also provides a more convenient way (facade method `get()`) 
 to get arbitrary data from document.
 
-Just use <code>WebView::get()</code> instead of get method
-from <code>WebView::$data</code>.
+Just use `WebView::get()` instead of get method
+from `WebView::$data`.
 
 <p>&nbsp;</p>
 
 <compare>
-<code-block lang="php">
+```php
 $js = 'document.location';
 
 $webview->data->get($js);
-</code-block>
-<code-block lang="php">
+```
+```php
 $js = 'document.location';
 
 $webview->get($js);
-</code-block>
+```
 </compare>
 
 In all examples from here on, the short facade method will

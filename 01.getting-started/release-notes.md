@@ -1,7 +1,5 @@
 # Release Notes
 
-<show-structure for="chapter" depth="2"/>
-
 ## Versioning
 
 Boson and its other first-party Components follow

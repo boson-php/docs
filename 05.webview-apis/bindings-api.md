@@ -26,25 +26,25 @@ $app->webview->bindings->bind('foo', function () {
 ```
 
 <note>
-WebView also provides a more convenient way (facade method <code>bind()</code>) 
+WebView also provides a more convenient way (facade method `bind()`) 
 to bind arbitrary PHP function.
 
-Just use <code>WebView::bind()</code> instead of bind method
-from <code>WebView::$bindings</code>.
+Just use `WebView::bind()` instead of bind method
+from `WebView::$bindings`.
 
 <p>&nbsp;</p>
 
 <compare>
-<code-block lang="php">
+```php
 $api = $webview->bindings;
 
 $api->bind('foo', foo(...));
-</code-block>
-<code-block lang="php">
+```
+```php
 //
 
 $webview->bind('foo', foo(...));
-</code-block>
+```
 </compare>
 
 In all examples from here on, the short facade method will
@@ -63,7 +63,7 @@ $app->webview->bind('var_dump', var_dump(...));
 ```
 
 <warning>
-During registration, an exception <code>FunctionAlreadyDefinedException</code> 
+During registration, an exception `FunctionAlreadyDefinedException` 
 may occur if you are trying to register a function that has 
 already been registered.
 </warning>

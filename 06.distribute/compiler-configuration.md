@@ -76,7 +76,7 @@ the Windows platform (and `example` binaries for others).
 ```
 
 <note>
-If the field is not specified, the <code>"app"</code> name will be used.
+If the field is not specified, the `"app"` name will be used.
 </note>
 
 
@@ -146,11 +146,11 @@ that will be executed when the application is launched.
 <tip>
 The entrypoint will be located on the same path inside the build as outside, 
 so you don't have to worry about paths (like 
-<code>require __DIR__ . '/vendor/autoload.php';</code>) breaks after building.
+`require __DIR__ . '/vendor/autoload.php';`) breaks after building.
 </tip>
 
 <note>
-If the field is not specified, the <code>"index.php"</code> will be used.
+If the field is not specified, the `"index.php"` will be used.
 </note>
 
 
@@ -172,23 +172,23 @@ result of the assembly itself will be placed.
 The build result will be located in this directory depending on the
 specified platforms and architectures.
 
-<code-block>
+```
 ~/&lt;build-directory>/&lt;platform>/&lt;arch>/...
-</code-block>
+```
 
 For example, for Windows x64 with the specified build 
-directory <code>"./var/build"</code> and <code>"app"</code> 
+directory `"./var/build"` and `"app"` 
 application name:
 
-<code-block>
+```
 ~/var/build/windows/amd64/app.exe
 ~/var/build/windows/amd64/libboson-windows-x86_64.dll
 ~/var/build/windows/amd64/...etc
-</code-block>
+```
 </tip>
 
 <note>
-If the field is not specified, the <code>"build"</code> directory will be used.
+If the field is not specified, the `"build"` directory will be used.
 </note>
 
 
@@ -248,8 +248,8 @@ to include in the assembly.
 ```
 
 <note>
-Specifying a directory includes <b>all</b> files, including 
-temporary ones or those in <code>.gitignore</code>.
+Specifying a directory includes **all** files, including 
+temporary ones or those in `.gitignore`.
 </note>
 
 
@@ -291,56 +291,56 @@ The `"finder"` may contain an array of objects with, `"name"`, `"not-name"`,
 Filters files by name. All files matching the 
 specified rule will be included in the build.
 <tip>
-The <code>name</code> field may be defined as <code>string</code> or 
-<code>array</code> of strings
+The `name` field may be defined as `string` or 
+`array` of strings
 </tip>
 <step>
 You may specify a mask where an asterisk means any 
 occurrence of any number of characters
-<code-block>*.php</code-block>
-<code-block>index*</code-block>
+```*.php```
+```index*```
 </step>
 <step>
 You can specify a regular expression to check the file name. Such 
-an expression must start and end with the <code>/</code> characters.
-<code-block>/\.php$/</code-block>
-<code-block>/^index.*/</code-block>
+an expression must start and end with the `/` characters.
+```/\.php$/```
+```/^index.*/```
 </step>
 <warning>
-The field only checks the file <b>name</b>, not the file path.
+The field only checks the file **name**, not the file path.
 </warning>
 </procedure>
 
 <note>
-To exclude from the selection by names, use the <code>"not-name"</code> field 
-with the same capabilities as <code>"name"</code> field.
+To exclude from the selection by names, use the `"not-name"` field 
+with the same capabilities as `"name"` field.
 </note>
 
 <procedure title="directory field format">
 Specifies the directory in which to search for files to include.
 <tip>
-The <code>directory</code> field may be defined as <code>string</code> or 
-<code>array</code> of strings
+The `directory` field may be defined as `string` or 
+`array` of strings
 </tip>
 <step>
 You may define real path to directory.
-<code-block>
+```
 ./path/to/directory
-</code-block>
+```
 </step>
 <step>
-You may use <code>*</code> as a wildcard character to search in the 
+You may use `*` as a wildcard character to search in the 
 directories matching a pattern (each pattern has to resolve to at 
 least one directory path).
-<code-block>
+```
 ./path/to/*/*/dir
-</code-block>
+```
 </step>
 </procedure>
 
 <note>
-To exclude directories, use the <code>"not-directory"</code> field 
-with the same capabilities as <code>"directory"</code> field.
+To exclude directories, use the `"not-directory"` field 
+with the same capabilities as `"directory"` field.
 </note>
 
 ## `ini` {id="ini-config"}
@@ -365,20 +365,20 @@ The value may be any scalar (`int`, `float`, `string` or `bool`) value.
 
 <tip>
 You may use environment variables inside PHP configuration values.
-<code-block lang="json5">
+```json5
 {
     "ini": {
         "memory_limit": "${BOSON_MEMORY_LIMIT}"
     }
 }
-</code-block>
+```
 
 In addition, default values are available for environment variables:
-<code-block lang="json5">
+```json5
 {
     "ini": {
         "memory_limit": "${BOSON_MEMORY_LIMIT:-128M}"
     }
 }
-</code-block>
+```
 </tip>

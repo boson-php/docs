@@ -34,7 +34,7 @@ The method takes two optional arguments. The first one is responsible for
 the directory in which the dialog window will be opened.
 
 <tip>
-If no <code>$directory</code> argument is passed, an attempt will be made to use 
+If no `$directory` argument is passed, an attempt will be made to use 
 the current working directory.
 </tip>
 

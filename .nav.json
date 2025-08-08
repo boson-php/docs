@@ -5,6 +5,7 @@
     "pages": [
       "01.getting-started/introduction.md",
       "01.getting-started/installation.md",
+      "01.getting-started/troubleshooting.md",
       "01.getting-started/release-notes.md"
     ]
   },

@@ -112,6 +112,7 @@ This is [apparmor bug](https://bugs.launchpad.net/apparmor/+bug/2046844) and
 Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparmor/+bug/2060810).
 
 - It can be temporarily fixed by running code as `sudo`.
+
 - Or using following commands:
 ```bash
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0

@@ -62,7 +62,7 @@ class WindowCreated<Window>
 ## Decorated Event
 
 An `Boson\Window\Event\WindowDecorated` event fired after
-<a href="window.md#decorations">window controls</a> visibility changed.
+[window controls](window.md#decorations) visibility changed.
 
 ```php
 class WindowDecorated<Window> 
@@ -131,7 +131,7 @@ class WindowFocused<Window>
 ## Maximized Event
 
 An `Boson\Window\Event\WindowMaximized` event fired after
-<a href="window.md#maximize">window maximized</a> state has been changed.
+[window maximized](window.md#maximize) state has been changed.
 
 ```php
 class WindowMaximized<Window> 
@@ -173,7 +173,7 @@ class WindowMinimized<Window>
 ## Resized Event
 
 An `Boson\Window\Event\WindowResized` event fired after
-<a href="window.md#size">window size</a> has been changed.
+[window size](window.md#size) has been changed.
 
 ```php
 class WindowResized<Window> 

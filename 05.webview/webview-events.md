@@ -77,7 +77,7 @@ class WebViewFaviconChanged<WebView>
 ## Message Received Event
 
 An `Boson\WebView\Event\WebViewMessageReceived` intention to
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">receive message</a>
+[receive message](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 from the webview.
 
 ```php

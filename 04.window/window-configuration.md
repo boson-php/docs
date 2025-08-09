@@ -76,7 +76,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window visibility can be found in
-> the <a href="window.md#visibility">window documentation</a>.
+> the [window documentation](window.md#visibility).
 {.note}
 
 

@@ -323,7 +323,7 @@ $window->decoration = WindowDecoration::Frameless;
 
 ### Transparent
 
-Enables <a href="#frameless">frameless</a> mode and makes the window
+Enables [frameless](#frameless) mode and makes the window
 background transparent.
 
 ```php

@@ -1,8 +1,8 @@
 # Laravel HTTP Adapter
 
 The Laravel HTTP Bridge provides the ability to convert internal requests and 
-responses of the [Schema API](schemes-api.md) to those compatible with the 
-[Laravel Framework](https://laravel.com).
+responses of the [Schema API](../05.webview/schemes-api.md) to those compatible 
+with the [Laravel Framework](https://laravel.com).
 
 > This bridge is NOT included by default in the `boson-php/runtime` 
 > and must be installed separately.

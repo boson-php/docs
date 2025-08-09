@@ -4,7 +4,7 @@ The webview will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-[event listener](events.md#event-listener).
+[event listener](../02.architecture/events.md#event-listener).
 
 ```php
 $webview = $app->webview;

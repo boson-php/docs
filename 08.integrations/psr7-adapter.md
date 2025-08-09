@@ -5,10 +5,10 @@ responses of the [Schema API](schemes-api.md) to those compatible with
 any PSR-7 compatible frameworks (e.g. [Yii3](https://github.com/yiisoft/demo),
 [Spiral](https://spiral.dev/), [Slim](https://www.slimframework.com/), etc.).
 
-<note>
-This bridge is NOT included by default in the `boson-php/runtime` 
-and must be installed separately.
-</note>
+
+> This bridge is NOT included by default in the `boson-php/runtime` 
+> and must be installed separately.
+{.note}
 
 
 ## Installation

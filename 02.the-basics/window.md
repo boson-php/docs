@@ -30,10 +30,8 @@ If you try to access the `$window` property after the all windows has
 been closed, a `NoDefaultWindowException` will be thrown.
 </warning>
 
-<note>
-The <tooltip term="main window">main window</tooltip> already available by 
-default in any application.
-</note>
+> The *main window* already available by default in any application.
+{.note}
 
 
 ## Title
@@ -177,11 +175,10 @@ $window->restore();
 The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
 
-<note>
-It is also worth noting that the initial state of the window visibility
-depends on the <a href="window-configuration.md#window-visibility">window 
-settings</a>. By default, the window is shown.
-</note>
+> It is also worth noting that the initial state of the window visibility
+> depends on the <a href="window-configuration.md#window-visibility">window 
+> settings</a>. By default, the window is shown.
+{.note}
 
 To check if a window is currently visible:
 
@@ -330,14 +327,13 @@ provided by the operating system.
 $window->decoration = WindowDecoration::Frameless;
 ```
 
-<note>
-You can use the <a href="window.md#minimize">Minimize</a>,
-<a href="window.md#maximize">Maximize</a>,
-<a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
-and <a href="window.md#resizing">Resize</a> features to implement window
-controls manually.
-</note>
+> You can use the <a href="window.md#minimize">Minimize</a>,
+> <a href="window.md#maximize">Maximize</a>,
+> <a href="window.md#restore">Restore</a>,
+> <a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
+> and <a href="window.md#resizing">Resize</a> features to implement window
+> controls manually.
+{.note}
 
 <warning>
 When using frameless (or transparent) windows, you need to implement your own 
@@ -370,14 +366,13 @@ body {
 ```
 </tip>
 
-<note>
-You can use the <a href="window.md#minimize">Minimize</a>,
-<a href="window.md#maximize">Maximize</a>,
-<a href="window.md#restore">Restore</a>,
-<a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
-and <a href="window.md#resizing">Resize</a> features to implement window
-controls manually.
-</note>
+> You can use the <a href="window.md#minimize">Minimize</a>,
+> <a href="window.md#maximize">Maximize</a>,
+> <a href="window.md#restore">Restore</a>,
+> <a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
+> and <a href="window.md#resizing">Resize</a> features to implement window
+> controls manually.
+{.note}
 
 
 ## Size
@@ -465,10 +460,9 @@ $window->max->height = 1080;
 $window->max->update(1920, 1080);
 ```
 
-<note>
-The maximum size is typically limited by the screen resolution. Setting a value 
-larger than the screen size may not have the desired effect.
-</note>
+> The maximum size is typically limited by the screen resolution. 
+> Setting a value larger than the screen size may not have the desired effect.
+{.note}
 
 <tabs>
 <tab title="Linux/GTK4">
@@ -567,10 +561,9 @@ To prevent this event for child HTML elements, use the
 ```
 </tip>
 
-<note>
-For standard windows with decorations, resizing is handled automatically by the 
-operating system through the window corners and edges.
-</note>
+> For standard windows with decorations, resizing is handled automatically 
+> by the operating system through the window corners and edges.
+{.note}
 
 
 ## Dragging
@@ -631,10 +624,9 @@ HTML attribute.
 ```
 </tip>
 
-<note>
-For standard windows with decorations, dragging is handled automatically by the 
-operating system through the title bar.
-</note>
+> For standard windows with decorations, dragging is handled automatically 
+> by the operating system through the title bar.
+{.note}
 
 ## Focus
 

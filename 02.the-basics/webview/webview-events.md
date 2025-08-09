@@ -27,10 +27,9 @@ $webview->on(function (Event $event): void {
 });
 ```
 
-<note>
-More information about events can be found in the <a href="events.md">events 
-documentation</a>.
-</note>
+> More information about events can be found in the <a href="events.md">events 
+> documentation</a>.
+{.note}
 
 ## Dom Ready Event
 
@@ -98,9 +97,8 @@ class WebViewMessageReceived<WebView>
 
 - `$message` - Received message string value.
 
-<note>
-The `ack()` method marks the message as accepted and processed.
-</note>
+> The `ack()` method marks the message as accepted and processed.
+{.note}
 
 <tip>
 The `stopPropagation()` method works in a similar way to 

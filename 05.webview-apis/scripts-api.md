@@ -31,27 +31,25 @@ $app->webview->scripts->eval(
 );
 ```
 
-<note>
-WebView also provides a more convenient way (facade method `eval()`) 
-to execute arbitrary JavaScript code.
 
-Just use `WebView::eval()` instead of eval method
-from `WebView::$scripts`.
-
-<p>&nbsp;</p>
-
-<compare>
-```php
-$js = 'alert("Hello!")';
-
-$webview->scripts->eval($js);
-```
-```php
-$js = 'alert("Hello!")';
-
-$webview->eval($js);
-```
-</compare>
+> WebView also provides a more convenient way (facade method `eval()`) 
+> to execute arbitrary JavaScript code.
+>
+> Just use `WebView::eval()` instead of eval method
+> from `WebView::$scripts`.
+>
+> ```php
+> $js = 'alert("Hello!")';
+> 
+> $webview->scripts->eval($js);
+> ```
+> 
+> ```php
+> $js = 'alert("Hello!")';
+> 
+> $webview->eval($js);
+> ```
+{.note}
 
 In all examples from here on, the short facade method will 
 be used to simplify the examples.
@@ -63,10 +61,9 @@ be used to simplify the examples.
 
 You can register a JavaScript code that will be applied to any page.
 
-<note>
-This code will be called every time on every page after the document has been
-processed by the client and its DOM is ready and available.
-</note>
+> This code will be called every time on every page after the document has been
+> processed by the client and its DOM is ready and available.
+{.note}
 
 ```php
 $app = new Boson\Application();

@@ -131,11 +131,10 @@ $decodedBody = $decoder->decode(new Request(
 You can create custom decoders by implementing 
 the `SpecializedBodyDecoderInterface`:
 
-<note>
-The `SpecializedBodyDecoderInterface` interface means that the 
-decoder will respond to a specific specialized request type 
-(see method `isDecodable()`).
-</note>
+> The `SpecializedBodyDecoderInterface` interface means that the 
+> decoder will respond to a specific specialized request type 
+> (see method `isDecodable()`).
+{.note}
 
 ```php
 use Boson\Component\Http\Body\SpecializedBodyDecoderInterface;

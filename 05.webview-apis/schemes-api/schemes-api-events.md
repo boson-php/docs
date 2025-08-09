@@ -7,10 +7,10 @@
 Any configured schema can send its own events (and intentions), which allow 
 interaction with requests to specified schemas.
 
-<note>
-More information about events can be found in the <a href="events.md">events 
-documentation</a>.
-</note>
+
+> More information about events can be found in the <a href="events.md">events 
+> documentation</a>.
+{.note}
 
 ## Request Intention
 

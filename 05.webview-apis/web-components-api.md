@@ -19,9 +19,8 @@ $app->webview->components; // Access to Web Components API
 For creating your own component, you should use the `add()` method, passing 
 there the tag name and a reference to the existing component class.
 
-<note>
-The tag name for a custom component must contain a dash (`-`) character.
-</note>
+> The tag name for a custom component must contain a dash (`-`) character.
+{.note}
 
 ```php
 class MyExampleComponent {}
@@ -80,10 +79,9 @@ from global styles and supports slots.
 To include the content of an element inside a rendered template, the `<slot />` 
 tag should be used.
 
-<note>
-See more information about templates and slots in 
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">MDN Documentation</a>
-</note>
+> See more information about templates and slots in 
+> [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots)
+{.note}
 
 ```php
 class MyExampleComponent implements HasShadowDomInterface

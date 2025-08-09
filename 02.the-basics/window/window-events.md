@@ -27,10 +27,9 @@ $window->on(function (Event $event): void {
 });
 ```
 
-<note>
-More information about events can be found in the <a href="events.md">events 
-documentation</a>.
-</note>
+> More information about events can be found in the <a href="events.md">events 
+> documentation</a>.
+{.note}
 
 ## Closing Intention
 
@@ -76,12 +75,11 @@ class WindowDecorated<Window>
 
 - `$isDecorated` - Visibility status of the OS window controls.
 
-<note>
-The event differs from a 
-<a href="window-events.md#decoration-changed-event">decoration changed</a> in 
-that it reacts exclusively to the turning on or off of window controls 
-(minimize, maximize, restore, close buttons and title bar) visibility.
-</note>
+> The event differs from a 
+> <a href="window-events.md#decoration-changed-event">decoration changed</a> in 
+> that it reacts exclusively to the turning on or off of window controls 
+> (minimize, maximize, restore, close buttons and title bar) visibility.
+{.note}
 
 ## Decoration Changed Event
 
@@ -124,12 +122,11 @@ class WindowFocused<Window>
 
 - `$isFocused` - Window <a href="window.md#focus">focus status</a>.
 
-<note>
-The event is fired not only when window has been focused (in which case the 
-`$isFocused` property will contain `true`), but also 
-when window focus has been lost (in which case the `$isFocused` 
-property will contain `false`).
-</note>
+> The event is fired not only when window has been focused (in which case the 
+> `$isFocused` property will contain `true`), but also 
+> when window focus has been lost (in which case the `$isFocused` 
+> property will contain `false`).
+{.note}
 
 ## Maximized Event
 
@@ -145,12 +142,11 @@ class WindowMaximized<Window>
 
 - `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
 
-<note>
-The event is fired not only when maximizing (in which case the 
-`$isMaximized` property will contain `true`), but also 
-when restoring from maximization (in which case the `$isMaximized` 
-property will contain `false`).
-</note>
+> The event is fired not only when maximizing (in which case the 
+> `$isMaximized` property will contain `true`), but also 
+> when restoring from maximization (in which case the `$isMaximized` 
+> property will contain `false`).
+{.note}
 
 ## Minimized Event
 
@@ -166,12 +162,11 @@ class WindowMinimized<Window>
 
 - `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
 
-<note>
-The event is fired not only when minimizing (in which case the 
-`$isMinimized` property will contain `true`), but also when 
-restoring from minimization (in which case the `$isMinimized` 
-property will contain `false`).
-</note>
+> The event is fired not only when minimizing (in which case the 
+> `$isMinimized` property will contain `true`), but also when 
+> restoring from minimization (in which case the `$isMinimized` 
+> property will contain `false`).
+{.note}
 
 ## Resized Event
 

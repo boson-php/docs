@@ -149,4 +149,5 @@ if (!$response->headers->has('x-custom-header')) {
 $response->headers->remove('content-type');
 ```
 
-<note>The headers map is **case-insensitive** (lowercased) for header names</note>
+> The headers map is **case-insensitive** (lowercased) for header names
+{.note}

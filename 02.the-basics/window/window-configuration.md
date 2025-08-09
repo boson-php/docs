@@ -18,10 +18,9 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<note>
-More information about window title can be found in 
-the <a href="window.md#title">window documentation</a>.
-</note>
+> More information about window title can be found in 
+> the <a href="window.md#title">window documentation</a>.
+{.note}
 
 
 ## Hardware Acceleration
@@ -56,10 +55,9 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<note>
-More information about window size can be found in 
-the <a href="window.md#size">window documentation</a>.
-</note>
+> More information about window size can be found in 
+> the <a href="window.md#size">window documentation</a>.
+{.note}
 
 
 ## Window Resizability
@@ -83,10 +81,9 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<note>
-More information about window visibility can be found in 
-the <a href="window.md#visibility">window documentation</a>.
-</note>
+> More information about window visibility can be found in 
+> the <a href="window.md#visibility">window documentation</a>.
+{.note}
 
 
 ## Always On Top
@@ -109,10 +106,9 @@ This configuration option has no effect.
 </tab>
 </tabs>
 
-<note>
-More information about window "always on top" feature can be found in 
-the <a href="window.md#always-on-top">window documentation</a>.
-</note>
+> More information about window "always on top" feature can be found in 
+> the <a href="window.md#always-on-top">window documentation</a>.
+{.note}
 
 
 ## Click Through
@@ -125,10 +121,9 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<note>
-More information about window "click-through" feature can be found in 
-the <a href="window.md#click-through">window documentation</a>.
-</note>
+> More information about window "click-through" feature can be found in 
+> the <a href="window.md#click-through">window documentation</a>.
+{.note}
 
 
 ## Window Decorations
@@ -141,7 +136,6 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<note>
-More information about window decorations can be found in 
-the <a href="window.md#decorations">window documentation</a>.
-</note>
+> More information about window decorations can be found in 
+> the <a href="window.md#decorations">window documentation</a>.
+{.note}

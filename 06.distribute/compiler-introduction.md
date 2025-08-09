@@ -61,20 +61,11 @@ several consecutive steps:
        OU --> [*]
 ```
 
-<note>
-In the simplest case, there will be 2 files left in 
-the output directory: 
-<list>
-<li>
-The application executable file (`.exe`, 
-`.dmg`, etc).
-</li>
-<li>
-A library for working with WebView (`.dll`, 
-`.so`, `.dylib`, etc).
-</li>
-</list>
-</note>
+> In the simplest case, there will be 2 files left in 
+> the output directory:
+> - The application executable file (`.exe`, `.dmg`, etc).
+> - A library for working with WebView (`.dll`, `.so`, `.dylib`, etc.).
+{.note}
 
 ## Usage
 

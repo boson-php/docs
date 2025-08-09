@@ -73,9 +73,8 @@ the Windows platform (and `example` binaries for others).
 }
 ```
 
-<note>
-If the field is not specified, the `"app"` name will be used.
-</note>
+> If the field is not specified, the `"app"` name will be used.
+{.note}
 
 
 ## `arch` {id="config-arch"}
@@ -96,10 +95,9 @@ for.
 }
 ```
 
-<note>
-If the field is not specified (including empty array), all available 
-architectures will be used.
-</note>
+> If the field is not specified (including empty array), all available 
+> architectures will be used.
+{.note}
 
 
 ## `platform` {id="config-platform"}
@@ -121,11 +119,9 @@ application will be compiled.
 }
 ```
 
-<note>
-If the field is not specified (including empty array), all available 
-platforms will be used.
-</note>
-
+> If the field is not specified (including empty array), all available 
+> platforms will be used.
+{.note}
 
 ## `entrypoint` {id="config-entrypoint"}
 
@@ -147,10 +143,9 @@ so you don't have to worry about paths (like
 `require __DIR__ . '/vendor/autoload.php';`) breaks after building.
 </tip>
 
-<note>
-If the field is not specified, the `"index.php"` will be used.
-</note>
-
+> If the field is not specified, the `"index.php"` will be used.
+{.note}
+> 
 
 ## `output` {id="config-output"}
 
@@ -185,10 +180,8 @@ application name:
 ```
 </tip>
 
-<note>
-If the field is not specified, the `"build"` directory will be used.
-</note>
-
+> If the field is not specified, the `"build"` directory will be used.
+{.note}
 
 ## `build` {id="build-config"}
 
@@ -245,10 +238,9 @@ to include in the assembly.
 }
 ```
 
-<note>
-Specifying a directory includes **all** files, including 
-temporary ones or those in `.gitignore`.
-</note>
+> Specifying a directory includes **all** files, including 
+> temporary ones or those in `.gitignore`.
+{.note}
 
 
 ### `build.finder` {id="build-finder-config"}
@@ -309,10 +301,9 @@ The field only checks the file **name**, not the file path.
 </warning>
 </procedure>
 
-<note>
-To exclude from the selection by names, use the `"not-name"` field 
-with the same capabilities as `"name"` field.
-</note>
+> To exclude from the selection by names, use the `"not-name"` field 
+> with the same capabilities as `"name"` field.
+{.note}
 
 <procedure title="directory field format">
 Specifies the directory in which to search for files to include.
@@ -336,10 +327,11 @@ least one directory path).
 </step>
 </procedure>
 
-<note>
-To exclude directories, use the `"not-directory"` field 
-with the same capabilities as `"directory"` field.
-</note>
+
+> To exclude directories, use the `"not-directory"` field 
+> with the same capabilities as `"directory"` field.
+{.note}
+
 
 ## `ini` {id="ini-config"}
 

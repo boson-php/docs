@@ -12,10 +12,9 @@ $app = new Boson\Application();
 $app->webview->security; // Access to Security API
 ```
 
-<note>
-Your context will most likely be **secure** if you don't use the 
-`data:` or `about:` protocol schemes
-</note>
+> Your context will most likely be **secure** if you don't use the 
+> `data:` or `about:` protocol schemes
+{.note}
 
 ## Current Context
 

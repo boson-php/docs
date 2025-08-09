@@ -29,8 +29,7 @@ for building the application:
   - `amd64` (`x86_64`)
   - `aarch64` (`arm64`)
 
-<note>
-The same applies to `boson-php/runtime`. At the moment, only 
-these platforms are supported, even if you distribute the application 
-as source code, without building.
-</note>
+> The same applies to `boson-php/runtime`. At the moment, only 
+> these platforms are supported, even if you distribute the application 
+> as source code, without building.
+{.note}

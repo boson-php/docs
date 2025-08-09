@@ -74,27 +74,24 @@ $app->webview->url = 'https://example.com';
 ```
 </warning>
 
-<note>
-WebView also provides a more convenient way (facade method `get()`) 
-to get arbitrary data from document.
-
-Just use `WebView::get()` instead of get method
-from `WebView::$data`.
-
-<p>&nbsp;</p>
-
-<compare>
-```php
-$js = 'document.location';
-
-$webview->data->get($js);
-```
-```php
-$js = 'document.location';
-
-$webview->get($js);
-```
-</compare>
+> WebView also provides a more convenient way (facade method `get()`) 
+> to get arbitrary data from document.
+> 
+> Just use `WebView::get()` instead of get method
+> from `WebView::$data`.
+>
+> ```php
+> $js = 'document.location';
+> 
+> $webview->data->get($js);
+> ```
+> 
+> ```php
+> $js = 'document.location';
+>
+> $webview->get($js);
+> ```
+{.note}
 
 In all examples from here on, the short facade method will
 be used to simplify the examples.

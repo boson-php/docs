@@ -86,8 +86,7 @@ This layered configuration model keeps your setup organized and modular. Each
 level of the hierarchy focuses on its own responsibilities, making it easier to 
 understand, maintain, and scale as your application grows.
 
-<note>
-An application without windows and webview in them makes no sense, the configuration 
-settings of the <tooltip term="main window">main window</tooltip> (as well as 
-the main window itself) are always present and available.
-</note>
+> An application without windows and webview in them makes no sense, the 
+> configuration settings of the *main window* (as well as the main window 
+> itself) are always present and available.
+{.note}

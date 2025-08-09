@@ -22,6 +22,8 @@
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/runConfigurations/application_dark.svg",
     "pages": [
       "03.application/application.md",
+      "03.application/application-configuration.md",
+      "03.application/application-events.md",
       "03.application/dialog-api.md"
     ]
   },
@@ -29,7 +31,9 @@
     "title": "Window",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/desktop_dark.svg",
     "pages": [
-      "04.window/window.md"
+      "04.window/window.md",
+      "04.window/window-configuration.md",
+      "04.window/window-events.md"
     ]
   },
   {
@@ -37,6 +41,8 @@
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/javaee/webModuleGroup_dark.svg",
     "pages": [
       "05.webview/webview.md",
+      "05.webview/webview-configuration.md",
+      "05.webview/webview-events.md",
       "05.webview/schemes-api.md",
       "05.webview/bindings-api.md",
       "05.webview/data-api.md",

@@ -31,10 +31,9 @@ diverse, inclusive, and healthy community.
 Whenever you find a bug in Boson Components, we kindly ask you to report it.
 It helps us make a better code.
 
-<warning>
-If you think you've found a security issue, please use 
-the <a href="contribution.md#security-issues">special procedure instead</a>.
-</warning>
+> If you think you've found a security issue, please use 
+> the <a href="contribution.md#security-issues">special procedure instead</a>.
+{.warning}
 
 You may submit a bug report using GitHub Issues.
 - [Documentation](https://github.com/boson-php/docs/issues)

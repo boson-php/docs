@@ -125,11 +125,30 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-<warning>
-Autorun will NOT work if the application has already been launched manually.
-</warning>
+> Autorun will NOT work if the application has already been launched manually.
+> ```php
+> $app = new Boson\Application();
+> 
+> // After calling "run()" method, autorun is disabled
+> $app->run();
+> ```
+{.warning}
 
-<warning>
-Autorun will NOT work if any serious errors (errors or exceptions) 
-occurred before launching.
-</warning>
+> Autorun will NOT work if the application has been stopped manually.
+> ```php
+> $app = new Boson\Application();
+> 
+> // After calling "quit()" method, autorun is disabled
+> $app->quit();
+> ```
+{.warning}
+
+> Autorun will NOT work if any serious errors (errors or exceptions) 
+> occurred before launching.
+> ```php
+> $app = new Boson\Application();
+> 
+> // If errors occur before launch, autorun is disabled
+> trigger_error('smth happen');
+> ```
+{.warning}

@@ -3,10 +3,9 @@
 This API provides information about 
 [device battery](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API).
 
-<warning>
-MacOS/WebKit does not support this API. In the future, it 
-may be implemented using native syscalls.
-</warning>
+> MacOS/WebKit does not support this API. In the future, it 
+> may be implemented using native syscalls.
+{.warning}
 
 The API is available in the `WebView::$battery` property.
 

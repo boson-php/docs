@@ -35,11 +35,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <tabs>
 <tab title="MacOS/WebKit">
-<warning>
-Does not allow to control hardware-acceleration.
 
-This configuration option has no effect.
-</warning>
+> Does not allow to control hardware-acceleration.
+> 
+> This configuration option has no effect.
+{.warning}
+
 </tab>
 </tabs>
 
@@ -98,11 +99,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 
 <tabs>
 <tab title="Linux/GTK4">
-<warning>
-There is no way to artificially set window always on top.
 
-This configuration option has no effect.
-</warning>
+> There is no way to artificially set window always on top.
+> 
+> This configuration option has no effect.
+{.warning}
+
 </tab>
 </tabs>
 

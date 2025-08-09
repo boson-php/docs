@@ -66,7 +66,7 @@ class MyExampleComponent implements HasTemplateInterface
 }
 ```
 
-<img src="web-component-content.png" alt="Web Component Template" />
+<img src="/assets/web-component-content.png" alt="Web Component Template" />
 
 ## Shadow DOM
 
@@ -93,24 +93,22 @@ class MyExampleComponent implements HasShadowDomInterface
 }
 ```
 
-<warning>
-Slot tags (`&lt;slot /&gt;`) only work in Shadow DOM
-</warning>
+> Slot tags (`<slot />`) only work in Shadow DOM
+{.warning}
 
-<warning>
-Using the short `&lt;slot /&gt;` version instead of 
-full `&lt;slot&gt;&lt;/slot&gt;` may not work correctly
-</warning>
+> Using the short `<slot />` version instead of 
+> full `<slot></slot>` may not work correctly
+{.warning}
 
 If you try to render the contents of a `<slot />` without a Shadow DOM (using 
 `HasTemplateInterface`), no data will be received.
 
-<img src="web-component-content-slot.png" alt="Web Component Content Slot" />
+<img src="/assets/web-component-content-slot.png" alt="Web Component Content Slot" />
 
 When you turn on the Shadow DOM (using `HasShadowDomInterface`), the contents 
 will be passed to the `<slot />`.
 
-<img src="web-component-shadow-dom-slot.png" alt="Web Component Shadow DOM Slot" />
+<img src="/assets/web-component-shadow-dom-slot.png" alt="Web Component Shadow DOM Slot" />
 
 ## Lifecycle Callbacks
 
@@ -185,12 +183,11 @@ public static function getPropertyNames(): array
 }
 ```
 
-<warning>
-**Properties** and <a href="#attributes">**attributes**</a> are different 
-things. Properties are located directly on the object and can contain arbitrary 
-data, while an attribute can be specified in HTML tags and can contain 
-exclusively string values.
-</warning>
+> **Properties** and <a href="#attributes">**attributes**</a> are different 
+> things. Properties are located directly on the object and can contain arbitrary 
+> data, while an attribute can be specified in HTML tags and can contain 
+> exclusively string values.
+{.warning}
 
 ## Methods
 

@@ -56,11 +56,10 @@ $app = new Boson\Application();
 $app->webview->bind('var_dump', var_dump(...));
 ```
 
-<warning>
-During registration, an exception `FunctionAlreadyDefinedException` 
-may occur if you are trying to register a function that has 
-already been registered.
-</warning>
+> During registration, an exception `FunctionAlreadyDefinedException` 
+> may occur if you are trying to register a function that has 
+> already been registered.
+{.warning}
 
 
 ### Custom Context

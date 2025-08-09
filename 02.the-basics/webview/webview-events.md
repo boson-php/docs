@@ -47,18 +47,20 @@ window's icon from loaded HTML content.
 
 <tabs>
 <tab title="Linux/GTK4">
-<warning>
-An intention does not change the windows icon.
 
-Icon change intention has no effect.
-</warning>
+> An intention does not change the windows icon.
+> 
+> Icon change intention has no effect.
+{.warning}
+
 </tab>
 <tab title="MacOS/WebKit">
-<warning>
-Provides no way to access favicons.
 
-Icon change intention has no effect.
-</warning>
+> Provides no way to access favicons.
+>
+> Icon change intention has no effect.
+{.warning}
+
 </tab>
 </tabs>
 

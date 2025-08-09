@@ -58,9 +58,8 @@ $app->on(function (SchemeRequestReceived $e) use ($static): void {
 $app->webview->url = 'static://localhost/example/image.png';
 ```
 
-<warning>
-Please note that the file search is performed by the path from the URL, 
-excluding the host, scheme, etc. Thus, the file that will be requested at 
-the address `scheme://HOST/path/to/file.png` must be located in
-`/public/path/to/file.png`.
-</warning>
+> Please note that the file search is performed by the path from the URL, 
+> excluding the host, scheme, etc. Thus, the file that will be requested at 
+> the address `scheme://HOST/path/to/file.png` must be located in
+> `/public/path/to/file.png`.
+{.warning}

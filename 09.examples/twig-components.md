@@ -159,6 +159,6 @@ $app->webview->html = '<my-list />';
 ]]>
 ```
 
-<img src="example-twig-components-result.png" alt="Example Result"/>
+<img src="/assets/example-twig-components-result.png" alt="Example Result"/>
 
 </procedure>

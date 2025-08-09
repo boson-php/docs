@@ -24,9 +24,8 @@ composer require boson-php/laravel-http-bridge
 
 ## Usage
 
-<warning>
-Correct functionality of Laravel is not guaranteed at the moment.
-</warning>
+> Correct functionality of Laravel is not guaranteed at the moment.
+{.warning}
 
 To work with Laravel HTTP kernel you can use specific
 `Boson\Bridge\Laravel\Http\LaravelHttpAdapter` adapter.

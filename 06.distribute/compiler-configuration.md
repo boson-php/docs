@@ -291,9 +291,9 @@ an expression must start and end with the `/` characters.
 ```/\.php$/```
 ```/^index.*/```
 </step>
-<warning>
-The field only checks the file **name**, not the file path.
-</warning>
+
+> The field only checks the file **name**, not the file path.
+{.warning}
 </procedure>
 
 > To exclude from the selection by names, use the `"not-name"` field 

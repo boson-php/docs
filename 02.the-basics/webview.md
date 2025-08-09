@@ -19,12 +19,11 @@ $app = new Boson\Application();
 $webview = $app->webview;
 ```
 
-<warning>
-Behavior is similar to the <tooltip term="main window">main window</tooltip>:
-
-If you try to access the `$webview` property after the all windows 
-has been closed, a `NoDefaultWindowException` will be thrown.
-</warning>
+> Behavior is similar to the <tooltip term="main window">main window</tooltip>:
+> 
+> If you try to access the `$webview` property after the all windows 
+> has been closed, a `NoDefaultWindowException` will be thrown.
+{.warning}
 
 
 ## URL Navigation

@@ -40,39 +40,39 @@ $app->on(function (WebViewDomReady $e) use ($app): void {
 $app->webview->url = 'https://nesk.me';
 ```
 
-<warning>
-Please note that the sync request CAN NOT be processed if the
-application is not running since at the time of the call the document 
-is not yet available.
 
-```php
-$app = new Boson\Application();
-
-var_dump($app->webview->data->get('document.location'));
-//
-// Boson\WebView\Api\Data\Exception\ApplicationNotRunningException: 
-//     Request "document.location" could not be processed
-//     because application is not running
-//
-```
-
-If the page is currently loading, synchronous requests are also unavailable.
-
-```php
-$app = new Boson\Application();
-
-$app->on(function (Boson\WebView\Event\WebViewNavigating $e): void {
-    var_dump($e->subject->data->get('document.location'));
-    //
-    // Boson\WebView\Api\Data\Exception\WebViewIsNotReadyException:
-    //     Request "document.location" could not be processed
-    //     because webview is in navigating state
-    //
-});
-
-$app->webview->url = 'https://example.com';
-```
-</warning>
+> Please note that the sync request CAN NOT be processed if the
+> application is not running since at the time of the call the document 
+> is not yet available.
+> 
+> ```php
+> $app = new Boson\Application();
+> 
+> var_dump($app->webview->data->get('document.location'));
+> //
+> // Boson\WebView\Api\Data\Exception\ApplicationNotRunningException: 
+> //     Request "document.location" could not be processed
+> //     because application is not running
+> //
+> ```
+> 
+> If the page is currently loading, synchronous requests are also unavailable.
+> 
+> ```php
+> $app = new Boson\Application();
+> 
+> $app->on(function (Boson\WebView\Event\WebViewNavigating $e): void {
+>     var_dump($e->subject->data->get('document.location'));
+>     //
+>     // Boson\WebView\Api\Data\Exception\WebViewIsNotReadyException:
+>     //     Request "document.location" could not be processed
+>     //     because webview is in navigating state
+>     //
+> });
+> 
+> $app->webview->url = 'https://example.com';
+> ```
+{.warning}
 
 > WebView also provides a more convenient way (facade method `get()`) 
 > to get arbitrary data from document.

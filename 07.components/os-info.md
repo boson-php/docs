@@ -77,11 +77,11 @@ This code will output something like the following information
         Edition: ~
         Standards: POSIX
         ```
-        <warning>
-        Please note that the information in macOS may not be accurate due 
-        to virtualization and testing issues.
-        Full implementation of macOS support is possible in the future.
-        </warning>
+
+        > Please note that the information in macOS may not be accurate due 
+        > to virtualization and testing issues.
+        > Full implementation of macOS support is possible in the future.
+        {.warning}
     </tab>
 </tabs>
 

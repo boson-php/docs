@@ -19,14 +19,13 @@ $app = new Boson\Application();
 $window = $app->window;
 ```
 
-<warning>
-If the <tooltip term="main window">main window</tooltip> is closed, the next 
-available window from window manager will become the 
-<tooltip term="main window">main window</tooltip>.
-
-If you try to access the `$window` property after the all windows has 
-been closed, a `NoDefaultWindowException` will be thrown.
-</warning>
+> If the <tooltip term="main window">main window</tooltip> is closed, the next 
+> available window from window manager will become the 
+> <tooltip term="main window">main window</tooltip>.
+> 
+> If you try to access the `$window` property after the all windows has 
+> been closed, a `NoDefaultWindowException` will be thrown.
+{.warning}
 
 > The *main window* already available by default in any application.
 {.note}
@@ -38,7 +37,7 @@ Contains title of the specified window encoded as UTF-8. The window title can
 be in any language and even include emojis. All line breaks (`\n`) 
 and similar characters will be removed.
 
-<img src="window-title.png" alt="Window Title" />
+<img src="/assets/window-title.png" alt="Window Title" />
 
 To get the window title, simply read this property. The title will contain the 
 real value, including all invisible (like `\n`) characters.
@@ -55,14 +54,13 @@ To update the window title, set a new value to the property.
 $window->title = 'New Window Title!';
 ```
 
-<warning>
-Indirect modification of `Window::$title` is **not allowed**, 
-which means that this property cannot be passed by reference.
-
-```php
-$title = &$window->title; // ❌ not available
-```
-</warning>
+> Indirect modification of `Window::$title` is **not allowed**, 
+> which means that this property cannot be passed by reference.
+> 
+> ```php
+> $title = &$window->title; // ❌ not available
+> ```
+{.warning}
 
 > Window title change also fires a 
 > <a href="webview-events.md#title-changed-event">corresponding event</a> that 
@@ -185,14 +183,13 @@ if ($window->isVisible) {
 }
 ```
 
-<warning>
-The visibility state is independent of the window's `Minimized`
-/`Maximized` state. A window can be visible while `Minimized`
-or hidden while `Maximized`.
-
-Hidden windows are not displayed in the tray and cannot be restored using the
-OS functionality.
-</warning>
+> The visibility state is independent of the window's `Minimized`
+> /`Maximized` state. A window can be visible while `Minimized`
+> or hidden while `Maximized`.
+> 
+> Hidden windows are not displayed in the tray and cannot be restored using the
+> OS functionality.
+{.warning}
 
 ### Show
 
@@ -274,16 +271,16 @@ in webview. So the result with different decorations will look like this.
 
 <tabs>
     <tab title="Default">
-        <img src="window-decorations-normal.png" alt="Default" />
+        <img src="/assets/window-decorations-normal.png" alt="Default" />
     </tab>
     <tab title="DarkMode">
-        <img src="window-decorations-dark-mode.png" alt="Dark Mode" />
+        <img src="/assets/window-decorations-dark-mode.png" alt="Dark Mode" />
     </tab>
     <tab title="Frameless">
-        <img src="window-decorations-frameless.png" alt="Frameless" />
+        <img src="/assets/window-decorations-frameless.png" alt="Frameless" />
     </tab>
     <tab title="Transparent">
-        <img src="window-decorations-transparent.png" alt="Transparent" />
+        <img src="/assets/window-decorations-transparent.png" alt="Transparent" />
     </tab>
 </tabs>
 
@@ -325,10 +322,9 @@ $window->decoration = WindowDecoration::Frameless;
 > controls manually.
 {.note}
 
-<warning>
-When using frameless (or transparent) windows, you need to implement your own 
-window controls and drag regions using HTML attributes.
-</warning>
+> When using frameless (or transparent) windows, you need to implement your own 
+> window controls and drag regions using HTML attributes.
+{.warning}
 
 
 ### Transparent
@@ -389,12 +385,11 @@ $window->size->update(800, 600);
 $window->size = new Boson\Window\Size(800, 600);
 ```
 
-<warning>
-Window dimensions must be non-negative `int32` (an integer value 
-between 0 and 2147483647).
-
-Attempting to set values outside this range will result in an exception.
-</warning>
+> Window dimensions must be non-negative `int32` (an integer value 
+> between 0 and 2147483647).
+> 
+> Attempting to set values outside this range will result in an exception.
+{.warning}
 
 > Window resize also fires a 
 > <a href="window-events.md#resized-event">corresponding event</a> that can be 
@@ -422,12 +417,11 @@ $window->min->update(400, 300);
 > which could make the content unreadable or unusable.
 
 
-<warning>
-Window min size must be non-negative `int32` (an integer value 
-between 0 and 2147483647).
-
-Attempting to set values outside this range will result in an exception.
-</warning>
+> Window min size must be non-negative `int32` (an integer value 
+> between 0 and 2147483647).
+> 
+> Attempting to set values outside this range will result in an exception.
+{.warning}
 
 ### Maximum Size
 
@@ -452,21 +446,21 @@ $window->max->update(1920, 1080);
 
 <tabs>
 <tab title="Linux/GTK4">
-<warning>
-Not supported because X11-specific functions such as 
-`gtk_window_set_geometry_hints` were removed. 
 
-This option has no effect.
-</warning>
+> Not supported because X11-specific functions such as 
+> `gtk_window_set_geometry_hints` were removed. 
+> 
+> This option has no effect.
+{.warning}
+
 </tab>
 </tabs>
 
-<warning>
-Window max size must be non-negative `int32` (an integer value 
-between 0 and 2147483647).
-
-Attempting to set values outside this range will result in an exception.
-</warning>
+> Window max size must be non-negative `int32` (an integer value 
+> between 0 and 2147483647).
+> 
+> Attempting to set values outside this range will result in an exception.
+{.warning}
 
 ## Resizing
 
@@ -618,18 +612,18 @@ $window->focus();
 
 <tabs>
 <tab title="Linux/GTK4">
-<warning>
-There is no way to artificially focus the window.
 
-This method has no effect.
-</warning>
+> There is no way to artificially focus the window.
+> 
+> This method has no effect.
+{.warning}
+
 </tab>
 </tabs>
 
-<warning>
-Keep in mind that it can be very disruptive to the user when a window is 
-forced to the top. Please use this feature judiciously.
-</warning>
+> Keep in mind that it can be very disruptive to the user when a window is 
+> forced to the top. Please use this feature judiciously.
+{.warning}
 
 > Window focus also fires a 
 > <a href="window-events.md#focused-event">corresponding event</a> 
@@ -659,18 +653,18 @@ $window->isAlwaysOnTop = false;
 
 <tabs>
 <tab title="Linux/GTK4">
-<warning>
-There is no way to artificially set window always on top.
 
-This method has no effect.
-</warning>
+> There is no way to artificially set window always on top.
+> 
+> This method has no effect.
+{.warning}
+
 </tab>
 </tabs>
 
-<warning>
-Windows that are always on top may interfere with normal window management 
-and user interaction. Please use this feature judiciously.
-</warning>
+> Windows that are always on top may interfere with normal window management 
+> and user interaction. Please use this feature judiciously.
+{.warning}
 
 
 ## Click Through
@@ -704,10 +698,9 @@ When "click-through" is enabled:
 - All mouse events will be ignored.
 - The window will effectively become a visual overlay only.
 
-<warning>
-This functionality may be unpleasant for the user.
-Please use this feature judiciously.
-</warning>
+> This functionality may be unpleasant for the user.
+> Please use this feature judiciously.
+{.warning}
 
 ## Window Close
 
@@ -720,13 +713,12 @@ window is closed, it cannot be reopened.
 $window->close();
 ```
 
-<warning>
-Closing a window is a destructive operation. All resources associated with the 
-window, including its <a href="webview.md">WebView</a>, will be freed. 
-
-Any attempts to use the window (except `Window::$isClosed` property) 
-after closing will result in undefined behavior.
-</warning>
+> Closing a window is a destructive operation. All resources associated with the 
+> window, including its <a href="webview.md">WebView</a>, will be freed. 
+> 
+> Any attempts to use the window (except `Window::$isClosed` property) 
+> after closing will result in undefined behavior.
+{.warning}
 
 You can check if a window is closed using the `$isClosed` property:
 
@@ -774,11 +766,10 @@ The identifier consists of two parts:
 - A unique integer value that identifies the window in the application.
 - A pointer to the native window handle.
 
-<warning>
-Please do not use the second `WindowId` argument unless you are sure. 
-It provides unsafe access to the window handle pointer, for working with 
-low-level API.
-</warning>
+> Please do not use the second `WindowId` argument unless you are sure. 
+> It provides unsafe access to the window handle pointer, for working with 
+> low-level API.
+{.warning}
 
 In addition to the ability to convert to a string (i.e. implementations of the
 `Stringable` interface), this identifier can also be converted to an 

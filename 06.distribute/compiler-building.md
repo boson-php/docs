@@ -8,7 +8,7 @@ php vendor/bin/boson compile
 
 After running the command you will get something like the following result:
 
-<video src="/assets/compilation.mp4" poster="/assets/compilation.png">
+<video controls poster="/assets/compilation.png">
   <source src="/assets/compilation.mp4" type="video/mp4" />
   <source src="/assets/compilation.webm" type="video/webm" />
   Your browser doesn't support HTML5 video tag.

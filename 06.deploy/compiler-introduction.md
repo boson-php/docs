@@ -26,16 +26,18 @@ composer require boson-php/compiler --dev
 The process of building an application consists of 
 several consecutive steps:
 
-1. The first step is to try to read the `boson.json` [configuration file](compiler-configuration.md).
+1. The first step is to try to read the `boson.json` 
+   [configuration file](../06.deploy/compiler-configuration.md).
 2. Next, all settings explicitly passed to the console command arguments are 
    applied; for example, the `--platform=macos` argument will explicitly 
    override configuration `"platform"` field value.
 3. Next, the application is assembled into a [single phar archive](https://www.php.net/manual/en/book.phar.php). 
-   The archive is placed in the [output directory](compiler-configuration.md#config-output).
+   The archive is placed in the 
+   [output directory](../06.deploy/compiler-configuration.md#output).
 4. Next, the PHP runtime, application code and settings are compiled into a 
    single executable file.
 5. The final step is to move the built application and its dependencies to 
-   the appropriate [build directory](compiler-configuration.md#config-output).
+   the appropriate [build directory](../06.deploy/compiler-configuration.md#output).
 
 ```mermaid
     stateDiagram-v2

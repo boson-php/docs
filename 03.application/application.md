@@ -7,12 +7,13 @@ applications using WebView.
 
 The application is responsible for:
 
-- Lifecycle management ([startup](application.md#creating),
-  [shutdown](application.md#stopping), etc).
-- [Window](../04.window-apis/window.md) creation and management.
-- [WebView](../05.webview-apis/webview.md) integration for web content display.
-- [Application](application-events.md), [WebView](webview-events.md) and 
-  [Window](webview-events.md) event handling.
+- Lifecycle management ([startup](../03.application/application.md#creating),
+  [shutdown](../03.application/application.md#stopping), etc).
+- [Window](../04.window/window.md) creation and management.
+- [WebView](../05.webview/webview.md) integration for web content display.
+- [Application](../03.application/application-events.md),
+  [Window](../04.window/window-events.md) and 
+- [WebView](../05.webview/webview-events.md) event handling.
 
 ...and more
 
@@ -38,7 +39,7 @@ The first optional argument is responsible for the `Boson\ApplicationCreateInfo`
 application settings and allows you to fine-tune the application's operation.
 
 > More details about the application configuration are written on the 
-> [corresponding documentation pages](application.md#configuration).
+> [corresponding documentation pages](../03.application/application-configuration.md).
 
 
 ```php
@@ -64,7 +65,7 @@ $app = new Boson\Application(dispatcher: $dispatcher);
 
 After creating the application, you will have access to the API to work with 
 it, and after the necessary actions, the application will automatically start, 
-[unless otherwise specified](application-configuration.md#autorun).
+[unless otherwise specified](../03.application/application-configuration.md#autorun).
 
 ## Launching
 

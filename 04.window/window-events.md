@@ -4,7 +4,7 @@ The window will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-<a href="events.md#event-listener">event listener</a>.
+[event listener](events.md#event-listener).
 
 ```php
 $window = $app->window;
@@ -110,7 +110,7 @@ class WindowDestroyed<Window>
 ## Focused Event
 
 An `Boson\Window\Event\WindowFocused` event fired after
-<a href="window.md#focus">window focus</a> has been changed.
+[window focus](window.md#focus) has been changed.
 
 ```php
 class WindowFocused<Window> 
@@ -152,7 +152,7 @@ class WindowMaximized<Window>
 ## Minimized Event
 
 An `Boson\Window\Event\WindowMinimized` event fired after
-<a href="window.md#minimize">window minimized</a> state has been changed.
+[window minimized](window.md#minimize) state has been changed.
 
 ```php
 class WindowMinimized<Window> 

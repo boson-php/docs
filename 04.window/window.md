@@ -164,8 +164,8 @@ The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
 
 > It is also worth noting that the initial state of the window visibility
-> depends on the <a href="window-configuration.md#window-visibility">window 
-> settings</a>. By default, the window is shown.
+> depends on the [window settings](window-configuration.md#window-visibility). 
+> By default, the window is shown.
 {.note}
 
 To check if a window is currently visible:
@@ -690,7 +690,7 @@ $window->close();
 ```
 
 > Closing a window is a destructive operation. All resources associated with the 
-> window, including its <a href="webview.md">WebView</a>, will be freed. 
+> window, including its [WebView](webview.md), will be freed. 
 > 
 > Any attempts to use the window (except `Window::$isClosed` property) 
 > after closing will result in undefined behavior.

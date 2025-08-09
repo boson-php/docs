@@ -16,7 +16,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window title can be found in
-> the <a href="window.md#title">window documentation</a>.
+> the [window documentation](window.md#title).
 {.note}
 
 
@@ -113,7 +113,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window "click-through" feature can be found in
-> the <a href="window.md#click-through">window documentation</a>.
+> the [window documentation](window.md#click-through).
 {.note}
 
 

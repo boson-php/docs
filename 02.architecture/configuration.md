@@ -26,9 +26,9 @@ organized and expressive.
 You can read more about each configuration objects in the corresponding
 sections of the documentation.
 
-- [Application](application-configuration.md)
-- [Window](window-configuration.md)
-- [WebView](webview-configuration.md)
+- [Application](../03.application/application-configuration.md)
+- [Window](../04.window/window-configuration.md)
+- [WebView](../05.webview/webview-configuration.md)
 
 ## Hierarchy 
 

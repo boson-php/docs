@@ -9,8 +9,8 @@ The application is responsible for:
 
 - Lifecycle management ([startup](application.md#creating),
   [shutdown](application.md#stopping), etc).
-- [Window](window.md) creation and management.
-- [WebView](webview.md) integration for web content display.
+- [Window](../04.window-apis/window.md) creation and management.
+- [WebView](../05.webview-apis/webview.md) integration for web content display.
 - [Application](application-events.md), [WebView](webview-events.md) and 
   [Window](webview-events.md) event handling.
 
@@ -226,7 +226,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 
 > The debug mode settings also affects the default settings of child
-> configurations, such as [developer tools](webview.md#dev-tools) 
+> configurations, such as [developer tools](../05.webview-apis/webview.md#dev-tools) 
 > (if they are not set explicitly).
 
 
@@ -324,7 +324,7 @@ $app->on(function (Event $event): void {
 ```
 
 > More information about events can be found in the 
-> [events documentation](events.md).
+> [events documentation](../01.getting-started/events.md).
 {.note}
 
 

@@ -130,8 +130,8 @@ $app->addEventListener(ApplicationStopping::class, function ($e) {
 
 ## Listener Provider
 
-Each core class such as [Application](application.md),
-[Window](window.md) and [WebView](webview.md) exposes a 
+Each core class such as [Application](../03.application-apis/application.md),
+[Window](../04.window-apis/window.md) and [WebView](../05.webview-apis/webview.md) exposes a 
 method `EventListenerProviderInterface::on()` that 
 provides a simpler and more convenient way to subscribe to events.
 

@@ -5,92 +5,87 @@
     "pages": [
       "01.getting-started/introduction.md",
       "01.getting-started/installation.md",
+      "01.getting-started/configuration.md",
+      "01.getting-started/events.md",
       "01.getting-started/troubleshooting.md",
       "01.getting-started/release-notes.md"
     ]
   },
   {
-    "title": "The Basics",
-    "icon": "https://intellij-icons.jetbrains.design/icons/JpaIcons/icons/newui/mainChangelog_dark.svg",
-    "pages": [
-      "02.the-basics/configuration.md",
-      "02.the-basics/events.md",
-      "02.the-basics/application.md",
-      "02.the-basics/window.md",
-      "02.the-basics/webview.md"
-    ]
-  },
-  {
-    "title": "Application APIs",
+    "title": "Application",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/runConfigurations/application_dark.svg",
     "pages": [
-      "03.application-apis/dialog-api.md"
+      "02.application/application.md",
+      "02.application/dialog-api.md"
     ]
   },
   {
-    "title": "Window APIs",
+    "title": "Window",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/desktop_dark.svg",
-    "hidden": true
+    "pages": [
+      "03.window/window.md"
+    ]
   },
   {
-    "title": "WebView APIs",
+    "title": "WebView",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/javaee/webModuleGroup_dark.svg",
     "pages": [
-      "05.webview-apis/schemes-api.md",
-      "05.webview-apis/bindings-api.md",
-      "05.webview-apis/data-api.md",
-      "05.webview-apis/scripts-api.md",
-      "05.webview-apis/web-components-api.md",
-      "05.webview-apis/battery-api.md",
-      "05.webview-apis/security-api.md"
+      "04.webview/webview.md",
+      "04.webview/schemes-api.md",
+      "04.webview/bindings-api.md",
+      "04.webview/data-api.md",
+      "04.webview/scripts-api.md",
+      "04.webview/web-components-api.md",
+      "04.webview/battery-api.md",
+      "04.webview/security-api.md"
     ]
   },
   {
-    "title": "Distribute",
+    "title": "Deployment",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/build/build_dark.svg",
     "pages": [
-      "06.distribute/compiler-introduction.md",
-      "06.distribute/compiler-configuration.md",
-      "06.distribute/compiler-building.md"
+      "05.deploy/compiler-introduction.md",
+      "05.deploy/compiler-configuration.md",
+      "05.deploy/compiler-building.md"
     ]
   },
   {
     "title": "Components",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/module_dark.svg",
     "pages": [
-      "07.components/about.md",
-      "07.components/os-info.md",
-      "07.components/cpu-info.md",
-      "07.components/pasm.md",
-      "07.components/globals-provider.md",
-      "07.components/http.md",
-      "07.components/http-body-decoder.md",
-      "07.components/http-static-provider.md",
-      "07.components/weak-types.md"
+      "06.components/about.md",
+      "06.components/os-info.md",
+      "06.components/cpu-info.md",
+      "06.components/pasm.md",
+      "06.components/globals-provider.md",
+      "06.components/http.md",
+      "06.components/http-body-decoder.md",
+      "06.components/http-static-provider.md",
+      "06.components/weak-types.md"
     ]
   },
   {
     "title": "Framework Integrations",
     "icon": "https://intellij-icons.jetbrains.design/icons/CidrProjectModelIcons/icons/expui/framework_dark.svg",
     "pages": [
-      "08.integrations/symfony-adapter.md",
-      "08.integrations/laravel-adapter.md",
-      "08.integrations/psr7-adapter.md"
+      "07.integrations/symfony-adapter.md",
+      "07.integrations/laravel-adapter.md",
+      "07.integrations/psr7-adapter.md"
     ]
   },
   {
     "title": "Examples",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/generatedTestRoot_dark.svg",
     "pages": [
-      "09.examples/twig-components.md"
+      "08.examples/twig-components.md"
     ]
   },
   {
     "title": "Community",
     "icon": "https://intellij-icons.jetbrains.design/icons/DatabaseIcons/icons/expui/userGroup_dark.svg",
     "pages": [
-      "10.community/contribution.md",
-      "10.community/license.md"
+      "09.community/contribution.md",
+      "09.community/license.md"
     ]
   }
 ]

@@ -1,8 +1,8 @@
 # Window
 
-The `Boson\Window class represents a window in the
-Boson [Application](application.md). It provides a way to manage window, 
-including their properties, events, state, and associated [WebView](webview.md).
+The `Window` class represents a window in the
+Boson [Application](../03.application-apis/application.md). It provides a way to manage window, 
+including their properties, events, state, and associated [WebView](../05.webview-apis/webview.md).
 
 ## Main Window
 
@@ -63,8 +63,8 @@ $window->title = 'New Window Title!';
 {.warning}
 
 > Window title change also fires a 
-> [corresponding event](webview.md#title-changed-event) that 
-> can be subscribed to using the [event system](events.md).
+> [corresponding event](../05.webview-apis/webview.md#title-changed-event) that 
+> can be subscribed to using the [event system](../01.getting-started/events.md).
 
 
 ## State
@@ -106,7 +106,7 @@ There are corresponding methods for changing states from code.
 
 > Window state change also fires a
 > [corresponding event](window.md#state-changed-event) that can
-> be subscribed to using the [event systemm](events.md).
+> be subscribed to using the [event systemm](../01.getting-started/events.md).
 
 
 ### Minimize
@@ -282,7 +282,7 @@ in webview. So the result with different decorations will look like this.
 
 > Window decoration change also fires a 
 > [corresponding event](window.md#decoration-changed-event) 
-> that can be subscribed to using the [event system](events.md).
+> that can be subscribed to using the [event system](../01.getting-started/events.md).
 
 ### Default
 
@@ -382,7 +382,7 @@ $window->size = new Boson\Window\Size(800, 600);
 {.warning}
 
 > Window resize also fires a  [corresponding event](window.md#resized-event) 
-> that can be subscribed to using the [event system](events.md).
+> that can be subscribed to using the [event system](../01.getting-started/events.md).
 
 
 ### Minimum Size
@@ -607,7 +607,7 @@ $window->focus();
 {.warning}
 
 > Window focus also fires a [corresponding event](window.md#focused-event) 
-> that can be subscribed to using the [event system](events.md).
+> that can be subscribed to using the [event system](../01.getting-started/events.md).
 
 
 ## Always On Top
@@ -707,7 +707,7 @@ if ($window->isClosed) {
 ```
 
 > Window closing also fires a [corresponding event](window.md#closed-event) 
-> that can be subscribed to using the [event system](events.md).
+> that can be subscribed to using the [event system](../01.getting-started/events.md).
 
 
 ## Identifier
@@ -931,7 +931,7 @@ $window->on(function (Event $event): void {
 ```
 
 > More information about events can be found in the 
-> [events documentation](events.md).
+> [events documentation](../01.getting-started/events.md).
 {.note}
 
 ### Closing Intention

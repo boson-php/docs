@@ -1,4 +1,4 @@
-# Compiler Configuration
+# Configuration
 
 To create a build configuration, use the `init` command. The command will 
 create the `boson.json` file in the root of the application with build settings.
@@ -10,32 +10,32 @@ of the build.
     //
     // The name of your application.
     //
-    [[["name": "app",|#config-name]]]
+    "name": "app",
   
     // 
     // List of build architectures.
     //
-    [[["arch": [ "amd64", "aarch64" ],|#config-arch]]]
+    "arch": [ "amd64", "aarch64" ],
   
     //
     // List of build platforms.
     //
-    [[["platform": [ "windows", "linux", "macos" ],|#config-platform]]]
+    "platform": [ "windows", "linux", "macos" ],
   
     //
     // An application entrypoint PHP file.
     //
-    [[["entrypoint": "index.php",|#config-entrypoint]]]
+    "entrypoint": "index.php",
 
     //
     // An output build directory.
     //
-    [[["output": "./build",|#config-output]]]
+    "output": "./build",
 
     //
     // List of rules for including files inside the assembly.
     //
-    [[["build": {|#build-config]]]
+    "build": {
         "finder": [
             {
                 "directory": "vendor",
@@ -51,7 +51,7 @@ of the build.
     //
     // Additional options for the PHP interpreter
     //
-    [[["ini": {|#ini-config]]]
+    "ini": {
         "memory_limit": "128M"
     }
 }

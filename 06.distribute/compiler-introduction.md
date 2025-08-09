@@ -1,4 +1,4 @@
-# Introduction To The Compiler
+# Introduction
 
 The build process converts your application's source code into an executable 
 optimized for the production environment. 
@@ -98,9 +98,9 @@ Options:
                         and 3 for debug
 
 Available commands:
-  [[[compile|compiler-building.md]]]  Compile application to executable binary
+  compile  Compile application to executable binary
   help     Display help for a command
-  [[[init|compiler-configuration.md]]]     Initialize configuration
-  [[[list|#usage]]]     List commands
+  init     Initialize configuration
+  list     List commands
   pack     Pack application files to phar assembly
 ```

@@ -54,9 +54,9 @@ $window->addEventListener(Event::class, fn($e) => ...);
 You can read more about each type of event in the corresponding
 sections of the documentation.
 
-- [Application](application-events.md)
-- [Window](window-events.md)
-- [WebView](webview-events.md)
+- [Application](../03.application/application-events.md)
+- [Window](../04.window/window-events.md)
+- [WebView](../05.webview/webview-events.md)
 
 ## Events and Intentions
 

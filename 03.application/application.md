@@ -324,7 +324,7 @@ $app->on(function (Event $event): void {
 ```
 
 > More information about events can be found in the 
-> [events documentation](../01.getting-started/events.md).
+> [events documentation](../02.architecture/events.md).
 {.note}
 
 

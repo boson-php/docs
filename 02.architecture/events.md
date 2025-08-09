@@ -4,40 +4,12 @@ Boson provides several different events. Event subscriptions are hierarchical
 and are arranged in the following order.
 
 ```mermaid
-classDiagram
-    class EventDispatcherInterface["Psr\EventDispatcher\EventDispatcherInterface"]
-    EventDispatcherInterface <.. Application : delegates events to optional PSR dispatcher
-    class Application["Boson\Application"]{
-        <<implements EventListenerInterface>>
-        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
-        +removeEventListener(SubscriptionInterface $subscription) void
-        +removeListenersForEvent(object|string $event) void
-        +getListenersForEvent(object|string $event) iterable
-    }
-    Application <.. WindowManager : delegates events to application
-    class WindowManager["Boson\Window\Manager\WindowManager"]{
-        <<implements EventListenerInterface>>
-        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
-        +removeEventListener(SubscriptionInterface $subscription) void
-        +removeListenersForEvent(object|string $event) void
-        +getListenersForEvent(object|string $event) iterable
-    }
-    WindowManager <.. Window : delegates events to windows list
-    class Window["Boson\Window\Window"]{
-        <<implements EventListenerInterface>>
-        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
-        +removeEventListener(SubscriptionInterface $subscription) void
-        +removeListenersForEvent(object|string $event) void
-        +getListenersForEvent(object|string $event) iterable
-    }
-    Window <.. WebView : delegates events to window
-    class WebView["Boson\Window\WebView"]{
-        <<implements EventListenerInterface>>
-        +addEventListener(string $event, callable $listener) CancellableSubscriptionInterface
-        +removeEventListener(SubscriptionInterface $subscription) void
-        +removeListenersForEvent(object|string $event) void
-        +getListenersForEvent(object|string $event) iterable
-    }
+flowchart
+    Psr\EventDispatcher\EventDispatcherInterface --> |&nbsp;delegates&nbsp;| Application
+    Application["Boson\Application"] --> |&nbsp;delegates&nbsp;| WindowManager
+    WindowManager["Boson\Window\Manager\WindowManager"] --> |&nbsp;delegates&nbsp;| Window
+    Window["Boson\Window\Window"] --> |&nbsp;delegates&nbsp;| WebView
+    WebView["Boson\Window\WebView"]
 ```
 
 You can subscribe to a specific event at any level, receiving all the 

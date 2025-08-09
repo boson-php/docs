@@ -37,13 +37,11 @@
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/javaee/webModuleGroup_dark.svg",
     "pages": [
       "05.webview-apis/schemes-api.md",
-      "05.webview-apis/schemes-api/schemes-api-events.md",
       "05.webview-apis/bindings-api.md",
       "05.webview-apis/data-api.md",
       "05.webview-apis/scripts-api.md",
       "05.webview-apis/web-components-api.md",
       "05.webview-apis/battery-api.md",
-      "05.webview-apis/battery-api/battery-api-events.md",
       "05.webview-apis/security-api.md"
     ]
   },

@@ -47,43 +47,43 @@ echo 'Standards: ' . implode(', ', $os->standards) . "\n";
 
 This code will output something like the following information
 
-<tabs>
-    <tab title="Windows">
-        ```
-        Family: Windows
-        Name: Windows 10 Pro
-        Version: 10.0.19045
-        Codename: 22H2
-        Edition: Professional
-        Standards: ~ 
-        ```
-    </tab>
-    <tab title="Linux">
-        ```
-        Family: Linux
-        Name: Ubuntu
-        Version: 20.04.6
-        Codename: Focal Fossa
-        Edition: ~
-        Standards: POSIX
-        ```
-    </tab>
-    <tab title="macOS">
-        ```
-        Family: Darwin
-        Name: Darwin
-        Version: 24.4.0
-        Codename: ~
-        Edition: ~
-        Standards: POSIX
-        ```
+**Windows**
 
-        > Please note that the information in macOS may not be accurate due 
-        > to virtualization and testing issues.
-        > Full implementation of macOS support is possible in the future.
-        {.warning}
-    </tab>
-</tabs>
+```
+Family: Windows
+Name: Windows 10 Pro
+Version: 10.0.19045
+Codename: 22H2
+Edition: Professional
+Standards: ~ 
+```
+
+**Linux**
+
+```
+Family: Linux
+Name: Ubuntu
+Version: 20.04.6
+Codename: Focal Fossa
+Edition: ~
+Standards: POSIX
+```
+
+**macOS**
+
+```
+Family: Darwin
+Name: Darwin
+Version: 24.4.0
+Codename: ~
+Edition: ~
+Standards: POSIX
+```
+
+> Please note that the information in macOS may not be accurate due 
+> to virtualization and testing issues.
+> Full implementation of macOS support is possible in the future.
+{.warning}
 
 ### OS Families
 

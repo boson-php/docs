@@ -57,40 +57,40 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 These are additional **platform-dependent** launch flags and their behavior may
 differ on different platforms.
 
-<tabs>
-<tab title="Windows">
-    For WebView2 list of all available flags can be 
-    <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2environmentoptions.additionalbrowserarguments">found on MSDN</a>
-    and <a href="https://www.chromium.org/developers/how-tos/run-chromium-with-flags/">chromium.org</a>
-    ```php
-    $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
-        '--disable-features' => ['feature1', 'feature2'],
-        '--do-something',
-    ]);
-    ```
-</tab>
-<tab title="Linux (GTK)">
-    For WebkitGTK list of all available flags can be 
-    <a href="https://webkitgtk.org/reference/webkitgtk/stable/class.Settings.html#properties">found at webkitgtk.org</a>
-    ```php
-    $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
-        'enable-javascript' => false,
-    ]);
-    ```
-</tab>
-<tab title="MacOS">
-    For WKWebView list of all available flags can be 
-    <a href="https://developer.apple.com/documentation/webkit/wkwebviewconfiguration">found at developer.apple.com</a>
-    ```php
-    $webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
-         'upgradeKnownHostsToHTTPS' => true,
-         'defaultWebpagePreferences.allowsContentJavaScript' => false,
-         'preferences.minimumFontSize' => 10,
-         'applicationNameForUserAgent' => 'Boson',
-    ]);
-    ```
-</tab>
-</tabs>
+**Windows/WebView2**
+
+For WebView2 list of all available flags can be 
+[found on MSDN](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2environmentoptions.additionalbrowserarguments)
+and [chromium.org](https://www.chromium.org/developers/how-tos/run-chromium-with-flags)
+```php
+$webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
+    '--disable-features' => ['feature1', 'feature2'],
+    '--do-something',
+]);
+```
+
+**Linux/GTK4**
+
+For WebkitGTK list of all available flags can be 
+[found at webkitgtk.org](https://webkitgtk.org/reference/webkitgtk/stable/class.Settings.html#properties)
+```php
+$webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
+    'enable-javascript' => false,
+]);
+```
+
+**macOS/WebKit**
+
+For WKWebView list of all available flags can be 
+[found at developer.apple.com](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration)
+```php
+$webviewConfig = new Boson\WebView\WebViewCreateInfo(flags: [
+     'upgradeKnownHostsToHTTPS' => true,
+     'defaultWebpagePreferences.allowsContentJavaScript' => false,
+     'preferences.minimumFontSize' => 10,
+     'applicationNameForUserAgent' => 'Boson',
+]);
+```
 
 
 ## Context Menu

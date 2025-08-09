@@ -37,7 +37,7 @@ Contains title of the specified window encoded as UTF-8. The window title can
 be in any language and even include emojis. All line breaks (`\n`) 
 and similar characters will be removed.
 
-<img src="/assets/window-title.png" alt="Window Title" />
+![Window Title](/assets/window-title.png)
 
 To get the window title, simply read this property. The title will contain the 
 real value, including all invisible (like `\n`) characters.
@@ -123,24 +123,19 @@ When restoring a window from the tray using the operating system features
 (for example, <shortcut>Alt + Tab</shortcut>), the previous state will be 
 restored.
 
-<tabs>
-<tab title="Normal">
-    <list type="decimal">
-        <li>Window state is `Normal`.</li>
-        <li>Execute `$window->minimize()`</li>
-        <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
-        <li>Window state is again `Normal`.</li>
-    </list>
-</tab>
-<tab title="Maximized">
-    <list type="decimal">
-        <li>Window state is `Maximized`.</li>
-        <li>Execute `$window->minimize()`</li>
-        <li>Restore using OS features (like <shortcut>Alt + Tab</shortcut>).</li>
-        <li>Window state is again `Maximized`.</li>
-    </list>
-</tab>
-</tabs>
+**Normal**
+
+1) Window state is `Normal`.
+2) Execute `$window->minimize()`
+3) Restore using OS features (like <kbd>Alt + Tab</kbd>).
+4) Window state is again `Normal`.
+
+**Maximized**
+
+1) Window state is `Maximized`.
+2) Execute `$window->minimize()`
+3) Restore using OS features (like <kbd>Alt + Tab</kbd>).
+4) Window state is again `Maximized`.
 
 ### Maximize
 
@@ -269,20 +264,21 @@ enum WindowDecoration
 Let's say we load the content as `<div style="background: #fff">Hello World!</div>` 
 in webview. So the result with different decorations will look like this.
 
-<tabs>
-    <tab title="Default">
-        <img src="/assets/window-decorations-normal.png" alt="Default" />
-    </tab>
-    <tab title="DarkMode">
-        <img src="/assets/window-decorations-dark-mode.png" alt="Dark Mode" />
-    </tab>
-    <tab title="Frameless">
-        <img src="/assets/window-decorations-frameless.png" alt="Frameless" />
-    </tab>
-    <tab title="Transparent">
-        <img src="/assets/window-decorations-transparent.png" alt="Transparent" />
-    </tab>
-</tabs>
+**Default**
+
+![Default](/assets/window-decorations-normal.png)
+
+**DarkMode***
+
+![Dark Mode](/assets/window-decorations-dark-mode.png)
+
+**Frameless**
+
+![Frameless](/assets/window-decorations-frameless.png)
+
+**Transparent**
+
+![Transparent](/assets/window-decorations-transparent.png)
 
 > Window decoration change also fires a 
 > <a href="window-events.md#decoration-changed-event">corresponding event</a> 
@@ -444,17 +440,13 @@ $window->max->update(1920, 1080);
 > Setting a value larger than the screen size may not have the desired effect.
 {.note}
 
-<tabs>
-<tab title="Linux/GTK4">
+**Linux/GTK4**
 
 > Not supported because X11-specific functions such as 
 > `gtk_window_set_geometry_hints` were removed. 
 > 
 > This option has no effect.
 {.warning}
-
-</tab>
-</tabs>
 
 > Window max size must be non-negative `int32` (an integer value 
 > between 0 and 2147483647).
@@ -610,16 +602,12 @@ Windows can be given input focus and brought to the front with
 $window->focus();
 ```
 
-<tabs>
-<tab title="Linux/GTK4">
+**Linux/GTK4**
 
 > There is no way to artificially focus the window.
 > 
 > This method has no effect.
 {.warning}
-
-</tab>
-</tabs>
 
 > Keep in mind that it can be very disruptive to the user when a window is 
 > forced to the top. Please use this feature judiciously.
@@ -651,16 +639,12 @@ $window->isAlwaysOnTop = true;
 $window->isAlwaysOnTop = false;
 ```
 
-<tabs>
-<tab title="Linux/GTK4">
+**Linux/GTK4**
 
 > There is no way to artificially set window always on top.
 > 
 > This method has no effect.
 {.warning}
-
-</tab>
-</tabs>
 
 > Windows that are always on top may interfere with normal window management 
 > and user interaction. Please use this feature judiciously.

@@ -33,16 +33,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<tabs>
-<tab title="MacOS/WebKit">
+**macOS/WebKit**
 
 > Does not allow to control hardware-acceleration.
 > 
 > This configuration option has no effect.
 {.warning}
-
-</tab>
-</tabs>
 
 
 ## Window Size (Width and Height)
@@ -97,16 +93,12 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-<tabs>
-<tab title="Linux/GTK4">
+**Linux/GTK4**
 
 > There is no way to artificially set window always on top.
 > 
 > This configuration option has no effect.
 {.warning}
-
-</tab>
-</tabs>
 
 > More information about window "always on top" feature can be found in 
 > the <a href="window.md#always-on-top">window documentation</a>.

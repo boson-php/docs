@@ -19,8 +19,7 @@ $app = new Boson\Application(new Boson\ApplicationCreateInfo(
 $app->webview->url = 'test://hello.world/';
 ```
 
-<tabs>
-<tab title="MacOS/WebKit">
+**macOS/WebKit**
 
 > Does NOT support interception of some existing schemes:
 > `http`, `https`, `ws`, `wss`, 
@@ -36,8 +35,7 @@ $app->webview->url = 'test://hello.world/';
 > ```
 {.warning}
 
-</tab>
-<tab title="Linux/GTK4">
+**Linux/GTK4**
 
 > Does NOT support interception of some existing schemes:
 > `http`, `https`, `ws`, `wss`, 
@@ -49,8 +47,6 @@ $app->webview->url = 'test://hello.world/';
 > Registering special URI scheme https is no longer allowed
 > ```
 {.warning}
-</tab>
-</tabs>
 
 ## Requests Interception
 

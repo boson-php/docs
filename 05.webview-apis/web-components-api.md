@@ -66,7 +66,7 @@ class MyExampleComponent implements HasTemplateInterface
 }
 ```
 
-<img src="/assets/web-component-content.png" alt="Web Component Template" />
+![Web Component Template](/assets/web-component-content.png)
 
 ## Shadow DOM
 
@@ -103,12 +103,12 @@ class MyExampleComponent implements HasShadowDomInterface
 If you try to render the contents of a `<slot />` without a Shadow DOM (using 
 `HasTemplateInterface`), no data will be received.
 
-<img src="/assets/web-component-content-slot.png" alt="Web Component Content Slot" />
+![Web Component Content Slot](/assets/web-component-content-slot.png)
 
 When you turn on the Shadow DOM (using `HasShadowDomInterface`), the contents 
 will be passed to the `<slot />`.
 
-<img src="/assets/web-component-shadow-dom-slot.png" alt="Web Component Shadow DOM Slot" />
+![Web Component Shadow DOM Slot](/assets/web-component-shadow-dom-slot.png)
 
 ## Lifecycle Callbacks
 

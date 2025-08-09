@@ -13,7 +13,7 @@ The application is responsible for:
 - [WebView](../05.webview/webview.md) integration for web content display.
 - [Application](../03.application/application-events.md),
   [Window](../04.window/window-events.md) and 
-- [WebView](../05.webview/webview-events.md) event handling.
+  [WebView](../05.webview/webview-events.md) event handling.
 
 ...and more
 

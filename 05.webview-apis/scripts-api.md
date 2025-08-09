@@ -54,8 +54,6 @@ $app->webview->scripts->eval(
 In all examples from here on, the short facade method will 
 be used to simplify the examples.
 
-</note>
-
 
 ## Ready-state Registration 
 

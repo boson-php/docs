@@ -96,8 +96,6 @@ $app->webview->url = 'https://nesk.me';
 In all examples from here on, the short facade method will
 be used to simplify the examples.
 
-</note>
-
 ### Synchronous Access Timeout
 
 Note that synchronous access is instant in most cases, but can sometimes 

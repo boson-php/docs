@@ -780,3 +780,335 @@ echo $window->id->toInteger();
 > However, please note that this may cause ownership issues and should
 > be used with caution.
 
+
+## Configuration
+
+The window configuration class `Boson\Window\WindowCreateInfo` is
+<tooltip term="optional class">optional</tooltip> and serves as a convenient way to
+define default settings for main window of your app.
+
+### Title
+
+Sets the title that appears in the window's title bar and taskbar.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    title: 'My Application Window',
+);
+```
+
+> More information about window title can be found in
+> the <a href="window.md#title">window documentation</a>.
+{.note}
+
+
+### Hardware Acceleration
+
+Enables or disables hardware-accelerated rendering for better performance.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    enableHardwareAcceleration: true, // Default is true
+);
+```
+
+**macOS/WebKit**
+
+> Does not allow to control hardware-acceleration.
+>
+> This configuration option has no effect.
+{.warning}
+
+
+### Window Size (Width and Height)
+
+Defines the initial dimensions of the window in pixels.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    width: 800,
+    height: 600,
+);
+```
+
+> More information about window size can be found in
+> the <a href="window.md#size">window documentation</a>.
+{.note}
+
+
+### Window Resizability
+
+Determines if the window can be resized by the user.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    resizable: true, // Default is true
+);
+```
+
+
+### Window Visibility
+
+Controls whether the window is initially visible when created.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    visible: true, // Default is true
+);
+```
+
+> More information about window visibility can be found in
+> the <a href="window.md#visibility">window documentation</a>.
+{.note}
+
+
+### Always On Top
+
+Controls whether a window should stay on top of other windows.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo(
+    alwaysOnTop: true, // Default is false
+);
+```
+
+**Linux/GTK4**
+
+> There is no way to artificially set window always on top.
+>
+> This configuration option has no effect.
+{.warning}
+
+> More information about window "always on top" feature can be found in
+> the <a href="window.md#always-on-top">window documentation</a>.
+{.note}
+
+
+### Click Through
+
+Enables or disables the window's handling of mouse events.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo(
+    clickThrough: true, // Default is false
+);
+```
+
+> More information about window "click-through" feature can be found in
+> the <a href="window.md#click-through">window documentation</a>.
+{.note}
+
+
+### Window Decorations
+
+Specifies the window's border, title bar style and other.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    decoration: Boson\Window\WindowDecoration::Default,
+);
+```
+
+> More information about window decorations can be found in
+> the <a href="window.md#decorations">window documentation</a>.
+{.note}
+
+
+## Events
+
+The window will automatically emit the following events (and intentions)
+during its lifecycle.
+
+To subscribe to events, you can use direct access to the
+<a href="events.md#event-listener">event listener</a>.
+
+```php
+$window = $app->window;
+
+$window->addEventListener(Event::class, function (Event $e) {
+    var_dump($e);
+});
+```
+
+The window instance also supports a more convenient and simple way of
+registering events using the `on()` method.
+
+```php
+$window->on(function (Event $event): void {
+    var_dump($event);
+});
+```
+
+> More information about events can be found in the <a href="events.md">events
+> documentation</a>.
+{.note}
+
+### Closing Intention
+
+An `Boson\Window\Event\WindowClosing` intention to close the window.
+
+> If it is cancelled, the window will not be closed.
+
+```php
+class WindowClosing<Window>
+```
+
+### Closed Event
+
+An `Boson\Window\Event\WindowClosed` event fired after the window has been
+closed and the `Boson\Window\Event\WindowClosing` intention has not been
+cancelled.
+
+```php
+class WindowClosed<Window>
+```
+
+### Created Event
+
+An `Boson\Window\Event\WindowCreated` event fired after window has been created.
+
+```php
+class WindowCreated<Window>
+```
+
+### Decorated Event
+
+An `Boson\Window\Event\WindowDecorated` event fired after
+<a href="window.md#decorations">window controls</a> visibility changed.
+
+```php
+class WindowDecorated<Window> 
+{
+    public readonly bool $isDecorated;
+}
+```
+
+- `$isDecorated` - Visibility status of the OS window controls.
+
+> The event differs from a
+> <a href="window-events.md#decoration-changed-event">decoration changed</a> in
+> that it reacts exclusively to the turning on or off of window controls
+> (minimize, maximize, restore, close buttons and title bar) visibility.
+{.note}
+
+### Decoration Changed Event
+
+An `Boson\Window\Event\WindowDecorationChanged` event fired after
+<a href="window.md#decorations">window decoration</a> has been changed.
+
+```php
+class WindowDecorationChanged<Window> 
+{
+    public readonly Boson\Window\WindowDecoration $decoration;
+    public readonly Boson\Window\WindowDecoration $previous;
+}
+```
+
+- `$decoration` - Decorations type of the window.
+- `$previous` - Previous decorations type of the window.
+
+### Destroyed Event
+
+An `Boson\Window\Event\WindowDestroyed` event fired after window has
+been destroyed (all references to it in the GC have been removed).
+
+```php
+class WindowDestroyed<Window>
+```
+
+
+### Focused Event
+
+An `Boson\Window\Event\WindowFocused` event fired after
+<a href="window.md#focus">window focus</a> has been changed.
+
+```php
+class WindowFocused<Window> 
+{
+    public readonly bool $isFocused;
+}
+```
+
+
+- `$isFocused` - Window <a href="window.md#focus">focus status</a>.
+
+> The event is fired not only when window has been focused (in which case the
+> `$isFocused` property will contain `true`), but also
+> when window focus has been lost (in which case the `$isFocused`
+> property will contain `false`).
+{.note}
+
+### Maximized Event
+
+An `Boson\Window\Event\WindowMaximized` event fired after
+<a href="window.md#maximize">window maximized</a> state has been changed.
+
+```php
+class WindowMaximized<Window> 
+{
+    public readonly bool $isMaximized;
+}
+```
+
+- `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
+
+> The event is fired not only when maximizing (in which case the
+> `$isMaximized` property will contain `true`), but also
+> when restoring from maximization (in which case the `$isMaximized`
+> property will contain `false`).
+{.note}
+
+### Minimized Event
+
+An `Boson\Window\Event\WindowMinimized` event fired after
+<a href="window.md#minimize">window minimized</a> state has been changed.
+
+```php
+class WindowMinimized<Window> 
+{
+    public readonly bool $isMinimized;
+}
+```
+
+- `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
+
+> The event is fired not only when minimizing (in which case the
+> `$isMinimized` property will contain `true`), but also when
+> restoring from minimization (in which case the `$isMinimized`
+> property will contain `false`).
+{.note}
+
+### Resized Event
+
+An `Boson\Window\Event\WindowResized` event fired after
+<a href="window.md#size">window size</a> has been changed.
+
+```php
+class WindowResized<Window> 
+{
+    public readonly int $width;
+    public readonly int $height;
+}
+```
+
+- `$width` - Window width dimension in pixels.
+- `$height` - Window height dimension in pixels.
+
+> Window width and height is a non-negative `int32` (an integer value
+> between 0 and 2147483647).
+
+### State Changed Event
+
+An `Boson\Window\Event\WindowStateChanged` event fired after
+<a href="window.md#state">window state</a> has been changed.
+
+```php
+class WindowStateChanged<Window> 
+{
+    public readonly Boson\Window\WindowState $state;
+    public readonly Boson\Window\WindowState $previous;
+}
+```
+
+- `$state` - State type of the window.
+- `$previous` - Previous state type of the window.

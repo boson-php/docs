@@ -16,14 +16,8 @@
       "02.the-basics/configuration.md",
       "02.the-basics/events.md",
       "02.the-basics/application.md",
-      "02.the-basics/application/application-configuration.md",
-      "02.the-basics/application/application-events.md",
       "02.the-basics/window.md",
-      "02.the-basics/window/window-configuration.md",
-      "02.the-basics/window/window-events.md",
-      "02.the-basics/webview.md",
-      "02.the-basics/webview/webview-configuration.md",
-      "02.the-basics/webview/webview-events.md"
+      "02.the-basics/webview.md"
     ]
   },
   {

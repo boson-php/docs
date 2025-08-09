@@ -67,8 +67,8 @@ foreach ($app->dialog->selectFiles() as $file) {
 }
 ```
 
-Just like with [single file selection](#select-file), this method takes two 
-optional arguments with a `$directory` and a `$filter`.
+Just like with [single file selection](../03.application/dialog-api.md#select-file), 
+this method takes two optional arguments with a `$directory` and a `$filter`.
 
 ```php
 $app = new Boson\Application();
@@ -81,8 +81,8 @@ $files = $app->dialog->selectFiles(
 ## Select Directory
 
 To call the dialog window with directory selection, call the `selectDirectory`
-method. Unlike [file selection](#select-file), this dialog allows you to select 
-only a specific directory.
+method. Unlike [file selection](../03.application/dialog-api.md#select-file), 
+this dialog allows you to select only a specific directory.
 
 ```php
 $app = new Boson\Application();
@@ -94,8 +94,8 @@ if ($directory !== null) {
 }
 ```
 
-Just like with [single file selection](#select-file), this method takes two
-optional arguments with a `$directory` and a `$filter`.
+Just like with [single file selection](../03.application/dialog-api.md#select-file), 
+this method takes two optional arguments with a `$directory` and a `$filter`.
 
 ```php
 $app = new Boson\Application();
@@ -119,8 +119,8 @@ foreach ($app->dialog->selectDirectories() as $directory) {
 }
 ```
 
-Just like with [single file selection](#select-file), this method takes two
-optional arguments with a `$directory` and a `$filter`.
+Just like with [single file selection](../03.application/dialog-api.md#select-file), 
+this method takes two optional arguments with a `$directory` and a `$filter`.
 
 ```php
 $app = new Boson\Application();

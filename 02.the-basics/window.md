@@ -7,9 +7,9 @@ including their properties, events, state, and associated [WebView](webview.md).
 ## Main Window
 
 The `Application::$window` property provides convenient access to the
-<tooltip term="main window">main window</tooltip> of the application. 
+<span term="main window">main window</span> of the application. 
 
-> This is a <tooltip term="facade">facade property</tooltip> that internally 
+> This is a <span term="facade">facade property</span> that internally 
 > accesses the default window inside the window manager.
 
 ```php
@@ -19,9 +19,9 @@ $app = new Boson\Application();
 $window = $app->window;
 ```
 
-> If the <tooltip term="main window">main window</tooltip> is closed, the next 
+> If the <span term="main window">main window</span> is closed, the next 
 > available window from window manager will become the 
-> <tooltip term="main window">main window</tooltip>.
+> <span term="main window">main window</span>.
 > 
 > If you try to access the `$window` property after the all windows has 
 > been closed, a `NoDefaultWindowException` will be thrown.
@@ -784,7 +784,7 @@ echo $window->id->toInteger();
 ## Configuration
 
 The window configuration class `Boson\Window\WindowCreateInfo` is
-<tooltip term="optional class">optional</tooltip> and serves as a convenient way to
+<span term="optional class">optional</span> and serves as a convenient way to
 define default settings for main window of your app.
 
 ### Title

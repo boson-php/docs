@@ -152,7 +152,7 @@ if ($app1->id->equals($app2->id)) {
 ## Configuration
 
 The application configuration class `Boson\ApplicationCreateInfo` is
-<tooltip term="optional class">optional</tooltip> and serves as a convenient
+<span term="optional class">optional</span> and serves as a convenient
 way to define default settings for initializing your app.
 
 

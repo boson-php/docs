@@ -163,7 +163,7 @@ result of the assembly itself will be placed.
 > specified platforms and architectures.
 > 
 > ```
-> ~/&lt;build-directory>/&lt;platform>/&lt;arch>/...
+> ~/<build-directory>/<platform>/<arch>/...
 > ```
 > 
 > For example, for Windows x64 with the specified build 
@@ -271,25 +271,27 @@ to include in the assembly.
 The `"finder"` may contain an array of objects with, `"name"`, `"not-name"`, 
 `"directory"` and `"not-directory"` fields.
 
-<procedure title="name field format">
+#### `name` field format
+
 Filters files by name. All files matching the 
 specified rule will be included in the build.
 
 > The `name` field may be defined as `string` or 
 > `array` of strings
 
-<step>
+**mask**
+
 You may specify a mask where an asterisk means any 
 occurrence of any number of characters
 ```*.php```
 ```index*```
-</step>
-<step>
+
+**pattern**
+
 You can specify a regular expression to check the file name. Such 
 an expression must start and end with the `/` characters.
 ```/\.php$/```
 ```/^index.*/```
-</step>
 
 > The field only checks the file **name**, not the file path.
 {.warning}
@@ -299,27 +301,26 @@ an expression must start and end with the `/` characters.
 > with the same capabilities as `"name"` field.
 {.note}
 
-<procedure title="directory field format">
+#### `directory` field format
+
 Specifies the directory in which to search for files to include.
 
 > The `directory` field may be defined as `string` or 
 > `array` of strings
 
-<step>
 You may define real path to directory.
 ```
 ./path/to/directory
 ```
-</step>
-<step>
+
+**mask**
+
 You may use `*` as a wildcard character to search in the 
 directories matching a pattern (each pattern has to resolve to at 
 least one directory path).
 ```
 ./path/to/*/*/dir
 ```
-</step>
-</procedure>
 
 
 > To exclude directories, use the `"not-directory"` field 

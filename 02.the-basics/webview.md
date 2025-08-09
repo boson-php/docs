@@ -7,9 +7,9 @@ and more.
 ## Main WebView
 
 The `Application::$webview` property provides convenient access to the WebView
-instance of the <tooltip term="main window">main window</tooltip>.
+instance of the <span term="main window">main window</span>.
 
-> This is a <tooltip term="facade">facade property</tooltip> that internally 
+> This is a <span term="facade">facade property</span> that internally 
 > accesses the webview of the default window inside the window manager.
 
 ```php
@@ -19,7 +19,7 @@ $app = new Boson\Application();
 $webview = $app->webview;
 ```
 
-> Behavior is similar to the <tooltip term="main window">main window</tooltip>:
+> Behavior is similar to the <span term="main window">main window</spanspan>:
 > 
 > If you try to access the `$webview` property after the all windows 
 > has been closed, a `NoDefaultWindowException` will be thrown.
@@ -126,7 +126,7 @@ enum State
 ## Configuration
 
 The webview configuration class `Boson\WebView\WebViewCreateInfo` is
-<tooltip term="optional class">optional</tooltip> and serves as a convenient way to
+<span term="optional class">optional</span> and serves as a convenient way to
 define default settings for webview of main window instance.
 
 

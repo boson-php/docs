@@ -86,7 +86,7 @@ provide a bug fix or to propose enhancements to Boson Components.
 ### #2: Get the Source Code
 
 - Create a <a href="https://github.com">GitHub</a> account and sign in;
-- Fork an expected repository (click on <shortcut>Fork</shortcut> button);
+- Fork an expected repository (click on <kbd>Fork</kbd> button);
 - Uncheck the "Copy the X.Y branch only";
 - After the "forking action" has completed, clone your fork locally 
   (this will create a component directory):

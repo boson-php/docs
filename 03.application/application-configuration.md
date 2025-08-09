@@ -33,10 +33,10 @@ $appConfig = new Boson\ApplicationCreateInfo(
 ```
 
 More detailed information about the schemes is available
-on the [Schemes API](schemes-api.md) page.
+on the [Schemes API](../05.webview/schemes-api.md) page.
 
 > Each registered scheme in this list will produce a
-> [SchemeRequestReceived](schemes-api-events.md#request-intention) intention
+> [SchemeRequestReceived](../05.webview/schemes-api.md#request-intention) intention
 > when attempting to access a resource located at an address with this protocol.
 
 
@@ -73,7 +73,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 {.note}
 
 > The debug mode settings also affects the default settings of child
-> configurations, such as [developer tools](../05.webview-apis/webview.md#dev-tools)
+> configurations, such as [developer tools](../05.webview/webview-configuration.md#dev-tools)
 > (if they are not set explicitly).
 
 

@@ -4,7 +4,7 @@ The window will automatically emit the following events (and intentions)
 during its lifecycle.
 
 To subscribe to events, you can use direct access to the
-[event listener](events.md#event-listener).
+[event listener](../02.architecture/events.md#event-listener).
 
 ```php
 $window = $app->window;
@@ -62,7 +62,7 @@ class WindowCreated<Window>
 ## Decorated Event
 
 An `Boson\Window\Event\WindowDecorated` event fired after
-[window controls](window.md#decorations) visibility changed.
+[window controls](../04.window/window.md#decorations) visibility changed.
 
 ```php
 class WindowDecorated<Window> 
@@ -74,7 +74,7 @@ class WindowDecorated<Window>
 - `$isDecorated` - Visibility status of the OS window controls.
 
 > The event differs from a
-> [decoration changed](window.md#decoration-changed-event) in
+> [decoration changed](../04.window/window-events.md#decoration-changed-event) in
 > that it reacts exclusively to the turning on or off of window controls
 > (minimize, maximize, restore, close buttons and title bar) visibility.
 {.note}
@@ -83,7 +83,7 @@ class WindowDecorated<Window>
 ## Decoration Changed Event
 
 An `Boson\Window\Event\WindowDecorationChanged` event fired after
-[window decoration](window.md#decorations) has been changed.
+[window decoration](../04.window/window.md#decorations) has been changed.
 
 ```php
 class WindowDecorationChanged<Window> 
@@ -110,7 +110,7 @@ class WindowDestroyed<Window>
 ## Focused Event
 
 An `Boson\Window\Event\WindowFocused` event fired after
-[window focus](window.md#focus) has been changed.
+[window focus](../04.window/window.md#focus) has been changed.
 
 ```php
 class WindowFocused<Window> 
@@ -119,7 +119,7 @@ class WindowFocused<Window>
 }
 ```
 
-- `$isFocused` - Window [focus status](window.md#focus).
+- `$isFocused` - Window [focus status](../04.window/window.md#focus).
 
 > The event is fired not only when window has been focused (in which case the
 > `$isFocused` property will contain `true`), but also
@@ -131,7 +131,7 @@ class WindowFocused<Window>
 ## Maximized Event
 
 An `Boson\Window\Event\WindowMaximized` event fired after
-[window maximized](window.md#maximize) state has been changed.
+[window maximized](../04.window/window.md#maximize) state has been changed.
 
 ```php
 class WindowMaximized<Window> 
@@ -140,7 +140,7 @@ class WindowMaximized<Window>
 }
 ```
 
-- `$isMaximized` - Window [maximized status](window.md#maximize).
+- `$isMaximized` - Window [maximized status](../04.window/window.md#maximize).
 
 > The event is fired not only when maximizing (in which case the
 > `$isMaximized` property will contain `true`), but also
@@ -152,7 +152,7 @@ class WindowMaximized<Window>
 ## Minimized Event
 
 An `Boson\Window\Event\WindowMinimized` event fired after
-[window minimized](window.md#minimize) state has been changed.
+[window minimized](../04.window/window.md#minimize) state has been changed.
 
 ```php
 class WindowMinimized<Window> 
@@ -161,7 +161,7 @@ class WindowMinimized<Window>
 }
 ```
 
-- `$isMinimized` - Window [minimized status](window.md#minimize).
+- `$isMinimized` - Window [minimized status](../04.window/window.md#minimize).
 
 > The event is fired not only when minimizing (in which case the
 > `$isMinimized` property will contain `true`), but also when
@@ -173,7 +173,7 @@ class WindowMinimized<Window>
 ## Resized Event
 
 An `Boson\Window\Event\WindowResized` event fired after
-[window size](window.md#size) has been changed.
+[window size](../04.window/window.md#size) has been changed.
 
 ```php
 class WindowResized<Window> 
@@ -193,7 +193,7 @@ class WindowResized<Window>
 ## State Changed Event
 
 An `Boson\Window\Event\WindowStateChanged` event fired after
-[window state](window.md#state) has been changed.
+[window state](../04.window/window.md#state) has been changed.
 
 ```php
 class WindowStateChanged<Window> 

@@ -16,7 +16,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window title can be found in
-> the [window documentation](window.md#title).
+> the [window documentation](../04.window/window.md#title).
 {.note}
 
 
@@ -50,7 +50,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window size can be found in
-> the [window documentation](window.md#size).
+> the [window documentation](../04.window/window.md#size).
 {.note}
 
 
@@ -76,7 +76,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window visibility can be found in
-> the [window documentation](window.md#visibility).
+> the [window documentation](../04.window/window.md#visibility).
 {.note}
 
 
@@ -98,7 +98,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 {.warning}
 
 > More information about window "always on top" feature can be found in
-> the [window documentation](window.md#always-on-top).
+> the [window documentation](../04.window/window.md#always-on-top).
 {.note}
 
 
@@ -113,7 +113,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window "click-through" feature can be found in
-> the [window documentation](window.md#click-through).
+> the [window documentation](../04.window/window.md#click-through).
 {.note}
 
 
@@ -128,5 +128,5 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window decorations can be found in
-> the [window documentation](window.md#decorations).
+> the [window documentation](../04.window/window.md#decorations).
 {.note}

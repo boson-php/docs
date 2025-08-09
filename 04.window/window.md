@@ -1,8 +1,9 @@
 # Window
 
 The `Window` class represents a window in the
-Boson [Application](../03.application-apis/application.md). It provides a way to manage window, 
-including their properties, events, state, and associated [WebView](../05.webview-apis/webview.md).
+Boson [Application](../03.application/application.md). It provides a way to 
+manage window, including their properties, events, state, and associated 
+[WebView](../05.webview/webview.md).
 
 ## Main Window
 

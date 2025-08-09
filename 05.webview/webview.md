@@ -63,8 +63,8 @@ $app->on(function (WebViewNavigated $e) use ($app): void {
 ```
 
 > WebView navigation also fires a 
-> [corresponding event](webview.md#navigated-event) that can be 
-> subscribed to using the [event system](../02.architecture/events.md).
+> [corresponding event](../05.webview/webview-events.md#navigated-event) that 
+> can be subscribed to using the [event system](../02.architecture/events.md).
 
 
 ## HTML Content
@@ -83,8 +83,8 @@ $webview->html = '<button>Do Not Click Me!</button>';
 {.warning}
 
 > WebView navigation also fires a 
-> [corresponding event](webview.md#navigated-event) that can be 
-> subscribed to using the [event system](../02.architecture/events.md).
+> [corresponding event](../05.webview/webview-events.md#navigated-event) that 
+> can be subscribed to using the [event system](../02.architecture/events.md).
 
 
 ## State

@@ -20,11 +20,9 @@ $appConfig = new Boson\ApplicationCreateInfo(
 ```
 
 The value is optional and can be used for user needs, as well as for internal ones.
-<tip>
-For example as a <a href="https://learn.microsoft.com/en-us/windows/win32/learnwin32/creating-a-window#window-classes">
-    WindowClass (WNDCLASS.lpszClassName)
-</a> identifier on Windows OS.
-</tip>
+
+> For example as a [WindowClass (WNDCLASS.lpszClassName)](https://learn.microsoft.com/en-us/windows/win32/learnwin32/creating-a-window#window-classes)
+> identifier on Windows OS.
 
 
 ## Intercepted Schemes
@@ -41,11 +39,10 @@ $appConfig = new Boson\ApplicationCreateInfo(
 More detailed information about the schemes is available 
 on the [Schemes API](schemes-api.md) page.
 
-<tip>
-Each registered scheme in this list will produce a 
-<a href="schemes-api-events.md#request-intention">SchemeRequestReceived</a> intention 
-when attempting to access a resource located at an address with this protocol.
-</tip>
+
+> Each registered scheme in this list will produce a 
+> <a href="schemes-api-events.md#request-intention">SchemeRequestReceived</a> intention 
+> when attempting to access a resource located at an address with this protocol.
 
 
 ## Threads Count
@@ -80,11 +77,11 @@ $appConfig = new Boson\ApplicationCreateInfo(
 > development `php.ini` settings)
 {.note}
 
-<tip>
-The debug mode settings also affects the default settings of child 
-configurations, such as <a href="webview-configuration.md#dev-tools">developer 
-tools</a> (if they are not set explicitly).
-</tip>
+
+> The debug mode settings also affects the default settings of child 
+> configurations, such as <a href="webview-configuration.md#dev-tools">developer 
+> tools</a> (if they are not set explicitly).
+
 
 
 ## Application Library

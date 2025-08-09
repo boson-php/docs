@@ -9,10 +9,8 @@ and more.
 The `Application::$webview` property provides convenient access to the WebView
 instance of the <tooltip term="main window">main window</tooltip>.
 
-<tip>
-This is a <tooltip term="facade">facade property</tooltip> that internally 
-accesses the webview of the default window inside the window manager.
-</tip>
+> This is a <tooltip term="facade">facade property</tooltip> that internally 
+> accesses the webview of the default window inside the window manager.
 
 ```php
 $app = new Boson\Application();
@@ -65,11 +63,9 @@ $app->on(function (WebViewNavigated $e) use ($app): void {
 });
 ```
 
-<tip>
-WebView navigation also fires a 
-<a href="webview-events.md#navigated-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> WebView navigation also fires a 
+> <a href="webview-events.md#navigated-event">corresponding event</a> that can be 
+> subscribed to using the <a href="events.md">event system</a>.
 
 
 ## HTML Content
@@ -81,18 +77,15 @@ html content without navigation to any address.
 $webview->html = '<button>Do Not Click Me!</button>';
 ```
 
-<warning>
-Direct HTML loading implemented via `data:` protocol is an 
-<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
-which does NOT allow the implementation of 
-<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.
-</warning>
+> Direct HTML loading implemented via `data:` protocol is an 
+> <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
+> which does NOT allow the implementation of 
+> <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.
+{.warning}
 
-<tip>
-WebView navigation also fires a 
-<a href="webview-events.md#navigated-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> WebView navigation also fires a 
+> <a href="webview-events.md#navigated-event">corresponding event</a> that can be 
+> subscribed to using the <a href="events.md">event system</a>.
 
 
 ## State

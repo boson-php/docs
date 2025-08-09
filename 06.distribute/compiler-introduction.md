@@ -6,10 +6,8 @@ optimized for the production environment.
 This requires a `boson-php/compiler` component that is supplied separately 
 from the `boson-php/runtime`.
 
-<tip>
-It is recommended to install the compiler dependency as a `--dev` 
-dependency since it is required exclusively for development.
-</tip>
+> It is recommended to install the compiler dependency as a `--dev` 
+> dependency since it is required exclusively for development.
 
 ## Installation
 

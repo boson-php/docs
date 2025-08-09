@@ -37,9 +37,8 @@ An `Boson\Event\ApplicationStarting` intention to start the application.
 class ApplicationStarting<Application>
 ```
 
-<tip>
-If it is cancelled, the application will not be launched.
-</tip>
+> If it is cancelled, the application will not be launched.
+
 
 ## Started Event
 
@@ -59,9 +58,8 @@ An `Boson\Event\ApplicationStopping` intention to stop the application.
 class ApplicationStopping<Application>
 ```
 
-<tip>
-If it is cancelled, the application will not be stopped.
-</tip>
+> If it is cancelled, the application will not be stopped.
+
 
 ## Stopped Event
 

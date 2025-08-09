@@ -29,10 +29,9 @@ class SchemeRequestReceived<WebView>
 - `$request` - Custom protocol request instance.
 - `$response` - An optional response instance containing the body string.
 
-<tip>
-If intention is cancelled, then the response will be rejected (aborted).
-</tip>
 
-<warning>
-An intention is **only** called for registered (in configuration) schemes.
-</warning>
+> If intention is cancelled, then the response will be rejected (aborted).
+
+
+> An intention is **only** called for registered (in configuration) schemes.
+{.warning}

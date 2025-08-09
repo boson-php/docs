@@ -49,13 +49,12 @@ $request = new Request(
 All properties are immutable and can only be accessed, 
 not modified.
 
-<tip>
-All request objects are created by the Boson itself within events, such as 
-<a href="schemes-api-events.md">SchemeRequestReceived</a>. Therefore, to 
-ensure that the object within an event or intention will **NOT be changed** 
-and all listeners receive identical information, the request 
-object **is immutable**.
-</tip>
+> All request objects are created by the Boson itself within events, such as 
+> <a href="schemes-api-events.md">SchemeRequestReceived</a>. Therefore, to 
+> ensure that the object within an event or intention will **NOT be changed** 
+> and all listeners receive identical information, the request 
+> object **is immutable**.
+
 
 ### Response
 
@@ -83,10 +82,9 @@ $response->body = 'New content';
 $response->status = 201;
 ```
 
-<tip>
-All responses are created by developer in any form. Therefore, for convenience,
-they are made **mutable** by default.
-</tip>
+> All responses are created by developer in any form. Therefore, for convenience,
+> they are made **mutable** by default.
+
 
 ### JSON Response
 

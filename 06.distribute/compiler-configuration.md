@@ -137,11 +137,10 @@ that will be executed when the application is launched.
 }
 ```
 
-<tip>
-The entrypoint will be located on the same path inside the build as outside, 
-so you don't have to worry about paths (like 
-`require __DIR__ . '/vendor/autoload.php';`) breaks after building.
-</tip>
+> The entrypoint will be located on the same path inside the build as outside, 
+> so you don't have to worry about paths (like 
+> `require __DIR__ . '/vendor/autoload.php';`) breaks after building.
+
 
 > If the field is not specified, the `"index.php"` will be used.
 {.note}
@@ -161,24 +160,22 @@ result of the assembly itself will be placed.
 }
 ```
 
-<tip>
-The build result will be located in this directory depending on the
-specified platforms and architectures.
-
-```
-~/&lt;build-directory>/&lt;platform>/&lt;arch>/...
-```
-
-For example, for Windows x64 with the specified build 
-directory `"./var/build"` and `"app"` 
-application name:
-
-```
-~/var/build/windows/amd64/app.exe
-~/var/build/windows/amd64/libboson-windows-x86_64.dll
-~/var/build/windows/amd64/...etc
-```
-</tip>
+> The build result will be located in this directory depending on the
+> specified platforms and architectures.
+> 
+> ```
+> ~/&lt;build-directory>/&lt;platform>/&lt;arch>/...
+> ```
+> 
+> For example, for Windows x64 with the specified build 
+> directory `"./var/build"` and `"app"` 
+> application name:
+> 
+> ```
+> ~/var/build/windows/amd64/app.exe
+> ~/var/build/windows/amd64/libboson-windows-x86_64.dll
+> ~/var/build/windows/amd64/...etc
+> ```
 
 > If the field is not specified, the `"build"` directory will be used.
 {.note}
@@ -213,10 +210,8 @@ to include in the assembly.
 }
 ```
 
-<tip>
-An entrypoint file is automatically included in this list, 
-it is not necessary to specify it separately.
-</tip>
+> An entrypoint file is automatically included in this list, 
+> it is not necessary to specify it separately.
 
 
 ### `build.directories` {id="build-directories-config"}
@@ -280,10 +275,10 @@ The `"finder"` may contain an array of objects with, `"name"`, `"not-name"`,
 <procedure title="name field format">
 Filters files by name. All files matching the 
 specified rule will be included in the build.
-<tip>
-The `name` field may be defined as `string` or 
-`array` of strings
-</tip>
+
+> The `name` field may be defined as `string` or 
+> `array` of strings
+
 <step>
 You may specify a mask where an asterisk means any 
 occurrence of any number of characters
@@ -307,10 +302,10 @@ The field only checks the file **name**, not the file path.
 
 <procedure title="directory field format">
 Specifies the directory in which to search for files to include.
-<tip>
-The `directory` field may be defined as `string` or 
-`array` of strings
-</tip>
+
+> The `directory` field may be defined as `string` or 
+> `array` of strings
+
 <step>
 You may define real path to directory.
 ```
@@ -353,22 +348,21 @@ The value may be any scalar (`int`, `float`, `string` or `bool`) value.
 }
 ```
 
-<tip>
-You may use environment variables inside PHP configuration values.
-```json5
-{
-    "ini": {
-        "memory_limit": "${BOSON_MEMORY_LIMIT}"
-    }
-}
-```
 
-In addition, default values are available for environment variables:
-```json5
-{
-    "ini": {
-        "memory_limit": "${BOSON_MEMORY_LIMIT:-128M}"
-    }
-}
-```
-</tip>
+> You may use environment variables inside PHP configuration values.
+> ```json5
+> {
+>     "ini": {
+>         "memory_limit": "${BOSON_MEMORY_LIMIT}"
+>     }
+> }
+> ```
+> 
+> In addition, default values are available for environment variables:
+> ```json5
+> {
+>     "ini": {
+>         "memory_limit": "${BOSON_MEMORY_LIMIT:-128M}"
+>     }
+> }
+> ```

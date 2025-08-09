@@ -35,9 +35,7 @@ $window->on(function (Event $event): void {
 
 An `Boson\Window\Event\WindowClosing` intention to close the window.
 
-<tip>
-If it is cancelled, the window will not be closed.
-</tip>
+> If it is cancelled, the window will not be closed.
 
 ```php
 class WindowClosing<Window>
@@ -184,10 +182,8 @@ class WindowResized<Window>
 - `$width` - Window width dimension in pixels.
 - `$height` - Window height dimension in pixels.
 
-<tip>
-Window width and height is a non-negative `int32` (an integer value 
-between 0 and 2147483647).
-</tip>
+> Window width and height is a non-negative `int32` (an integer value 
+> between 0 and 2147483647).
 
 ## State Changed Event
 

@@ -9,10 +9,8 @@ including their properties, events, state, and associated [WebView](webview.md).
 The `Application::$window` property provides convenient access to the
 <tooltip term="main window">main window</tooltip> of the application. 
 
-<tip>
-This is a <tooltip term="facade">facade property</tooltip> that internally 
-accesses the default window inside the window manager.
-</tip>
+> This is a <tooltip term="facade">facade property</tooltip> that internally 
+> accesses the default window inside the window manager.
 
 ```php
 $app = new Boson\Application();
@@ -66,11 +64,9 @@ $title = &$window->title; // ❌ not available
 ```
 </warning>
 
-<tip>
-Window title change also fires a 
-<a href="webview-events.md#title-changed-event">corresponding event</a> that 
-can be subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window title change also fires a 
+> <a href="webview-events.md#title-changed-event">corresponding event</a> that 
+> can be subscribed to using the <a href="events.md">event system</a>.
 
 
 ## State
@@ -110,11 +106,10 @@ enum WindowState
 
 There are corresponding methods for changing states from code.
 
-<tip>
-Window state change also fires a
-<a href="window-events.md#state-changed-event">corresponding event</a> that can
-be subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window state change also fires a
+> <a href="window-events.md#state-changed-event">corresponding event</a> that can
+> be subscribed to using the <a href="events.md">event system</a>.
+
 
 ### Minimize
 
@@ -208,15 +203,14 @@ To show the window you may use desired `Window::show()` method.
 $window->show();
 ```
 
-<tip>
-You can also show the window through a `Window::$isVisible` property. 
-To do this, simply set the `true`.
+> You can also show the window through a `Window::$isVisible` property. 
+> To do this, simply set the `true`.
+> 
+> ```php
+> // Show the window
+> $window->isVisible = true;
+> ```
 
-```php
-// Show the window
-$window->isVisible = true;
-```
-</tip>
 
 ### Hide
 
@@ -227,15 +221,13 @@ To hide the window you may use desired `Window::hide()` method.
 $window->hide();
 ```
 
-<tip>
-You can also hide the window through a `Window::$isVisible` property. 
-To do this, simply set the `false`.
-
-```php
-// Hide the window
-$window->isVisible = false;
-```
-</tip>
+> You can also hide the window through a `Window::$isVisible` property. 
+> To do this, simply set the `false`.
+> 
+> ```php
+> // Hide the window
+> $window->isVisible = false;
+> ```
 
 
 ## Decorations
@@ -295,11 +287,9 @@ in webview. So the result with different decorations will look like this.
     </tab>
 </tabs>
 
-<tip>
-Window decoration change also fires a 
-<a href="window-events.md#decoration-changed-event">corresponding event</a> 
-that can be subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window decoration change also fires a 
+> <a href="window-events.md#decoration-changed-event">corresponding event</a> 
+> that can be subscribed to using the <a href="events.md">event system</a>.
 
 ### Default
 
@@ -350,21 +340,19 @@ background transparent.
 $window->decoration = WindowDecoration::Transparent;
 ```
 
-<tip>
-With transparent windows, you should use CSS to control the background color:
-```HTML
-<![CDATA[
-<style>
-body {
-    background: rgba(255, 255, 255, .8);
-}
-</style>
-<body>
-    Content
-</body>
-]]>
-```
-</tip>
+
+> With transparent windows, you should use CSS to control the background color:
+> ```HTML
+> <style>
+> body {
+>     background: rgba(255, 255, 255, .8);
+> }
+> </style>
+> <body>
+>     Content
+> </body>
+> ```
+
 
 > You can use the <a href="window.md#minimize">Minimize</a>,
 > <a href="window.md#maximize">Maximize</a>,
@@ -408,11 +396,10 @@ between 0 and 2147483647).
 Attempting to set values outside this range will result in an exception.
 </warning>
 
-<tip>
-Window resize also fires a 
-<a href="window-events.md#resized-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window resize also fires a 
+> <a href="window-events.md#resized-event">corresponding event</a> that can be 
+> subscribed to using the <a href="events.md">event system</a>.
+
 
 ### Minimum Size
 
@@ -431,10 +418,9 @@ $window->min->height = 300;
 $window->min->update(400, 300);
 ```
 
-<tip>
-Setting minimum size helps prevent the window from being resized too small, 
-which could make the content unreadable or unusable.
-</tip>
+> Setting minimum size helps prevent the window from being resized too small, 
+> which could make the content unreadable or unusable.
+
 
 <warning>
 Window min size must be non-negative `int32` (an integer value 
@@ -500,11 +486,10 @@ $window->startResize(Boson\Window\WindowEdge::Right);
 $window->startResize(Boson\Window\WindowCorner::BottomLeft);
 ```
 
-<tip>
-The end of the resizing occurs on the **mouse up** event at any place 
-therefore, it is recommended to call this method when **mouse down** 
-on any element.
-</tip>
+> The end of the resizing occurs on the **mouse up** event at any place 
+> therefore, it is recommended to call this method when **mouse down** 
+> on any element.
+
 
 ```php
 $app = new Boson\Application();
@@ -546,20 +531,18 @@ Possible values for window corners:
 <button data-webview-resize="bl">   ↙   </button>
 ```
 
-<tip>
-To prevent this event for child HTML elements, use the 
-`data-webview-ignore` HTML attribute.
-
-```html
-<!-- header resizes the window  -->
-<header data-webview-resize="l">
-    <span>Custom Title Bar</span>
-
-    <!-- except close button -->
-    <button data-webview-ignore>Close</button>
-</header>
-```
-</tip>
+> To prevent this event for child HTML elements, use the 
+> `data-webview-ignore` HTML attribute.
+> 
+> ```html
+> <!-- header resizes the window  -->
+> <header data-webview-resize="l">
+>     <span>Custom Title Bar</span>
+> 
+>     <!-- except close button -->
+>     <button data-webview-ignore>Close</button>
+> </header>
+> ```
 
 > For standard windows with decorations, resizing is handled automatically 
 > by the operating system through the window corners and edges.
@@ -577,10 +560,9 @@ need to implement custom window controls.
 $window->startDrag();
 ```
 
-<tip>
-The end of the drag occurs on the **mouse up** event at any place therefore, 
-it is recommended to call this method when **mouse down** on any element.
-</tip>
+> The end of the drag occurs on the **mouse up** event at any place therefore, 
+> it is recommended to call this method when **mouse down** on any element.
+
 
 ```php
 $app = new Boson\Application();
@@ -607,22 +589,18 @@ specific elements draggable.
 </header>
 ```
 
-<tip>
-To prevent this event for child HTML elements, use the `data-webview-ignore`
-HTML attribute.
-
-```HTML
-<![CDATA[
-<!-- header is draggable -->
-<header data-webview-drag>
-    <span>Custom Title Bar</span>
-
-    <!-- except close button -->
-    <button data-webview-ignore>Close</button>
-</header>
-]]>
-```
-</tip>
+> To prevent this event for child HTML elements, use the `data-webview-ignore`
+> HTML attribute.
+> 
+> ```HTML
+> <!-- header is draggable -->
+> <header data-webview-drag>
+>     <span>Custom Title Bar</span>
+> 
+>     <!-- except close button -->
+>     <button data-webview-ignore>Close</button>
+> </header>
+> ```
 
 > For standard windows with decorations, dragging is handled automatically 
 > by the operating system through the title bar.
@@ -653,11 +631,9 @@ Keep in mind that it can be very disruptive to the user when a window is
 forced to the top. Please use this feature judiciously.
 </warning>
 
-<tip>
-Window focus also fires a 
-<a href="window-events.md#focused-event">corresponding event</a> 
-that can be subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window focus also fires a 
+> <a href="window-events.md#focused-event">corresponding event</a> 
+> that can be subscribed to using the <a href="events.md">event system</a>.
 
 
 ## Always On Top
@@ -703,11 +679,10 @@ The `Window::$isClickThrough` property allows you to control
 whether a window should intercept mouse events. When enabled, mouse clicks 
 will pass through the window to the windows or applications behind it.
 
-<tip>
-Mouse events are not intercepted not only through the internal OS (Windows, 
-Linux, MacOS, etc...) API, but also through JavaScript. The system buttons 
-to minimize, maximize or close also do not respond to clicks.
-</tip>
+> Mouse events are not intercepted not only through the internal OS (Windows, 
+> Linux, macOS, etc...) API, but also through JavaScript. The system buttons 
+> to minimize, maximize or close also do not respond to clicks.
+
 
 ```php
 // Check if window is click-through
@@ -763,11 +738,10 @@ if ($window->isClosed) {
 }
 ```
 
-<tip>
-Window closing also fires a
-<a href="window-events.md#closed-event">corresponding event</a> that can be 
-subscribed to using the <a href="events.md">event system</a>.
-</tip>
+> Window closing also fires a
+> <a href="window-events.md#closed-event">corresponding event</a> that can be 
+> subscribed to using the <a href="events.md">event system</a>.
+
 
 ## Identifier
 
@@ -792,10 +766,9 @@ if ($window1->id->equals($window2->id)) {
 }
 ```
 
-<tip>
-The `WindowId` is automatically generated when a window is created 
-and remains constant throughout the window's lifetime.
-</tip>
+> The `WindowId` is automatically generated when a window is created 
+> and remains constant throughout the window's lifetime.
+
 
 The identifier consists of two parts:
 - A unique integer value that identifies the window in the application.
@@ -816,20 +789,19 @@ physical address of the window pointer.
 echo $window->id->toInteger();
 ```
 
-<tip>
-Technically, this behaviour can be used to pass a window pointer to 
-subprocesses and then restore the pointer from it, like:
+> Technically, this behaviour can be used to pass a window pointer to 
+> subprocesses and then restore the pointer from it, like:
+> 
+> ```php
+> // process-1 
+> // somehow pass the scalar addr to the process-2
+> $addr = $window->id->toInteger();
+> 
+> // process-2
+> // somehow get a scalar addr value
+> $handle = $ffi->cast('saucer_handle*', $addr);
+> ```
+> 
+> However, please note that this may cause ownership issues and should
+> be used with caution.
 
-```php
-// process-1 
-// somehow pass the scalar addr to the process-2
-$addr = $window->id->toInteger();
-
-// process-2
-// somehow get a scalar addr value
-$handle = $ffi->cast('saucer_handle*', $addr);
-```
-
-However, please note that this may cause ownership issues and should
-be used with caution.
-</tip>

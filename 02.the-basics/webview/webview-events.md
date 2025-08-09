@@ -66,9 +66,7 @@ Icon change intention has no effect.
 class WebViewFaviconChanging<WebView>
 ```
 
-<tip>
-If intention is cancelled, the window icon has not been changed.
-</tip>
+> If intention is cancelled, the window icon has not been changed.
 
 ## Favicon Changed Event
 
@@ -100,10 +98,8 @@ class WebViewMessageReceived<WebView>
 > The `ack()` method marks the message as accepted and processed.
 {.note}
 
-<tip>
-The `stopPropagation()` method works in a similar way to 
-`ack()`, but is not recommended due semantic conflicts.
-</tip>
+> The `stopPropagation()` method works in a similar way to 
+> `ack()`, but is not recommended due semantic conflicts.
 
 ## Navigating Intention
 
@@ -127,9 +123,7 @@ class WebViewNavigating<WebView>
 - `$isUserInitiated` - Navigation to the specified URL does not occur
   automatically, but is initialized by the user.
 
-<tip>
-If intention is cancelled, the URL navigation will be cancelled.
-</tip>
+> If intention is cancelled, the URL navigation will be cancelled.
 
 ## Navigated Event
 
@@ -160,9 +154,7 @@ class WebViewTitleChanging<WebView>
 
 - `$title` - Expected title string to be set.
 
-<tip>
-If intention is cancelled, then the window title has not been changed.
-</tip>
+> If intention is cancelled, then the window title has not been changed.
 
 ## Title Changed Event
 

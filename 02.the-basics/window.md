@@ -63,8 +63,8 @@ $window->title = 'New Window Title!';
 {.warning}
 
 > Window title change also fires a 
-> <a href="webview-events.md#title-changed-event">corresponding event</a> that 
-> can be subscribed to using the <a href="events.md">event system</a>.
+> [corresponding event](webview.md#title-changed-event) that 
+> can be subscribed to using the [event system](events.md).
 
 
 ## State
@@ -105,8 +105,8 @@ enum WindowState
 There are corresponding methods for changing states from code.
 
 > Window state change also fires a
-> <a href="window-events.md#state-changed-event">corresponding event</a> that can
-> be subscribed to using the <a href="events.md">event system</a>.
+> [corresponding event](window.md#state-changed-event) that can
+> be subscribed to using the [event systemm](events.md).
 
 
 ### Minimize
@@ -281,8 +281,8 @@ in webview. So the result with different decorations will look like this.
 ![Transparent](/assets/window-decorations-transparent.png)
 
 > Window decoration change also fires a 
-> <a href="window-events.md#decoration-changed-event">corresponding event</a> 
-> that can be subscribed to using the <a href="events.md">event system</a>.
+> [corresponding event](window.md#decoration-changed-event) 
+> that can be subscribed to using the [event system](events.md).
 
 ### Default
 
@@ -310,12 +310,10 @@ provided by the operating system.
 $window->decoration = WindowDecoration::Frameless;
 ```
 
-> You can use the <a href="window.md#minimize">Minimize</a>,
-> <a href="window.md#maximize">Maximize</a>,
-> <a href="window.md#restore">Restore</a>,
-> <a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
-> and <a href="window.md#resizing">Resize</a> features to implement window
-> controls manually.
+> You can use the [Minimize](window.md#minimize), [Maximize](window.md#maximize),
+> [Restore](window.md#restore), [Close](window.md#window-close), 
+> [Drag](window.md#dragging) and [Resize](window.md#resizing) features 
+> to implement window controls manually.
 {.note}
 
 > When using frameless (or transparent) windows, you need to implement your own 
@@ -345,15 +343,11 @@ $window->decoration = WindowDecoration::Transparent;
 > </body>
 > ```
 
-
-> You can use the <a href="window.md#minimize">Minimize</a>,
-> <a href="window.md#maximize">Maximize</a>,
-> <a href="window.md#restore">Restore</a>,
-> <a href="window.md#window-close">Close</a>, <a href="window.md#dragging">Drag</a>
-> and <a href="window.md#resizing">Resize</a> features to implement window
-> controls manually.
+> You can use the [Minimize](window.md#minimize), [Maximize](window.md#maximize),
+> [Restore](window.md#restore), [Close](window.md#window-close),
+> [Drag](window.md#dragging) and [Resize](window.md#resizing) features
+> to implement window controls manually.
 {.note}
-
 
 ## Size
 
@@ -387,9 +381,8 @@ $window->size = new Boson\Window\Size(800, 600);
 > Attempting to set values outside this range will result in an exception.
 {.warning}
 
-> Window resize also fires a 
-> <a href="window-events.md#resized-event">corresponding event</a> that can be 
-> subscribed to using the <a href="events.md">event system</a>.
+> Window resize also fires a  [corresponding event](window.md#resized-event) 
+> that can be subscribed to using the [event system](events.md).
 
 
 ### Minimum Size
@@ -613,9 +606,8 @@ $window->focus();
 > forced to the top. Please use this feature judiciously.
 {.warning}
 
-> Window focus also fires a 
-> <a href="window-events.md#focused-event">corresponding event</a> 
-> that can be subscribed to using the <a href="events.md">event system</a>.
+> Window focus also fires a [corresponding event](window.md#focused-event) 
+> that can be subscribed to using the [event system](events.md).
 
 
 ## Always On Top
@@ -714,9 +706,8 @@ if ($window->isClosed) {
 }
 ```
 
-> Window closing also fires a
-> <a href="window-events.md#closed-event">corresponding event</a> that can be 
-> subscribed to using the <a href="events.md">event system</a>.
+> Window closing also fires a [corresponding event](window.md#closed-event) 
+> that can be subscribed to using the [event system](events.md).
 
 
 ## Identifier
@@ -832,7 +823,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window size can be found in
-> the <a href="window.md#size">window documentation</a>.
+> the [window documentation](window.md#size).
 {.note}
 
 
@@ -880,7 +871,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 {.warning}
 
 > More information about window "always on top" feature can be found in
-> the <a href="window.md#always-on-top">window documentation</a>.
+> the [window documentation](window.md#always-on-top).
 {.note}
 
 
@@ -910,7 +901,7 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 ```
 
 > More information about window decorations can be found in
-> the <a href="window.md#decorations">window documentation</a>.
+> the [window documentation](window.md#decorations).
 {.note}
 
 
@@ -939,8 +930,8 @@ $window->on(function (Event $event): void {
 });
 ```
 
-> More information about events can be found in the <a href="events.md">events
-> documentation</a>.
+> More information about events can be found in the 
+> [events documentation](events.md).
 {.note}
 
 ### Closing Intention
@@ -985,8 +976,8 @@ class WindowDecorated<Window>
 
 - `$isDecorated` - Visibility status of the OS window controls.
 
-> The event differs from a
-> <a href="window-events.md#decoration-changed-event">decoration changed</a> in
+> The event differs from a 
+> [decoration changed](window.md#decoration-changed-event) in
 > that it reacts exclusively to the turning on or off of window controls
 > (minimize, maximize, restore, close buttons and title bar) visibility.
 {.note}
@@ -994,7 +985,7 @@ class WindowDecorated<Window>
 ### Decoration Changed Event
 
 An `Boson\Window\Event\WindowDecorationChanged` event fired after
-<a href="window.md#decorations">window decoration</a> has been changed.
+[window decoration](window.md#decorations) has been changed.
 
 ```php
 class WindowDecorationChanged<Window> 
@@ -1030,7 +1021,7 @@ class WindowFocused<Window>
 ```
 
 
-- `$isFocused` - Window <a href="window.md#focus">focus status</a>.
+- `$isFocused` - Window [focus status](window.md#focus).
 
 > The event is fired not only when window has been focused (in which case the
 > `$isFocused` property will contain `true`), but also
@@ -1050,7 +1041,7 @@ class WindowMaximized<Window>
 }
 ```
 
-- `$isMaximized` - Window <a href="window.md#maximize">maximized status</a>.
+- `$isMaximized` - Window [maximized status](window.md#maximize).
 
 > The event is fired not only when maximizing (in which case the
 > `$isMaximized` property will contain `true`), but also
@@ -1070,7 +1061,7 @@ class WindowMinimized<Window>
 }
 ```
 
-- `$isMinimized` - Window <a href="window.md#minimize">minimized status</a>.
+- `$isMinimized` - Window [minimized status](window.md#minimize).
 
 > The event is fired not only when minimizing (in which case the
 > `$isMinimized` property will contain `true`), but also when
@@ -1100,7 +1091,7 @@ class WindowResized<Window>
 ### State Changed Event
 
 An `Boson\Window\Event\WindowStateChanged` event fired after
-<a href="window.md#state">window state</a> has been changed.
+[window state](window.md#state) has been changed.
 
 ```php
 class WindowStateChanged<Window> 

@@ -97,8 +97,8 @@ echo vsprintf('It takes another %d seconds to fully discharge', [
 The battery will automatically emit the following events (and intentions)
 during its lifecycle.
 
-> More information about events can be found in the <a href="events.md">events
-> documentation</a>.
+> More information about events can be found in the 
+> [events documentation](events.md).
 {.note}
 
 ### Charging State Changed Event

@@ -32,7 +32,7 @@ Whenever you find a bug in Boson Components, we kindly ask you to report it.
 It helps us make a better code.
 
 > If you think you've found a security issue, please use 
-> the <a href="contribution.md#security-issues">special procedure instead</a>.
+> the [special procedure instead](contribution.md#security-issues).
 {.warning}
 
 You may submit a bug report using GitHub Issues.

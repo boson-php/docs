@@ -41,7 +41,7 @@ $function = $executor->compile(/* signature */, /* code */);
 
 > The function is directly associated with the address space in which the 
 > executable memory was allocated, and after deleting the link (see 
-> <a href="https://www.php.net/manual/en/features.gc.php">PHP GC</a>) to this 
+>[PHP GC](https://www.php.net/manual/en/features.gc.php)) to this 
 > function, the associated memory will also be automatically cleared.
 {.note}
 

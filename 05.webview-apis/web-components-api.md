@@ -180,7 +180,7 @@ public static function getPropertyNames(): array
 }
 ```
 
-> **Properties** and <a href="#attributes">**attributes**</a> are different 
+> **Properties** and [**attributes**](#attributes) are different 
 > things. Properties are located directly on the object and can contain arbitrary 
 > data, while an attribute can be specified in HTML tags and can contain 
 > exclusively string values.

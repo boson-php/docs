@@ -63,8 +63,8 @@ $app->on(function (WebViewNavigated $e) use ($app): void {
 ```
 
 > WebView navigation also fires a 
-> <a href="webview-events.md#navigated-event">corresponding event</a> that can be 
-> subscribed to using the <a href="events.md">event system</a>.
+> [corresponding event](webview.md#navigated-event) that can be 
+> subscribed to using the [event system](events.md).
 
 
 ## HTML Content
@@ -77,14 +77,14 @@ $webview->html = '<button>Do Not Click Me!</button>';
 ```
 
 > Direct HTML loading implemented via `data:` protocol is an 
-> <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">insecure context</a>
+> [insecure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts)
 > which does NOT allow the implementation of 
-> <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">some functionality</a>.
+> [some functionality](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
 {.warning}
 
 > WebView navigation also fires a 
-> <a href="webview-events.md#navigated-event">corresponding event</a> that can be 
-> subscribed to using the <a href="events.md">event system</a>.
+> [corresponding event](webview.md#navigated-event) that can be 
+> subscribed to using the [event system](events.md).
 
 
 ## State
@@ -267,8 +267,8 @@ $webview->on(function (Event $event): void {
 });
 ```
 
-> More information about events can be found in the <a href="events.md">events
-> documentation</a>.
+> More information about events can be found in the 
+> [event documentation](events.md).
 {.note}
 
 ### Dom Ready Event

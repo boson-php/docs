@@ -38,7 +38,7 @@ The first optional argument is responsible for the `Boson\ApplicationCreateInfo`
 application settings and allows you to fine-tune the application's operation.
 
 > More details about the application configuration are written on the 
-> <a href="application-configuration.md">corresponding documentation pages</a>.
+> [corresponding documentation pages](application.md#configuration).
 
 
 ```php
@@ -188,7 +188,7 @@ on the [Schemes API](schemes-api.md) page.
 
 
 > Each registered scheme in this list will produce a
-> <a href="schemes-api-events.md#request-intention">SchemeRequestReceived</a> intention
+> [SchemeRequestReceived](schemes-api-events.md#request-intention) intention
 > when attempting to access a resource located at an address with this protocol.
 
 
@@ -226,8 +226,8 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 
 > The debug mode settings also affects the default settings of child
-> configurations, such as <a href="webview-configuration.md#dev-tools">developer
-> tools</a> (if they are not set explicitly).
+> configurations, such as [developer tools](webview.md#dev-tools) 
+> (if they are not set explicitly).
 
 
 
@@ -323,8 +323,8 @@ $app->on(function (Event $event): void {
 });
 ```
 
-> More information about events can be found in the <a href="events.md">events
-> documentation</a>.
+> More information about events can be found in the 
+> [events documentation](events.md).
 {.note}
 
 

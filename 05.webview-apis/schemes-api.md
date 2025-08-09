@@ -137,8 +137,8 @@ Any configured schema can send its own events (and intentions), which allow
 interaction with requests to specified schemas.
 
 
-> More information about events can be found in the <a href="events.md">events
-> documentation</a>.
+> More information about events can be found in the 
+> [events documentation](events.md).
 {.note}
 
 ### Request Intention

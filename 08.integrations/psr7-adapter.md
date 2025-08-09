@@ -1,8 +1,8 @@
 # PSR HTTP Adapter
 
 The PSR HTTP Bridge provides the ability to convert internal requests and
-responses of the [Schema API](schemes-api.md) to those compatible with 
-any PSR-7 compatible frameworks (e.g. [Yii3](https://github.com/yiisoft/demo),
+responses of the [Schema API](../05.webview/schemes-api.md) to those compatible
+with any PSR-7 compatible frameworks (e.g. [Yii3](https://github.com/yiisoft/demo),
 [Spiral](https://spiral.dev/), [Slim](https://www.slimframework.com/), etc.).
 
 

@@ -3,18 +3,19 @@
 You can use Twig in [your Web Components](web-components-api.md). To do this, 
 you need to follow a few simple steps.
 
-<procedure title="1. Install Twig">
-First, you need to install <a href="https://twig.symfony.com/">the Twig</a> 
-itself <a href="https://getcomposer.org/">using Composer</a>.
+### 1. Install Twig
+
+First, you need to install [the Twig](https://twig.symfony.com/) 
+itself [using Composer](https://getcomposer.org/).
 ```bash
     composer require twig/twig
 ```
-</procedure>
 
-<procedure title="2. Create Twig Component">
+### 2. Create Twig Component
+
 After that, you should create a component that supports twig rendering.
+
 ```php
-<![CDATA[
 use Boson\WebView\Api\WebComponents\ReactiveContext;
 use Boson\WebView\Api\WebComponents\WebComponent;
 use Boson\WebView\WebView;
@@ -53,18 +54,16 @@ abstract class TwigComponent extends WebComponent
         return $this->template->render(\get_object_vars($this));
     }
 }
-]]>
 ```
-</procedure>
 
 
-<procedure title="3. Create Instantiator">
+### 3. Create Instantiator
+
 Now we need to define how exactly these components will be created, for 
 this we should create our own instantiator, which will return new 
 components on demand.
-```php
-<![CDATA[
 
+```php
 use Boson\WebView\Api\WebComponents\Instantiator\WebComponentInstantiatorInterface;
 use Boson\WebView\Api\WebComponents\ReactiveContext;
 use Boson\WebView\WebView;
@@ -99,16 +98,14 @@ final readonly class TwigComponentInstantiator implements
         return new $component($context, $webview);
     }
 }
-]]>
 ```
-</procedure>
 
-<procedure title="4. Register Instantiator">
+### 4. Register Instantiator
+
 To determine that a different instantiator should be used, it can 
 be specified in the webview configs.
 
 ```php
-<![CDATA[
 $webComponentsConfig = new WebComponentsCreateInfo(
     instantiator: new TwigComponentInstantiator(),
 );
@@ -122,15 +119,13 @@ $applicationConfig = new ApplicationCreateInfo(
 );
 
 $app = new Boson\Application($applicationConfig);
-]]>
 ```
-</procedure>
 
-<procedure title="5. Twig Components">
+### 5. Twig Components
+
 And now we can create custom twig components!
 
 ```php
-<![CDATA[
 class MyTwigComponent extends TwigComponent
 {
     protected array $items = [1, 2, 3];
@@ -146,19 +141,14 @@ class MyTwigComponent extends TwigComponent
         twig;
     }
 }
-]]>
 ```
 
 To register and check, just write a couple of lines
 
 ```php
-<![CDATA[
 $app->webview->defineComponent('my-list', MyTwigComponent::class);
 
 $app->webview->html = '<my-list />';
-]]>
 ```
 
 ![Example Result](/assets/example-twig-components-result.png)
-
-</procedure>

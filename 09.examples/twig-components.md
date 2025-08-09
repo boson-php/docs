@@ -1,7 +1,7 @@
 # Twig Components
 
-You can use Twig in [your Web Components](web-components-api.md). To do this, 
-you need to follow a few simple steps.
+You can use Twig in [your Web Components](../05.webview/web-components-api.md). 
+To do this, you need to follow a few simple steps.
 
 ### 1. Install Twig
 

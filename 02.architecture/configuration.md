@@ -45,41 +45,19 @@ content is rendered, what scripts are allowed, caching policies, and other
 browser-like behaviors.
 
 ```mermaid
-classDiagram
-    class ApplicationCreateInfo["readonly Boson\ApplicationCreateInfo"]{
-        string $name
-        iterable~string~ $schemes
-        int|null $threads
-        bool|null $debug
-        string|null $library
-        bool $quitOnClose
-        bool $autorun
-        Boson\Window\WindowCreateInfo $window
-    }
-    link ApplicationCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/ApplicationCreateInfo.php"
-    class WindowCreateInfo["readonly Boson\Window\WindowCreateInfo"]{
-        string $title
-        int $width
-        int $height
-        bool $enableHardwareAcceleration
-        bool $visible
-        bool $resizable
-        bool $alwaysOnTop
-        bool $clickThrough
-        Boson\Window\WindowDecoration $decoration
-        Boson\WebView\WebViewCreateInfo $webview
-    }
-    link WindowCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/Window/WindowCreateInfo.php"
-    class WebViewCreateInfo["readonly Boson\WebView\WebViewCreateInfo"]{
-        string|null $userAgent
-        string|false|null $storage
-        iterable~string, mixed~ $flags
-        bool|null $contextMenu
-        bool|null $devTools
-    }
-    link WebViewCreateInfo "https://github.com/BosonPHP/Runtime/blob/0.7.0/src/WebView/WebViewCreateInfo.php"
-    ApplicationCreateInfo <.. WindowCreateInfo
-    WindowCreateInfo <.. WebViewCreateInfo
+flowchart
+    Application[ApplicationCreateInfo] --> Window
+    Window[WindowCreateInfo] --> WebView
+    WebView[WebViewCreateInfo] --> BatteryApi
+    WebView[WebViewCreateInfo] --> NetworkApi
+    WebView[WebViewCreateInfo] --> BindingsApi
+    WebView[WebViewCreateInfo] --> DataApi
+    WebView[WebViewCreateInfo] --> WebComponents
+    BatteryApi[BatteryApiCreateInfo]
+    NetworkApi[NetworkApiCreateInfo]
+    BindingsApi[BindingsApiCreateInfo]
+    DataApi[DataApiCreateInfo]
+    WebComponents[WebComponentsCreateInfo]
 ```
 
 This layered configuration model keeps your setup organized and modular. Each 

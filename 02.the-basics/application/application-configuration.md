@@ -59,7 +59,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 > If the value is not specified (defined as `null`), the number of 
 > threads will correspond to the number of cores in the CPU.
 {.note}
-> 
+
 
 ## Debug Mode
 

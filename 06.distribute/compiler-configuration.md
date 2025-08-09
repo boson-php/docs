@@ -144,7 +144,6 @@ that will be executed when the application is launched.
 
 > If the field is not specified, the `"index.php"` will be used.
 {.note}
-> 
 
 ## `output` {id="config-output"}
 

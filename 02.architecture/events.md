@@ -5,10 +5,20 @@ and are arranged in the following order.
 
 ```mermaid
 flowchart
-    Psr\EventDispatcher\EventDispatcherInterface --> |&nbsp;delegates&nbsp;| Application
-    Application["Boson\Application"] --> |&nbsp;delegates&nbsp;| WindowManager
-    WindowManager["Boson\Window\Manager\WindowManager"] --> |&nbsp;delegates&nbsp;| Window
-    Window["Boson\Window\Window"] --> |&nbsp;delegates&nbsp;| WebView
+    WebView e1@--> |&nbsp;delegates events&nbsp;| Window
+    Window e2@--> |&nbsp;delegates events&nbsp;| WindowManager
+    WindowManager e3@--> |&nbsp;delegates events&nbsp;| Application
+    Application e4@--> |&nbsp;delegates events&nbsp;| EventDispatcher
+
+    e1@{ animation: fast }
+    e2@{ animation: fast }
+    e3@{ animation: fast }
+    e4@{ animation: fast }
+
+    EventDispatcher["Psr\EventDispatcher\EventDispatcherInterface"]
+    Application["Boson\Application"]
+    WindowManager["Boson\Window\Manager\WindowManager"]
+    Window["Boson\Window\Window"]
     WebView["Boson\Window\WebView"]
 ```
 

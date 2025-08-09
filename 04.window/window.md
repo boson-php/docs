@@ -106,7 +106,7 @@ enum WindowState
 There are corresponding methods for changing states from code.
 
 > Window state change also fires a
-> [corresponding event](window.md#state-changed-event) that can
+> [corresponding event](../04.window/window-events.md#state-changed-event) that can
 > be subscribed to using the [event systemm](../02.architecture/events.md).
 
 
@@ -165,7 +165,7 @@ The `Window::$isVisible` property controls the visibility state of the window.
 It allows you to show or hide the window programmatically.
 
 > It is also worth noting that the initial state of the window visibility
-> depends on the [window settings](window-configuration.md#window-visibility). 
+> depends on the [window settings](../04.window/window-configuration.md#window-visibility). 
 > By default, the window is shown.
 {.note}
 
@@ -282,7 +282,7 @@ in webview. So the result with different decorations will look like this.
 ![Transparent](/assets/window-decorations-transparent.png)
 
 > Window decoration change also fires a 
-> [corresponding event](window.md#decoration-changed-event) 
+> [corresponding event](../04.window/window-events.md#decoration-changed-event) 
 > that can be subscribed to using the [event system](../02.architecture/events.md).
 
 ### Default
@@ -311,9 +311,12 @@ provided by the operating system.
 $window->decoration = WindowDecoration::Frameless;
 ```
 
-> You can use the [Minimize](window.md#minimize), [Maximize](window.md#maximize),
-> [Restore](window.md#restore), [Close](window.md#window-close), 
-> [Drag](window.md#dragging) and [Resize](window.md#resizing) features 
+> You can use the [Minimize](../04.window/window.md#minimize),
+> [Maximize](../04.window/window.md#maximize),
+> [Restore](../04.window/window.md#restore),
+> [Close](../04.window/window.md#window-close),
+> [Drag](../04.window/window.md#dragging) and
+> [Resize](../04.window/window.md#resizing) features
 > to implement window controls manually.
 {.note}
 
@@ -324,7 +327,7 @@ $window->decoration = WindowDecoration::Frameless;
 
 ### Transparent
 
-Enables [frameless](#frameless) mode and makes the window
+Enables [frameless](../04.window/window.md#frameless) mode and makes the window
 background transparent.
 
 ```php
@@ -344,9 +347,12 @@ $window->decoration = WindowDecoration::Transparent;
 > </body>
 > ```
 
-> You can use the [Minimize](window.md#minimize), [Maximize](window.md#maximize),
-> [Restore](window.md#restore), [Close](window.md#window-close),
-> [Drag](window.md#dragging) and [Resize](window.md#resizing) features
+> You can use the [Minimize](../04.window/window.md#minimize), 
+> [Maximize](../04.window/window.md#maximize),
+> [Restore](../04.window/window.md#restore), 
+> [Close](../04.window/window.md#window-close),
+> [Drag](../04.window/window.md#dragging) and 
+> [Resize](../04.window/window.md#resizing) features
 > to implement window controls manually.
 {.note}
 
@@ -382,7 +388,7 @@ $window->size = new Boson\Window\Size(800, 600);
 > Attempting to set values outside this range will result in an exception.
 {.warning}
 
-> Window resize also fires a  [corresponding event](window.md#resized-event) 
+> Window resize also fires a  [corresponding event](../04.window/window-events.md#resized-event) 
 > that can be subscribed to using the [event system](../02.architecture/events.md).
 
 
@@ -607,7 +613,7 @@ $window->focus();
 > forced to the top. Please use this feature judiciously.
 {.warning}
 
-> Window focus also fires a [corresponding event](window.md#focused-event) 
+> Window focus also fires a [corresponding event](../04.window/window-events.md#focused-event) 
 > that can be subscribed to using the [event system](../02.architecture/events.md).
 
 
@@ -691,7 +697,7 @@ $window->close();
 ```
 
 > Closing a window is a destructive operation. All resources associated with the 
-> window, including its [WebView](webview.md), will be freed. 
+> window, including its [WebView](../05.webview/webview.md), will be freed. 
 > 
 > Any attempts to use the window (except `Window::$isClosed` property) 
 > after closing will result in undefined behavior.
@@ -707,7 +713,7 @@ if ($window->isClosed) {
 }
 ```
 
-> Window closing also fires a [corresponding event](window.md#closed-event) 
+> Window closing also fires a [corresponding event](../04.window/window-events.md#closed-event) 
 > that can be subscribed to using the [event system](../02.architecture/events.md).
 
 

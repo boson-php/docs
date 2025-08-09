@@ -1,8 +1,5 @@
 # Application Events
 
-<primary-label ref="events"/>
-<show-structure for="chapter" depth="2"/>
-
 The application will automatically emit the following events (and intentions)
 during its lifecycle.
 

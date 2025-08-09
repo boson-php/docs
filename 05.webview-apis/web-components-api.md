@@ -1,8 +1,5 @@
 # Web Components API
 
-<primary-label ref="experimental"/>
-<show-structure for="chapter" depth="2"/>
-
 You can create your own custom web components (html elements) processed by PHP.
 
 The API is available in the `WebView::$components` property.

@@ -1,9 +1,6 @@
 
 # Schemes API Events
 
-<primary-label ref="events"/>
-<show-structure for="chapter" depth="2"/>
-
 Any configured schema can send its own events (and intentions), which allow 
 interaction with requests to specified schemas.
 

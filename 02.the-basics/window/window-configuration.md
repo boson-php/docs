@@ -1,9 +1,6 @@
 
 # Window Configuration
 
-<primary-label ref="configuration"/>
-<show-structure for="chapter" depth="2"/>
-
 The window configuration class `Boson\Window\WindowCreateInfo` is
 <tooltip term="optional class">optional</tooltip> and serves as a convenient way to 
 define default settings for main window of your app.

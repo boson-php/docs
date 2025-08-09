@@ -334,7 +334,7 @@ $window->decoration = WindowDecoration::Transparent;
 
 
 > With transparent windows, you should use CSS to control the background color:
-> ```HTML
+> ```html
 > <style>
 > body {
 >     background: rgba(255, 255, 255, .8);
@@ -578,7 +578,7 @@ specific elements draggable.
 > To prevent this event for child HTML elements, use the `data-webview-ignore`
 > HTML attribute.
 > 
-> ```HTML
+> ```html
 > <!-- header is draggable -->
 > <header data-webview-drag>
 >     <span>Custom Title Bar</span>

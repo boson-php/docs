@@ -1,9 +1,6 @@
 
 # WebView Events
 
-<primary-label ref="events"/>
-<show-structure for="chapter" depth="2"/>
-
 The webview will automatically emit the following events (and intentions)
 during its lifecycle.
 

@@ -77,92 +77,69 @@ submit must be released under the [MIT license](https://opensource.org/license/m
 A pull request (or "merge request"), "PR" for short, is the best way to
 provide a bug fix or to propose enhancements to Boson Components.
 
-<procedure title="#1: Setup your Environment">
-  <step>Git;</step>
-  <step>PHP 8.4 or above.</step>
-</procedure>
+### #1: Setup your Environment
 
-<procedure title="#2: Get the Source Code">
-  <step>
-    Create a <a href="https://github.com">GitHub</a> account and sign in;
-  </step>
-  <step>
-    Fork an expected repository (click on <shortcut>Fork</shortcut> button);
-  </step>
-  <step>
-    Uncheck the "Copy the X.Y branch only";
-  </step>
-  <step>
-    After the "forking action" has completed, clone your fork locally 
-    (this will create a component directory):
-    ```Bash
-    git clone git@github.com:USERNAME/COMPONENT_NAME.git
-    ```
-  </step>
-  <step>
-    Add the upstream repository as a remote:
-    ```Bash
-    cd COMPONENT_NAME
-    git remote add upstream https://github.com/boson-php/COMPONENT_NAME.git
-    ```
-  </step>
-</procedure>
+- Git;
+- PHP 8.4 or above.
 
-<procedure title="#3: Choose the right Branch">
-  Since the project is quite simple, you can use the `master` branch for now.
-</procedure>
 
-<procedure title="#4: Work on your Pull Request">
-  Work on the code as much as you want and commit as much as you want; 
-  but keep in mind the following:
-  <step>
-    Add unit or functional tests to prove that the bug is fixed or 
-    that the new feature actually works;
-  </step>
-  <step>
-    Try hard to not break backward compatibility (if you must do so, try to 
-    provide a compatibility layer to support the old way) &mdash; PRs that 
-    break backward compatibility have less chance to be merged;
-  </step>
-  <step>
-    Write good commit messages: Start by a short subject line (the first line), 
-    followed by a blank line and a more detailed description.
-  </step>
-</procedure>
+### #2: Get the Source Code
 
-<procedure title="#5: Check that the current Tests Pass">
-  Each Component contains a short Composer command that allows you to do this.
-  <step>
-    Checking the tests.
-    ```Bash
-    composer test
-    ```
-  </step>
-  <step>
-    Checking and correcting coding style (we follow <a href="https://www.php-fig.org/per/coding-style/">PER Coding Style 2.0</a>).
-    ```Bash
-    composer phpcs:fix
-    ```
-  </step>
-  <step>
-    Checking for other type errors in the code.
-    ```Bash
-    composer linter
-    ```
-  </step>
-</procedure>
+- Create a <a href="https://github.com">GitHub</a> account and sign in;
+- Fork an expected repository (click on <shortcut>Fork</shortcut> button);
+- Uncheck the "Copy the X.Y branch only";
+- After the "forking action" has completed, clone your fork locally 
+  (this will create a component directory):
+  ```bash
+  git clone git@github.com:USERNAME/COMPONENT_NAME.git
+  ```
+- Add the upstream repository as a remote:
+  ```bash
+  cd COMPONENT_NAME
+  git remote add upstream https://github.com/boson-php/COMPONENT_NAME.git
+  ```
 
-<procedure title="#6: Submit your Pull Request">
-  Whenever you feel that your PR is ready for submission, 
-  follow the following steps.
-  <step>
-    Get all the latest changes to the branch
-    ```Bash
-    git fetch upstream
-    git pull upstream master --ff
-    ```
-  </step>
-  <step>
-    You can now make a pull request on GitHub repository.
-  </step>
-</procedure>
+### #3: Choose the right Branch
+
+- Since the project is quite simple, you can use the `master` branch for now.
+
+### #4: Work on your Pull Request
+
+Work on the code as much as you want and commit as much as you want; 
+but keep in mind the following:
+
+- Add unit or functional tests to prove that the bug is fixed or 
+  that the new feature actually works;
+- Try hard to not break backward compatibility (if you must do so, try to 
+  provide a compatibility layer to support the old way) &mdash; PRs that 
+  break backward compatibility have less chance to be merged;
+- Write good commit messages: Start by a short subject line (the first line), 
+  followed by a blank line and a more detailed description.
+
+### #5: Check that the current Tests Pass
+
+Each Component contains a short Composer command that allows you to do this.
+
+- Checking the tests.
+  ```bash
+  composer test
+  ```
+- Checking and correcting coding style (we follow [PER Coding Style 2.0](https://www.php-fig.org/per/coding-style/)).
+  ```bash
+  composer phpcs:fix
+  ```
+- Checking for other type errors in the code.
+  ```bash
+  composer linter
+  ```
+
+### #6: Submit your Pull Request
+Whenever you feel that your PR is ready for submission, 
+follow the following steps.
+
+- Get all the latest changes to the branch
+  ```bash
+  git fetch upstream
+  git pull upstream master --ff
+  ```
+- You can now make a pull request on GitHub repository.

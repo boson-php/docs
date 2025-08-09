@@ -1,9 +1,6 @@
 
 # WebView Configuration
 
-<primary-label ref="configuration"/>
-<show-structure for="chapter" depth="2"/>
-
 The webview configuration class `Boson\WebView\WebViewCreateInfo` is
 <tooltip term="optional class">optional</tooltip> and serves as a convenient way to 
 define default settings for webview of main window instance.

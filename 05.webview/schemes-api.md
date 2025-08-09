@@ -136,15 +136,16 @@ $app->on(function (SchemeRequestReceived $e): void {
 Any configured schema can send its own events (and intentions), which allow
 interaction with requests to specified schemas.
 
-
 > More information about events can be found in the 
-> [events documentation](events.md).
+> [events documentation](../02.architecture/events.md).
 {.note}
+
 
 ### Request Intention
 
-An `Boson\WebView\Api\Schemes\Event\SchemeRequestReceived` intention processing of user schemes
-registered [in the configuration](application-configuration.md#intercepted-schemes).
+An `Boson\WebView\Api\Schemes\Event\SchemeRequestReceived` intention 
+processing of user schemes registered
+[in the configuration](../03.application/application-configuration.md#intercepted-schemes).
 
 ```php
 class SchemeRequestReceived<WebView> 
@@ -158,9 +159,7 @@ class SchemeRequestReceived<WebView>
 - `$request` - Custom protocol request instance.
 - `$response` - An optional response instance containing the body string.
 
-
 > If intention is cancelled, then the response will be rejected (aborted).
-
 
 > An intention is **only** called for registered (in configuration) schemes.
 {.warning}

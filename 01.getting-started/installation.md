@@ -76,17 +76,6 @@ can be installed using the following command in a root of your project:
 composer require boson-php/runtime
 ```
 
-> Since the current release version of the package is `0.x`, you 
-> should make sure that your `composer.json` file contains the 
-> `"minimum-stability": "dev"` line, otherwise you will get an 
-> error message like:
-> ```
-> Could not find a version of package boson-php/runtime matching your 
-> minimum-stability (stable). Require it with an explicit version con
-> straint allowing its desired stability.
-> ```
-{.warning}
-
 Don't forget to include the autoload file in your application.
 
 ```php

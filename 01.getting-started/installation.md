@@ -27,7 +27,7 @@ applications with web technologies — without the bloat.
   > from source. For development purposes only.
   - An `ext-ffi` extension
 
-### Additional Dependencies
+### Linux Dependencies
 
 The Linux OS requires a few additional dependencies:
 - gtk4 (>=4.12)
@@ -73,6 +73,7 @@ dnf install gtk4 webkitgtk6.0
 pkg install webkit2-gtk4
 ```
 
+
 ## Runtime
 
 Boson runtime provides the core of the library and allows you to
@@ -95,6 +96,8 @@ require __DIR__ . '/vendor/autoload.php';
 $app = new Boson\Application();
 ```
 
+
+
 ## Compiler
 
 Boson compiler gives you the ability to assemble the result of your work into
@@ -107,9 +110,7 @@ can be installed using the following command in a root of your project:
 composer require boson-php/compiler --dev
 ```
 
-> The compiler is only required for development, it is not required for code 
+> The compiler is only required for development, it is not required for code
 > execution, so it is recommended to include it as a `--dev` package.
 {.note}
 
-> Make sure the `"minimum-stability"` is set correctly.
-{.warning}

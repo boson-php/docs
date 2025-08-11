@@ -66,6 +66,7 @@
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/module_dark.svg",
     "pages": [
       "07.components/http.md",
+      "07.components/uri.md",
       "07.components/http-body-decoder.md",
       "07.components/http-static-provider.md",
       "07.components/globals-provider.md",

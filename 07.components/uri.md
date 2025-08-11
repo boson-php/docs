@@ -125,14 +125,14 @@ you can use them separately. For this, Boson component provides an enum-like
 `Boson\Component\Uri\Component\Scheme` class containing a set of most popular
 schemes (protocols):
 
-- `Scheme::Http` – The [Hypertext Transfer Protocol scheme](https://en.wikipedia.org/wiki/HTTP)
-- `Scheme::Https` – The [Hypertext Transfer Protocol Secure scheme](https://en.wikipedia.org/wiki/HTTPS)
-- `Scheme::Data` – The [Data URI scheme](https://en.wikipedia.org/wiki/Data_URI_scheme)
-- `Scheme::File` – The [File URI scheme](https://en.wikipedia.org/wiki/File_URI_scheme)
-- `Scheme::Ftp` – The [File Transfer Protocol scheme](https://en.wikipedia.org/wiki/File_Transfer_Protocol)
-- `Scheme::Gopher` – The [Gopher Protocol scheme](https://en.wikipedia.org/wiki/Gopher_(protocol))
-- `Scheme::Ws` – The [WebSocket Protocol scheme](https://en.wikipedia.org/wiki/WebSocket)
-- `Scheme::Wss` – The [WebSocket Protocol Secure scheme](https://en.wikipedia.org/wiki/WebSocket)
+- `Scheme::Http` – The [Hypertext Transfer Protocol](https://en.wikipedia.org/wiki/HTTP) scheme
+- `Scheme::Https` – The [Hypertext Transfer Protocol Secure](https://en.wikipedia.org/wiki/HTTPS) scheme
+- `Scheme::Data` – The [Data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) scheme
+- `Scheme::File` – The [File URI](https://en.wikipedia.org/wiki/File_URI_scheme) scheme
+- `Scheme::Ftp` – The [File Transfer Protocol](https://en.wikipedia.org/wiki/File_Transfer_Protocol) scheme
+- `Scheme::Gopher` – The [Gopher Protocol](https://en.wikipedia.org/wiki/Gopher_(protocol)) scheme
+- `Scheme::Ws` – The [WebSocket Protocol](https://en.wikipedia.org/wiki/WebSocket) scheme
+- `Scheme::Wss` – The [WebSocket Protocol Secure](https://en.wikipedia.org/wiki/WebSocket) scheme
 
 Since the `Scheme` class implements behavior similar to
 [PHP enums](https://www.php.net/manual/ru/language.types.enumerations.php),

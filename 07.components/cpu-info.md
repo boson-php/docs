@@ -1,4 +1,4 @@
-# Central Processor Info
+# CPU Info
 
 The CPU info component provides information about the underlying CPU, 
 including architecture, number of cores, and other information.

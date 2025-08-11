@@ -1,4 +1,4 @@
-# HTTP Requests and Responses
+# HTTP
 
 The component provides a set of HTTP structures that provide information 
 about requests, responses, and their dependencies.

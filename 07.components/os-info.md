@@ -1,4 +1,4 @@
-# Operating System Info
+# OS Info
 
 The OS Info component provides a robust and flexible way to detect and work with
 operating system information in your applications. It offers a comprehensive 

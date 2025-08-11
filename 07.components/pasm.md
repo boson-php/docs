@@ -1,4 +1,4 @@
-# Machine Code Executor
+# Assembly
 
 The PASM (PHP Assembly) provides a set of utilities for 
 direct execution of low-level machine code in user space.

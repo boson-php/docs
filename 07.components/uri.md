@@ -25,7 +25,7 @@ The URI object is a DTO containing information about the Scheme, Authority, Path
 Query parameters and Fragment.
 
 ```mermaid
-flowchart
+flowchart LR
     Uri --> |&nbsp;scheme&nbsp;| Scheme
     Uri --> |&nbsp;authority&nbsp;| Authority
     Uri --> |&nbsp;path&nbsp;| Path

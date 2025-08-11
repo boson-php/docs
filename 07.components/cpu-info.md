@@ -22,9 +22,7 @@ composer require boson-php/cpu-info
 * `ext-ffi` (optional, provides more detailed and accurate information about the CPU)
 * `ext-com_dotnet` (optional, provides more detailed and accurate information about the CPU)
 
-## Usage
-
-### Basic Information
+## Basic Information
 
 ```php
 use Boson\Component\CpuInfo\CentralProcessor;
@@ -70,7 +68,7 @@ Instruction Sets: mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2
 > these instructions are not in the list.
 {.note}
 
-### CPU Architecture
+## CPU Architecture
 
 You can get the CPU architecture information from the CPU information 
 object (`$cpu->arch`). However, if you do not need all the CPU information, 
@@ -111,7 +109,7 @@ The component supports the following architectures:
 - `Architecture::Sparc`
 - `Architecture::Sparc64`
 
-### Instruction Sets
+## Instruction Sets
 
 The component provides information about supported CPU instruction sets. 
 You can check if a specific instruction set is supported:

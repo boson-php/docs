@@ -45,7 +45,7 @@ $function = $executor->compile(/* signature */, /* code */);
 > function, the associated memory will also be automatically cleared.
 {.note}
 
-### AMD64 (x86_64) Example
+## AMD64 (x86_64) Example
 
 Below is an example for getting information about the CPU using the 
 [1st leaf](https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-software-developers-manual-volume-2a-instruction-set-reference-a-l.html) 

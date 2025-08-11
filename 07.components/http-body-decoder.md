@@ -21,12 +21,7 @@ composer require boson-php/http-body-decoder
 * `PHP ^8.4`
 
 
-## Usage
-
-The component provides a flexible system for decoding HTTP request bodies with
-support for different content types.
-
-### Basic Usage
+## Basic Usage
 
 The main entry point is the `BodyDecoderFactory` class, which automatically 
 selects the appropriate decoder based on the request:
@@ -49,9 +44,9 @@ $factory = new BodyDecoderFactory([
 $decodedBody = $factory->decode( $bosonRequest );
 ```
 
-### Supported Decoders
+## Supported Decoders
 
-#### Form URL Encoded
+### Form URL Encoded
 
 The `FormUrlEncodedDecoder` handles `application/x-www-form-urlencoded` 
 content type:
@@ -84,7 +79,7 @@ $decodedBody = $decoder->decode(new Request(
 //
 ```
 
-#### Multipart Form Data
+### Multipart Form Data
 
 The `MultipartFormDataDecoder` handles `multipart/form-data` content type, 
 including file uploads:
@@ -126,7 +121,7 @@ $decodedBody = $decoder->decode(new Request(
 //
 ```
 
-### Creating Custom Decoders
+## Creating Custom Decoders
 
 You can create custom decoders by implementing 
 the `SpecializedBodyDecoderInterface`:
@@ -160,7 +155,7 @@ $factory = new BodyDecoderFactory([
 ]);
 ```
 
-### Error Handling
+## Error Handling
 
 The factory handles decoder errors gracefully:
 

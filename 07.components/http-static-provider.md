@@ -20,10 +20,6 @@ composer require boson-php/http-static-provider
 * `PHP ^8.4`
 
 
-## Usage
-
-Static adapters exist to serve files without execution of application code.
-
 ## Filesystem
 
 To return static files from the filesystem, you can use specific 

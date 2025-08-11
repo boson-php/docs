@@ -20,11 +20,7 @@ composer require boson-php/http
 
 * `PHP ^8.4`
 
-## Usage
-
-The component provides request and response implementations.
-
-### Request
+## Request
 
 The `Request` class represents an immutable HTTP request:
 
@@ -66,7 +62,7 @@ not modified.
 > ```
 
 
-### Response
+## Response
 
 The `Response` class represents a mutable HTTP response:
 
@@ -103,7 +99,7 @@ $response->status = 201;
 > ```
 
 
-### Headers
+## Headers
 
 Both request and response use the `HeadersMap` class for header management.
 To get a list of headers, use the `headers` property in HTTP objects
@@ -137,7 +133,7 @@ $response->headers->remove('content-type');
 > The headers map is **case-insensitive** (lowercased) for header names
 {.note}
 
-### Method
+## Method
 
 HTTP defines a set of request methods to indicate the purpose of the request
 and what is expected if the request is successful. Although they can also be
@@ -160,7 +156,7 @@ $request = new Request(method: 'GET');
 echo $request->method; // string("GET")
 ```
 
-#### Method Name
+### Method Name
 
 To get the name of the HTTP method, you can use the read-only `name` property.
 
@@ -176,7 +172,7 @@ $request = new Request(method: 'get');
 echo $request->method->name; // string("GET")
 ```
 
-#### Method Idempotency
+### Method Idempotency
 
 An HTTP method is idempotent if the intended effect on the server of making a
 single request is the same as the effect of making several identical requests.
@@ -211,7 +207,7 @@ if ($post->method->isIdempotent) {
 //
 ```
 
-#### Method Safety
+### Method Safety
 
 An HTTP method is safe if it doesn't alter the state of the server.
 In other words, a method is safe if it leads to a read-only operation.
@@ -245,7 +241,7 @@ if ($post->method->isSafe) {
 //
 ```
 
-#### Method Comparison
+### Method Comparison
 
 You can use the strict comparison method of objects, but if the objects are
 different, the result MAY be a `false` although technically both objects 
@@ -264,7 +260,7 @@ are identical, even if they implement different objects.
 $request1->method->equals($request2->method); // bool(true)
 ```
 
-### JSON Response
+## JSON Response
 
 The `JsonResponse` class extends `Response` to provide JSON-specific 
 functionality:

@@ -22,9 +22,7 @@ composer require boson-php/weak-types
 * `PHP ^8.4`
 
 
-## Usage
-
-### ObservableWeakSet
+## ObservableWeakSet
 
 `ObservableWeakSet` allows you to store a set of objects and track their 
 destruction. It's useful when you need to maintain a collection of objects 
@@ -50,7 +48,7 @@ foreach ($set as $object) {
 $count = count($set);
 ```
 
-### ObservableWeakMap
+## ObservableWeakMap
 
 `ObservableWeakMap` allows you to store a set of objects with referenced
 values and track their destruction. It's useful when you need to maintain a

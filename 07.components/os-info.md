@@ -25,9 +25,7 @@ composer require boson-php/os-info
 * `ext-com_dotnet` (optional, provides more detailed and accurate information about the OS)
 
 
-## Usage
-
-### Basic Detection
+## Basic Detection
 
 
 ```php
@@ -85,7 +83,7 @@ Standards: POSIX
 > Full implementation of macOS support is possible in the future.
 {.warning}
 
-### OS Families
+## OS Families
 
 You can get the OS family information from the OS information 
 object (`$os->family`). However, if you do not need all the OS information, 
@@ -127,7 +125,7 @@ if ($family->is(Family::Unix)) {
 }
 ```
 
-### Standards Support
+## Standards Support
 
 ```php
 use Boson\Component\OsInfo\OperatingSystem;

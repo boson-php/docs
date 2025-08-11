@@ -25,23 +25,43 @@ The URI object is a DTO containing information about the Scheme, Authority, Path
 Query parameters and Fragment.
 
 ```mermaid
-    flowchart
-    Uri e1@--> Scheme
-    Uri e2@--> Authority
-    Uri e3@--> Path
-    Uri e4@--> Query
-    Uri e5@--> Fragment
-
-    e1@{ animation: fast }
-    e2@{ animation: fast }
-    e3@{ animation: fast }
-    e4@{ animation: fast }
-    e5@{ animation: fast }
-
+flowchart
+    Uri --> |&nbsp;scheme&nbsp;| Scheme
+    Uri --> |&nbsp;authority&nbsp;| Authority
+    Uri --> |&nbsp;path&nbsp;| Path
+    Uri --> |&nbsp;query&nbsp;| Query
+    Uri --> |&nbsp;fragment&nbsp;| Fragment
+    Authority --> |&nbsp;user info&nbsp;| UserInfo
+    Authority --> |&nbsp;host&nbsp;| Host
+    Authority --> |&nbsp;port&nbsp;| Port
+    UserInfo --> |&nbsp;user&nbsp;| User
+    UserInfo --> |&nbsp;password&nbsp;| Password
+    Path --> |"&nbsp;sements[0]&nbsp;"| Segment1
+    Path --> |"&nbsp;sements[1]&nbsp;"| Segment2
+    Query --> |"&nbsp;parameters[0]&nbsp;"| Parameter1
+    Query --> |"&nbsp;parameters[1]&nbsp;"| Parameter2
+    Parameter1 --> |&nbsp;key&nbsp;| Parameter1Key
+    Parameter1 --> |&nbsp;value&nbsp;| Parameter1Value
+    Parameter2 --> |&nbsp;key&nbsp;| Parameter2Key
+    Parameter2 --> |&nbsp;value&nbsp;| Parameter2Value
+    
     Uri["abc://user:pass\@example.com:123/path/data?k=val&k2=val2#frag"]
     Scheme["abc"]
     Authority["user:pass\@example.com:123"]
     Path["path/data"]
     Query["k=val&k2=val2"]
     Fragment["frag"]
+    UserInfo["user:pass"]
+    User["user"]
+    Password["pass"]
+    Host["example.com"]
+    Port["123"]
+    Segment1["path"]
+    Segment2["data"]
+    Parameter1["k=val"]
+    Parameter2["k2=val2"]
+    Parameter1Key["k"]
+    Parameter1Value["val"]
+    Parameter2Key["k2"]
+    Parameter2Value["val2"]
 ```

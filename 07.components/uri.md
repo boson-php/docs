@@ -21,8 +21,8 @@ composer require boson-php/uri
 
 ## URI Class
 
-The URI object is a DTO containing information about the Scheme, Authority, Path, 
-Query parameters and Fragment.
+The URI object is a DTO-like (value object) containing information about the 
+Scheme, Authority, Path, Query parameters and Fragment.
 
 ```mermaid
 flowchart LR
@@ -64,4 +64,43 @@ flowchart LR
     Parameter1Value["val"]
     Parameter2Key["k2"]
     Parameter2Value["val2"]
+```
+
+You can use the properties to access the corresponding URI component.
+
+- `$uri->scheme` – Contains the value object of the schema component. May be 
+  `null` if the schema is not defined in the URI.
+- `$uri->authority` – Contains the value object of the authority component.
+  May be `null` if the host (and other URI components) is not defined in the URI.
+- `$uri->path` – Contains the value object of the path component.
+- `$uri->query` – Contains the value object of the query component.
+- `$uri->fragment` – Contains the string value of the path component. May be
+  `null` if the fragment is not defined in the URI.
+
+In addition to the properties listed above, the `Uri` object contains a set of 
+"facade" properties that delegate calls to internal components, providing a 
+more convenient way to obtain frequently used data.
+
+- `$uri->user` – An alias of `$uri->authority?->userInfo?->user` property.
+  May provide `null` value.
+- `$uri->password` – An alias of `$uri->authority?->userInfo?->password` property.
+  May provide `null` value.
+- `$uri->host` – An alias of `$uri->authority?->host` property.
+  May provide `null` value.
+- `$uri->port` – An alias of `$uri->authority?->port` property.
+  May provide `null` value.
+
+```php
+echo $uri . "\n";            // abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+
+echo $uri->scheme . "\n";    // abc
+echo $uri->authority . "\n"; // user:pass@example.com:123
+echo $uri->path . "\n";      // /path/data
+echo $uri->query . "\n";     // k=val&k2=val2
+echo $uri->fragment . "\n";  // frag
+
+echo $uri->user . "\n";      // user
+echo $uri->password . "\n";  // pass
+echo $uri->host . "\n";      // example.com
+echo $uri->port . "\n";      // 123
 ```

@@ -65,7 +65,6 @@
     "title": "Components",
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/module_dark.svg",
     "pages": [
-      "07.components/about.md",
       "07.components/os-info.md",
       "07.components/cpu-info.md",
       "07.components/pasm.md",

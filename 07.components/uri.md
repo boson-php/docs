@@ -25,7 +25,7 @@ The URI object is a DTO containing information about the Scheme, Authority, Path
 Query parameters and Fragment.
 
 ```mermaid
-flowchart
+    flowchart
     Uri e1@--> Scheme
     Uri e2@--> Authority
     Uri e3@--> Path
@@ -38,9 +38,9 @@ flowchart
     e4@{ animation: fast }
     e5@{ animation: fast }
 
-    Uri["abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag"]
+    Uri["abc://user:pass\@example.com:123/path/data?k=val&k2=val2#frag"]
     Scheme["abc"]
-    Authority["user:pass@example.com:123"]
+    Authority["user:pass\@example.com:123"]
     Path["path/data"]
     Query["k=val&k2=val2"]
     Fragment["frag"]

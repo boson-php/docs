@@ -133,6 +133,78 @@ $response->headers->remove('content-type');
 > The headers map is **case-insensitive** (lowercased) for header names
 {.note}
 
+
+### Header Line by Name
+
+To obtain a specific header's value, you can use the `first()` method.
+
+```php
+$type = $request->headers->first('content-type'); // null or string
+
+// The name's case does not affect the result
+$type = $request->headers->first('Content-Type'); // null or string
+```
+
+If the specified header is missing, the `null` value will be returned. 
+You can pass a second argument to specify a default value.
+
+```php
+$type = $request->headers->first('content-type', 'text/html');
+
+// The "$type" will contain expected value
+// from headers or "text/html"
+```
+
+
+### All Headers by Name
+
+The HTTP specification allows for multiple headers with the same name to be 
+specified. Although this is a rare case, in those cases where this is needed 
+you can get all the passed header values with the specified name.
+
+```php
+$values = $request->headers->all('x-example-header');
+
+//
+// If headers were passed
+//
+//  X-Example-Header: 23
+//  X-Example-Header: 42
+//
+// The "$values" will be
+//
+//  array:2 [
+//    0 => "23"
+//    1 => "42"
+//  ]
+//
+```
+
+
+### Existence Check
+
+To check the existence of the specified header (whether it was passed), 
+you should use the `has()` method.
+
+```php
+if ($request->headers->has('upgrade')) {
+    throw new LogicException('HTTP/2 disallows the use of this header');
+}
+```
+
+
+### Value Existence Check
+
+To check that a header with the specified value was passed, you 
+can use the `contains()` method.
+
+```php
+if (! $request->headers->contains('content-type', 'application/json')) {
+    throw new LogicException('Only JSON requests are available');
+}
+```
+
+
 ## Method
 
 HTTP defines a set of request methods to indicate the purpose of the request

@@ -69,9 +69,17 @@ flowchart LR
 The URI object contains a `__toString()` method, so it can be passed 
 as any `Stringable` value or can be converted to a `string`.
 
+> Here and below, URI `abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag` 
+> will be used as an example.
+
 ```php
 echo $uri;
-// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+
+//
+// Expected Output:
+//
+//   abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+//
 ```
 
 You can use the corresponding properties to access the data located
@@ -88,19 +96,48 @@ inside the `Uri`.
 
 ```php
 echo $uri->scheme . "\n";
-// abc
+
+//
+// Expected Output:
+//
+//   abc
+//
+
 
 echo $uri->authority . "\n";
-// user:pass@example.com:123
+
+//
+// Expected Output:
+//
+//   user:pass@example.com:123
+//
+
 
 echo $uri->path . "\n";
-// /path/data
+
+//
+// Expected Output:
+//
+//   /path/data
+//
+
 
 echo $uri->query . "\n";
-// k=val&k2=val2
+
+//
+// Expected Output:
+//
+//   k=val&k2=val2
+//
+
 
 echo $uri->fragment . "\n";
-// frag
+
+//
+// Expected Output:
+//
+//   frag
+//
 ```
 
 In addition to the properties listed above, the `Uri` object contains a set of 
@@ -114,16 +151,39 @@ more convenient way to obtain frequently used data.
 
 ```php
 echo $uri->user . "\n";
-// user
+
+//
+// Expected Output:
+//
+//   user
+//
+
 
 echo $uri->password . "\n";
-// pass
+
+//
+// Expected Output:
+//
+//   pass
+//
+
 
 echo $uri->host . "\n";
-// example.com
+
+//
+// Expected Output:
+//
+//   example.com
+//
+
 
 echo $uri->port . "\n";
-// 123
+
+//
+// Expected Output:
+//
+//   123
+//
 ```
 
 
@@ -148,7 +208,12 @@ be passed as any `Stringable` value or can be converted to a `string`.
 
 ```php
 echo $uri->scheme . "\n";
-// abc
+
+//
+// Expected Output:
+//
+//   abc
+//
 ```
 
 Since the `Scheme` class implements behavior similar to
@@ -166,14 +231,30 @@ you also have access to the `from(), `tryFrom()` and `cases()` methods.
 use Boson\Component\Uri\Component\Scheme;
 
 echo Scheme::from('http');
-// http
+
+//
+// Expected Output:
+//
+//   http
+//
 
 echo Scheme::from('wtf');
-// Uncaught ValueError: "wtf" is not a valid backing value for
-// enum-like Boson\Component\Uri\Component\Scheme
 
-echo Scheme::tryFrom('wtf'); 
-// null
+//
+// Expected Output:
+//
+//   Uncaught ValueError: "wtf" is not a valid backing value for
+//   enum-like Boson\Component\Uri\Component\Scheme
+//
+
+echo get_debug_type(Scheme::tryFrom('wtf'));
+
+
+//
+// Expected Output:
+// 
+//   null
+//
 ```
 
 > Please note that the `from()` and `tryFrom()` methods
@@ -226,13 +307,29 @@ inside the `Authority` URI's component.
 
 ```php
 echo $uri->authority->userInfo . "\n";
-// user:pass
+
+//
+// Expected Output:
+//
+//   user:pass
+
 
 echo $uri->authority->host . "\n";
-// example.com
+
+//
+// Expected Output:
+//
+//   example.com
+//
+
 
 echo $uri->authority->port . "\n";
-// 123
+
+//
+// Expected Output:
+//
+//   123
+//
 ```
 
 Authority also contains a set of "facade" properties that provide quick 
@@ -243,10 +340,20 @@ access to embedded data.
 
 ```php
 echo $uri->authority->user . "\n";
-// user
+
+//
+// Expected Output:
+//
+//   user
+
 
 echo $uri->authority->password . "\n";
-// pass
+
+//
+// Expected Output:
+//
+//   pass
+//
 ```
 
 > This data can also be obtained directly from the
@@ -263,7 +370,12 @@ as any `Stringable` value or can be converted to a `string`.
 
 ```php
 echo $uri->authority->userInfo . "\n";
-// user:pass
+
+//
+// Expected Output:
+//
+//   user:pass
+//
 ```
 
 You can use the corresponding properties to access the data located
@@ -271,12 +383,166 @@ inside the `UserInfo` URI's component.
 
 ```php
 echo $userInfo->user . "\n";
-// user
+
+//
+// Expected Output:
+//
+//   user
+//
+
 
 echo $userInfo->password . "\n";
-// pass
+
+//
+// Expected Output:
+//
+//   pass
+//
 ```
 
 > This data can also be obtained directly from the 
 > [Uri](../07.components/uri.md#uri-class) and
 > [Authority](../07.components/uri.md#authority) facade properties.
+
+## Path
+
+Path is a value object containing information about the path 
+in [Uri](../07.components/uri.md#uri-class).
+
+The `Path` object contains a `__toString()` method, so it can be passed
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri->path . "\n";
+
+//
+// Expected Output:
+//
+//   /path/data
+//
+```
+
+In addition to the `Path`'s segments, it contains several 
+additional information fields.
+
+- `$path->isAbsolute` – Contains a `bool` value indicating whether the 
+  Uri's path starts with a slash `/`.
+  > ```php
+  > if ($path->isAbsolute) {
+  >     echo $path === '/path/data';
+  > } else {
+  >     echo $path === 'path/data';
+  > }
+  > ```
+- `$path->hasTrailingSlash` – Contains a `bool` value indicating whether the
+  Uri's path ends with a slash `/`
+  > ```php
+  > if ($path->hasTrailingSlash) {
+  >     echo $path === 'path/data/';
+  > } else {
+  >     echo $path === 'path/data';
+  > }
+  > ```
+
+
+### Path Segments
+
+The `Path` object can be split into segments and provides `Traversable` and 
+`Countable` capabilities.
+
+```php
+echo $path;
+
+//
+// Expected Output:
+//
+// /path/data
+//
+
+foreach ($path as $segment) {
+    echo $segment;
+}
+
+//
+// Expected Output:
+//
+//   path
+//   data
+//
+
+
+echo count($path);
+
+//
+// Expected Output:
+//
+//   2
+//
+```
+
+
+### Path Comparison
+
+To compare paths, you can compare `Path` objects. However, in this case, in the 
+case of two different URI objects, the result will be `false`.
+
+```php
+echo $uri1; // http://example.com/path
+echo $uri2; // http://example.com/path
+
+// Check that "path" is IDENTICAL to "path"
+var_dump($uri1->path === $uri2->path);
+
+//
+// Expected Output:
+//
+//   false
+//
+```
+
+To compare the structure of objects without taking into account the
+identity of instances, the equivalence `==` operator should be used.
+
+```php
+echo $uri1; // http://example.com/path
+echo $uri2; // http://example.com/path
+echo $uri3; // http://example.com/path/
+
+
+// Check that "path" is EQUAL to "path"
+var_dump($uri1->path == $uri2->path);
+
+//
+// Expected Output:
+//
+//   true
+//
+
+
+// Check that "path" is EQUAL to "path/"
+var_dump($uri1->path == $uri3->path);
+
+//
+// Expected Output:
+//
+//   false
+//
+```
+
+To compare only the segments of a `Path` object, the `equals()` 
+method should be used.
+
+```php
+echo $uri1; // http://example.com/path
+echo $uri2; // http://example.com/path/
+
+
+// Comparison of path's segments
+var_dump($uri1->path->equals($uri2->path));
+
+//
+// Expected Output:
+//
+//   true
+//
+```

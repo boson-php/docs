@@ -22,7 +22,7 @@ composer require boson-php/uri
 ## URI Class
 
 The URI object is a DTO-like (value object) containing information about the 
-Scheme, Authority, Path, Query parameters and Fragment.
+`scheme`, `authority`, `path`, `query` parameters and `fragment`.
 
 ```mermaid
 flowchart LR
@@ -66,9 +66,17 @@ flowchart LR
     Parameter2Value["val2"]
 ```
 
+The URI object contains a `__toString()` method, so it can be passed 
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri;
+// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+```
+
 You can use the properties to access the corresponding URI component.
 
-- `$uri->scheme` – Contains a schema component. May be `null` if the schema is 
+- `$uri->scheme` – Contains a scheme component. May be `null` if the scheme is 
   not defined in the URI.
 - `$uri->authority` – Contains an authority component. May be `null` if the 
   host (and other URI components) is not defined in the URI.
@@ -76,15 +84,6 @@ You can use the properties to access the corresponding URI component.
 - `$uri->query` – Contains a query component.
 - `$uri->fragment` – Contains a path component. May be `null` if the fragment
   is not defined in the URI.
-
-In addition to the properties listed above, the `Uri` object contains a set of 
-"facade" properties that delegate calls to internal components, providing a 
-more convenient way to obtain frequently used data.
-
-- `$uri->user` – An alias of `$uri->authority?->userInfo?->user`.
-- `$uri->password` – An alias of `$uri->authority?->userInfo?->password`.
-- `$uri->host` – An alias of `$uri->authority?->host`.
-- `$uri->port` – An alias of `$uri->authority?->port`.
 
 ```php
 echo $uri . "\n";
@@ -104,7 +103,18 @@ echo $uri->query . "\n";
 
 echo $uri->fragment . "\n";
 // frag
+```
 
+In addition to the properties listed above, the `Uri` object contains a set of 
+"facade" properties that delegate calls to internal components, providing a 
+more convenient way to obtain frequently used data.
+
+- `$uri->user` – An alias of `$uri->authority?->userInfo?->user`.
+- `$uri->password` – An alias of `$uri->authority?->userInfo?->password`.
+- `$uri->host` – An alias of `$uri->authority?->host`.
+- `$uri->port` – An alias of `$uri->authority?->port`.
+
+```php
 echo $uri->user . "\n";
 // user
 
@@ -133,6 +143,17 @@ schemes (protocols):
 - `Scheme::Gopher` – The [Gopher Protocol](https://en.wikipedia.org/wiki/Gopher_(protocol)) scheme
 - `Scheme::Ws` – The [WebSocket Protocol](https://en.wikipedia.org/wiki/WebSocket) scheme
 - `Scheme::Wss` – The [WebSocket Protocol Secure](https://en.wikipedia.org/wiki/WebSocket) scheme
+
+The `Scheme` is a value object that contains a `__toString()` method, so it can
+be passed as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri . "\n";
+// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+
+echo $uri->scheme . "\n";
+// abc
+```
 
 Since the `Scheme` class implements behavior similar to
 [PHP enums](https://www.php.net/manual/ru/language.types.enumerations.php),
@@ -182,4 +203,56 @@ foreach (Scheme::cases() as $scheme) {
 //   ws
 //   wss
 //
+```
+
+## Authority
+
+Authority is a simple value object containing information about
+the host, port, and user info of the URI.
+
+As well as URI contains a `__toString()` method, so it can be passed
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri . "\n";
+// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
+
+echo $uri->authority . "\n";
+// user:pass@example.com:123
+```
+
+You can use the properties to access the corresponding URI's authority component.
+
+- `$authority->userInfo` – Contains user info component. May be `null` in case 
+  of user info is not defined in authority.
+- `$authority->host` – Contains host component.
+- `$authority->port` – Contains port component. May be `null` in case
+  of port is not defined in authority.
+
+```php
+echo $uri->authority . "\n";
+// user:pass@example.com:123
+
+echo $uri->authority->userInfo . "\n";
+// user:pass
+
+echo $uri->authority->host . "\n";
+// example.com
+
+echo $uri->authority->port . "\n";
+// 123
+```
+
+Authority also contains a set of "facade" properties that provide quick 
+access to embedded data.
+
+- `$authority->user` – An alias of `$authority->userInfo->user`.
+- `$authority->password` – An alias of `$authority->userInfo->password`.
+
+```php
+echo $uri->authority->user . "\n";
+// user
+
+echo $uri->authority->password . "\n";
+// pass
 ```

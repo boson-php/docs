@@ -662,33 +662,6 @@ echo new StatusCode(1001, 'DNS Resolution Error');
 ```
 
 
-### Status Comparison
-
-You can use the strict objects comparison, but if the objects are
-different, the result MAY be a `false` although technically both objects
-implement an identical code number.
-
-```php
-use Boson\Component\Http\Component\StatusCode;
-
-echo StatusCode::Ok;       // 200 OK
-echo new StatusCode(200);  // 200
-
-// Comparison of objects, the result may be undefined
-StatusCode::Ok === new StatusCode(200); // false
-```
-
-To compare status codes by meaning, even if the implementations may differ,
-there is the `equals()` method, which guarantees true if the HTTP statuses
-are identical, even if they implement different objects.
-
-```php
-new StatusCode(200)->equals(StatusCode::Ok);  // true
-
-new StatusCode(200)->equals(StatusCode::Ok); // false
-```
-
-
 ## JSON Response
 
 The `JsonResponse` class extends `Response` to provide JSON-specific 

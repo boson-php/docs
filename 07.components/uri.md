@@ -586,7 +586,7 @@ var_dump($uri1->path->equals($uri2->path));
 ```
 
 
-### Query
+## Query
 
 Query is a value object containing information about the query parameters
 in [Uri](../07.components/uri.md#uri-class).

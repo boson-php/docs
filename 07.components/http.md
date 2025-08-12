@@ -433,33 +433,6 @@ $method->isIdempotent;  // true
 ```
 
 
-### Method Comparison
-
-You can use the strict comparison method of objects, but if the objects are
-different, the result MAY be a `false` although technically both objects
-implement an identical HTTP method.
-
-```php
-use Boson\Component\Http\Component\Method;
-
-echo Method::Get;       // GET
-echo new Method('GET'); // GET
-
-// Comparison of objects, the result may be undefined
-Method::Get === new Method('GET'); // false
-```
-
-To compare methods by meaning, even if the implementations may differ,
-there is the `equals()` method, which guarantees true if the HTTP methods
-are identical, even if they implement different objects.
-
-```php
-new Method('GET')->equals(Method::Get);  // true
-
-new Method('POST')->equals(Method::Get); // false
-```
-
-
 ## Status Code
 
 HTTP [response](../07.components/http.md#response) status codes indicate whether

@@ -441,6 +441,7 @@ echo $userInfo->password . "\n";
 > [Uri](../07.components/uri.md#uri-class) and
 > [Authority](../07.components/uri.md#authority) facade properties.
 
+
 ## Path
 
 Path is a value object containing information about the path 
@@ -581,5 +582,157 @@ var_dump($uri1->path->equals($uri2->path));
 // Expected Output:
 //
 //   true
+//
+```
+
+
+### Query
+
+Query is a value object containing information about the query parameters
+in [Uri](../07.components/uri.md#uri-class).
+
+The `Query` object contains a `__toString()` method, so it can be passed
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri->query . "\n";
+
+//
+// Expected Output:
+//
+//   k=val&k2=val2
+//
+```
+
+### Getting Parameter
+
+To get any parameter by its name, use the `get()` method. This method can only 
+return a `string` or `null`.
+
+```php
+$k2 = $uri->query->get('k2');
+
+//
+// Expected Result:
+//
+//   $k2 is "val2"
+//
+
+
+$k1 = $uri->query->get('k1');
+
+//
+// Expected Result:
+//
+//   $k1 is null
+//
+```
+
+As a second optional argument, it is also possible to specify a default value 
+in the case that the expected query parameter is not passed.
+
+```php
+$k2 = $uri->query->get('k2', 'undefined');
+
+//
+// Expected Result:
+//
+//   $k2 is "val2"
+//
+
+
+$k1 = $uri->query->get('k1', 'undefined');
+
+//
+// Expected Result:
+//
+//   $k1 is "undefined"
+//
+```
+
+If the query parameter contains an array, the `get()` method will return the 
+first element of this array.
+
+```php
+// $uri is "http://example.com?key[]=value1&key[]=value2"
+$value = $uri->query->get('key');
+
+//
+// Expected Result:
+//
+//   $value is "value1"
+//
+
+
+// $uri is "http://example.com?key[a]=value1&key[b]=value2"
+$value = $uri->query->get('key');
+
+//
+// Expected Result:
+//
+//   $value is "value1"
+//
+```
+
+
+### Integer Parameters
+
+When getting a numeric value using the `get()` method, a `string` will always 
+be returned. If you need an `int` value, you should use the `getAsInt()` method.
+
+```php
+// $uri is http://example.com?key=42
+$value = $uri->query->getAsInt('key');
+
+//
+// Expected Result:
+//
+//   $value is 42
+//
+```
+
+If the query parameter contains a value that cannot be converted to an `int`, 
+then `getAsInt()` will return `null`, even if such a parameter is present.
+
+```php
+// $uri may be:
+// - http://example.com?key=non-numeric
+// - http://example.com?key=0.42
+// - http://example.com?key=2e4
+// - http://example.com?key=042
+$value = $uri->query->getAsInt('key');
+
+//
+// Expected Result (for all URI variants):
+//
+//   $value is null
+// 
+```
+
+
+### Array Parameters
+
+To get parameters as `array`, you should use the `getAsArray()` method. 
+Regardless of the type of the parameter, the method will always return 
+an `array`.
+
+```php
+// $uri is http://example.com?key[]=value&key[a]=value2
+$value = $uri->query->getAsArray('key');
+
+//
+// Expected Result:
+//
+//   $value is [0 => 'value', 'a' => 'value2']
+//
+
+
+// $uri is http://example.com?key=value
+$value = $uri->query->getAsArray('key');
+
+//
+// Expected Result:
+//
+//   $value is [0 => 'value']
 //
 ```

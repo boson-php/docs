@@ -736,3 +736,30 @@ $value = $uri->query->getAsArray('key');
 //   $value is [0 => 'value']
 //
 ```
+
+
+## Fragment
+
+Fragment is a string value of the [Uri](../07.components/uri.md#uri-class) instance. If fragment is not 
+defined, then property will contain `null`.
+
+```php
+// $uri is "http://example.com#hello"
+$fragment = $uri->fragment;
+
+//
+// Expected Result:
+//
+//   $fragment is "hello"
+//
+
+
+// $uri is "http://example.com"
+$fragment = $uri->fragment;
+
+//
+// Expected Result:
+//
+//   $fragment is null
+//
+```

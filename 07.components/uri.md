@@ -283,6 +283,43 @@ foreach (Scheme::cases() as $scheme) {
 ```
 
 
+### Scheme Default Port
+
+Each built-in scheme may also contain a port defined by
+default for that scheme.
+
+The port property may contain `null` if the scheme does not contain a 
+known default port.
+
+> Note that default ports are only available for built-in schemes. A 
+> [user-defined schemes](../07.components/uri.md#user-defined-scheme) do not 
+> contain this property.
+
+```php
+use Boson\Component\Uri\Component\Scheme;
+
+echo Scheme::Https->port;  // 443
+
+echo Scheme::Gopher->port; // 70
+```
+
+
+### User Defined Scheme
+
+In addition to the [basic schemes](../07.components/uri.md#scheme), you may 
+need to create your own.
+
+To do this, you should create an instance of the `Scheme` object.
+
+```php
+use Boson\Component\Uri\Component\Scheme;
+
+echo new Scheme('Boson'); // boson
+```
+
+> The `Boson`s constructor is case-sensitive. Scheme value will be lowercased.
+
+
 ## Authority
 
 Authority is a simple value object containing information about

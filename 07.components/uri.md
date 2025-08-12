@@ -74,7 +74,8 @@ echo $uri;
 // abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
 ```
 
-You can use the properties to access the corresponding URI component.
+You can use the corresponding properties to access the data located
+inside the `Uri`.
 
 - `$uri->scheme` – Contains a scheme component. May be `null` if the scheme is 
   not defined in the URI.
@@ -86,9 +87,6 @@ You can use the properties to access the corresponding URI component.
   is not defined in the URI.
 
 ```php
-echo $uri . "\n";
-// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
-
 echo $uri->scheme . "\n";
 // abc
 
@@ -128,6 +126,7 @@ echo $uri->port . "\n";
 // 123
 ```
 
+
 ## Scheme
 
 Scheme is a part of the [Uri](../07.components/uri.md#uri-class), but
@@ -148,9 +147,6 @@ The `Scheme` is a value object that contains a `__toString()` method, so it can
 be passed as any `Stringable` value or can be converted to a `string`.
 
 ```php
-echo $uri . "\n";
-// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
-
 echo $uri->scheme . "\n";
 // abc
 ```
@@ -205,23 +201,22 @@ foreach (Scheme::cases() as $scheme) {
 //
 ```
 
+
 ## Authority
 
 Authority is a simple value object containing information about
-the host, port, and user info of the URI.
+the host, port, and user info of the [Uri](../07.components/uri.md#uri-class).
 
 As well as URI contains a `__toString()` method, so it can be passed
 as any `Stringable` value or can be converted to a `string`.
 
 ```php
-echo $uri . "\n";
-// abc://user:pass@example.com:123/path/data?k=val&k2=val2#frag
-
 echo $uri->authority . "\n";
 // user:pass@example.com:123
 ```
 
-You can use the properties to access the corresponding URI's authority component.
+You can use the corresponding properties to access the data located 
+inside the `Authority` URI's component.
 
 - `$authority->userInfo` – Contains user info component. May be `null` in case 
   of user info is not defined in authority.
@@ -230,9 +225,6 @@ You can use the properties to access the corresponding URI's authority component
   of port is not defined in authority.
 
 ```php
-echo $uri->authority . "\n";
-// user:pass@example.com:123
-
 echo $uri->authority->userInfo . "\n";
 // user:pass
 
@@ -256,3 +248,35 @@ echo $uri->authority->user . "\n";
 echo $uri->authority->password . "\n";
 // pass
 ```
+
+> This data can also be obtained directly from the
+> [Uri](../07.components/uri.md#uri-class) facade properties.
+
+
+## User Info
+
+User Info is a value object containing information about user and password 
+in the URI (in [authority](../07.components/uri.md#authority) URI's component).
+
+The `UserInfo` object contains a `__toString()` method, so it can be passed
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo $uri->authority->userInfo . "\n";
+// user:pass
+```
+
+You can use the corresponding properties to access the data located
+inside the `UserInfo` URI's component.
+
+```php
+echo $userInfo->user . "\n";
+// user
+
+echo $userInfo->password . "\n";
+// pass
+```
+
+> This data can also be obtained directly from the 
+> [Uri](../07.components/uri.md#uri-class) and
+> [Authority](../07.components/uri.md#authority) facade properties.

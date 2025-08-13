@@ -130,7 +130,7 @@ flowchart LR
 To get the parent, you should call the `parent` property. However, to check 
 for inclusion any OS family in another one, you need to use the `is` method.
 
-```
+```php
 // Compatibility check
 if ($family->is(Family::BSD)) {
     // BSD and BSD-like, for example:

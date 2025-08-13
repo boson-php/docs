@@ -27,6 +27,20 @@ composer require boson-php/os-info
 
 ## Basic Detection
 
+The `OperatingSystem` contains a number of properties that provide
+information about the operating system.
+
+- `$os->name` – Name of the operating system.
+- `$os->version` – Version of the operating system.
+- `$os->codename` – Codename of the operating system. May contain `null` if 
+   the information is not available.
+- `$os->edition` – Edition of the operating system. May contain `null` if
+  the information is not available.
+- `$os->family` – Family this operating system belongs to.
+  > More detailed information about the family is [described below](../07.components/os-info.md#os-families).
+- `$os->standards` – List of standards supported by the operating system.
+  > More detailed information about the family is [described below](../07.components/os-info.md#standards-support).
+
 
 ```php
 use Boson\Component\OsInfo\OperatingSystem;
@@ -83,6 +97,7 @@ Standards: POSIX
 > Full implementation of macOS support is possible in the future.
 {.warning}
 
+
 ## OS Families
 
 You can get the OS family information from the OS information 
@@ -102,7 +117,7 @@ if ($family === Family::BSD) {
 }
 ```
 
-Currently, the component can detect the following OS families:
+Currently, `Family` may contain the following OS families:
 
 - `Family::Windows` – A Windows and Windows-based OS
 - `Family::Linux` – Any Linux OS and its derivatives
@@ -110,6 +125,83 @@ Currently, the component can detect the following OS families:
 - `Family::BSD` – Any BSD OS and its derivatives
 - `Family::Solaris` – Any Solaris OS and its derivatives
 - `Family::Darwin` – Any macOS and its derivatives
+
+Since the `Family` class implements behavior similar to
+[PHP enums](https://www.php.net/manual/ru/language.types.enumerations.php),
+you also have access to the `from()`, `tryFrom()` and `cases()` methods.
+
+> Due to many technical limitations of the PHP (for example,
+> [unable to use properties](https://externals.io/message/126332),
+> [unable to define the `__toString()` method](https://externals.io/message/124991),
+> unable to override `from()` & `tryFrom()` methods, etc.),
+> this class cannot be implemented using the classic PHP enum.
+{.warning}
+
+
+```php
+use Boson\Component\OsInfo\Family;
+
+echo Family::from('windows');
+// Windows
+
+echo Family::from('wtf');
+// Uncaught ValueError: "wtf" is not a valid backing value for
+// enum-like Boson\Component\OsInfo\Family
+
+echo Family::tryFrom('wtf'); 
+// null
+```
+
+> Please note that the `from()` and `tryFrom()` methods
+> are **case-insensitive**.
+{.note}
+
+```php
+use Boson\Component\OsInfo\Family;
+
+foreach (Family::cases() as $family) {
+    echo $family . "\n";
+}
+
+//
+// Expected Output:
+//
+//   Windows
+//   Unix
+//   Linux
+//   BSD
+//   Solaris
+//   Darwin
+//
+```
+
+### OS Family Name
+
+You can use the `name` property to get the OS family name.
+
+```php
+echo Family::createFromGlobals()
+    ->name;
+    
+//
+// Expected Output:
+//
+//   Linux
+//
+```
+
+The `Family` object also contains a `__toString()` method, so it can be passed
+as any `Stringable` value or can be converted to a `string`.
+
+```php
+echo Family::createFromGlobals();
+
+//
+// Expected Output:
+//
+//   Linux
+//
+```
 
 
 ### OS Family Children
@@ -144,6 +236,21 @@ if ($family->is(Family::BSD)) {
 
 ## Standards Support
 
+You can get the OS standards information from the OS information
+object (`$os->standards`).
+
+```php
+use Boson\Component\OsInfo\OperatingSystem;
+
+$standards = OperatingSystem::createFromGlobals()
+    ->standards;
+
+var_dump($standards);
+```
+
+In addition, the `OperatingSystem` instance supports the `isSupports()` 
+method to check for support of the specified standard.
+
 ```php
 use Boson\Component\OsInfo\OperatingSystem;
 use Boson\Component\OsInfo\Standard;
@@ -154,4 +261,48 @@ $os = OperatingSystem::createFromGlobals();
 if ($os->isSupports(Standard::Posix)) {
     // Standard is supported
 }
+```
+
+As you may have noticed, standards are also enum-like class, that implements 
+behavior similar to [PHP enums](https://www.php.net/manual/ru/language.types.enumerations.php).
+You also have access to the `from()`, `tryFrom()` and `cases()` methods.
+
+> Due to many technical limitations of the PHP (for example,
+> [unable to use properties](https://externals.io/message/126332),
+> [unable to define the `__toString()` method](https://externals.io/message/124991),
+> unable to override `from()` & `tryFrom()` methods, etc.),
+> this class cannot be implemented using the classic PHP enum.
+{.warning}
+
+
+```php
+use Boson\Component\OsInfo\Standard;
+
+echo Standard::from('posix');
+// POSIX
+
+echo Standardv::from('wtf');
+// Uncaught ValueError: "wtf" is not a valid backing value for
+// enum-like Boson\Component\OsInfo\Standard
+
+echo Standard::tryFrom('wtf'); 
+// null
+```
+
+> Please note that the `from()` and `tryFrom()` methods
+> are **case-insensitive**.
+{.note}
+
+```php
+use Boson\Component\OsInfo\Standard;
+
+foreach (Standard::cases() as $standard) {
+    echo $standard . "\n";
+}
+
+//
+// Expected Output:
+//
+//   POSIX
+//
 ```

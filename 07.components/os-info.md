@@ -58,15 +58,26 @@ echo 'Standards: ' . implode(', ', $os->standards) . "\n";
 
 This code will output something like the following information
 
-**Windows**
+**Windows (with FFI)**
 
 ```
 Family: Windows
-Name: Windows 10 Pro
-Version: 10.0.19045
-Codename: 22H2
+Name: Windows 11 Pro
+Version: 10.0.26100
+Codename: 24H2
 Edition: Professional
-Standards: ~ 
+Standards: ~
+```
+
+**Windows (without FFI)**
+
+```
+Family: Windows
+Name: Windows NT
+Version: 10.0
+Codename: ~
+Edition: ~
+Standards: ~
 ```
 
 **Linux**
@@ -74,8 +85,8 @@ Standards: ~
 ```
 Family: Linux
 Name: Ubuntu
-Version: 20.04.6
-Codename: Focal Fossa
+Version: 24.04
+Codename: Noble Numbat
 Edition: ~
 Standards: POSIX
 ```

@@ -100,7 +100,37 @@ $family = Family::createFromGlobals();
 if ($family === Family::BSD) {
     // Only BSD OS
 }
+```
 
+Currently, the component can detect the following OS families:
+
+- `Family::Windows` – A Windows and Windows-based OS
+- `Family::Linux` – Any Linux OS and its derivatives
+- `Family::Unix` – Any non-Linux and non-BSD
+- `Family::BSD` – Any BSD OS and its derivatives
+- `Family::Solaris` – Any Solaris OS and its derivatives
+- `Family::Darwin` – Any macOS and its derivatives
+
+
+### OS Family Children
+
+Some OS families are derivatives. For example, macOS (Darwin) is a derivative 
+of BSD, which in turn is a derivative of Unix.
+
+```mermaid
+flowchart LR
+    Windows
+    Unix
+    Linux --> Unix
+    BSD --> Unix
+    Solaris --> BSD
+    Darwin --> BSD
+```
+
+To get the parent, you should call the `parent` property. However, to check 
+for inclusion any OS family in another one, you need to use the `is` method.
+
+```
 // Compatibility check
 if ($family->is(Family::BSD)) {
     // BSD and BSD-like, for example:
@@ -111,19 +141,6 @@ if ($family->is(Family::BSD)) {
 }
 ```
 
-Please note that the `$family->is()` check includes the check of the family 
-itself and its parents.
-
-```php
-if ($family->is(Family::Unix)) {
-    // All operating systems from the Unix family 
-    // will be subject to this check:
-    // - Darwin (macOS)
-    // - Linux
-    // - BSD
-    // - ...and other Unix-like
-}
-```
 
 ## Standards Support
 

@@ -253,7 +253,7 @@ HTTP cases:
 
 Since the `Method` class implements behavior similar to
 [PHP enums](https://www.php.net/manual/ru/language.types.enumerations.php),
-you also have access to the `from(), `tryFrom()` and `cases()` methods.
+you also have access to the `from()`, `tryFrom()` and `cases()` methods.
 
 > Due to many technical limitations of the PHP (for example,
 > [unable to use properties](https://externals.io/message/126332),

@@ -124,7 +124,7 @@ Each Component contains a short Composer command that allows you to do this.
   ```bash
   composer test
   ```
-- Checking and correcting coding style (we follow [PER Coding Style 2.0](https://www.php-fig.org/per/coding-style/)).
+- Checking and correcting coding style (we follow [PER Coding Style 3.0](https://www.php-fig.org/per/coding-style/)).
   ```bash
   composer phpcs:fix
   ```

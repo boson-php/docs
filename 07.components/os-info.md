@@ -22,7 +22,6 @@ composer require boson-php/os-info
 
 * `PHP ^8.4`
 * `ext-ffi` (optional, provides more detailed and accurate information about the OS)
-* `ext-com_dotnet` (optional, provides more detailed and accurate information about the OS)
 
 
 ## Basic Detection

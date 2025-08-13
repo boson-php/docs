@@ -258,7 +258,7 @@ echo get_debug_type(Scheme::tryFrom('wtf'));
 ```
 
 > Please note that the `from()` and `tryFrom()` methods
-> are case-insensitive. Scheme value will be lowercased.
+> are **case-insensitive**. Scheme value will be lowercased.
 {.note}
 
 ```php

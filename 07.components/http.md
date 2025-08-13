@@ -277,7 +277,7 @@ echo Method::tryFrom('wtf');
 ```
 
 > Please note that the `from()` and `tryFrom()` methods 
-> are case-insensitive. Method value will be uppercased.
+> are **case-insensitive**. Method value will be uppercased.
 {.note}
 
 ```php

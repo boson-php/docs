@@ -265,7 +265,7 @@ you also have access to the `from()`, `tryFrom()` and `cases()` methods.
 ```php
 use Boson\Component\Http\Component\Method;
 
-echo Method::from('get'); 
+echo Method::from('get');
 // GET
 
 echo Method::from('wtf');

@@ -25,6 +25,7 @@ between `0.0` and `1.0`.
 $level = $app->webview->battery->level;
 
 echo 'Charge level is ' . (int) ($level * 100) . '%';
+
 // 
 // Expects: Charge level is 100%
 // 

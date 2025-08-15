@@ -49,6 +49,7 @@
       "05.webview/scripts-api.md",
       "05.webview/web-components-api.md",
       "05.webview/battery-api.md",
+      "05.webview/network-api.md",
       "05.webview/security-api.md"
     ]
   },

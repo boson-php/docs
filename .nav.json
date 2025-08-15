@@ -24,7 +24,9 @@
       "03.application/application.md",
       "03.application/application-configuration.md",
       "03.application/application-events.md",
-      "03.application/dialog-api.md"
+      "03.application/dialog-api.md",
+      "03.application/os-api.md",
+      "03.application/cpu-api.md"
     ]
   },
   {

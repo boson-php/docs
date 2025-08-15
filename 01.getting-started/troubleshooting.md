@@ -40,6 +40,9 @@ To solve the problem make sure that FFI extension is installed.
 
 ## Failed loading '.../libboson-linux-xxx.so'
 
+> The error is specific only to Linux
+{.linux}
+
 You may encounter the following error message
 
 ```
@@ -74,6 +77,9 @@ pkg install webkit2-gtk4
 
 ## Undefined Symbol
 
+> The error is specific only to Linux
+{.linux}
+
 You may encounter the following error message
 
 ```
@@ -88,6 +94,9 @@ dpkg -l | grep libgtk-4
 ```
 
 ## Illegal instruction (core dumped)
+
+> The error is specific only to Linux
+{.linux}
 
 Linux prebuild was compiled with some assumptions, such as the presence of
 `SSE` and `AVX2` instructions.
@@ -108,6 +117,9 @@ sudo apt-get install libnvidia-egl-wayland1
 
 ## Failed to fully launch dbus-proxy: Child process exited with code 1
 
+> The error is specific only to Linux
+{.linux}
+
 This is [apparmor bug](https://bugs.launchpad.net/apparmor/+bug/2046844) and
 Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparmor/+bug/2060810).
 
@@ -118,3 +130,17 @@ Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparm
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
+
+## RemoteLayerTreeDrawingAreaProxyMac::scheduleDisplayLink(): page has no displayID
+
+> The error is specific only to macOS
+{.macos}
+
+The issue is already known and is related to the `revolt/event-loop` 
+(here https://github.com/boson-php/boson/blob/0.16.0/libs/component/runtime/src/Application.php#L504-L512)
+that was added in 0.16.
+
+It is not known why exactly this happens. But it is assumed that the 
+`revolt/event-loop` will have to be abandoned in favor of the old poller.
+
+Please use version 0.15 for now.

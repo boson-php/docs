@@ -401,7 +401,7 @@ use Boson\Component\Http\Component\Method;
 echo new Method('PROPFIND'); // PROPFIND
 ```
 
-> The `Method`s constructor is case-sensitive
+> The `Method`s constructor is case-sensitive. Name will be uppercased.
 
 Note that the [safety](../07.components/http.md#method-safety) and
 [idempotency](../07.components/http.md#method-idempotency) properties
@@ -430,6 +430,29 @@ $method = new Method(
 
 $method->isSafe;        // false
 $method->isIdempotent;  // true
+```
+
+
+### Method Comparison
+
+You can use the strict comparison `Method` objects, but if the objects are
+different, the result MAY be a `false` although technically both objects
+implement an identical HTTP method.
+
+```php
+use Boson\Component\Http\Component\Method;
+
+Method::Get === new Method('GET'); // false
+```
+
+To compare methods by meaning, even if the implementations may differ,
+there is the `equals()` method, which guarantees true if the HTTP methods
+are identical, even if they implement different objects.
+
+```php
+new Method('GET')->equals(Method::Get);  // true
+
+new Method('POST')->equals(Method::Get); // false
 ```
 
 
@@ -659,6 +682,31 @@ echo new StatusCode(1001, 'DNS Resolution Error');
 //
 //   1001 DNS Resolution Error
 //
+```
+
+
+### Status Comparison
+
+You can use the strict comparison `StatusCode` objects, but if the objects are
+different, the result MAY be a `false` although technically both objects
+implement an identical HTTP method.
+
+```php
+use Boson\Component\Http\Component\StatusCode;
+
+StatusCode::NotFound === new StatusCode(404); // false
+```
+
+To compare status codes by meaning, even if the implementations may differ,
+there is the `equals()` method, which guarantees true if the HTTP status codes
+are identical, even if they implement different objects.
+
+```php
+use Boson\Component\Http\Component\StatusCode;
+
+new StatusCode(404)->equals(StatusCode::NotFound);  // true
+
+new StatusCode(500)->equals(StatusCode::NotFound); // false
 ```
 
 

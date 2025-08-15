@@ -320,6 +320,31 @@ echo new Scheme('Boson'); // boson
 > The `Boson`s constructor is case-sensitive. Scheme value will be lowercased.
 
 
+### Scheme Comparison
+
+You can use the strict comparison `Scheme` objects, but if the objects are
+different, the result will be a `false` although technically both objects
+implement an identical URI's scheme.
+
+```php
+use Boson\Component\Uri\Component\Scheme;
+
+Scheme::Http === new Scheme('http'); // false
+```
+
+To compare schemes by meaning, even if the implementations may differ,
+there is the `equals()` method, which guarantees true if the URI's schemes
+are identical, even if they implement different objects.
+
+```php
+use Boson\Component\Uri\Component\Scheme;
+
+new Scheme('http')->equals(Scheme::Http);  // true
+
+new Scheme('https')->equals(Scheme::Http); // false
+```
+
+
 ## Authority
 
 Authority is a simple value object containing information about
@@ -650,6 +675,29 @@ $k1 = $uri->query->get('k1', 'undefined');
 //
 ```
 
+### Method Comparison
+
+You can use the strict comparison `Method` objects, but if the objects are
+different, the result MAY be a `false` although technically both objects
+implement an identical HTTP method.
+
+```php
+use Boson\Component\Http\Component\Method;
+
+Method::Get === new Method('GET'); // false
+```
+
+To compare methods by meaning, even if the implementations may differ,
+there is the `equals()` method, which guarantees true if the HTTP methods
+are identical, even if they implement different objects.
+
+```php
+use Boson\Component\Http\Component\Method;
+
+new Method('GET')->equals(Method::Get);  // true
+
+new Method('POST')->equals(Method::Get); // false
+```
 If the query parameter contains an array, the `get()` method will return the 
 first element of this array.
 

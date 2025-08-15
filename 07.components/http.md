@@ -436,7 +436,7 @@ $method->isIdempotent;  // true
 ### Method Comparison
 
 You can use the strict comparison `Method` objects, but if the objects are
-different, the result MAY be a `false` although technically both objects
+different, the result will be a `false` although technically both objects
 implement an identical HTTP method.
 
 ```php
@@ -690,8 +690,8 @@ echo new StatusCode(1001, 'DNS Resolution Error');
 ### Status Comparison
 
 You can use the strict comparison `StatusCode` objects, but if the objects are
-different, the result MAY be a `false` although technically both objects
-implement an identical HTTP method.
+different, the result will be a `false` although technically both objects
+implement an identical HTTP status code.
 
 ```php
 use Boson\Component\Http\Component\StatusCode;

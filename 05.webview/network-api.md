@@ -90,7 +90,7 @@ if (! in_array($type, [NetworkEffectiveType::Fast, NetworkEffectiveType::Other])
 > returned when definition or API functionality is unavailable.
 {.warning}
 
-### RTT
+## RTT
 
 RTT is an estimated effective round-trip time of the current connection,
 rounded to the nearest multiple of 25 milliseconds.
@@ -106,7 +106,7 @@ if ($app->webview->network->rtt > 500) {
 }
 ```
 
-### Saving Traffic
+## Saving Traffic
 
 This option may indicate the presence of a user requirement to save traffic.
 This option can be applied both by Operating System policies and set
@@ -124,7 +124,7 @@ if ($app->webview->network->savingTraffic) {
 return file_get_contents('https://example.com/some-img.jpg');
 ```
 
-### Network Type
+## Network Type
 
 Network type means the physical device through which the connection
 to the network is established.

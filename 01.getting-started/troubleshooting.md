@@ -135,22 +135,3 @@ Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparm
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
-
-## page has no displayID
-
-> The error is specific only to macOS
-{.macos}
-
-The full error message looks like this:
-```
-RemoteLayerTreeDrawingAreaProxyMac::scheduleDisplayLink(): page has no displayID
-```
-
-The issue is already known and is related to the `revolt/event-loop` 
-(here https://github.com/boson-php/boson/blob/0.16.0/libs/component/runtime/src/Application.php#L504-L512)
-that was added in 0.16.
-
-It is not known why exactly this happens. But it is assumed that the 
-`revolt/event-loop` will have to be abandoned in favor of the old poller.
-
-Please use version 0.15 for now.

@@ -128,17 +128,21 @@ if ($cpu->isSupports(InstructionSet::AVX2)) {
 
 **x86 / AMD64 (x86_64)**
 
-- `InstructionSet::MMX` - MultiMedia eXtensions
-- `InstructionSet::SSE` - Streaming SIMD Extensions
-- `InstructionSet::SSE2` - Streaming SIMD Extensions 2
-- `InstructionSet::SSE3` - Streaming SIMD Extensions 3
-- `InstructionSet::SSSE3` - Supplemental Streaming SIMD Extensions 3
-- `InstructionSet::SSE4_1` - Streaming SIMD Extensions 4.1
-- `InstructionSet::SSE4_2` - Streaming SIMD Extensions 4.2
-- `InstructionSet::FMA3` - Fused Multiply-Add 3
-- `InstructionSet::AVX` - Advanced Vector Extensions
-- `InstructionSet::AVX2` - Advanced Vector Extensions 2
-- `InstructionSet::AVX512` - Advanced Vector Extensions 512
+- `InstructionSet::MMX` – MultiMedia eXtensions
+- `InstructionSet::SSE` – Streaming SIMD Extensions
+- `InstructionSet::SSE2` – Streaming SIMD Extensions 2
+- `InstructionSet::SSE3` – Streaming SIMD Extensions 3
+- `InstructionSet::SSSE3` – Supplemental Streaming SIMD Extensions 3
+- `InstructionSet::SSE4_1` – Streaming SIMD Extensions 4.1
+- `InstructionSet::SSE4_2` – Streaming SIMD Extensions 4.2
+- `InstructionSet::FMA3` – Fused Multiply-Add 3
+- `InstructionSet::AVX` – Advanced Vector Extensions
+- `InstructionSet::AVX2` – Advanced Vector Extensions 2
+- `InstructionSet::AVX512F` – Advanced Vector Extensions 512
+- `InstructionSet::AES` – Advanced Encryption Standard
+- `InstructionSet::EM64T` – Intel® Extended Memory 64 Technology
+- `InstructionSet::POPCNT` – Population Count
+- `InstructionSet::F16C` – 16-bit Floating-Point Conversion
 
 ** ARM / ARM64 (aarch64)**
 

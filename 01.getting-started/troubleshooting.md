@@ -115,10 +115,15 @@ To solve this problem, please install the appropriate drivers.
 sudo apt-get install libnvidia-egl-wayland1
 ```
 
-## Failed to fully launch dbus-proxy: Child process exited with code 1
+## Failed to fully launch dbus-proxy
 
 > The error is specific only to Linux
 {.linux}
+
+The full error message looks like this:
+```
+Failed to fully launch dbus-proxy: Child process exited with code 1
+```
 
 This is [apparmor bug](https://bugs.launchpad.net/apparmor/+bug/2046844) and
 Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparmor/+bug/2060810).
@@ -131,10 +136,15 @@ sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
 
-## RemoteLayerTreeDrawingAreaProxyMac::scheduleDisplayLink(): page has no displayID
+## page has no displayID
 
 > The error is specific only to macOS
 {.macos}
+
+The full error message looks like this:
+```
+RemoteLayerTreeDrawingAreaProxyMac::scheduleDisplayLink(): page has no displayID
+```
 
 The issue is already known and is related to the `revolt/event-loop` 
 (here https://github.com/boson-php/boson/blob/0.16.0/libs/component/runtime/src/Application.php#L504-L512)

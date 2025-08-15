@@ -1,0 +1,31 @@
+# Security API
+
+This API provides information about 
+[security context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 
+used to access [other APIs](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
+
+The API is available in the `WebView::$security` property.
+
+```php
+$app = new Boson\Application();
+
+$app->webview->security; // Access to Security API
+```
+
+> Your context will most likely be **secure** if you don't use the 
+> `data:` or `about:` protocol schemes
+{.note}
+
+## Current Context
+
+To get the current security status you can use the read-only 
+`$isSecureContext` property.
+
+```php
+$isSecure = $app->webview->security->isSecureContext;
+
+echo 'Context is ' . ($isSecure ? 'secure' : 'insecure');
+// 
+// Expects: Context is secure
+//
+```

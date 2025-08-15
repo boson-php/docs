@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Getting Started",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/gutter/run_dark.svg",
+    "pages": [
+      "01.getting-started/introduction.md",
+      "01.getting-started/installation.md",
+      "01.getting-started/troubleshooting.md",
+      "01.getting-started/release-notes.md"
+    ]
+  },
+  {
+    "title": "Architecture",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/hierarchy/classHierarchy_dark.svg",
+    "pages": [
+      "02.architecture/configuration.md",
+      "02.architecture/events.md"
+    ]
+  },
+  {
+    "title": "Application",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/runConfigurations/application_dark.svg",
+    "pages": [
+      "03.application/application.md",
+      "03.application/application-configuration.md",
+      "03.application/application-events.md",
+      "03.application/dialog-api.md",
+      "03.application/os-api.md",
+      "03.application/cpu-api.md"
+    ]
+  },
+  {
+    "title": "Window",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/desktop_dark.svg",
+    "pages": [
+      "04.window/window.md",
+      "04.window/window-configuration.md",
+      "04.window/window-events.md"
+    ]
+  },
+  {
+    "title": "WebView",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/javaee/webModuleGroup_dark.svg",
+    "pages": [
+      "05.webview/webview.md",
+      "05.webview/webview-configuration.md",
+      "05.webview/webview-events.md",
+      "05.webview/schemes-api.md",
+      "05.webview/bindings-api.md",
+      "05.webview/data-api.md",
+      "05.webview/scripts-api.md",
+      "05.webview/web-components-api.md",
+      "05.webview/battery-api.md",
+      "05.webview/network-api.md",
+      "05.webview/security-api.md"
+    ]
+  },
+  {
+    "title": "Deployment",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/build/build_dark.svg",
+    "pages": [
+      "06.deploy/compiler-introduction.md",
+      "06.deploy/compiler-configuration.md",
+      "06.deploy/compiler-building.md"
+    ]
+  },
+  {
+    "title": "Components",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/module_dark.svg",
+    "pages": [
+      "07.components/http.md",
+      "07.components/uri.md",
+      "07.components/http-body-decoder.md",
+      "07.components/http-static-provider.md",
+      "07.components/globals-provider.md",
+      "07.components/os-info.md",
+      "07.components/cpu-info.md",
+      "07.components/pasm.md",
+      "07.components/weak-types.md"
+    ]
+  },
+  {
+    "title": "Framework Integrations",
+    "icon": "https://intellij-icons.jetbrains.design/icons/CidrProjectModelIcons/icons/expui/framework_dark.svg",
+    "pages": [
+      "08.integrations/symfony-adapter.md",
+      "08.integrations/laravel-adapter.md",
+      "08.integrations/psr7-adapter.md"
+    ]
+  },
+  {
+    "title": "Examples",
+    "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/nodes/generatedTestRoot_dark.svg",
+    "pages": [
+      "09.examples/twig-components.md"
+    ]
+  },
+  {
+    "title": "Community",
+    "icon": "https://intellij-icons.jetbrains.design/icons/DatabaseIcons/icons/expui/userGroup_dark.svg",
+    "pages": [
+      "10.community/contribution.md",
+      "10.community/license.md"
+    ]
+  }
+]

@@ -1,0 +1,214 @@
+# Events
+
+Boson provides several different events. Event subscriptions are hierarchical 
+and are arranged in the following order.
+
+```mermaid
+flowchart
+    WebView e1@--> |&nbsp;delegates events&nbsp;| Window
+    Window e2@--> |&nbsp;delegates events&nbsp;| WindowManager
+    WindowManager e3@--> |&nbsp;delegates events&nbsp;| Application
+    Application e4@--> |&nbsp;delegates events&nbsp;| EventDispatcher
+
+    e1@{ animation: fast }
+    e2@{ animation: fast }
+    e3@{ animation: fast }
+    e4@{ animation: fast }
+
+    EventDispatcher["Psr\EventDispatcher\EventDispatcherInterface"]
+    Application["Boson\Application"]
+    WindowManager["Boson\Window\Manager\WindowManager"]
+    Window["Boson\Window\Window"]
+    WebView["Boson\Window\WebView"]
+```
+
+You can subscribe to a specific event at any level, receiving all the 
+corresponding events of the context.
+
+```php
+// Subscribe to events of application and all its windows
+$app->addEventListener(Event::class, fn($e) => ...);
+
+// Subscribe to events of one specific window
+$window->addEventListener(Event::class, fn($e) => ...);
+```
+
+You can read more about each type of event in the corresponding
+sections of the documentation.
+
+- [Application](../03.application/application-events.md)
+- [Window](../04.window/window-events.md)
+- [WebView](../05.webview/webview-events.md)
+
+## Events and Intentions
+
+Any event is a fact. Events **can not** be changed or rejected. 
+
+Unlike events, an intent is an attempt by the application or any of its 
+components to do something. Any intent **can** be rejected or modified.
+
+Both events and intentions use a common event bus within 
+the Boson application.
+
+### Stop Propagation
+
+
+To stop the "event bubbling" there is a method `Event::stopPropagation()`.
+
+When this method is called, the event will not be delegated to the upper level 
+of event listener and all subsequent subscribers of this level of event listener
+that were registered after.
+
+```php
+// ❌ event will NOT fired
+$app->addEventListener(Event::class, fn($e) => ...);
+
+// ✅ event will be fired (registered BEFORE the propagation stop)
+$app->window->addEventListener(Event::class, fn($e) => ...);
+
+// ✅ event will be fired (callback stops "event bubbling")
+$app->window->addEventListener(Event::class, function ($e) {
+    $e->stopPropagation();
+});
+
+// ❌ event will NOT fired (registered AFTER the propagation stop)
+$app->window->addEventListener(Event::class, fn($e) => ...);
+```
+
+The read-only property `Event::$isPropagationStopped` (or alternative 
+PSR-compatible method `Event::isPropagationStopped()`) is available to check 
+for propagation stop events.
+
+```php
+if ($event->isPropagationStopped) {
+    echo 'Event propagation is stopped';
+}
+```
+
+### Timestamp
+
+
+Each event also contains the timestamp `Event::$time` read-only property 
+of the event creation. The property contain an int32 value of UNIX timestamp.
+
+```php
+echo date('d-m-Y', $event->time); // string("06-05-2025")
+```
+
+### Cancellation
+
+
+Method `Intention::cancel()` is used to stop and prevent the standard behavior.
+
+For example, if you call the `cancel()` method when trying to stop an 
+application, the application will not be stopped. Therefore, the application 
+stop event will not be called either.
+
+```php
+$app->addEventListener(ApplicationStopping::class, function ($e) {
+    $e->cancel();
+});
+```
+
+## Listener Provider
+
+Each core class such as [Application](../03.application-apis/application.md),
+[Window](../04.window-apis/window.md) and [WebView](../05.webview-apis/webview.md) exposes a 
+method `EventListenerProviderInterface::on()` that 
+provides a simpler and more convenient way to subscribe to events.
+
+### Simple Listen Events
+
+To subscribe to events, it is enough to call the `on()` method, which must 
+contain a callback with one parameter, which contains the event type.
+
+For example, to subscribe to the window creation event, you can write 
+the following code.
+
+```php
+use Boson\Application;
+use Boson\Window\Event\WindowCreated;
+
+$app = new Application();
+
+$app->on(function (WindowCreated $e): void {
+    echo 'Window ' . $e->subject->id . ' has been created';
+});
+```
+
+If you don't need to process the event object, you can use an alternative 
+option by passing the event name as the first parameter and the callback 
+as the second.
+
+```php
+use Boson\Application;
+use Boson\Window\Event\WindowCreated;
+
+$app = new Application();
+
+$app->on(WindowCreated::class, function (): void {
+    echo 'Window has been created';
+});
+```
+
+> The second callback parameter also allows the event object to be present 
+> as the first argument.
+> 
+> ```php
+> $app->on(Event::class, function (Event $e) { ... });
+> ```
+
+
+## Event Listener
+
+The `Boson\Contracts\EventListener\EventListenerInterface` provides a way to 
+subscribe to and handle events in the Boson application. It allows you to 
+register callbacks that will be executed when specific events occur.
+
+### Listen Events
+
+To subscribe to events, you need to use the 
+`EventListenerInterface::addEventListener()` method:
+
+```php
+$app->addEventListener(Event::class, function (Event $event): void {
+    // Handle the event
+});
+```
+
+The first parameter is the event class you want to listen to, and the second 
+parameter is a callback function that will be executed when the event occurs.
+
+### Cancel Subscription
+
+Each `EventListenerInterface::addEventListener()` returns the 
+`SubscriptionInterface` object. To cancel a subscription, 
+use the `cancel()` method.
+
+```php
+$subscription = $app->addEventListener($event, $callback);
+
+// Cancel subscription
+$subscription->cancel();
+```
+
+> The `EventListenerProviderInterface::on()` method also returns 
+> a subscription object.
+> 
+> ```php
+> $subscription = $app->on(function (Event $e) { ... });
+> 
+> // Cancel subscription
+> $subscription->cancel();
+> ```
+
+
+### Cancel All Subscriptions
+
+To cancel all existing event subscriptions of a certain type, 
+call the `removeListenersForEvent()` method.
+
+```php
+// Cancel all EventName subscriptions
+$app->removeListenersForEvent(EventName::class);
+```

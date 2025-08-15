@@ -450,6 +450,8 @@ there is the `equals()` method, which guarantees true if the HTTP methods
 are identical, even if they implement different objects.
 
 ```php
+use Boson\Component\Http\Component\Method;
+
 new Method('GET')->equals(Method::Get);  // true
 
 new Method('POST')->equals(Method::Get); // false

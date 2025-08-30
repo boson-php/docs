@@ -36,6 +36,7 @@ To solve the problem make sure that FFI extension is installed.
 **Linux (Debian-like)**
 
 > sudo apt update
+
 > sudo apt install php8.4-ffi
 
 ## Failed loading '.../libboson-linux-xxx.so'

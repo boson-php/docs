@@ -20,7 +20,7 @@ applications with web technologies — without the bloat.
 
 - Operating System:
   - Windows 10+ (x86 or AMD64)
-  - MacOS 12+ (x86, AMD64 or ARM64)
+  - MacOS 14+ (x86, AMD64 or ARM64)
   - Linux (x86, AMD64 or ARM64)
 - PHP 8.4+
   > PHP is not required if you are building an executable 

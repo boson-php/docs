@@ -36,13 +36,13 @@ The Linux OS requires a few additional dependencies:
 **Ubuntu**
 
 ```bash
-apt install libgtk-4-1 libwebkitgtk-6.0-4
+sudo apt install libgtk-4-1 libwebkitgtk-6.0-4
 ```
 
 **Debian**
 
 ```bash
-apt install libgtk-4-1 libwebkitgtk-6.0-4
+sudo apt install libgtk-4-1 libwebkitgtk-6.0-4
 ```
 
 > Debian 12 may include GTK 4.8. Make sure you have the correct 

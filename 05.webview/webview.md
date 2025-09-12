@@ -94,7 +94,7 @@ of the webview.
 
 ```php
 // Check if the webview is loading
-if ($webview->state === Boson\WebView\State::Loading) {
+if ($webview->state === Boson\WebView\WebViewState::Loading) {
     echo "WebView is currently loading content\n";
 }
 ```

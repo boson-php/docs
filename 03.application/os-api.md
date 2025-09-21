@@ -1,6 +1,6 @@
 # OS Info API
 
-> This is a built-in extension and does not require separate installation.
+> This is a **built-in** extension and does not require separate installation.
 >
 > To disable the extension, remove `Boson\Api\OperatingSystem\OperatingSystemExtensionProvider`
 > from the list of extensions.

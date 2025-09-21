@@ -1,6 +1,6 @@
 # Dialog API
 
-> This is a built-in extension and does not require separate installation.
+> This is a **built-in** extension and does not require separate installation.
 >
 > To disable the extension, remove `Boson\Api\Dialog\DialogExtensionProvider`
 > from the list of extensions.

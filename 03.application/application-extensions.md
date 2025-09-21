@@ -42,6 +42,8 @@ external ones that can be installed separately using `composer install <ext-name
 
 Determines whether the application should terminate when all windows are closed.
 
+> This extension does not provide public API
+
 To disable the extension, add class `Boson\Api\QuitOnClose\QuitOnCloseExtensionProvider`
 to the exclusions list.
 
@@ -60,6 +62,8 @@ new Boson\ApplicationCreateInfo(
 ## Autorun
 
 Responsible for automatic deferred application launch.
+
+> This extension does not provide public API
 
 To disable the extension, add class `Boson\Api\Autorun\AutorunExtensionProvider`
 to the exclusions list.
@@ -113,6 +117,8 @@ in non-debug mode.
 If the extension is disabled, the console will not be disabled (detached) after
 the application is launched, and all output (errors and messages) will be 
 visible to the user.
+
+> This extension does not provide public API
 
 To disable the extension, add class `Boson\Api\Console\ConsoleExtensionProvider`
 to the exclusions list.

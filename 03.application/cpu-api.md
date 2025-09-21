@@ -1,5 +1,8 @@
 # CPU Info API
 
+This API provides information about the CPU for which the
+application was initialized.
+
 > This is a **built-in** extension and does not require separate installation.
 >
 > To disable the extension, remove `Boson\Api\CentralProcessor\CentralProcessorExtensionProvider` 
@@ -8,9 +11,6 @@
 > More information about extensions can be found on the [relevant documentation 
 > page](../03.application/application-extensions.md).
 {.note}
-
-This API provides information about the CPU for which the
-application was initialized.
 
 You can access the subsystem using `Application::$cpu` property.
 

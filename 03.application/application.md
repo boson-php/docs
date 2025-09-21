@@ -58,14 +58,14 @@ For example, the second argument takes an optional reference to an external
 to which all events within the application can be delegated.
 
 ```php
-$dispatcher = new Any\Vendor\PsrEventDispatcher();
+$dispatcher = new Vendor\PsrEventDispatcher();
 
 $app = new Boson\Application(dispatcher: $dispatcher);
 ```
 
-After creating the application, you will have access to the API to work with 
-it, and after the necessary actions, the application will automatically start, 
-[unless otherwise specified](../03.application/application-configuration.md#autorun).
+After creating the application, you will have access to the API to work with
+it, and after the necessary actions, the application will automatically start,
+[unless otherwise specified](../03.application/application-extensions.md#autorun).
 
 ## Launching
 

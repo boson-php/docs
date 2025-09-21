@@ -42,8 +42,8 @@ on the [Schemes API](../05.webview/schemes-api.md) page.
 
 ## Threads Count
 
-Specifies the number of physical threads for the application. This affects how
-many concurrent operations your application can handle.
+Specifies the number of physical threads for the webview applications (not PHP). 
+This affects how many concurrent operations your webviews can handle.
 
 ```php
 $appConfig = new Boson\ApplicationCreateInfo( 
@@ -96,6 +96,11 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 ## Quit On Close
 
+> Deprecated Since 0.18: The configuration flag still allows to disable this
+> behavior, but it is recommended to [disable the `QuitOnCloseExtensionProvider`
+> extension instead](../03.application/application-extensions.md#quit-on-close).
+{.warning}
+
 Determines whether the application should terminate when all windows are closed.
 If set to `false`, the application will continue running in the background.
 
@@ -105,8 +110,12 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-
 ## Autorun
+
+> Deprecated Since 0.18: The configuration flag still allows to disable this
+> behavior, but it is recommended to [disable the `AutorunExtensionProvider`
+> extension instead](../03.application/application-extensions.md#autorun).
+{.warning}
 
 Responsible for automatic application launch. If autorun is set to
 `false`, you will need to launch the application yourself at the
@@ -117,31 +126,3 @@ $appConfig = new Boson\ApplicationCreateInfo(
     autorun: false, // Default is true
 );
 ```
-
-> Autorun will NOT work if the application has already been launched manually.
-> ```php
-> $app = new Boson\Application();
-> 
-> // After calling "run()" method, autorun is disabled
-> $app->run();
-> ```
-{.warning}
-
-> Autorun will NOT work if the application has been stopped manually.
-> ```php
-> $app = new Boson\Application();
-> 
-> // After calling "quit()" method, autorun is disabled
-> $app->quit();
-> ```
-{.warning}
-
-> Autorun will NOT work if any serious errors (errors or exceptions)
-> occurred before launching.
-> ```php
-> $app = new Boson\Application();
-> 
-> // If errors occur before launch, autorun is disabled
-> trigger_error('smth happen');
-> ```
-{.warning}

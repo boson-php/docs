@@ -48,16 +48,21 @@ browser-like behaviors.
 flowchart
     Application[ApplicationCreateInfo] --> Window
     Window[WindowCreateInfo] --> WebView
-    WebView[WebViewCreateInfo] --> BatteryApi
-    WebView[WebViewCreateInfo] --> NetworkApi
-    WebView[WebViewCreateInfo] --> BindingsApi
-    WebView[WebViewCreateInfo] --> DataApi
-    WebView[WebViewCreateInfo] --> WebComponents
-    BatteryApi[BatteryApiCreateInfo]
-    NetworkApi[NetworkApiCreateInfo]
-    BindingsApi[BindingsApiCreateInfo]
-    DataApi[DataApiCreateInfo]
-    WebComponents[WebComponentsCreateInfo]
+    WebView[WebViewCreateInfo]
+```
+
+Which in PHP code looks like this:
+
+```php
+$config = new Boson\ApplicationCreateInfo(
+    /* ...application configuration */
+    window: new Boson\Window\WindowCreateInfo(
+        /* ...window configuration */
+        webview: new Boson\Webview\WebviewCreateInfo(
+            /* ...webview configuration */
+        ),
+    ),
+);
 ```
 
 This layered configuration model keeps your setup organized and modular. Each 

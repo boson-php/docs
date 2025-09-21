@@ -52,8 +52,8 @@ use Boson\Api\Alert\AlertCreateInfo;
 $app = new Application();
 
 $app->alert->create(new AlertCreateInfo(
-    title: '  Title',
-    text: '  Message',
+    title: 'Title',
+    text: 'Message',
 ));
 ```
 

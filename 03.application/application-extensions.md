@@ -38,6 +38,7 @@ Boson application includes a list of both built-in extensions (defined in
 external ones that can be installed separately using `composer install <ext-name>`.
 
 
+
 ## Quit On Close
 
 Determines whether the application should terminate when all windows are closed.
@@ -57,6 +58,7 @@ new Boson\ApplicationCreateInfo(
     ),
 );
 ```
+
 
 
 ## Autorun
@@ -135,6 +137,7 @@ new Boson\ApplicationCreateInfo(
 ```
 
 
+
 ## Quit Handler
 
 Graceful terminates the application when receiving shutdown messages such as:
@@ -153,6 +156,85 @@ use Boson\Api\QuitHandler\QuitHandlerExtensionProvider;
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
         except: [ QuitHandlerExtensionProvider::class ],
+    ),
+);
+```
+
+
+
+## CPU Info
+
+Provides information about the CPU for which the application was initialized.
+
+> This extension provides a public API using the `Application::$cpu` property.
+
+> More information about the public API is available on the 
+> [relevant documentation page](../03.application/cpu-api.md).
+{.note}
+
+To disable the extension, add class `Boson\Api\CentralProcessor\CentralProcessorExtensionProvider`
+to the exclusions list.
+
+```php
+use Boson\Extension\ExtensionProviderInterface;
+use Boson\Api\CentralProcessor\CentralProcessorExtensionProvider;
+
+new Boson\ApplicationCreateInfo(
+    extensions: Boson\ApplicationCreateInfo::extensions(
+        except: [ CentralProcessorExtensionProvider::class ],
+    ),
+);
+```
+
+
+
+## OS Info
+
+Provides information about the Operating System for which the application was initialized.
+
+> This extension provides a public API using the `Application::$os` property.
+
+> More information about the public API is available on the
+> [relevant documentation page](../03.application/os-api.md).
+{.note}
+
+To disable the extension, add class `Boson\Api\OperatingSystem\OperatingSystemExtensionProvider`
+to the exclusions list.
+
+```php
+use Boson\Extension\ExtensionProviderInterface;
+use Boson\Api\OperatingSystem\OperatingSystemExtensionProvider;
+
+new Boson\ApplicationCreateInfo(
+    extensions: Boson\ApplicationCreateInfo::extensions(
+        except: [ OperatingSystemExtensionProvider::class ],
+    ),
+);
+```
+
+
+
+## System Dialogs
+
+The API provides functionality for interacting with files and
+directories through dialog windows.
+
+> This extension provides a public API using the `Application::$dialog` property.
+
+> More information about the public API is available on the
+> [relevant documentation page](../03.application/dialog-api.md).
+{.note}
+
+To disable the extension, add class `Boson\Api\Dialog\DialogExtensionProvider`
+to the exclusions list.
+
+```php
+use Boson\Extension\ExtensionProviderInterface;
+use Boson\Api\Dialog\DialogExtensionProvider;
+
+new Boson\ApplicationCreateInfo(
+    extensions: Boson\ApplicationCreateInfo::extensions(
+        except: [ DialogExtensionProvider::class ],
     ),
 );
 ```

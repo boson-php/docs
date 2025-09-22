@@ -37,6 +37,7 @@
     "pages": [
       "04.window/window.md",
       "04.window/window-configuration.md",
+      "04.window/window-extensions.md",
       "04.window/window-events.md"
     ]
   },
@@ -46,6 +47,7 @@
     "pages": [
       "05.webview/webview.md",
       "05.webview/webview-configuration.md",
+      "05.webview/webview-extensions.md",
       "05.webview/webview-events.md",
       "05.webview/schemes-api.md",
       "05.webview/bindings-api.md",

@@ -76,8 +76,9 @@ $config = new Boson\ApplicationCreateInfo(
 
 ## Writing Extensions
 
-All extensions extend the `Boson\Extension\Extension` class. The extension 
-class must contain a `load()` method that takes the current context and an 
+All extensions extend the `Boson\Extension\Extension` class (or 
+`Boson\Extension\ExtensionInterface` interface). The extension class must 
+contain a `load()` method that takes the current context and an
 event listener and must load the extension.
 
 ```php
@@ -190,6 +191,21 @@ You may have noticed that there are two types of aliases:
     $webview->get(ExampleLoadedContext::class);
     ```
 
+> If you use interface `Boson\Extension\ExtensionInterface` instead of 
+> `Boson\Extension\Extension` class, then aliases should be specified in the 
+> `$aliases` property:
+> ```php
+> final class ExampleExtension implements ExtensionInterface
+> {
+>      public array $aliases = [
+>          'public_alias',
+>          ExampleLoadedContext::class,
+>      ];
+> 
+>      // ...
+> ```
+{.note}
+
 
 ### Dependencies
 
@@ -213,3 +229,19 @@ final class ExampleExtension extends Extension
 
 By specifying a dependency, you **ensure** that the extension will be
 loaded in the correct order.
+
+> If you use interface `Boson\Extension\ExtensionInterface` instead of
+> `Boson\Extension\Extension` class, then aliases should be specified in the
+> `$dependencies` property:
+> ```php
+> final class ExampleExtension implements ExtensionInterface
+> {
+>      public array $dependencies = [
+>          SomeExtension::class,
+>          AnotherExtension::class,
+>      ];
+> 
+>      // ...
+> ```
+{.note}
+

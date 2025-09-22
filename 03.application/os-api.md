@@ -5,7 +5,7 @@ application was initialized.
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\Api\OperatingSystem\OperatingSystemExtensionProvider`
+> To disable the extension, remove `Boson\Api\OperatingSystem\OperatingSystemExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

@@ -9,8 +9,8 @@ new Boson\ApplicationCreateInfo(
     extensions: [
         ...Boson\ApplicationCreateInfo::DEFAULT_APPLICATION_EXTENSIONS,
         // ...
-        new ExampleCustomExtensionProvider(),
-        new ExampleAnotherExtensionProvider(),
+        new ExampleCustomExtension(),
+        new ExampleAnotherExtension(),
     ],
 );
 ```
@@ -21,8 +21,8 @@ more convenient filtering and adding extensions:
 ```php
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        with: [ new ExampleCustomExtensionProvider() ],
-        except: [ ExampleDisabledExtensionProvider::class ],
+        with: [ new ExampleCustomExtension() ],
+        except: [ ExampleDisabledExtension::class ],
     ),
 ),
 ```
@@ -45,16 +45,15 @@ Determines whether the application should terminate when all windows are closed.
 
 > This extension does not provide public API
 
-To disable the extension, add class `Boson\Api\QuitOnClose\QuitOnCloseExtensionProvider`
+To disable the extension, add class `Boson\Api\QuitOnClose\QuitOnCloseExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\QuitOnClose\QuitOnCloseExtensionProvider;
+use Boson\Api\QuitOnClose\QuitOnCloseExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ QuitOnCloseExtensionProvider::class ],
+        except: [ QuitOnCloseExtension::class ],
     ),
 );
 ```
@@ -67,16 +66,15 @@ Responsible for automatic deferred application launch.
 
 > This extension does not provide public API
 
-To disable the extension, add class `Boson\Api\Autorun\AutorunExtensionProvider`
+To disable the extension, add class `Boson\Api\Autorun\AutorunExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\Autorun\AutorunExtensionProvider;
+use Boson\Api\Autorun\AutorunExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ AutorunExtensionProvider::class ],
+        except: [ AutorunExtension::class ],
     ),
 );
 ```
@@ -122,40 +120,38 @@ visible to the user.
 
 > This extension does not provide public API
 
-To disable the extension, add class `Boson\Api\Console\ConsoleExtensionProvider`
+To disable the extension, add class `Boson\Api\Console\ConsoleExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\Console\ConsoleExtensionProvider;
+use Boson\Api\Console\ConsoleExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ ConsoleExtensionProvider::class ],
+        except: [ ConsoleExtension::class ],
     ),
 );
 ```
 
 
 
-## Quit Handler
+## Quit Signals
 
 Graceful terminates the application when receiving shutdown messages such as:
-- [Linux/macOS] – `SIGINT` (Interrupt Signal)
-- [Linux/macOS] – `SIGQUIT` (Quit Signal)
-- [Linux/macOS] – `SIGTERM` (Terminate Signal)
-- [Windows] – <kbd>Ctrl + C</kbd> key combinations (if a terminal is available)
+- `SIGINT` (Interrupt Signal) on *nix OS
+- `SIGQUIT` (Quit Signal) on *nix OS
+- `SIGTERM` (Terminate Signal) on *nix OS
+- <kbd>Ctrl + C</kbd> key combinations (if a terminal is available) on Windows OS
 
-To disable the extension, add class `Boson\Api\QuitHandler\QuitHandlerExtensionProvider`
+To disable the extension, add class `Boson\Api\QuitSignals\QuitSignalsExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\QuitHandler\QuitHandlerExtensionProvider;
+use Boson\Api\QuitSignals\QuitSignalsExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ QuitHandlerExtensionProvider::class ],
+        except: [ QuitSignalsExtension::class ],
     ),
 );
 ```
@@ -172,16 +168,15 @@ Provides information about the CPU for which the application was initialized.
 > [relevant documentation page](../03.application/cpu-api.md).
 {.note}
 
-To disable the extension, add class `Boson\Api\CentralProcessor\CentralProcessorExtensionProvider`
+To disable the extension, add class `Boson\Api\CentralProcessor\CentralProcessorExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\CentralProcessor\CentralProcessorExtensionProvider;
+use Boson\Api\CentralProcessor\CentralProcessorExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ CentralProcessorExtensionProvider::class ],
+        except: [ CentralProcessorExtension::class ],
     ),
 );
 ```
@@ -198,16 +193,15 @@ Provides information about the Operating System for which the application was in
 > [relevant documentation page](../03.application/os-api.md).
 {.note}
 
-To disable the extension, add class `Boson\Api\OperatingSystem\OperatingSystemExtensionProvider`
+To disable the extension, add class `Boson\Api\OperatingSystem\OperatingSystemExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\OperatingSystem\OperatingSystemExtensionProvider;
+use Boson\Api\OperatingSystem\OperatingSystemExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ OperatingSystemExtensionProvider::class ],
+        except: [ OperatingSystemExtension::class ],
     ),
 );
 ```
@@ -225,16 +219,15 @@ directories through dialog windows.
 > [relevant documentation page](../03.application/dialog-api.md).
 {.note}
 
-To disable the extension, add class `Boson\Api\Dialog\DialogExtensionProvider`
+To disable the extension, add class `Boson\Api\Dialog\DialogExtension`
 to the exclusions list.
 
 ```php
-use Boson\Extension\ExtensionProviderInterface;
-use Boson\Api\Dialog\DialogExtensionProvider;
+use Boson\Api\Dialog\DialogExtension;
 
 new Boson\ApplicationCreateInfo(
     extensions: Boson\ApplicationCreateInfo::extensions(
-        except: [ DialogExtensionProvider::class ],
+        except: [ DialogExtension::class ],
     ),
 );
 ```

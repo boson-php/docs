@@ -461,8 +461,8 @@ start resizing the window. This is particularly useful for frameless windows
 where you need to implement custom window controls.
 
 The method takes one of the available arguments: 
-- `Boson\Window\WindowCorner` - window corner.
-- `Boson\Window\WindowEdge` - window edge.
+- `Boson\Window\WindowCorner` – window corner.
+- `Boson\Window\WindowEdge` – window edge.
 
 ```php
 // Start resizing the window on the right side
@@ -499,16 +499,16 @@ You can also use the `data-webview-resize` HTML attribute
 to implement the window resize functionality.
 
 Possible values for window edges:
-- `t` - Top resize edge handle.
-- `b` - Bottom resize edge handle.
-- `l` - Left resize edge handle.
-- `r` - Right resize edge handle.
+- `t` – Top resize edge handle.
+- `b` – Bottom resize edge handle.
+- `l` – Left resize edge handle.
+- `r` – Right resize edge handle.
 
 Possible values for window corners:
-- `tr` - Top-Right resize corner handle.
-- `br` - Bottom-Right resize corner handle.
-- `bl` - Bottom-Left resize corner handle.
-- `tl` - Top-Left resize corner handle.
+- `tr` – Top-Right resize corner handle.
+- `br` – Bottom-Right resize corner handle.
+- `bl` – Bottom-Left resize corner handle.
+- `tl` – Top-Left resize corner handle.
 
 ```html
 <button data-webview-resize="t">    ↑   </button>

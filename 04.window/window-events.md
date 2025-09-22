@@ -71,7 +71,7 @@ class WindowDecorated<Window>
 }
 ```
 
-- `$isDecorated` - Visibility status of the OS window controls.
+- `$isDecorated` – Visibility status of the OS window controls.
 
 > The event differs from a
 > [decoration changed](../04.window/window-events.md#decoration-changed-event) in
@@ -93,8 +93,8 @@ class WindowDecorationChanged<Window>
 }
 ```
 
-- `$decoration` - Decorations type of the window.
-- `$previous` - Previous decorations type of the window.
+- `$decoration` – Decorations type of the window.
+- `$previous` – Previous decorations type of the window.
 
 
 ## Destroyed Event
@@ -119,7 +119,7 @@ class WindowFocused<Window>
 }
 ```
 
-- `$isFocused` - Window [focus status](../04.window/window.md#focus).
+- `$isFocused` – Window [focus status](../04.window/window.md#focus).
 
 > The event is fired not only when window has been focused (in which case the
 > `$isFocused` property will contain `true`), but also
@@ -140,7 +140,7 @@ class WindowMaximized<Window>
 }
 ```
 
-- `$isMaximized` - Window [maximized status](../04.window/window.md#maximize).
+- `$isMaximized` – Window [maximized status](../04.window/window.md#maximize).
 
 > The event is fired not only when maximizing (in which case the
 > `$isMaximized` property will contain `true`), but also
@@ -161,7 +161,7 @@ class WindowMinimized<Window>
 }
 ```
 
-- `$isMinimized` - Window [minimized status](../04.window/window.md#minimize).
+- `$isMinimized` – Window [minimized status](../04.window/window.md#minimize).
 
 > The event is fired not only when minimizing (in which case the
 > `$isMinimized` property will contain `true`), but also when
@@ -183,8 +183,8 @@ class WindowResized<Window>
 }
 ```
 
-- `$width` - Window width dimension in pixels.
-- `$height` - Window height dimension in pixels.
+- `$width` – Window width dimension in pixels.
+- `$height` – Window height dimension in pixels.
 
 > Window width and height is a non-negative `int32` (an integer value
 > between 0 and 2147483647).
@@ -203,5 +203,5 @@ class WindowStateChanged<Window>
 }
 ```
 
-- `$state` - State type of the window.
-- `$previous` - Previous state type of the window.
+- `$state` – State type of the window.
+- `$previous` – Previous state type of the window.

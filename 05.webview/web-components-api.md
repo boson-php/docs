@@ -22,7 +22,7 @@ new Boson\WebView\WebViewCreateInfo(
     extensions: [
         ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
         // ...
-        new Boson\WebView\Api\WebComponents\WebComponentsExtensionProvider(),
+        new Boson\WebView\Api\WebComponents\WebComponentsExtension(),
     ],
 );
 ```

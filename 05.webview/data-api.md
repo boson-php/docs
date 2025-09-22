@@ -4,7 +4,7 @@ This API should be used to receive arbitrary data from the client.
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\WebView\Api\Data\DataExtensionProvider`
+> To disable the extension, remove `Boson\WebView\Api\Data\DataExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

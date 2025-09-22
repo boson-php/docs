@@ -5,7 +5,7 @@ JavaScript code in WebView.
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\WebView\Api\Scripts\ScriptsExtensionProvider`
+> To disable the extension, remove `Boson\WebView\Api\Scripts\ScriptsExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

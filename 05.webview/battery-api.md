@@ -32,7 +32,7 @@ new Boson\WebView\WebViewCreateInfo(
     extensions: [
         ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
         // ...
-        new Boson\WebView\Api\Battery\BatteryExtensionProvider(),
+        new Boson\WebView\Api\Battery\BatteryExtension(),
     ],
 );
 ```

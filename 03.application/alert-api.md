@@ -25,7 +25,7 @@ new Boson\ApplicationCreateInfo(
     extensions: [
         ...Boson\ApplicationCreateInfo::DEFAULT_APPLICATION_EXTENSIONS,
         // ...
-        new Boson\Api\Alert\AlertExtensionProvider(),
+        new Boson\Api\Alert\AlertExtension(),
     ],
 );
 ```

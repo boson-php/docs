@@ -97,7 +97,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 ## Quit On Close
 
 > Deprecated Since 0.18: The configuration flag still allows to disable this
-> behavior, but it is recommended to [disable the `QuitOnCloseExtensionProvider`
+> behavior, but it is recommended to [disable the `QuitOnCloseExtension`
 > extension instead](../03.application/application-extensions.md#quit-on-close).
 {.warning}
 
@@ -113,7 +113,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 ## Autorun
 
 > Deprecated Since 0.18: The configuration flag still allows to disable this
-> behavior, but it is recommended to [disable the `AutorunExtensionProvider`
+> behavior, but it is recommended to [disable the `AutorunExtension`
 > extension instead](../03.application/application-extensions.md#autorun).
 {.warning}
 

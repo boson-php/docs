@@ -9,8 +9,8 @@ new Boson\Window\WindowCreateInfo(
     extensions: [
         ...Boson\Window\WindowCreateInfo::DEFAULT_WINDOW_EXTENSIONS,
         // ...
-        new ExampleCustomExtensionProvider(),
-        new ExampleAnotherExtensionProvider(),
+        new ExampleCustomExtension(),
+        new ExampleAnotherExtension(),
     ],
 );
 ```
@@ -21,8 +21,8 @@ more convenient filtering and adding extensions:
 ```php
 new Boson\Window\WindowCreateInfo(
     extensions: Boson\Window\WindowCreateInfo::extensions(
-        with: [ new ExampleCustomExtensionProvider() ],
-        except: [ ExampleDisabledExtensionProvider::class ],
+        with: [ new ExampleCustomExtension() ],
+        except: [ ExampleDisabledExtension::class ],
     ),
 ),
 ```

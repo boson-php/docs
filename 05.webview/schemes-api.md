@@ -6,7 +6,7 @@ programmatically, without actual requests to the server (without network).
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\WebView\Api\Schemes\SchemesExtensionProvider`
+> To disable the extension, remove `Boson\WebView\Api\Schemes\SchemesExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

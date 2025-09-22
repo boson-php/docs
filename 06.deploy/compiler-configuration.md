@@ -186,9 +186,9 @@ List of rules for including files inside the assembly.
 This field contains an object with a set of rules. 
 Available fields of the object:
 
-- `"files"` - List of files to include.
-- `"directories"` - List of directories to include.
-- `"finder"` - List of rules (filters) to include.
+- `"files"` – List of files to include.
+- `"directories"` – List of directories to include.
+- `"finder"` – List of rules (filters) to include.
 
 ### `build.files` {id="build-files-config"}
 

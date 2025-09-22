@@ -113,11 +113,11 @@ class WebViewNavigating<WebView>
 }
 ```
 
-- `$url` - The URL address by which navigation occurs.
-- `$isNewWindow` - Navigation to the specified URL should have been made
+- `$url` – The URL address by which navigation occurs.
+- `$isNewWindow` – Navigation to the specified URL should have been made
   in a new window.
-- `$isRedirection` - Navigation to the specified URL occurs using a redirect.
-- `$isUserInitiated` - Navigation to the specified URL does not occur
+- `$isRedirection` – Navigation to the specified URL occurs using a redirect.
+- `$isUserInitiated` – Navigation to the specified URL does not occur
   automatically, but is initialized by the user.
 
 > If intention is cancelled, the URL navigation will be cancelled.

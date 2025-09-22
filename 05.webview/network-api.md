@@ -27,7 +27,7 @@ new Boson\WebView\WebViewCreateInfo(
     extensions: [
         ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
         // ...
-        new Boson\WebView\Api\Network\NetworkExtensionProvider(),
+        new Boson\WebView\Api\Network\NetworkExtension(),
     ],
 );
 ```

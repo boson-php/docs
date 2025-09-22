@@ -6,7 +6,7 @@ used to access [other APIs](https://developer.mozilla.org/en-US/docs/Web/Securit
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\WebView\Api\Security\SecurityExtensionProvider`
+> To disable the extension, remove `Boson\WebView\Api\Security\SecurityExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

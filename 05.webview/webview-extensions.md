@@ -9,8 +9,8 @@ new Boson\WebView\WebViewCreateInfo(
     extensions: [
         ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
         // ...
-        new ExampleCustomExtensionProvider(),
-        new ExampleAnotherExtensionProvider(),
+        new ExampleCustomExtension(),
+        new ExampleAnotherExtension(),
     ],
 );
 ```
@@ -21,8 +21,8 @@ more convenient filtering and adding extensions:
 ```php
 new Boson\WebView\WebViewCreateInfo(
     extensions: Boson\WebView\WebViewCreateInfo::extensions(
-        with: [ new ExampleCustomExtensionProvider() ],
-        except: [ ExampleDisabledExtensionProvider::class ],
+        with: [ new ExampleCustomExtension() ],
+        except: [ ExampleDisabledExtension::class ],
     ),
 ),
 ```

@@ -5,7 +5,7 @@ directories through dialog windows.
 
 > This is a **built-in** extension and does not require separate installation.
 >
-> To disable the extension, remove `Boson\Api\Dialog\DialogExtensionProvider`
+> To disable the extension, remove `Boson\Api\Dialog\DialogExtension`
 > from the list of extensions.
 >
 > More information about extensions can be found on the [relevant documentation

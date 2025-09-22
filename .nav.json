@@ -14,7 +14,8 @@
     "icon": "https://intellij-icons.jetbrains.design/icons/AllIcons/expui/hierarchy/classHierarchy_dark.svg",
     "pages": [
       "02.architecture/configuration.md",
-      "02.architecture/events.md"
+      "02.architecture/events.md",
+      "02.architecture/extensions.md"
     ]
   },
   {

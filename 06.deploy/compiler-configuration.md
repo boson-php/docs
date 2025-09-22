@@ -38,12 +38,13 @@ of the build.
     "build": {
         "finder": [
             {
-                "directory": "vendor",
+                "directory": "src",
                 "name": "*.php"
             },
             {
-                "directory": "vendor/boson-php/runtime/resources/dist",
-                "name": "*.js"
+                "directory": "vendor",
+                "not-directory": "vendor/boson-php/compiler",
+                "name": "*.php"
             }
         ]
     },
@@ -58,7 +59,7 @@ of the build.
 ```
 
 
-## `name` {id="config-name"}
+## `name`
 
 The name of your application.
 
@@ -77,7 +78,7 @@ the Windows platform (and `example` binaries for others).
 {.note}
 
 
-## `arch` {id="config-arch"}
+## `arch`
 
 List of build architectures.
 
@@ -100,7 +101,7 @@ for.
 {.note}
 
 
-## `platform` {id="config-platform"}
+## `platform`
 
 List of build platforms.
 
@@ -123,7 +124,7 @@ application will be compiled.
 > platforms will be used.
 {.note}
 
-## `entrypoint` {id="config-entrypoint"}
+## `entrypoint`
 
 An application entrypoint PHP file.
 
@@ -145,7 +146,7 @@ that will be executed when the application is launched.
 > If the field is not specified, the `"index.php"` will be used.
 {.note}
 
-## `output` {id="config-output"}
+## `output`
 
 An output build directory.
 
@@ -179,7 +180,7 @@ result of the assembly itself will be placed.
 > If the field is not specified, the `"build"` directory will be used.
 {.note}
 
-## `build` {id="build-config"}
+## `build`
 
 List of rules for including files inside the assembly.
 
@@ -190,7 +191,7 @@ Available fields of the object:
 - `"directories"` – List of directories to include.
 - `"finder"` – List of rules (filters) to include.
 
-### `build.files` {id="build-files-config"}
+### `build.files`
 
 The `"files"` section specifies a list (array) of individual files 
 to include in the assembly.
@@ -213,7 +214,7 @@ to include in the assembly.
 > it is not necessary to specify it separately.
 
 
-### `build.directories` {id="build-directories-config"}
+### `build.directories`
 
 The `"directories"` section specifies a list (array) of directories
 to include in the assembly.
@@ -237,7 +238,7 @@ to include in the assembly.
 {.note}
 
 
-### `build.finder` {id="build-finder-config"}
+### `build.finder`
 
 The `"finder"` section specifies a list (array) of 
 [finder-like](https://symfony.com/doc/current/components/finder.html) rules 
@@ -328,7 +329,31 @@ least one directory path).
 {.note}
 
 
-## `ini` {id="ini-config"}
+## `mount`
+
+List of mounted files or directories.
+
+After the application is built, all files are placed inside the executable 
+file. You can read them, but they **CAN NOT** be written to.
+
+If you need to write data somewhere, you should specify that 
+path in the mount rules.
+
+```json5
+{
+    "mount": [
+        "./var/cache/"
+    ]
+}
+```
+
+The specified directory (or file) will then be mounted outside the 
+executable file and will be writable.
+
+You don't need to do anything special to access these directories; they are 
+accessed in the same way as any other directory.
+
+## `ini`
 
 Additional options for the PHP interpreter.
 

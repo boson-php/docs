@@ -4,6 +4,15 @@ This API provides information about
 [security context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 
 used to access [other APIs](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
 
+> This is a **built-in** extension and does not require separate installation.
+>
+> To disable the extension, remove `Boson\WebView\Api\Security\SecurityExtensionProvider`
+> from the list of extensions.
+>
+> More information about extensions can be found on the [relevant documentation
+> page](../05.webview/webview-extensions.md).
+{.note}
+
 The API is available in the `WebView::$security` property.
 
 ```php

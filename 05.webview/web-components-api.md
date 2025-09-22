@@ -1,6 +1,34 @@
 # Web Components API
 
-You can create your own custom web components (html elements) processed by PHP.
+Create your own custom web components (html elements) processed by PHP.
+
+> This extension is NOT included by default in the `boson-php/runtime`
+> and must be installed separately.
+{.note}
+
+
+## Installation
+
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/webview-ext-web-components
+```
+
+After that, add the extension to the config:
+
+```php
+new Boson\WebView\WebViewCreateInfo(
+    extensions: [
+        ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
+        // ...
+        new Boson\WebView\Api\WebComponents\WebComponentsExtensionProvider(),
+    ],
+);
+```
+
+
+## Usage
 
 The API is available in the `WebView::$components` property.
 

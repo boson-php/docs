@@ -1,11 +1,44 @@
 # Battery API
 
-This API provides information about 
-[device battery](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API).
+The Battery Status API, more often referred to as the [Battery 
+API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API), 
+provides information about the system's battery charge level and lets you be 
+notified by events that are sent when the battery level or charging status
+change. This can be used to adjust your app's resource usage to reduce battery
+drain when the battery is low, or to save changes before the battery runs out 
+in order to prevent data loss.
+
+> This extension is NOT included by default in the `boson-php/runtime`
+> and must be installed separately.
+{.note}
 
 > MacOS/WebKit does not support this API. In the future, it 
-> may be implemented using native syscalls.
-{.warning}
+> may be implemented using native OS calls.
+{.macos}
+
+
+## Installation
+
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/webview-ext-battery
+```
+
+After that, add the extension to the config:
+
+```php
+new Boson\WebView\WebViewCreateInfo(
+    extensions: [
+        ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
+        // ...
+        new Boson\WebView\Api\Battery\BatteryExtensionProvider(),
+    ],
+);
+```
+
+
+## Usage
 
 The API is available in the `WebView::$battery` property.
 
@@ -14,6 +47,7 @@ $app = new Boson\Application();
 
 $app->webview->battery; // Access to Battery API
 ```
+
 
 ## Battery Level
 
@@ -34,6 +68,7 @@ echo 'Charge level is ' . (int) ($level * 100) . '%';
 > For non-mobile devices the charge level is always `1.0`
 {.note}
 
+
 ## Charging Status
 
 To get the battery charging status you can use the read-only
@@ -51,6 +86,7 @@ echo 'The battery is ' . ($isCharging ? '' : 'not ') . 'charging now';
 > For non-mobile devices the charging status is always `true`
 {.note}
 
+
 ## Charging Time
 
 To get the time until the battery is fully charged, use the read-only
@@ -67,6 +103,7 @@ echo vsprintf('It takes another %d seconds to fully charge', [
 
 > For non-mobile devices the charging time is always `0`
 {.note}
+
 
 ## Discharging Time
 
@@ -102,6 +139,7 @@ during its lifecycle.
 > [events documentation](../02.architecture/events.md).
 {.note}
 
+
 ### Charging State Changed Event
 
 An `Boson\WebView\Api\Battery\Event\BatteryChargingStateChanged` event fired
@@ -113,6 +151,7 @@ class BatteryChargingStateChanged<WebView>
     public readonly bool $isCharging;
 }
 ```
+
 
 ### Charging Level Changed Event
 
@@ -126,6 +165,7 @@ class BatteryLevelChanged<WebView>
 }
 ```
 
+
 ### Charging Time Changed Event
 
 An `Boson\WebView\Api\Battery\Event\BatteryChargingTimeChanged` event fired
@@ -137,6 +177,7 @@ class BatteryChargingTimeChanged<WebView>
     public readonly int<0, max> $chargingTime;
 }
 ```
+
 
 ### Discharging Time Changed Event
 

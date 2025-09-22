@@ -3,6 +3,15 @@
 This API should be used to register and call arbitrary 
 JavaScript code in WebView.
 
+> This is a **built-in** extension and does not require separate installation.
+>
+> To disable the extension, remove `Boson\WebView\Api\Scripts\ScriptsExtensionProvider`
+> from the list of extensions.
+>
+> More information about extensions can be found on the [relevant documentation
+> page](../05.webview/webview-extensions.md).
+{.note}
+
 The API is available in the `WebView::$scripts` property.
 
 ```php

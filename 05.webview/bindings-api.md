@@ -2,6 +2,15 @@
 
 You can register custom PHP functions to call them from the client.
 
+> This is a **built-in** extension and does not require separate installation.
+>
+> To disable the extension, remove `Boson\WebView\Api\Bindings\BindingsExtensionProvider`
+> from the list of extensions.
+>
+> More information about extensions can be found on the [relevant documentation
+> page](../05.webview/webview-extensions.md).
+{.note}
+
 The API is available in the `WebView::$bindings` property.
 
 ```php

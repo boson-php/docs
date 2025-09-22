@@ -2,6 +2,15 @@
 
 This API should be used to receive arbitrary data from the client.
 
+> This is a **built-in** extension and does not require separate installation.
+>
+> To disable the extension, remove `Boson\WebView\Api\Data\DataExtensionProvider`
+> from the list of extensions.
+>
+> More information about extensions can be found on the [relevant documentation
+> page](../05.webview/webview-extensions.md).
+{.note}
+
 The API is available in the `WebView::$data` property.
 
 ```php

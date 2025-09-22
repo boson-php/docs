@@ -3,9 +3,37 @@
 This API provides information about 
 [network](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API).
 
+> This extension is NOT included by default in the `boson-php/runtime`
+> and must be installed separately.
+{.note}
+
 > MacOS/WebKit does not support this API. In the future, it
-> may be implemented using native syscalls.
-{.warning}
+> may be implemented using native OS calls.
+{.macos}
+
+
+## Installation
+
+Via [Composer](https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies):
+
+```bash
+composer require boson-php/webview-ext-network
+```
+
+After that, add the extension to the config:
+
+```php
+new Boson\WebView\WebViewCreateInfo(
+    extensions: [
+        ...Boson\WebView\WebViewCreateInfo::DEFAULT_WEBVIEW_EXTENSIONS,
+        // ...
+        new Boson\WebView\Api\Network\NetworkExtensionProvider(),
+    ],
+);
+```
+
+
+## Usage
 
 The API is available in the `WebView::$network` property.
 

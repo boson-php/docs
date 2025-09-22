@@ -1,10 +1,17 @@
 # Schemes API
 
-You can register custom scheme/protocols and intercept standard one.
-
 This API allows you to intercept all calls to addresses according to 
 registered schemes and send custom responses generated entirely 
 programmatically, without actual requests to the server (without network).
+
+> This is a **built-in** extension and does not require separate installation.
+>
+> To disable the extension, remove `Boson\WebView\Api\Schemes\SchemesExtensionProvider`
+> from the list of extensions.
+>
+> More information about extensions can be found on the [relevant documentation
+> page](../05.webview/webview-extensions.md).
+{.note}
 
 ## Registration
 

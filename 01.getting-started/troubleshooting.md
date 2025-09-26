@@ -105,7 +105,7 @@ Linux prebuild was compiled with some assumptions, such as the presence of
 Make sure your CPU supports `AVX2` (Intel Q2 2013, AMD Q2 2015)
 instructions set (`cat /proc/cpuinfo`).
 
-> **Note:** VirtualBox may not support AVX/AVX2 when running under Hyper-V.
+> **Note:** VirtualBox (and any other VM) may not support AVX/AVX2
 {.warning}
 
 ## libEGL warning: egl: failed to create dri2 screen

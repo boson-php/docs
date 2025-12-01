@@ -140,7 +140,7 @@ sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
 #### Steps
 
-Create the file: `sudo nano /etc/apparmor.d/boson`
+Create the file: `sudo nano /etc/apparmor.d/nameapp`
 
 Add the settings:
 

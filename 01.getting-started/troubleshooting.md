@@ -136,3 +136,26 @@ Ubuntu 24.04 is [also affected](https://bugs.launchpad.net/ubuntu/+source/apparm
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_unconfined=0
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
+- Or apply a temporary fix for your software by creating a custom AppArmor profile that forces the application to run without restrictions. This solution is useful for applications that will later be distributed through packages, such as for example deb.
+
+#### Steps
+
+Create the file: `sudo nano /etc/apparmor.d/boson`
+
+Add the settings:
+
+```bash
+include <tunables/global>
+
+profile nameapp /usr/bin/nameapp flags=(unconfined) {
+  userns,
+
+  include if exists <local/nameapp>
+}
+```
+
+Replace /usr/bin/ with the application's location and replace nameapp with the application's name.
+
+After that, simply restart AppArmor: `sudo systemctl restart apparmor.service`
+
+By running ./app, the software will execute without the need for root access and without requiring system-wide armor modifications.

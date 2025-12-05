@@ -8,32 +8,59 @@ of the build.
 ```json5
 {
     //
-    // The name of your application.
+    // The name of your application
     //
     "name": "app",
-  
-    // 
-    // List of build architectures.
+
     //
-    "arch": [ "amd64", "aarch64" ],
-  
-    //
-    // List of build platforms.
-    //
-    "platform": [ "windows", "linux", "macos" ],
-  
-    //
-    // An application entrypoint PHP file.
+    // An application entrypoint PHP file
     //
     "entrypoint": "index.php",
 
+    // 
+    // List of compilation targets
     //
-    // An output build directory.
+    "target": [
+        // macOS aarch64 build target
+        {
+            "type": "macos",
+            "arch": "arm64",
+            "ini": {
+                "memory_limit": "256M"
+            }
+        },
+        // Standalone PHP PHAR build target
+        {"type": "phar"}
+    ],
+
+    //
+    // An output build directory
     //
     "output": "./build",
 
+    // 
+    // Compiler's root directory
     //
-    // List of rules for including files inside the assembly.
+    "root": ".",
+
+    //
+    // List of expected PHP extensions
+    //
+    "extensions": [
+       "ctype",
+       "sockets",
+       "iconv"
+    ],
+  
+    //
+    // List of mounted files or directories (outside the assembly)
+    //
+    "mount": [
+        "public"
+    ],
+
+    //
+    // List of rules for including files (inside the assembly)
     //
     "build": {
         "finder": [
@@ -54,14 +81,19 @@ of the build.
     //
     "ini": {
         "memory_limit": "128M"
-    }
+    },
+  
+    //
+    // Humbug Box version
+    //
+    "box-version": "4.6.7"
 }
 ```
 
 
-## `name`
+## Application Name
 
-The name of your application.
+The `name` configuration section will contain name of your application.
 
 It is used to create output executable file. For example, if you specify 
 `"name": "example"`, the `example.exe` application will be created for 
@@ -75,58 +107,18 @@ the Windows platform (and `example` binaries for others).
 ```
 
 > If the field is not specified, the `"app"` name will be used.
+> ```json5
+> {
+>     "name": "app" // default value
+> }
+> ``` 
 {.note}
 
 
-## `arch`
+## Application Entrypoint
 
-List of build architectures.
-
-You can explicitly specify the CPU architectures your application will be built 
-for.
-
-**Available options:**
- - `amd64` (or `x86_64`)
- - `aarch64` (or `arm64`)
-
-```json5
-{
-    "arch": [ "amd64", "aarch64" ],
-    // ...
-}
-```
-
-> If the field is not specified (including empty array), all available 
-> architectures will be used.
-{.note}
-
-
-## `platform`
-
-List of build platforms.
-
-You can explicitly specify a list of operating systems for which your 
-application will be compiled.
-
-**Available options:**
- - `windows` (or `win`/`win32`/`win64`)
- - `linux`
- - `macos` (or `darwin`)
-
-```json5
-{
-    "platform": [ "windows", "linux", "macos" ],
-    // ...
-}
-```
-
-> If the field is not specified (including empty array), all available 
-> platforms will be used.
-{.note}
-
-## `entrypoint`
-
-An application entrypoint PHP file.
+The `entrypoint` configuration section will contain the path to the 
+application entrypoint PHP file.
 
 In the entrypoint field, you should specify the **relative** path to the file
 that will be executed when the application is launched.
@@ -144,11 +136,263 @@ that will be executed when the application is launched.
 
 
 > If the field is not specified, the `"index.php"` will be used.
+> ```json5
+> {
+>     "entrypoint": "./index.php" // default value
+> }
+> ```
 {.note}
 
-## `output`
 
-An output build directory.
+## Compilation Targets
+
+The `target` configuration section should contain a list of compilation targets.
+
+```json5
+{
+    "target": [
+        {
+            "type": "<name>",
+            // ...additional options
+        }
+    ]
+}
+```
+
+
+### Target Build Directory
+
+You can explicitly specify the directory for the selected target using the
+`output` configuration field.
+
+```json5
+{
+    "target": [
+        {
+            "type": "<name>",
+            "output": "example/path",
+            // ...additional options
+        }
+    ]
+}
+```
+
+
+### Executable Target
+
+The executable target is used to create an executable file for the for one of 
+the possible platforms: `windows`, `macos`, `linux`.
+
+```json5
+{
+    "target": [
+        {
+            "type": "windows",
+            // ...additional windows options
+        },
+        {
+            "type": "macos",
+            // ...additional macos options
+        }
+    ]
+}
+```
+
+> By default, the directory (`output`) for this target is generated from the
+> name and architecture: 
+> - `./windows/amd64` for `"type": "windows", "arch": "amd64"`
+> - or `./macos/arm64` for `type: "macos", "arch": "arm64"`
+{.note}
+
+
+#### Target Architecture
+
+You can explicitly specify the required architecture for the specified 
+platform in the `arch` field.
+
+The following architectures are supported:
+
+| Platform  | Architecture | Default |
+|-----------|--------------|---------|
+| `windows` | `amd64`      | ✔       |
+| `linux`   | `amd64`      | ✔       |
+| `linux`   | `arm64`      |         |
+| `macos`   | `amd64`      | ✔       |
+| `macos`   | `arm64`      |         |
+
+If the field is not specified, the _default_ architecture will be selected, 
+depending on the platform.
+
+```json5
+{
+    "target": [
+        {
+            "type": "windows",
+            "arch": "amd64",
+            // ...additional windows/amd64 options
+        },
+        {
+            "type": "macos",
+            "arch": "arm64",
+            // ...additional macos/arm64 options
+        }
+    ]
+}
+```
+
+
+#### PHP Configuration
+
+You can specify additional target options for the PHP interpreter using
+the `ini` configuration field.
+
+The key should be one of
+[the available directive](https://www.php.net/manual/en/ini.list.php) names.
+The value may be any scalar (`int`, `float`, `string` or `bool`) value.
+
+```json5
+{
+    "target": [
+        {
+            "type": "windows",
+            "ini": {
+                "opcache.enable": true,
+                "opcache.enable_cli": true,
+                "opcache.jit_buffer_size": "64M"
+            }
+            // ...additional windows/amd64 options
+        },
+        {
+            "type": "macos",
+            "ini": {
+                "opcache.enable": false
+            }
+            // ...additional macos/arm64 options
+        }
+    ]
+}
+```
+
+> To specify global PHP configuration (to all compilation targets), use the 
+> [global `ini` configuration section](../06.deploy/compiler-configuration.md#global-php-configuration).
+> ```json5
+> {
+>     "ini": {
+>         "opcache.enable": false,
+>         "memory_limit": "128M"
+>     },
+>     "target": [
+>         {
+>             "type": "windows",
+>             // override ini options for windows
+>             "ini": { 
+>                 "opcache.enable": true
+>             }
+>         }
+>     ]
+> }
+> ```
+
+
+#### Target SFX
+
+By default, each target is built using pre-built SFX. You can specify the 
+build explicitly using the path to custom SFX.
+
+```json5
+{
+    "target": [
+        {"type": "windows", "sfx": "./build/sfx/php-windows-amd64.sfx"},
+        {"type": "macos", "sfx": "./build/sfx/php-macos-arm64.sfx"}
+    ]
+}
+```
+
+> More information about assembling your own SFXs can be found 
+> [in the "Custom Edition" section](../06.deploy/compiler-configuration.md#custom-edition).
+{.note}
+
+
+### PHAR Target
+
+A PHAR target is used to create a standalone PHP archive (PHAR) file.
+
+```json5
+{
+    "target": [
+        {
+            "type": "phar",
+            // ...additional PHAR options
+        }
+    ]
+}
+```
+
+
+### Custom Target
+
+You can specify your own target using the class path in the `type` section 
+of the configuration.
+
+```json5
+{
+    "target": [
+        {
+            "type": "My\\CustomTargetFactory",
+            // ...additional options
+        }
+    ]
+}
+```
+
+Such a class must implement `Boson\Component\Compiler\Target\TargetFactoryInterface`
+interface:
+
+```php
+<?php
+
+use Boson\Component\Compiler\Configuration;
+use Boson\Component\Compiler\Target\TargetFactoryInterface;
+use Boson\Component\Compiler\Target\Target;
+
+final readonly class CustomTargetFactory implements TargetFactoryInterface
+{
+    public function create(array $input, Configuration $config): CustomTarget
+    {
+        // $input - array of configuration options for the target
+        // $config - parsed compiler configuration
+        return new CustomTarget(
+            type: 'custom',
+            output: $input['output'] ?? 'custom_directory',
+            config: $input,
+        );
+    }
+}
+
+final readonly class CustomTarget extends Target
+{
+    public function compile(Configuration $config): void
+    {
+        // Example compilation task usage
+        Task::run($config, new CopyFileTask(
+            // Copy PHAR archive
+            sourcePathname: $config->pharPathname,
+            // To the output directory + filename
+            targetPathname: $this->getBuildDirectory($config) 
+                . '/' . \basename($config->pharPathname),
+        ));
+
+        // Other compilation tasks usage
+        Task::run($config, new DoSomethingElse(...));
+    }
+}
+```
+
+
+## Build Directory
+
+The `build` configuration section will contain the path to the 
+output directory.
 
 The **relative** path is specified in which all assembly files and the
 result of the assembly itself will be placed.
@@ -160,29 +404,24 @@ result of the assembly itself will be placed.
 }
 ```
 
-> The build result will be located in this directory depending on the
-> specified platforms and architectures.
-> 
-> ```
-> ~/<build-directory>/<platform>/<arch>/...
-> ```
-> 
-> For example, for Windows x64 with the specified build 
-> directory `"./var/build"` and `"app"` 
-> application name:
-> 
-> ```
-> ~/var/build/windows/amd64/app.exe
-> ~/var/build/windows/amd64/libboson-windows-x86_64.dll
-> ~/var/build/windows/amd64/...etc
-> ```
-
 > If the field is not specified, the `"build"` directory will be used.
+> ```json5
+> {
+>     "build": "./build" // default value
+> }
+> ```
 {.note}
 
-## `build`
 
-List of rules for including files inside the assembly.
+> Please note that the final directory is generated from `build`
+> + `target[x].output` fields.
+{.warning}`
+
+
+## Embedded Files
+
+The `build` configuration section may contain a list of files to 
+include in assembly.
 
 This field contains an object with a set of rules. 
 Available fields of the object:
@@ -191,7 +430,7 @@ Available fields of the object:
 - `"directories"` – List of directories to include.
 - `"finder"` – List of rules (filters) to include.
 
-### `build.files`
+### Specifying Embedded Files
 
 The `"files"` section specifies a list (array) of individual files 
 to include in the assembly.
@@ -214,7 +453,7 @@ to include in the assembly.
 > it is not necessary to specify it separately.
 
 
-### `build.directories`
+### Specifying Embedded Directories
 
 The `"directories"` section specifies a list (array) of directories
 to include in the assembly.
@@ -238,7 +477,7 @@ to include in the assembly.
 {.note}
 
 
-### `build.finder`
+### Advanced Embedding
 
 The `"finder"` section specifies a list (array) of 
 [finder-like](https://symfony.com/doc/current/components/finder.html) rules 
@@ -329,12 +568,10 @@ least one directory path).
 {.note}
 
 
-## `mount`
+## Mounted Files
 
-List of mounted files or directories.
-
-After the application is built, all files are placed inside the executable 
-file. You can read them, but they **CAN NOT** be written to.
+You can specify a list of files or directories to be mounted **outside** the 
+assembly using the `mount` configuration field.
 
 If you need to write data somewhere, you should specify that 
 path in the mount rules.
@@ -342,7 +579,8 @@ path in the mount rules.
 ```json5
 {
     "mount": [
-        "./var/cache/"
+        "./var/cache/",
+        "./path/to/file.png"
     ]
 }
 ```
@@ -353,12 +591,118 @@ executable file and will be writable.
 You don't need to do anything special to access these directories; they are 
 accessed in the same way as any other directory.
 
-## `ini`
 
-Additional options for the PHP interpreter.
+## PHP Extensions
 
-You can specify additional options for the interpreter using 
-the settings object.
+You can specify a list of PHP extensions to be loaded using the `extensions` 
+configuration field.
+
+```json5
+{
+    "extensions": [
+        "ctype",
+        "sockets",
+        "iconv"
+    ]
+}
+```
+
+> This configuration section only applies to all [executable targets](../06.deploy/compiler-configuration.md#executable-target).
+{.warning}
+
+There are currently two prebuild editions available: 
+- Minimal 
+- Standard
+
+Depending on which extensions are required, this particular pre-built 
+edition will be selected.
+
+### Minimal Edition
+
+This edition contains the following list of PHP extensions:
+
+- `core`
+- `ffi`
+- `phar`
+- `reflection`
+- `spl`
+- `opcache`
+- `ctype`
+- `date`
+- `filter`
+- `hash`
+- `iconv`
+- `json`
+- `pcre`
+- `random`
+- `shmop`
+- `sockets`
+- `standard`
+- `zlib`
+
+
+### Standard Edition
+
+This edition contains the following list of PHP extensions:
+
+- `core`
+- `ffi`
+- `pdo`
+- `phar`
+- `reflection`
+- `spl`
+- `opcache`
+- `ctype`
+- `curl`
+- `date`
+- `dom`
+- `filter`
+- `hash`
+- `iconv`
+- `json`
+- `libxml`
+- `mbstring`
+- `openssl`
+- `pcre`
+- `pdo_sqlite`
+- `random`
+- `shmop`
+- `sockets`
+- `sodium`
+- `sqlite3`
+- `standard`
+- `xml`
+- `zlib`
+
+
+### Custom Edition
+
+To build a custom edition, please use GitHub CI:
+1) Clone this repository: [boson-php/backend-src](https://github.com/boson-php/backend-src)
+2) Open "Actions" tab:
+  ![Actions Tab](https://habrastorage.org/webt/yd/tz/j6/ydtzj6pmchvov9v8rrv8dzdovwy.png)
+  - Select "CI on Unix" for `Linux` or `macOS`
+  - Select "CI on x86_64 Windows" for `Windows`
+3) Open "Run Workflow" dropdown:
+   ![Run Workflow](https://habrastorage.org/webt/_v/1e/yh/_v1eyhe5u8nadu7aiyzubbyp81o.png)
+4) Run the workflow and download the "php-micro" artifact:
+   ![Artifact](https://habrastorage.org/webt/k8/wi/mx/k8wimx6r_xpavy2etmrmpehppho.png)
+5) Specify the path to the downloaded SFX within a specific build target, for example:
+   ```json5
+   {
+       "target": [
+           {
+               "type": "macos",
+               "sfx": "./build/sfx/php-micro-macos-arm64.sfx"
+           }
+       ]
+   }
+   ```
+
+## Global PHP Configuration
+
+You can specify additional options for the PHP interpreter using 
+the `ini` configuration field.
 
 The key should be one of 
 [the available directive](https://www.php.net/manual/en/ini.list.php) names. 
@@ -391,3 +735,7 @@ The value may be any scalar (`int`, `float`, `string` or `bool`) value.
 >     }
 > }
 > ```
+
+
+> This configuration section only applies to all [executable targets](../06.deploy/compiler-configuration.md#executable-target).
+{.warning}

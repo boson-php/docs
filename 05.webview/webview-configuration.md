@@ -111,7 +111,52 @@ $webviewConfig = new Boson\WebView\WebViewCreateInfo(
 ```
 
 The developer tools settings can take one of the following values:
-- `true` - Enables developer tools window.
-- `false` - Disables developer tools window.
+- `true` - Enables a developer tools window.
+- `false` - Disables a developer tools window.
 - `null` - Depends on the application `debug` settings.
   Developer tools will be enabled if debug is enabled and vice versa.
+
+
+## Hardware Acceleration
+
+Enables or disables hardware-accelerated rendering for webview.
+
+```php
+$windowConfig = new Boson\WebView\WebViewCreateInfo( 
+    enableHardwareAcceleration: true, // Default is true
+);
+```
+
+**macOS/WebKit**
+
+> Does not allow controlling hardware-acceleration.
+>
+> This configuration option has no effect.
+{.warning}
+
+
+## Dark Mode
+
+Force dark mode for the webview if the option is set to `true`.
+
+```php
+$windowConfig = new Boson\WebView\WebViewCreateInfo( 
+    forceDarkMode: true, // Default is false
+);
+```
+
+## Extensions
+
+You can explicitly specify a list of webview extensions by passing an
+`array` (`iterable`) in the `extensions` field.
+
+```php
+$appConfig = new Boson\WebView\WebViewCreateInfo( 
+    extension: [
+        new ExampleWebViewExtension(),
+    ],
+);
+```
+
+> You can read more about extensions in the [webview extensions](../05.webview/webview-extensions.md) section.
+> {.note}

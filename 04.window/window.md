@@ -87,7 +87,7 @@ This property will contain one of the possible values of
 enum WindowState
 {
     /**
-     * Standard window state with custom (user defined) sizes.
+     * Standard window state with custom (user-defined) sizes.
      */
     case Normal;
 
@@ -189,7 +189,7 @@ if ($window->isVisible) {
 
 ### Show
 
-To show the window you may use desired `Window::show()` method.
+To show the window, you may use desired `Window::show()` method.
 
 ```php
 // Show the window
@@ -207,7 +207,7 @@ $window->show();
 
 ### Hide
 
-To hide the window you may use desired `Window::hide()` method.
+To hide the window, you may use desired `Window::hide()` method.
 
 ```php
 // Hide the window
@@ -240,25 +240,20 @@ It supports different decoration modes defined in the
 enum WindowDecoration
 {
     /**
-     * Default window style.
+     * The default window decorations
      */
-    case Default;
+    case Full;
 
     /**
-     * Default window style with preferred dark mode.
-     */
-    case DarkMode;
-
-    /**
-     * A "frameless" windows is a window which hides the default
-     * window buttons & handle assigned to it by the operating system.
+     * A "frameless" window is a window that hides the default window
+     * buttons and handle assigned to it by the operating system.
      */
     case Frameless;
 
     /**
      * Enables "frameless" mode and makes the window completely transparent
      */
-    case Transparent;
+    case None;
 }
 ```
 
@@ -267,19 +262,15 @@ in webview. So the result with different decorations will look like this.
 
 **Default**
 
-![Default](/assets/window-decorations-normal.png)
-
-**DarkMode***
-
-![Dark Mode](/assets/window-decorations-dark-mode.png)
+![Default](https://habrastorage.org/webt/i1/aw/ap/i1awap5lmaxosmrx9seaaazs9ri.png)
 
 **Frameless**
 
-![Frameless](/assets/window-decorations-frameless.png)
+![Frameless](https://habrastorage.org/webt/kl/qm/zo/klqmzoqevqdys4e2kqbu3exsoww.png)
 
 **Transparent**
 
-![Transparent](/assets/window-decorations-transparent.png)
+![Transparent](https://habrastorage.org/webt/op/vv/x4/opvvx4f6wl_u75tnxgovh_0tlyq.png)
 
 > Window decoration change also fires a 
 > [corresponding event](../04.window/window-events.md#decoration-changed-event) 
@@ -287,19 +278,11 @@ in webview. So the result with different decorations will look like this.
 
 ### Default
 
-The standard window style with system default appearance (title bar, close,
+The standard window style with the system default appearance (title bar, close,
 minimise and maximise buttons).
 
 ```php
 $window->decoration = WindowDecoration::Default;
-```
-
-### Dark Mode
-
-Default window style with dark theme preference.
-
-```php
-$window->decoration = WindowDecoration::DarkMode;
 ```
 
 ### Frameless
@@ -409,7 +392,7 @@ $window->min->height = 300;
 $window->min->update(400, 300);
 ```
 
-> Setting minimum size helps prevent the window from being resized too small, 
+> Setting a minimum size helps prevent the window from being resized too small, 
 > which could make the content unreadable or unusable.
 
 
@@ -466,10 +449,10 @@ The method takes one of the available arguments:
 
 ```php
 // Start resizing the window on the right side
-$window->startResize(Boson\Window\WindowEdge::Right);
+$window->resize(Boson\Window\WindowEdge::Right);
 
 // Start resizing the window on the bottom-left side
-$window->startResize(Boson\Window\WindowCorner::BottomLeft);
+$window->resize(Boson\Window\WindowCorner::BottomLeft);
 ```
 
 > The end of the resizing occurs on the **mouse up** event at any place 
@@ -481,7 +464,7 @@ $window->startResize(Boson\Window\WindowCorner::BottomLeft);
 $app = new Boson\Application();
 
 $app->webview->functions->bind('resize', function () use ($app) {
-    $app->window->startResize(
+    $app->window->resize(
         Boson\Window\WindowCorner::BottomRight,
     );
 });
@@ -537,13 +520,13 @@ Possible values for window corners:
 
 ## Dragging
 
-The `Window::startDrag()` method allows you to programmatically start 
+The `Window::drag()` method allows you to programmatically start 
 dragging the window. This is particularly useful for frameless windows where you 
 need to implement custom window controls.
 
 ```php
 // Start dragging the window
-$window->startDrag();
+$window->drag();
 ```
 
 > The end of the drag occurs on the **mouse up** event at any place therefore, 
@@ -554,7 +537,7 @@ $window->startDrag();
 $app = new Boson\Application();
 
 $app->webview->functions->bind('drag', function () use ($app) {
-    $app->window->startDrag();
+    $app->window->drag();
 });
 
 $app->webview->html = <<<'HTML'

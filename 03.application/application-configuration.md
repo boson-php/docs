@@ -17,7 +17,7 @@ $appConfig = new Boson\ApplicationCreateInfo(
 
 The value is optional and can be used for user needs, as well as for internal ones.
 
-> For example as a [WindowClass (WNDCLASS.lpszClassName)](https://learn.microsoft.com/en-us/windows/win32/learnwin32/creating-a-window#window-classes)
+> For example, as a [WindowClass (WNDCLASS.lpszClassName)](https://learn.microsoft.com/en-us/windows/win32/learnwin32/creating-a-window#window-classes)
 > identifier on Windows OS.
 
 
@@ -40,22 +40,6 @@ on the [Schemes API](../05.webview/schemes-api.md) page.
 > when attempting to access a resource located at an address with this protocol.
 
 
-## Threads Count
-
-Specifies the number of physical threads for the webview applications (not PHP). 
-This affects how many concurrent operations your webviews can handle.
-
-```php
-$appConfig = new Boson\ApplicationCreateInfo( 
-    threads: 4, // Default is null
-);
-```
-
-> If the value is not specified (defined as `null`), the number of
-> threads will correspond to the number of cores in the CPU.
-{.note}
-
-
 ## Debug Mode
 
 Enables or disables debug features, like dev tools and logging. When enabled,
@@ -72,12 +56,12 @@ $appConfig = new Boson\ApplicationCreateInfo(
 > development `php.ini` settings)
 {.note}
 
-> The debug mode settings also affects the default settings of child
+> The debug mode settings also affect the default settings of child
 > configurations, such as [developer tools](../05.webview/webview-configuration.md#dev-tools)
 > (if they are not set explicitly).
 
 
-## Application Library
+## Runtime Library
 
 Specifies the path to a custom
 [frontend library](https://github.com/boson-php/frontend-src/releases) that should
@@ -89,40 +73,23 @@ $appConfig = new Boson\ApplicationCreateInfo(
 );
 ```
 
-> In most cases this is not required and the library will be selected
+> In most cases this is not required, and the library will be selected
 > automatically based on the current operating system and CPU architecture.
 {.note}
 
 
-## Quit On Close
+## Extensions
 
-> Deprecated Since 0.18: The configuration flag still allows to disable this
-> behavior, but it is recommended to [disable the `QuitOnCloseExtension`
-> extension instead](../03.application/application-extensions.md#quit-on-close).
-{.warning}
-
-Determines whether the application should terminate when all windows are closed.
-If set to `false`, the application will continue running in the background.
+You can explicitly specify a list of application extensions by passing an 
+`array` (`iterable`) in the `extensions` field.
 
 ```php
 $appConfig = new Boson\ApplicationCreateInfo( 
-    quitOnClose: true, // Default is true
+    extension: [
+        new ExampleApplicationExtension(),
+    ],
 );
 ```
 
-## Autorun
-
-> Deprecated Since 0.18: The configuration flag still allows to disable this
-> behavior, but it is recommended to [disable the `AutorunExtension`
-> extension instead](../03.application/application-extensions.md#autorun).
-{.warning}
-
-Responsible for automatic application launch. If autorun is set to
-`false`, you will need to launch the application yourself at the
-moment when it is needed.
-
-```php
-$appConfig = new Boson\ApplicationCreateInfo( 
-    autorun: false, // Default is true
-);
-```
+> You can read more about extensions in the [application extensions](../03.application/application-extensions.md) section.
+> {.note}

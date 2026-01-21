@@ -15,27 +15,9 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 );
 ```
 
-> More information about window title can be found in
+> More information about the window title can be found in
 > the [window documentation](../04.window/window.md#title).
 {.note}
-
-
-## Hardware Acceleration
-
-Enables or disables hardware-accelerated rendering for better performance.
-
-```php
-$windowConfig = new Boson\Window\WindowCreateInfo( 
-    enableHardwareAcceleration: true, // Default is true
-);
-```
-
-**macOS/WebKit**
-
-> Does not allow to control hardware-acceleration.
->
-> This configuration option has no effect.
-{.warning}
 
 
 ## Window Size (Width and Height)
@@ -54,13 +36,32 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 {.note}
 
 
-## Window Resizability
+## Hardware Acceleration
 
-Determines if the window can be resized by the user.
+Enables or disables hardware-accelerated rendering for all webview instances.
 
 ```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
-    resizable: true, // Default is true
+    enableHardwareAcceleration: true, // Default is true
+);
+```
+
+**macOS/WebKit**
+
+> Does not allow controlling hardware-acceleration.
+>
+> This configuration option has no effect.
+{.warning}
+
+
+## Dark Mode
+
+Force dark mode for the window and all webviews in that window 
+if the option is set to `true`.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    forceDarkMode: true, // Default is false
 );
 ```
 
@@ -78,6 +79,17 @@ $windowConfig = new Boson\Window\WindowCreateInfo(
 > More information about window visibility can be found in
 > the [window documentation](../04.window/window.md#visibility).
 {.note}
+
+
+## Window Resizability
+
+Determines if the window can be resized by the user.
+
+```php
+$windowConfig = new Boson\Window\WindowCreateInfo( 
+    resizable: true, // Default is true
+);
+```
 
 
 ## Always On Top
@@ -123,10 +135,27 @@ Specifies the window's border, title bar style and other.
 
 ```php
 $windowConfig = new Boson\Window\WindowCreateInfo( 
-    decoration: Boson\Window\WindowDecoration::Default,
+    decoration: Boson\Window\WindowDecoration::DEFAULT,
 );
 ```
 
 > More information about window decorations can be found in
 > the [window documentation](../04.window/window.md#decorations).
 {.note}
+
+
+## Extensions
+
+You can explicitly specify a list of window extensions by passing an
+`array` (`iterable`) in the `extensions` field.
+
+```php
+$appConfig = new Boson\Window\WindowCreateInfo( 
+    extension: [
+        new ExampleWindowExtension(),
+    ],
+);
+```
+
+> You can read more about extensions in the [window extensions](../04.window/window-extensions.md) section.
+> {.note}

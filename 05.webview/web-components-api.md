@@ -1,11 +1,14 @@
 # Web Components API
 
-Create your own custom web components (html elements) processed by PHP.
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
+
+Create your own custom web components (HTML elements) processed by PHP.
 
 > This extension is NOT included by default in the `boson-php/runtime`
 > and must be installed separately.
 {.note}
-
 
 ## Installation
 

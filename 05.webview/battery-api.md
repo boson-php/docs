@@ -1,5 +1,9 @@
 # Battery API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✘              |
+
 The Battery Status API, more often referred to as the [Battery 
 API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API), 
 provides information about the system's battery charge level and lets you be 
@@ -11,10 +15,6 @@ in order to prevent data loss.
 > This extension is NOT included by default in the `boson-php/runtime`
 > and must be installed separately.
 {.note}
-
-> MacOS/WebKit does not support this API. In the future, it 
-> may be implemented using native OS calls.
-{.macos}
 
 
 ## Installation

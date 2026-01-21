@@ -1,9 +1,13 @@
 # Scripts API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
+
 This API should be used to register and call arbitrary 
 JavaScript code in WebView.
 
-> This is a **built-in** extension and does not require separate installation.
+> This is a **built-in** extension and does not require a separate installation.
 >
 > To disable the extension, remove `Boson\WebView\Api\Scripts\ScriptsExtension`
 > from the list of extensions.

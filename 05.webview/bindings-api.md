@@ -1,8 +1,12 @@
 # Bindings API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
+
 You can register custom PHP functions to call them from the client.
 
-> This is a **built-in** extension and does not require separate installation.
+> This is a **built-in** extension and does not require a separate installation.
 >
 > To disable the extension, remove `Boson\WebView\Api\Bindings\BindingsExtension`
 > from the list of extensions.

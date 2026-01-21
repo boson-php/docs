@@ -1,10 +1,14 @@
 # Security API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
+
 This API provides information about 
 [security context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 
 used to access [other APIs](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
 
-> This is a **built-in** extension and does not require separate installation.
+> This is a **built-in** extension and does not require a separate installation.
 >
 > To disable the extension, remove `Boson\WebView\Api\Security\SecurityExtension`
 > from the list of extensions.

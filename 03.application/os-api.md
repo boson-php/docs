@@ -1,9 +1,13 @@
 # OS Info API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
+
 This API provides information about the Operating System for which the
 application was initialized.
 
-> This is a **built-in** extension and does not require separate installation.
+> This is a **built-in** extension and does not require a separate installation.
 >
 > To disable the extension, remove `Boson\Api\OperatingSystem\OperatingSystemExtension`
 > from the list of extensions.

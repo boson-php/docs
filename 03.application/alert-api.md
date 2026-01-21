@@ -1,15 +1,15 @@
 # Alert API
 
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✘                 | ✘          | ✔              |
+
 The API provides the ability to create alerts (message boxes) with
 custom messages.
 
 > This extension is NOT included by default in the `boson-php/runtime`
 > and must be installed separately.
 {.note}
-
-| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
-|--------------------|-------------------|------------|----------------|
-| ✔                  | ✘                 | ✘          | ✔              |
 
 ## Installation
 

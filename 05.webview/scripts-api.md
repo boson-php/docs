@@ -1,11 +1,11 @@
 # Scripts API
 
+This API should be used to register and call arbitrary 
+JavaScript code in WebView.
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✔              |
-
-This API should be used to register and call arbitrary 
-JavaScript code in WebView.
 
 > This is a **built-in** extension and does not require a separate installation.
 >

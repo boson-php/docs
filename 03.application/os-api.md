@@ -1,11 +1,11 @@
 # OS Info API
 
+This API provides information about the Operating System for which the
+application was initialized.
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✔              |
-
-This API provides information about the Operating System for which the
-application was initialized.
 
 > This is a **built-in** extension and does not require a separate installation.
 >

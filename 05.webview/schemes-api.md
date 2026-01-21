@@ -1,12 +1,12 @@
 # Schemes API
 
-| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
-|--------------------|-------------------|------------|----------------|
-| ✔                  | ✔                 | ✔          | ✔              |
-
 This API allows you to intercept all calls to addresses according to 
 registered schemes and send custom responses generated entirely 
 programmatically, without actual requests to the server (without a network).
+
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✔                 | ✔          | ✔              |
 
 > This is a **built-in** extension and does not require a separate installation.
 >

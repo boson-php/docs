@@ -1,11 +1,11 @@
 # Network API
 
+This API provides information about 
+[network](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API).
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✘              |
-
-This API provides information about 
-[network](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API).
 
 > This extension is NOT included by default in the `boson-php/runtime`
 > and must be installed separately.

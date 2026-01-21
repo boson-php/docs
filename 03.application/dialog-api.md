@@ -1,11 +1,11 @@
 # Dialog API
 
+The API provides functionality for interacting with files and
+directories through dialog windows.
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✔              |
-
-The API provides functionality for interacting with files and
-directories through dialog windows.
 
 > This is a **built-in** extension and does not require a separate installation.
 >

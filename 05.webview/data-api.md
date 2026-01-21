@@ -1,10 +1,10 @@
 # Data API
 
+This API should be used to receive arbitrary data from the client.
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✔              |
-
-This API should be used to receive arbitrary data from the client.
 
 > This is a **built-in** extension and does not require a separate installation.
 >

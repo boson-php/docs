@@ -1,10 +1,10 @@
 # Bindings API
 
+You can register custom PHP functions to call them from the client.
+
 | WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
 |--------------------|-------------------|------------|----------------|
 | ✔                  | ✔                 | ✔          | ✔              |
-
-You can register custom PHP functions to call them from the client.
 
 > This is a **built-in** extension and does not require a separate installation.
 >

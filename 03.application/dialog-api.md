@@ -24,7 +24,8 @@ $app = new Boson\Application();
 $app->dialog; // Access to Dialog API
 ```
 
-## Select File
+
+## Select A File
 
 To select a single file from the file system, use the `selectFile` method. 
 The method will return the path to the file as a `string` after it is selected. 
@@ -66,7 +67,8 @@ $image = $app->dialog->selectFile(
 );
 ```
 
-## Select Multiple Files
+
+## Multiple Files
 
 If you need to select multiple files, you should use the `selectFiles` method.
 The method always returns an `array` of the selected files, and if the process 
@@ -91,7 +93,8 @@ $files = $app->dialog->selectFiles(
 );
 ```
 
-## Select Directory
+
+## Select A Directory
 
 To call the dialog window with directory selection, call the `selectDirectory`
 method. Unlike [file selection](../03.application/dialog-api.md#select-file), 
@@ -118,30 +121,6 @@ $directory = $app->dialog->selectDirectory(
 );
 ```
 
-## Select Multiple Directories
-
-If you need to select multiple directories, you should use the `selectDirectories`
-method. The method always returns an `array` of the selected directories, and 
-if selection process is canceled, the array will be **empty**.
-
-```php
-$app = new Boson\Application();
-
-foreach ($app->dialog->selectDirectories() as $directory) {
-    echo 'Directory: ' . $directory . "\n";
-}
-```
-
-Just like with [single file selection](../03.application/dialog-api.md#select-file), 
-this method takes two optional arguments with a `$directory` and a `$filter`.
-
-```php
-$app = new Boson\Application();
-
-$directories = $app->dialog->selectDirectories(
-    directory: '/expected/directory',
-);
-```
 
 ## Open File
 

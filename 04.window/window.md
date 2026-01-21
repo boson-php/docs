@@ -34,13 +34,11 @@ $window = $app->window;
 
 ## Title
 
-Contains title of the specified window encoded as UTF-8. The window title can 
-be in any language and even include emojis. All line breaks (`\n`) 
+Contains the title of the specified window encoded as UTF-8. The window title 
+can be in any language and even include emojis. All line breaks (`\n`)
 and similar characters will be removed.
 
-![Window Title](/assets/window-title.png)
-
-To get the window title, simply read this property. The title will contain the 
+To get the window title, read this property. The title will contain the 
 real value, including all invisible (like `\n`) characters.
 
 ```php
@@ -52,8 +50,10 @@ echo 'Window Title: ' . $title;
 To update the window title, set a new value to the property.
 
 ```php
-$window->title = 'New Window Title!';
+$window->title = 'My Greatest App';
 ```
+
+![Window Title](https://habrastorage.org/webt/i1/aw/ap/i1awap5lmaxosmrx9seaaazs9ri.png)
 
 > Indirect modification of `Window::$title` is **not allowed**, 
 > which means that this property cannot be passed by reference.
@@ -64,7 +64,7 @@ $window->title = 'New Window Title!';
 {.warning}
 
 > Window title change also fires a 
-> [corresponding event](../05.webview-apis/webview.md#title-changed-event) that 
+> [corresponding event](../05.webview/webview-events.md#title-changed-event) that 
 > can be subscribed to using the [event system](../02.architecture/events.md).
 
 
@@ -107,7 +107,7 @@ There are corresponding methods for changing states from code.
 
 > Window state change also fires a
 > [corresponding event](../04.window/window-events.md#state-changed-event) that can
-> be subscribed to using the [event systemm](../02.architecture/events.md).
+> be subscribed to using the [event system](../02.architecture/events.md).
 
 
 ### Minimize

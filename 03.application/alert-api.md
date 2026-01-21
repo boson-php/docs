@@ -7,8 +7,9 @@ custom messages.
 > and must be installed separately.
 {.note}
 
-> Linux is currently not supported and will throw an exception.
-{.linux}
+| WebView2 (Windows) | WebKitGtk (Linux) | QT (Linux) | WebKit (macOS) |
+|--------------------|-------------------|------------|----------------|
+| ✔                  | ✘                 | ✘          | ✔              |
 
 ## Installation
 
